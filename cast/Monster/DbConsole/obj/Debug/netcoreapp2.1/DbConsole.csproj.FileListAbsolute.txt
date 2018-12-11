@@ -1,0 +1,8 @@
+D:\work_y\git\szhw\cast\Monster\DbConsole\bin\Debug\netcoreapp2.1\DbConsole.deps.json
+D:\work_y\git\szhw\cast\Monster\DbConsole\bin\Debug\netcoreapp2.1\DbConsole.runtimeconfig.json
+D:\work_y\git\szhw\cast\Monster\DbConsole\bin\Debug\netcoreapp2.1\DbConsole.runtimeconfig.dev.json
+D:\work_y\git\szhw\cast\Monster\DbConsole\bin\Debug\netcoreapp2.1\DbConsole.dll
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.AssemblyInfo.cs

@@ -1,0 +1,16 @@
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Service.deps.json
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Service.dll
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Service.pdb
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Context.dll
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Dal.dll
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Model.dll
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Dal.pdb
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Model.pdb
+D:\work_y\git\szhw\cast\Monster\Service\bin\Debug\netstandard2.0\Context.pdb
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.csproj.CopyComplete
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.dll
+D:\work_y\git\szhw\cast\Monster\Service\obj\Debug\netstandard2.0\Service.pdb

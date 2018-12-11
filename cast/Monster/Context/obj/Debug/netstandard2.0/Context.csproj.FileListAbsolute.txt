@@ -1,0 +1,12 @@
+D:\work_y\git\szhw\cast\Monster\Context\bin\Debug\netstandard2.0\Context.deps.json
+D:\work_y\git\szhw\cast\Monster\Context\bin\Debug\netstandard2.0\Context.dll
+D:\work_y\git\szhw\cast\Monster\Context\bin\Debug\netstandard2.0\Context.pdb
+D:\work_y\git\szhw\cast\Monster\Context\bin\Debug\netstandard2.0\Model.dll
+D:\work_y\git\szhw\cast\Monster\Context\bin\Debug\netstandard2.0\Model.pdb
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.csproj.CopyComplete
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.dll
+D:\work_y\git\szhw\cast\Monster\Context\obj\Debug\netstandard2.0\Context.pdb

@@ -1,0 +1,91 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "MySpringCore/1.0.0": {
+        "dependencies": {
+          "Dal": "1.0.0",
+          "Factory": "1.0.0",
+          "Service": "1.0.0"
+        },
+        "runtime": {
+          "MySpringCore.dll": {}
+        }
+      },
+      "Context/1.0.0": {
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "runtime": {
+          "Context.dll": {}
+        }
+      },
+      "Dal/1.0.0": {
+        "dependencies": {
+          "Context": "1.0.0"
+        },
+        "runtime": {
+          "Dal.dll": {}
+        }
+      },
+      "Factory/1.0.0": {
+        "dependencies": {
+          "Service": "1.0.0"
+        },
+        "runtime": {
+          "Factory.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "runtime": {
+          "Model.dll": {}
+        }
+      },
+      "Service/1.0.0": {
+        "dependencies": {
+          "Dal": "1.0.0",
+          "Model": "1.0.0"
+        },
+        "runtime": {
+          "Service.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MySpringCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Context/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dal/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Factory/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

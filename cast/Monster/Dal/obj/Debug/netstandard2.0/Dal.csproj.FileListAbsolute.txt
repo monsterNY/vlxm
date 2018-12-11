@@ -1,0 +1,14 @@
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Dal.deps.json
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Dal.dll
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Dal.pdb
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Context.dll
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Model.dll
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Context.pdb
+D:\work_y\git\szhw\cast\Monster\Dal\bin\Debug\netstandard2.0\Model.pdb
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.csproj.CopyComplete
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.dll
+D:\work_y\git\szhw\cast\Monster\Dal\obj\Debug\netstandard2.0\Dal.pdb
