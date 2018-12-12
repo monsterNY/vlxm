@@ -16,6 +16,8 @@ ten minutes....
 emm..........以下的划重点，上面的不考
 
 1. ioc/di/aop
+2. orm
+3. 多线程
 
 ----------
 author:monster
