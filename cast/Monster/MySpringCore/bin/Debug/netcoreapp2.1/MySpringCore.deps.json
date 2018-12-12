@@ -8,12 +8,18 @@
     ".NETCoreApp,Version=v2.1": {
       "MySpringCore/1.0.0": {
         "dependencies": {
+          "Container": "1.0.0",
           "Dal": "1.0.0",
           "Factory": "1.0.0",
           "Service": "1.0.0"
         },
         "runtime": {
           "MySpringCore.dll": {}
+        }
+      },
+      "Container/1.0.0": {
+        "runtime": {
+          "Container.dll": {}
         }
       },
       "Context/1.0.0": {
@@ -58,6 +64,11 @@
   },
   "libraries": {
     "MySpringCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Container/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

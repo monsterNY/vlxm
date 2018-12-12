@@ -2,3 +2,8 @@ D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.csp
 D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.csproj.CoreCompileInputs.cache
 D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.AssemblyInfoInputs.cache
 D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\Container\bin\Debug\netstandard2.0\Container.deps.json
+D:\work_y\git\szhw\cast\Monster\Container\bin\Debug\netstandard2.0\Container.dll
+D:\work_y\git\szhw\cast\Monster\Container\bin\Debug\netstandard2.0\Container.pdb
+D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.dll
+D:\work_y\git\szhw\cast\Monster\Container\obj\Debug\netstandard2.0\Container.pdb
