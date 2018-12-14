@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpringCore", "MySpringCore\MySpringCore.csproj", "{C72CE1CC-514F-4C34-8011-A7D6204838C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpringCore", "MySpringCore\MySpringCore.csproj", "{C72CE1CC-514F-4C34-8011-A7D6204838C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{72CB9261-0935-4A9F-BAFA-6624436B9D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dal", "Dal\Dal.csproj", "{72CB9261-0935-4A9F-BAFA-6624436B9D80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{BD3338C4-7286-4851-8289-B92044955216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{BD3338C4-7286-4851-8289-B92044955216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{325FDE68-8ADD-42FD-AEC2-4A9BD1A23926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{325FDE68-8ADD-42FD-AEC2-4A9BD1A23926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Context", "Context\Context.csproj", "{A0FB9B44-EF73-41D1-8A25-762DB718D99D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Context", "Context\Context.csproj", "{A0FB9B44-EF73-41D1-8A25-762DB718D99D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{8253FC61-988F-4342-9144-6A557CDC8183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.csproj", "{8253FC61-988F-4342-9144-6A557CDC8183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Container", "Container\Container.csproj", "{A5E42E24-45F1-4495-A202-478FD5386709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Container", "Container\Container.csproj", "{A5E42E24-45F1-4495-A202-478FD5386709}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbConsole", "DbConsole\DbConsole.csproj", "{8B5EC80C-F033-46AF-972E-71D319A1E367}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbConsole", "DbConsole\DbConsole.csproj", "{8B5EC80C-F033-46AF-972E-71D319A1E367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

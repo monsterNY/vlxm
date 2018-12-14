@@ -6,3 +6,6 @@ D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.cspr
 D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.csproj.CoreCompileInputs.cache
 D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.AssemblyInfoInputs.cache
 D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\DbConsole\bin\Debug\netcoreapp2.1\DbConsole.pdb
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.dll
+D:\work_y\git\szhw\cast\Monster\DbConsole\obj\Debug\netcoreapp2.1\DbConsole.pdb

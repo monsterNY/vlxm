@@ -20,3 +20,5 @@ D:\work_y\git\szhw\cast\Monster\MySpringCore\obj\Debug\netcoreapp2.1\MySpringCor
 D:\work_y\git\szhw\cast\Monster\MySpringCore\obj\Debug\netcoreapp2.1\MySpringCore.csproj.CopyComplete
 D:\work_y\git\szhw\cast\Monster\MySpringCore\obj\Debug\netcoreapp2.1\MySpringCore.dll
 D:\work_y\git\szhw\cast\Monster\MySpringCore\obj\Debug\netcoreapp2.1\MySpringCore.pdb
+D:\work_y\git\szhw\cast\Monster\MySpringCore\bin\Debug\netcoreapp2.1\Container.dll
+D:\work_y\git\szhw\cast\Monster\MySpringCore\bin\Debug\netcoreapp2.1\Container.pdb
