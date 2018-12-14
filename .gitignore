@@ -1,2 +1,6 @@
 
 *.ide
+*/.vs/*
+cast/Monster/.vs/Monster/DesignTimeBuild/.dtbcache
+cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide
+cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide-wal
