@@ -28,7 +28,7 @@ namespace Api.Manage
 
       var requiredService = services.BuildServiceProvider().GetRequiredService<IOptionsMonitor<AppSetting>>();
 
-      MemoryCache.AddCache(nameof(AppSetting), requiredService.CurrentValue);
+      MemoryCache.GetInstance().TryWrite(nameof(AppSetting), requiredService.CurrentValue);
 
       //Cache.Add(requiredService.CurrentValue);//添加缓存
 
@@ -36,7 +36,7 @@ namespace Api.Manage
       requiredService.OnChange(((setting, s) =>
       {
         //Cache.Refresh();
-        MemoryCache.AddCache(nameof(AppSetting), setting);
+        MemoryCache.GetInstance().TryWrite(nameof(AppSetting), setting);
       }));
     }
 
