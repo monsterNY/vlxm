@@ -1,0 +1,11 @@
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\EmptyConsole.exe.config
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\EmptyConsole.exe
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\EmptyConsole.pdb
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\EntityFramework.dll
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\EntityFramework.xml
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\obj\Debug\EmptyConsole.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\obj\Debug\EmptyConsole.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\obj\Debug\EmptyConsole.csproj.CopyComplete
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\obj\Debug\EmptyConsole.exe
+D:\work_y\git\szhw\cast\Monster\EmptyConsole\obj\Debug\EmptyConsole.pdb

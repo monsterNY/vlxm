@@ -1,0 +1,11 @@
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\bin\Debug\netcoreapp2.1\SimpleConsole.deps.json
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\bin\Debug\netcoreapp2.1\SimpleConsole.runtimeconfig.json
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\bin\Debug\netcoreapp2.1\SimpleConsole.runtimeconfig.dev.json
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\bin\Debug\netcoreapp2.1\SimpleConsole.dll
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\bin\Debug\netcoreapp2.1\SimpleConsole.pdb
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.dll
+D:\work_y\git\szhw\cast\Monster\SimpleConsole\obj\Debug\netcoreapp2.1\SimpleConsole.pdb

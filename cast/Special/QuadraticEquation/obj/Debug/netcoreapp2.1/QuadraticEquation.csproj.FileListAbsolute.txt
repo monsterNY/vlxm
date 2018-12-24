@@ -1,0 +1,11 @@
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\bin\Debug\netcoreapp2.1\QuadraticEquation.deps.json
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\bin\Debug\netcoreapp2.1\QuadraticEquation.runtimeconfig.json
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\bin\Debug\netcoreapp2.1\QuadraticEquation.runtimeconfig.dev.json
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\bin\Debug\netcoreapp2.1\QuadraticEquation.dll
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\bin\Debug\netcoreapp2.1\QuadraticEquation.pdb
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.dll
+D:\work_y\git\szhw\cast\Special\QuadraticEquation\obj\Debug\netcoreapp2.1\QuadraticEquation.pdb

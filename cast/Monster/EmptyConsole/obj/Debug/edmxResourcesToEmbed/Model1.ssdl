@@ -1,0 +1,1851 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShuHuaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.Area_UpdateTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Area_UpdateTable">
+    <Key>
+      <PropertyRef Name="au_Code" />
+      <PropertyRef Name="au_Name" />
+      <PropertyRef Name="au_Updated_at" />
+    </Key>
+    <Property Name="au_Code" Type="int" Nullable="false" />
+    <Property Name="au_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="au_Updated_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AreaTable">
+    <Key>
+      <PropertyRef Name="a_Code" />
+    </Key>
+    <Property Name="a_Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="a_Parent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="a_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="a_Level" Type="int" Nullable="false" />
+    <Property Name="a_Status" Type="int" />
+    <Property Name="a_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleTable">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="a_Type" Type="int" />
+    <Property Name="a_Picture" Type="varchar(max)" />
+    <Property Name="a_Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="a_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="a_KeyWord" Type="nvarchar" MaxLength="50" />
+    <Property Name="a_Seqence" Type="int" />
+    <Property Name="a_Content" Type="nvarchar(max)" />
+    <Property Name="a_Hits" Type="int" />
+    <Property Name="a_Thumbs" Type="int" />
+    <Property Name="a_Status" Type="int" />
+    <Property Name="a_UrlStatus" Type="bit" />
+    <Property Name="a_Url" Type="varchar(max)" />
+    <Property Name="a_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ArticleTypeTable">
+    <Key>
+      <PropertyRef Name="at_Id" />
+    </Key>
+    <Property Name="at_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="at_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="at_ParentTye" Type="int" />
+    <Property Name="at_Status" Type="int" />
+    <Property Name="at_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AttendanceTable">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_AttendanceDate" Type="date" />
+    <Property Name="a_ClassTimeId" Type="int" />
+    <Property Name="a_CompusId" Type="int" />
+    <Property Name="a_ClassId" Type="int" />
+    <Property Name="a_ClassRoomId" Type="int" />
+    <Property Name="a_TeacherId" Type="int" />
+    <Property Name="a_StudentId" Type="int" />
+    <Property Name="a_StudentType" Type="int" />
+    <Property Name="a_AttendanceStatus" Type="int" />
+    <Property Name="a_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="a_AddTime" Type="datetime" />
+    <Property Name="a_RegistrarId" Type="int" />
+    <Property Name="a_CheckStatus" Type="bit" />
+    <Property Name="a_CheckTime" Type="datetime" />
+    <Property Name="a_Week" Type="int" />
+    <Property Name="a_StartTime" Type="time" Precision="0" />
+    <Property Name="a_EndTime" Type="time" Precision="0" />
+    <Property Name="a_NeedArrive" Type="int" />
+    <Property Name="a_ActualArrive" Type="int" />
+    <Property Name="a_LeaveNumber" Type="int" />
+    <Property Name="a_AbsenceNumber" Type="int" />
+    <Property Name="a_StudentCourseId" Type="int" />
+    <Property Name="a_Status" Type="int" />
+    <Property Name="a_ClassTeacherId" Type="varchar" MaxLength="500" />
+    <Property Name="a_OldAttendanceStatus" Type="int" />
+    <Property Name="a_DataId" Type="int" />
+    <Property Name="a_SignUpId" Type="int" />
+    <Property Name="a_ClassHours" Type="int" />
+  </EntityType>
+  <EntityType Name="AttentionTable">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_User_id" Type="int" Nullable="false" />
+    <Property Name="a_Attention_id" Type="int" Nullable="false" />
+    <Property Name="a_Is_new" Type="bit" Nullable="false" />
+    <Property Name="a_Status" Type="int" Nullable="false" />
+    <Property Name="a_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AuditionActivityTable">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="a_Type" Type="int" Nullable="false" />
+    <Property Name="a_CompuId" Type="int" Nullable="false" />
+    <Property Name="a_CourseId" Type="int" Nullable="false" />
+    <Property Name="a_TeacherId" Type="int" />
+    <Property Name="a_ClassRoomId" Type="int" />
+    <Property Name="a_Date" Type="datetime" />
+    <Property Name="a_StartTime" Type="time" Precision="0" />
+    <Property Name="a_EndTime" Type="time" Precision="0" />
+    <Property Name="a_Status" Type="int" />
+    <Property Name="a_AddTime" Type="datetime" />
+    <Property Name="a_AddStaffId" Type="int" />
+  </EntityType>
+  <EntityType Name="AuditionRecordTable">
+    <Key>
+      <PropertyRef Name="ar_Id" />
+    </Key>
+    <Property Name="ar_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ar_ConsultId" Type="int" />
+    <Property Name="ar_StudentId" Type="int" />
+    <Property Name="ar_Type" Type="int" />
+    <Property Name="ar_DataId" Type="int" Nullable="false" />
+    <Property Name="ar_DataName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ar_CompusId" Type="int" />
+    <Property Name="ar_CourseId" Type="int" />
+    <Property Name="ar_TeacherId" Type="int" />
+    <Property Name="ar_ClassRoomId" Type="int" />
+    <Property Name="ar_Date" Type="datetime" />
+    <Property Name="ar_StartTime" Type="time" Precision="0" />
+    <Property Name="ar_EndTime" Type="time" Precision="0" />
+    <Property Name="ar_FeedBack" Type="nvarchar" MaxLength="500" />
+    <Property Name="ar_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="ar_Status" Type="int" />
+    <Property Name="ar_StaffId" Type="int" />
+    <Property Name="ar_StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ar_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BalanceRecordTable">
+    <Key>
+      <PropertyRef Name="br_Id" />
+    </Key>
+    <Property Name="br_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="br_StudentId" Type="int" />
+    <Property Name="br_UserId" Type="int" />
+    <Property Name="br_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="br_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="br_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="br_Type" Type="int" />
+    <Property Name="br_FromUserId" Type="int" />
+    <Property Name="br_Channel" Type="int" />
+    <Property Name="br_AddTime" Type="datetime" />
+    <Property Name="br_Flag" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BankCardTransferTable">
+    <Key>
+      <PropertyRef Name="bt_Id" />
+    </Key>
+    <Property Name="bt_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bt_OrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="bt_UserId" Type="int" />
+    <Property Name="bt_Picture" Type="varchar(max)" />
+    <Property Name="bt_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="bt_Status" Type="int" />
+    <Property Name="bt_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BannerTable">
+    <Key>
+      <PropertyRef Name="b_Id" />
+    </Key>
+    <Property Name="b_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="b_Type" Type="int" />
+    <Property Name="b_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="b_Picture" Type="varchar(max)" />
+    <Property Name="b_Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="b_KeyWord" Type="nvarchar" MaxLength="200" />
+    <Property Name="b_Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="b_Content" Type="nvarchar(max)" />
+    <Property Name="b_Hits" Type="int" />
+    <Property Name="b_UrlStatus" Type="bit" />
+    <Property Name="b_Url" Type="varchar(max)" />
+    <Property Name="b_Sequence" Type="int" />
+    <Property Name="b_Status" Type="int" />
+    <Property Name="b_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChangeClassSnapshot">
+    <Key>
+      <PropertyRef Name="ccs_Id" />
+    </Key>
+    <Property Name="ccs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ccs_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="ccs_SignUpId" Type="int" />
+    <Property Name="ccs_Type" Type="int" />
+    <Property Name="ccs_DataId" Type="int" />
+    <Property Name="ccs_Value" Type="int" />
+    <Property Name="ccs_AddTime" Type="datetime" />
+    <Property Name="ccs_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="ChangeClassTable">
+    <Key>
+      <PropertyRef Name="cc_Id" />
+    </Key>
+    <Property Name="cc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cc_StudentId" Type="int" />
+    <Property Name="cc_CampusId" Type="int" />
+    <Property Name="cc_ClassId" Type="int" />
+    <Property Name="cc_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="cc_SignUpId" Type="int" />
+    <Property Name="cc_StudentClassId" Type="int" />
+    <Property Name="cc_StudentCampusId" Type="int" />
+    <Property Name="cc_Amount" Type="int" />
+    <Property Name="cc_LeftAmount" Type="int" />
+    <Property Name="cc_LeftTuition" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="cc_PayTuition" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="cc_StaffId" Type="int" />
+    <Property Name="cc_Status" Type="int" />
+    <Property Name="cc_CheckTime" Type="datetime" />
+    <Property Name="cc_CheckStaffId" Type="int" />
+    <Property Name="cc_AddTime" Type="datetime" />
+    <Property Name="cc_RefundType" Type="int" />
+  </EntityType>
+  <EntityType Name="ChannelTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Type" Type="int" />
+    <Property Name="c_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_AddTime" Type="datetime" />
+    <Property Name="c_AddStaffId" Type="int" />
+  </EntityType>
+  <EntityType Name="ChannelTypeTable">
+    <Key>
+      <PropertyRef Name="ct_Id" />
+    </Key>
+    <Property Name="ct_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ct_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ct_Count" Type="int" />
+    <Property Name="ct_Status" Type="int" />
+    <Property Name="ct_AddTime" Type="datetime" />
+    <Property Name="ct_AddStaffId" Type="int" />
+  </EntityType>
+  <EntityType Name="ChatStatusTable">
+    <Key>
+      <PropertyRef Name="cs_Id" />
+    </Key>
+    <Property Name="cs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cs_UserId" Type="int" />
+    <Property Name="cs_Type" Type="int" />
+    <Property Name="cs_DataId" Type="int" />
+    <Property Name="cs_Time" Type="datetime" />
+    <Property Name="cs_LastChatId" Type="int" />
+    <Property Name="cs_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChatTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_FromUserId" Type="int" />
+    <Property Name="c_ToUserId" Type="int" />
+    <Property Name="c_ContentType" Type="int" />
+    <Property Name="c_Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_GroupId" Type="int" />
+    <Property Name="c_ChatType" Type="varchar" MaxLength="50" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Class_Time_Teacher_ChangeTable">
+    <Key>
+      <PropertyRef Name="cttc_no" />
+    </Key>
+    <Property Name="cttc_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cttc_teacher_id" Type="int" Nullable="false" />
+    <Property Name="cttc_class_time_id" Type="int" Nullable="false" />
+    <Property Name="cttc_date" Type="date" Nullable="false" />
+    <Property Name="cttc_status" Type="int" />
+    <Property Name="cttc_staff_id" Type="int" Nullable="false" />
+    <Property Name="cttc_add_time" Type="datetime" />
+    <Property Name="cttc_cancel_time" Type="datetime" />
+    <Property Name="cttc_cancel_staff" Type="int" />
+    <Property Name="cttc_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Class_Time_TeacherTable">
+    <Key>
+      <PropertyRef Name="ctt_id" />
+    </Key>
+    <Property Name="ctt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ctt_Class_time_id" Type="int" />
+    <Property Name="ctt_Teacher_id" Type="int" />
+    <Property Name="ctt_Status" Type="int" />
+    <Property Name="ctt_Created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Class_TimeTable">
+    <Key>
+      <PropertyRef Name="ct_id" />
+    </Key>
+    <Property Name="ct_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ct_Class_id" Type="int" Nullable="false" />
+    <Property Name="ct_Room_id" Type="int" />
+    <Property Name="ct_Week" Type="int" Nullable="false" />
+    <Property Name="ct_Start_time" Type="time" Precision="0" Nullable="false" />
+    <Property Name="ct_End_time" Type="time" Precision="0" Nullable="false" />
+    <Property Name="ct_Status" Type="int" Nullable="false" />
+    <Property Name="ct_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassRelationTable">
+    <Key>
+      <PropertyRef Name="cr_Id" />
+    </Key>
+    <Property Name="cr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cr_UserId" Type="int" />
+    <Property Name="cr_Identity" Type="int" />
+    <Property Name="cr_ClassId" Type="int" />
+    <Property Name="cr_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ClassRoomTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_CompusId" Type="int" Nullable="false" />
+    <Property Name="c_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="c_Status" Type="bit" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ClassTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_CompusId" Type="int" Nullable="false" />
+    <Property Name="c_CourseId" Type="int" Nullable="false" />
+    <Property Name="c_CourseType" Type="int" />
+    <Property Name="c_ChargeType" Type="int" />
+    <Property Name="c_Course_price_id" Type="int" />
+    <Property Name="c_ClassRoomId" Type="int" />
+    <Property Name="c_TeacherId" Type="int" />
+    <Property Name="c_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="c_LimitAmount" Type="int" />
+    <Property Name="c_Amount" Type="int" />
+    <Property Name="c_RecruitStatus" Type="bit" />
+    <Property Name="c_StartClassTime" Type="datetime" />
+    <Property Name="c_EndClassTime" Type="datetime" />
+    <Property Name="c_UnifyClose" Type="bit" />
+    <Property Name="c_IsEndClass" Type="bit" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_Remark" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_Creator" Type="int" />
+    <Property Name="c_ClassHoursStudent" Type="float" Nullable="false" />
+    <Property Name="c_ClassHoursTeacher" Type="float" Nullable="false" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CollectTable">
+    <Key>
+      <PropertyRef Name="co_Id" />
+    </Key>
+    <Property Name="co_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="co_StaffId" Type="int" Nullable="false" />
+    <Property Name="co_uId" Type="int" Nullable="false" />
+    <Property Name="co_CourseId" Type="int" />
+    <Property Name="co_Status" Type="int" Nullable="false" />
+    <Property Name="co_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_Type" Type="int" />
+    <Property Name="c_UserId" Type="int" />
+    <Property Name="c_ToUserId" Type="int" />
+    <Property Name="c_Work_id" Type="int" />
+    <Property Name="c_ContentType" Type="int" />
+    <Property Name="c_Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_IsRead" Type="int" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CompusAreaTable">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="a_AddStaffId" Type="int" />
+    <Property Name="a_AddStaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="a_Status" Type="int" />
+    <Property Name="a_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CompusTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_Sequence" Type="int" />
+    <Property Name="c_Area" Type="int" />
+    <Property Name="c_Type" Type="int" />
+    <Property Name="c_Compus_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Province_code" Type="varchar" MaxLength="50" />
+    <Property Name="c_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_City_code" Type="varchar" MaxLength="50" />
+    <Property Name="c_District" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_District_code" Type="varchar" MaxLength="50" />
+    <Property Name="c_DetailAddr" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_Lng" Type="float" />
+    <Property Name="c_Lat" Type="float" />
+    <Property Name="c_Mobile1" Type="varchar" MaxLength="50" />
+    <Property Name="c_Mobile2" Type="varchar" MaxLength="50" />
+    <Property Name="c_Picture" Type="varchar(max)" />
+    <Property Name="c_Carousel" Type="varchar(max)" />
+    <Property Name="c_Description" Type="nvarchar(max)" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConfigTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Value" Type="varchar" MaxLength="50" />
+    <Property Name="c_Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.ConsultDeleteTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="ConsultDeleteTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" Nullable="false" />
+    <Property Name="c_StudentId" Type="int" />
+    <Property Name="c_CreatorId" Type="int" />
+    <Property Name="c_Channel" Type="int" />
+    <Property Name="c_Concern" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_ConcernOther" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_RelationOther" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_ConsultWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Intention" Type="int" />
+    <Property Name="c_CompusId" Type="int" />
+    <Property Name="c_LeafLetStaffId" Type="int" />
+    <Property Name="c_SellerStaffId" Type="int" />
+    <Property Name="c_CourseId_1" Type="int" />
+    <Property Name="c_CourseId_2" Type="int" />
+    <Property Name="c_CourseId_3" Type="int" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_IsInPool" Type="bit" />
+    <Property Name="c_ReceiveTime" Type="datetime" />
+    <Property Name="c_UpdateTime" Type="datetime" />
+    <Property Name="c_FollowUpTime" Type="datetime" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConsultFollowTable">
+    <Key>
+      <PropertyRef Name="cf_Id" />
+    </Key>
+    <Property Name="cf_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cf_ConsultId" Type="int" />
+    <Property Name="cf_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="cf_Type" Type="varchar" MaxLength="50" />
+    <Property Name="cf_IntentionContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="cf_FollowType" Type="int" />
+    <Property Name="cf_FollowTime" Type="datetime" />
+    <Property Name="cf_FollowStaffId" Type="int" />
+    <Property Name="cf_AddTime" Type="datetime" />
+    <Property Name="cf_IsNoticed" Type="bit" />
+  </EntityType>
+  <EntityType Name="ConsultLogTable">
+    <Key>
+      <PropertyRef Name="cl_Id" />
+    </Key>
+    <Property Name="cl_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cl_ConsultId" Type="int" Nullable="false" />
+    <Property Name="cl_Content" Type="nvarchar(max)" />
+    <Property Name="cl_StaffId" Type="int" />
+    <Property Name="cl_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConsultTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_StudentId" Type="int" />
+    <Property Name="c_CreatorId" Type="int" />
+    <Property Name="c_Channel" Type="int" />
+    <Property Name="c_Concern" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_ConcernOther" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_RelationOther" Type="nvarchar" MaxLength="150" />
+    <Property Name="c_ConsultWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Intention" Type="int" />
+    <Property Name="c_CompusId" Type="int" />
+    <Property Name="c_LeafLetStaffId" Type="int" />
+    <Property Name="c_SellerStaffId" Type="int" />
+    <Property Name="c_CourseId_1" Type="int" />
+    <Property Name="c_CourseId_2" Type="int" />
+    <Property Name="c_CourseId_3" Type="int" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_IsInPool" Type="bit" />
+    <Property Name="c_ReceiveTime" Type="datetime" />
+    <Property Name="c_UpdateTime" Type="datetime" />
+    <Property Name="c_FollowUpTime" Type="datetime" />
+    <Property Name="c_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConsultTransferTable">
+    <Key>
+      <PropertyRef Name="ct_Id" />
+    </Key>
+    <Property Name="ct_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ct_ConsultId" Type="int" Nullable="false" />
+    <Property Name="ct_Type" Type="int" Nullable="false" />
+    <Property Name="ct_FromRecruiter" Type="int" />
+    <Property Name="ct_ToRecruiter" Type="int" />
+    <Property Name="ct_Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="ct_StaffId" Type="int" />
+    <Property Name="ct_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="ct_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Course_TypeTable">
+    <Key>
+      <PropertyRef Name="ct_Id" />
+    </Key>
+    <Property Name="ct_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ct_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ct_Type" Type="int" />
+    <Property Name="ct_Sequence" Type="int" />
+    <Property Name="ct_Status" Type="int" />
+    <Property Name="ct_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CourseActiveTable">
+    <Key>
+      <PropertyRef Name="ca_Id" />
+    </Key>
+    <Property Name="ca_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ca_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="ca_ActiveCode" Type="varchar" MaxLength="50" />
+    <Property Name="ca_ActiveStatus" Type="bit" />
+    <Property Name="ca_ActiveTime" Type="datetime" />
+    <Property Name="ca_UserId" Type="int" />
+    <Property Name="ca_StaffId" Type="int" />
+    <Property Name="ca_ConsultId" Type="int" />
+    <Property Name="ca_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CoursePriceTable">
+    <Key>
+      <PropertyRef Name="cp_Id" />
+    </Key>
+    <Property Name="cp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cp_CourseId" Type="int" Nullable="false" />
+    <Property Name="cp_Type" Type="int" Nullable="false" />
+    <Property Name="cp_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="cp_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="cp_Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="cp_ClassHours" Type="int" />
+    <Property Name="cp_Status" Type="int" />
+    <Property Name="cp_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CourseTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_CompusId" Type="varchar(max)" />
+    <Property Name="c_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Type" Type="int" />
+    <Property Name="c_ClassStyle" Type="int" />
+    <Property Name="c_Picture" Type="varchar(max)" />
+    <Property Name="c_Banner" Type="varchar(max)" />
+    <Property Name="c_StudyLength" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_Content" Type="nvarchar(max)" />
+    <Property Name="c_ClassAmount" Type="int" />
+    <Property Name="c_Sequence" Type="int" />
+    <Property Name="c_Status" Type="int" />
+    <Property Name="c_CanAudition" Type="bit" />
+    <Property Name="c_AddTime" Type="datetime" />
+    <Property Name="c_ForAges" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.Courseware_OpinionTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Courseware_OpinionTable">
+    <Key>
+      <PropertyRef Name="o_Id" />
+    </Key>
+    <Property Name="o_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="o_Cause" Type="nvarchar(max)" />
+    <Property Name="o_Picture" Type="varchar(max)" />
+    <Property Name="o_State" Type="int" />
+    <Property Name="o_AddTime" Type="datetime" />
+    <Property Name="c_Id" Type="int" />
+    <Property Name="c_StaffId" Type="int" />
+    <Property Name="c_UserId" Type="int" />
+    <Property Name="o_processState" Type="int" />
+    <Property Name="o_Title" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CoursewareAdjunctTable">
+    <Key>
+      <PropertyRef Name="ca_Id" />
+    </Key>
+    <Property Name="ca_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ca_Courseware_id" Type="int" />
+    <Property Name="ca_Staff_id" Type="int" />
+    <Property Name="ca_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ca_Filename" Type="varchar(max)" />
+    <Property Name="ca_File_url" Type="varchar(max)" />
+    <Property Name="ca_Status" Type="int" />
+    <Property Name="ca_Created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CoursewareDecipheringTable">
+    <Key>
+      <PropertyRef Name="cd_Id" />
+    </Key>
+    <Property Name="cd_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cd_Cid" Type="int" />
+    <Property Name="cd_deciphering_time" Type="datetime" />
+    <Property Name="cd_Status" Type="int" Nullable="false" />
+    <Property Name="cd_Create_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursewareTable">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="c_Type" Type="int" />
+    <Property Name="c_Picture" Type="varchar(max)" />
+    <Property Name="c_KnowledgePoint" Type="nvarchar(max)" />
+    <Property Name="c_Procedure" Type="nvarchar(max)" />
+    <Property Name="c_Adjunct" Type="varchar(max)" />
+    <Property Name="c_Adjunct_id" Type="varchar(max)" />
+    <Property Name="c_AuditState" Type="int" />
+    <Property Name="c_State" Type="int" Nullable="false" />
+    <Property Name="c_AddTime" Type="datetime" Nullable="false" />
+    <Property Name="c_StaffId" Type="int" />
+    <Property Name="c_Score" Type="int" />
+    <Property Name="c_Stuff" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_Video" Type="varchar(max)" />
+    <Property Name="c_Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="c_DownloadsCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CurrentSchoolTable">
+    <Key>
+      <PropertyRef Name="cs_Id" />
+    </Key>
+    <Property Name="cs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cs_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cs_Status" Type="int" />
+    <Property Name="cs_Sequence" Type="int" />
+    <Property Name="cs_AddTime" Type="datetime" />
+    <Property Name="cs_AddStaff" Type="int" />
+  </EntityType>
+  <EntityType Name="DepartmentTable">
+    <Key>
+      <PropertyRef Name="d_Id" />
+    </Key>
+    <Property Name="d_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="d_Name" Type="varchar" MaxLength="50" />
+    <Property Name="d_Status" Type="int" />
+    <Property Name="d_AddStaffId" Type="int" />
+    <Property Name="d_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FriendApplyTable">
+    <Key>
+      <PropertyRef Name="fa_Id" />
+    </Key>
+    <Property Name="fa_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fa_UserId" Type="int" />
+    <Property Name="fa_FriendId" Type="int" />
+    <Property Name="fa_Status" Type="int" />
+    <Property Name="fa_Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="fa_UpdateTime" Type="datetime" />
+    <Property Name="fa_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FriendRelationTable">
+    <Key>
+      <PropertyRef Name="fr_Id" />
+    </Key>
+    <Property Name="fr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fr_UserId" Type="int" />
+    <Property Name="fr_FriendId" Type="int" />
+    <Property Name="fr_Status" Type="int" />
+    <Property Name="fr_Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="fr_Sequence" Type="int" />
+    <Property Name="fr_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JobTable">
+    <Key>
+      <PropertyRef Name="j_Id" />
+    </Key>
+    <Property Name="j_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="j_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="j_DepartmentId" Type="int" />
+    <Property Name="j_Status" Type="int" />
+    <Property Name="j_AddStaffId" Type="int" />
+    <Property Name="j_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LeaveRecordTable">
+    <Key>
+      <PropertyRef Name="lr_Id" />
+    </Key>
+    <Property Name="lr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lr_StudentId" Type="int" Nullable="false" />
+    <Property Name="lr_CampusId" Type="int" Nullable="false" />
+    <Property Name="lr_ClassId" Type="int" Nullable="false" />
+    <Property Name="lr_StartTime" Type="datetime" Nullable="false" />
+    <Property Name="lr_EndTime" Type="datetime" Nullable="false" />
+    <Property Name="lr_Amount" Type="int" />
+    <Property Name="lr_AddStaff" Type="int" Nullable="false" />
+    <Property Name="lr_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="lr_Status" Type="int" />
+    <Property Name="lr_AddTime" Type="datetime" />
+    <Property Name="lr_HasMakeUp" Type="bit" />
+    <Property Name="lr_MakeUp_StartTime" Type="datetime" />
+    <Property Name="lr_MakeUp_EndTime" Type="datetime" />
+    <Property Name="lr_MakeUp_ClassId" Type="int" />
+    <Property Name="lr_OldEndTime" Type="datetime" />
+    <Property Name="lr_DataId" Type="int" />
+  </EntityType>
+  <EntityType Name="MakeUpClassTable">
+    <Key>
+      <PropertyRef Name="mc_Id" />
+    </Key>
+    <Property Name="mc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mc_Type" Type="int" />
+    <Property Name="mc_CampusId" Type="int" Nullable="false" />
+    <Property Name="mc_StudentId" Type="int" Nullable="false" />
+    <Property Name="mc_ClassId" Type="int" Nullable="false" />
+    <Property Name="mc_StartTime" Type="datetime" Nullable="false" />
+    <Property Name="mc_EndTime" Type="datetime" Nullable="false" />
+    <Property Name="mc_Amount" Type="int" Nullable="false" />
+    <Property Name="mc_AddStaff" Type="int" />
+    <Property Name="mc_AddTime" Type="datetime" />
+    <Property Name="mc_Status" Type="int" />
+    <Property Name="mc_DataId" Type="int" Nullable="false" />
+    <Property Name="mc_LeaveRecordId" Type="int" />
+    <Property Name="mc_StudentClassId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.Material_ImportRecord”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Material_ImportRecord">
+    <Key>
+      <PropertyRef Name="mi_id" />
+    </Key>
+    <Property Name="mi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mi_material_id" Type="int" />
+    <Property Name="mi_Batch_nub" Type="varchar" MaxLength="100" />
+    <Property Name="mi_Created_at" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MaterialOrderTable">
+    <Key>
+      <PropertyRef Name="mo_Id" />
+    </Key>
+    <Property Name="mo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mo_Type" Type="int" />
+    <Property Name="mo_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="mo_ChildOrderId" Type="varchar" MaxLength="300" />
+    <Property Name="mo_MaterialId" Type="int" />
+    <Property Name="mo_MaterialName" Type="nvarchar" MaxLength="50" />
+    <Property Name="mo_MaterialMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="mo_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MaterialTable">
+    <Key>
+      <PropertyRef Name="m_Id" />
+    </Key>
+    <Property Name="m_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_Type" Type="int" />
+    <Property Name="m_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="m_CourseType" Type="int" />
+    <Property Name="m_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="m_Status" Type="int" />
+    <Property Name="m_AddTime" Type="datetime" />
+    <Property Name="m_ImportNo" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="MessageStatusTable">
+    <Key>
+      <PropertyRef Name="ms_Id" />
+    </Key>
+    <Property Name="ms_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ms_UserId" Type="int" />
+    <Property Name="ms_DataId" Type="int" />
+    <Property Name="ms_IsRead" Type="bit" />
+    <Property Name="ms_Status" Type="int" />
+    <Property Name="ms_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MessageTable">
+    <Key>
+      <PropertyRef Name="m_Id" />
+    </Key>
+    <Property Name="m_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_Type" Type="int" />
+    <Property Name="m_FromUserId" Type="int" />
+    <Property Name="m_ToUserId" Type="int" />
+    <Property Name="m_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="m_Content" Type="nvarchar(max)" />
+    <Property Name="m_Remark" Type="nvarchar(max)" />
+    <Property Name="m_Status" Type="int" />
+    <Property Name="m_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NotifyTable">
+    <Key>
+      <PropertyRef Name="n_Id" />
+    </Key>
+    <Property Name="n_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_Staff_id" Type="int" Nullable="false" />
+    <Property Name="n_Sequence" Type="int" Nullable="false" />
+    <Property Name="n_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="n_Content" Type="nvarchar(max)" />
+    <Property Name="n_Messagetype" Type="int" Nullable="false" />
+    <Property Name="n_Status" Type="int" Nullable="false" />
+    <Property Name="n_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderTable">
+    <Key>
+      <PropertyRef Name="o_Id" />
+    </Key>
+    <Property Name="o_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="o_OrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="o_UserId" Type="int" />
+    <Property Name="o_Type" Type="int" />
+    <Property Name="o_OrderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="o_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="o_Status" Type="int" />
+    <Property Name="o_OldStatus" Type="int" />
+    <Property Name="o_IsEvaluate" Type="bit" />
+    <Property Name="o_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PayTable">
+    <Key>
+      <PropertyRef Name="p_Id" />
+    </Key>
+    <Property Name="p_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_PayId" Type="varchar" MaxLength="300" />
+    <Property Name="p_UserId" Type="int" />
+    <Property Name="p_StudentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="p_Type" Type="int" />
+    <Property Name="p_OrderName" Type="varchar" MaxLength="300" />
+    <Property Name="p_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_UseBalance" Type="bit" />
+    <Property Name="p_Balance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_PayMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_PayWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="p_NotCash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_Cash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_Tuition" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_Repayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_Refund" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_TransactionId" Type="varchar" MaxLength="300" />
+    <Property Name="p_ThirdTradeNo" Type="varchar" MaxLength="300" />
+    <Property Name="p_Certificate" Type="varchar(max)" />
+    <Property Name="p_PayTime" Type="datetime" />
+    <Property Name="p_PayTime_invalid" Type="datetime" />
+    <Property Name="p_PayTime_status" Type="bit" />
+    <Property Name="p_Enter" Type="bit" />
+    <Property Name="p_EnterMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="p_Status" Type="int" />
+    <Property Name="p_OldStatus" Type="int" />
+    <Property Name="p_Arrears" Type="bit" />
+    <Property Name="p_SellerId" Type="int" />
+    <Property Name="p_AddTime" Type="datetime" />
+    <Property Name="p_PayAccount" Type="varchar" MaxLength="50" />
+    <Property Name="p_MoneyTaker" Type="int" />
+    <Property Name="p_AuditTime" Type="datetime" />
+    <Property Name="p_AuditStaffId" Type="int" />
+    <Property Name="p_ConsultId" Type="int" />
+    <Property Name="p_Pos_pay_type" Type="varchar" MaxLength="50" />
+    <Property Name="p_Pos_qr_type" Type="int" />
+    <Property Name="p_Pos_mer_id" Type="varchar" MaxLength="100" />
+    <Property Name="p_Pos_mer_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="p_Pos_ter_id" Type="varchar" MaxLength="100" />
+    <Property Name="p_Pos_card_num" Type="varchar" MaxLength="100" />
+    <Property Name="p_Pos_card_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="p_Pos_card_bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="p_Is_invoice" Type="bit" />
+    <Property Name="p_Invoice_status" Type="int" />
+    <Property Name="p_Invoice_url" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PrivateMessageTable">
+    <Key>
+      <PropertyRef Name="p_Id" />
+    </Key>
+    <Property Name="p_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_Type" Type="int" Nullable="false" />
+    <Property Name="p_User_id" Type="int" Nullable="false" />
+    <Property Name="p_Face_id" Type="int" Nullable="false" />
+    <Property Name="p_Content" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="p_Is_read" Type="bit" Nullable="false" />
+    <Property Name="p_Status" Type="int" Nullable="false" />
+    <Property Name="p_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductUserActiveTable">
+    <Key>
+      <PropertyRef Name="ua_Id" />
+    </Key>
+    <Property Name="ua_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ua_uId" Type="int" Nullable="false" />
+    <Property Name="ua_Staff_id" Type="int" />
+    <Property Name="ua_StartValidity" Type="datetime" />
+    <Property Name="ua_EndValidity" Type="datetime" />
+    <Property Name="ua_Voucher_url" Type="varchar" MaxLength="3000" />
+    <Property Name="ua_Auditor" Type="datetime" />
+    <Property Name="ua_Content" Type="nvarchar" MaxLength="3000" />
+    <Property Name="ua_Status" Type="int" Nullable="false" />
+    <Property Name="ua_Create_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductUserTable">
+    <Key>
+      <PropertyRef Name="u_Id" />
+    </Key>
+    <Property Name="u_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_OpenId" Type="varchar" MaxLength="300" />
+    <Property Name="u_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_Picture" Type="varchar(max)" />
+    <Property Name="u_Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_RoleId" Type="int" />
+    <Property Name="u_IsActive" Type="int" Nullable="false" />
+    <Property Name="u_IsRegister" Type="int" Nullable="false" />
+    <Property Name="u_Signature" Type="nvarchar" MaxLength="150" />
+    <Property Name="u_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="u_IdCard" Type="varchar" MaxLength="50" />
+    <Property Name="u_BirthDay" Type="datetime" />
+    <Property Name="u_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_District" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_Balance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_RecommendCode" Type="varchar" MaxLength="50" />
+    <Property Name="u_ConsumeMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_Point" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_Status" Type="int" Nullable="false" />
+    <Property Name="u_AddTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReaderTable">
+    <Key>
+      <PropertyRef Name="r_Id" />
+    </Key>
+    <Property Name="r_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="r_nId" Type="int" />
+    <Property Name="r_Readstatus" Type="int" Nullable="false" />
+    <Property Name="r_uId" Type="int" Nullable="false" />
+    <Property Name="r_Staff_id" Type="int" Nullable="false" />
+    <Property Name="r_Create_at" Type="datetime" Nullable="false" />
+    <Property Name="r_Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecruitAddressTable">
+    <Key>
+      <PropertyRef Name="ra_Id" />
+    </Key>
+    <Property Name="ra_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ra_CompusId" Type="int" />
+    <Property Name="ra_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ra_Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="ra_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="ra_Status" Type="int" />
+    <Property Name="ra_Sequence" Type="int" />
+    <Property Name="ra_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RefundSnapShot">
+    <Key>
+      <PropertyRef Name="rs_Id" />
+    </Key>
+    <Property Name="rs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rs_RefundId" Type="int" Nullable="false" />
+    <Property Name="rs_SignUpId" Type="int" Nullable="false" />
+    <Property Name="rs_Type" Type="int" Nullable="false" />
+    <Property Name="rs_DataId" Type="int" Nullable="false" />
+    <Property Name="rs_Value" Type="int" Nullable="false" />
+    <Property Name="rs_AddTime" Type="datetime" />
+    <Property Name="rs_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="RefundTable">
+    <Key>
+      <PropertyRef Name="r_Id" />
+    </Key>
+    <Property Name="r_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="r_OrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="r_ChildOrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="r_Type" Type="int" Nullable="false" />
+    <Property Name="r_Body" Type="nvarchar" MaxLength="500" />
+    <Property Name="r_StudentId" Type="int" Nullable="false" />
+    <Property Name="r_SignUpId" Type="int" Nullable="false" />
+    <Property Name="r_CampusId" Type="int" />
+    <Property Name="r_ClassId" Type="int" />
+    <Property Name="r_SellerId" Type="int" Nullable="false" />
+    <Property Name="r_Money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="r_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="r_Status" Type="int" />
+    <Property Name="r_StaffId" Type="int" />
+    <Property Name="r_AuditStaffId" Type="int" />
+    <Property Name="r_AuditTime" Type="datetime" />
+    <Property Name="r_AuditRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="r_AddTime" Type="datetime" />
+    <Property Name="r_RefundWay" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RepaymentTable">
+    <Key>
+      <PropertyRef Name="rt_Id" />
+    </Key>
+    <Property Name="rt_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rt_OrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="rt_Type" Type="int" />
+    <Property Name="rt_CampusId" Type="int" />
+    <Property Name="rt_OriginalMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="rt_Money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="rt_PayWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="rt_Certificate" Type="varchar(max)" />
+    <Property Name="rt_Status" Type="int" />
+    <Property Name="rt_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="rt_AddStaffId" Type="int" Nullable="false" />
+    <Property Name="rt_AddTime" Type="datetime" />
+    <Property Name="rt_AuditStaffId" Type="int" />
+    <Property Name="rt_AuditTime" Type="datetime" />
+    <Property Name="rt_AuditRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="rt_IsError" Type="bit" />
+    <Property Name="rt_ErrorMoney" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Role_ItemTable">
+    <Key>
+      <PropertyRef Name="rp_Id" />
+    </Key>
+    <Property Name="rp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rp_Role_id" Type="int" Nullable="false" />
+    <Property Name="rp_Permission_id" Type="int" Nullable="false" />
+    <Property Name="rp_Create_at" Type="datetime" />
+    <Property Name="rp_ImportNo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Role_ModuleTable">
+    <Key>
+      <PropertyRef Name="m_Id" />
+    </Key>
+    <Property Name="m_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="m_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="m_Create_at" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.Role_Permission_ImportTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Role_Permission_ImportTable">
+    <Key>
+      <PropertyRef Name="t_ImportNo" />
+      <PropertyRef Name="t_RoleId" />
+      <PropertyRef Name="t_PermissionId" />
+    </Key>
+    <Property Name="t_ImportNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="t_RoleId" Type="int" Nullable="false" />
+    <Property Name="t_PermissionId" Type="int" Nullable="false" />
+    <Property Name="t_StaffId" Type="int" />
+    <Property Name="t_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Role_PermissionTable">
+    <Key>
+      <PropertyRef Name="p_Id" />
+    </Key>
+    <Property Name="p_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_Mark" Type="varchar" MaxLength="50" />
+    <Property Name="p_Group" Type="varchar" MaxLength="50" />
+    <Property Name="p_Module_id" Type="int" Nullable="false" />
+    <Property Name="p_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RoleTable">
+    <Key>
+      <PropertyRef Name="r_Id" />
+    </Key>
+    <Property Name="r_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="r_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="r_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="r_Level" Type="int" />
+    <Property Name="r_Staff_add" Type="int" />
+    <Property Name="r_Create_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SignUpOrder_Edit_Table">
+    <Key>
+      <PropertyRef Name="se_Id" />
+    </Key>
+    <Property Name="se_ImportNo" Type="varchar" MaxLength="50" />
+    <Property Name="se_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="se_ChildOrderId" Type="varchar" MaxLength="300" />
+    <Property Name="se_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="se_PayWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="se_SellerId" Type="int" />
+    <Property Name="se_StaffId" Type="int" />
+    <Property Name="se_Status" Type="int" />
+    <Property Name="se_AddTime" Type="datetime" />
+    <Property Name="se_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SignUpOrderOffTable">
+    <Key>
+      <PropertyRef Name="sf_Id" />
+    </Key>
+    <Property Name="sf_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sf_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="sf_ChildOrderId" Type="varchar" MaxLength="300" />
+    <Property Name="sf_Type" Type="int" />
+    <Property Name="sf_Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sf_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sf_Status" Type="int" />
+    <Property Name="sf_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SignUpOrderTable">
+    <Key>
+      <PropertyRef Name="so_Id" />
+    </Key>
+    <Property Name="so_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="so_OrderId" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="so_ChildOrderId" Type="varchar" MaxLength="300" />
+    <Property Name="so_Type" Type="int" />
+    <Property Name="so_StudentId" Type="int" />
+    <Property Name="so_ConsultId" Type="int" />
+    <Property Name="so_CompusId" Type="int" />
+    <Property Name="so_CourseId" Type="int" />
+    <Property Name="so_ClassId" Type="int" />
+    <Property Name="so_ClassStartDate" Type="datetime" />
+    <Property Name="so_ClassEndDate" Type="datetime" />
+    <Property Name="so_ValidDate" Type="datetime" />
+    <Property Name="so_Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_Amount" Type="int" />
+    <Property Name="so_Money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_OffType" Type="int" />
+    <Property Name="so_OffValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_OffMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_MaterialMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_OutRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="so_InnerRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="so_NeedStay" Type="bit" />
+    <Property Name="so_ActiveCode" Type="varchar" MaxLength="50" />
+    <Property Name="so_SellerId" Type="int" />
+    <Property Name="so_LeafLetId" Type="int" />
+    <Property Name="so_HandleCompusId" Type="int" />
+    <Property Name="so_HandleTime" Type="datetime" />
+    <Property Name="so_StaffId" Type="int" />
+    <Property Name="so_AddTime" Type="datetime" />
+    <Property Name="so_ChannelId" Type="int" />
+    <Property Name="so_RefundMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="so_ClassHour" Type="int" />
+  </EntityType>
+  <EntityType Name="Staff_ImportRecordTable">
+    <Key>
+      <PropertyRef Name="si_Id" />
+    </Key>
+    <Property Name="si_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="si_Staff_id" Type="int" />
+    <Property Name="si_Batch_nub" Type="varchar" MaxLength="100" />
+    <Property Name="si_Created_at" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StaffActiveTable">
+    <Key>
+      <PropertyRef Name="sa_Id" />
+    </Key>
+    <Property Name="sa_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sa_Avatar" Type="varchar" MaxLength="3000" />
+    <Property Name="sa_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="sa_Email" Type="varchar" MaxLength="50" />
+    <Property Name="sa_BirthDay" Type="datetime" />
+    <Property Name="sa_Role" Type="int" />
+    <Property Name="sa_ActiveCode" Type="varchar" MaxLength="50" />
+    <Property Name="sa_ActiveStatus" Type="bit" />
+    <Property Name="sa_ActiveTime" Type="datetime" />
+    <Property Name="sa_StaffId" Type="int" />
+    <Property Name="sa_ImportNo" Type="varchar" MaxLength="150" />
+    <Property Name="sa_Status" Type="int" />
+    <Property Name="sa_AddTime" Type="datetime" />
+    <Property Name="sa_Marry" Type="int" />
+    <Property Name="sa_NativePlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="sa_HouseHoldType" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_IdCard" Type="varchar" MaxLength="50" />
+    <Property Name="sa_IdCardAddr" Type="nvarchar" MaxLength="100" />
+    <Property Name="sa_Education" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_School" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_Major" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_Linker" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_LinkerMob" Type="varchar" MaxLength="50" />
+    <Property Name="sa_Bank_ICBC" Type="varchar" MaxLength="50" />
+    <Property Name="sa_Bank_ABC" Type="varchar" MaxLength="50" />
+    <Property Name="sa_IdCard_Front" Type="varchar" MaxLength="3000" />
+    <Property Name="sa_IdCard_Back" Type="varchar" MaxLength="3000" />
+    <Property Name="sa_Resume" Type="varchar(max)" />
+    <Property Name="sa_LaborContract" Type="varchar(max)" />
+    <Property Name="sa_LaborContract_Start" Type="datetime" />
+    <Property Name="sa_LaborContract_End" Type="datetime" />
+    <Property Name="sa_LaborContract_Count" Type="int" />
+    <Property Name="sa_DepartmentId" Type="int" />
+    <Property Name="sa_JobId" Type="int" />
+    <Property Name="sa_JobGrade" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_HireDate" Type="datetime" />
+    <Property Name="sa_WorkAge" Type="int" />
+    <Property Name="sa_Insurer" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_HasQC" Type="bit" />
+    <Property Name="sa_WorkExperience" Type="nvarchar" MaxLength="50" />
+    <Property Name="sa_DirectSuperior" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StaffCompusTable">
+    <Key>
+      <PropertyRef Name="sc_Id" />
+    </Key>
+    <Property Name="sc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sc_StaffId" Type="int" />
+    <Property Name="sc_CompusId" Type="int" />
+    <Property Name="sc_ActiveId" Type="int" />
+    <Property Name="sc_ImportNo" Type="varchar" MaxLength="150" />
+    <Property Name="sc_AddTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StaffMsgStatusTable">
+    <Key>
+      <PropertyRef Name="sms_msgId" />
+      <PropertyRef Name="sms_StaffId" />
+    </Key>
+    <Property Name="sms_msgId" Type="int" Nullable="false" />
+    <Property Name="sms_StaffId" Type="int" Nullable="false" />
+    <Property Name="sms_Status" Type="int" />
+    <Property Name="sms_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StaffMsgTable">
+    <Key>
+      <PropertyRef Name="sm_Id" />
+    </Key>
+    <Property Name="sm_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sm_Type" Type="int" />
+    <Property Name="sm_Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="sm_Content" Type="varchar(max)" />
+    <Property Name="sm_Status" Type="int" />
+    <Property Name="sm_CompusId" Type="varchar(max)" />
+    <Property Name="sm_RoleId" Type="varchar(max)" />
+    <Property Name="sm_AddStaff" Type="int" />
+    <Property Name="sm_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StaffTable">
+    <Key>
+      <PropertyRef Name="s_Id" />
+    </Key>
+    <Property Name="s_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_Role" Type="int" />
+    <Property Name="s_Open_id" Type="varchar" MaxLength="3000" />
+    <Property Name="s_Account" Type="varchar" MaxLength="50" />
+    <Property Name="s_Password" Type="varchar" MaxLength="100" />
+    <Property Name="s_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_NickName" Type="varchar" MaxLength="50" />
+    <Property Name="s_Avatar" Type="varchar" MaxLength="3000" />
+    <Property Name="s_Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_BirthDay" Type="datetime" />
+    <Property Name="s_Email" Type="varchar" MaxLength="100" />
+    <Property Name="s_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="s_IsActive" Type="bit" Nullable="false" />
+    <Property Name="s_IsTeacher" Type="bit" Nullable="false" />
+    <Property Name="s_Status" Type="int" Nullable="false" />
+    <Property Name="s_AddTime" Type="datetime" Nullable="false" />
+    <Property Name="s_Marry" Type="int" />
+    <Property Name="s_NativePlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="s_HouseHoldType" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_IdCard" Type="varchar" MaxLength="100" />
+    <Property Name="s_IdCardAddr" Type="nvarchar" MaxLength="100" />
+    <Property Name="s_Education" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_Major" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_School" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_Linker" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_LinkerMob" Type="varchar" MaxLength="50" />
+    <Property Name="s_Bank_ICBC" Type="varchar" MaxLength="50" />
+    <Property Name="s_Bank_ABC" Type="varchar" MaxLength="50" />
+    <Property Name="s_IdCard_Front" Type="varchar" MaxLength="3000" />
+    <Property Name="s_IdCard_Back" Type="varchar" MaxLength="3000" />
+    <Property Name="s_Resume" Type="varchar(max)" />
+    <Property Name="s_LaborContract" Type="varchar(max)" />
+    <Property Name="s_LaborContract_Start" Type="datetime" />
+    <Property Name="s_LaborContract_End" Type="datetime" />
+    <Property Name="s_LaborContract_Count" Type="int" />
+    <Property Name="s_DepartmentId" Type="int" />
+    <Property Name="s_JobId" Type="int" />
+    <Property Name="s_JobGrade" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_HireDate" Type="datetime" />
+    <Property Name="s_WorkAge" Type="int" />
+    <Property Name="s_Insurer" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_HasQC" Type="bit" />
+    <Property Name="s_WorkExperience" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_DirectSuperior" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StaffTask">
+    <Key>
+      <PropertyRef Name="st_Id" />
+    </Key>
+    <Property Name="st_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_StaffId" Type="int" Nullable="false" />
+    <Property Name="st_Year" Type="int" Nullable="false" />
+    <Property Name="st_Month" Type="int" Nullable="false" />
+    <Property Name="st_Money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="st_AddStaffId" Type="int" />
+    <Property Name="st_AddTime" Type="datetime" />
+    <Property Name="st_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="StatisticsTable">
+    <Key>
+      <PropertyRef Name="s_Id" />
+    </Key>
+    <Property Name="s_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_Staff_id" Type="int" />
+    <Property Name="s_User_id" Type="int" />
+    <Property Name="s_Num" Type="int" />
+    <Property Name="s_Time" Type="datetime" />
+    <Property Name="s_Status" Type="int" Nullable="false" />
+    <Property Name="s_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentCourseImport">
+    <Key>
+      <PropertyRef Name="sci_Id" />
+    </Key>
+    <Property Name="sci_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sci_Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sci_Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="sci_BirthDay" Type="datetime" />
+    <Property Name="sci_LinkerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="sci_LinkerMobile" Type="varchar" MaxLength="50" />
+    <Property Name="sci_Email" Type="varchar" MaxLength="100" />
+    <Property Name="sci_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="sci_EndDate" Type="datetime" />
+    <Property Name="sci_Amount" Type="int" Nullable="false" />
+    <Property Name="sci_ClassId" Type="int" Nullable="false" />
+    <Property Name="sci_Import" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sci_StaffId" Type="int" Nullable="false" />
+    <Property Name="sci_AddTime" Type="datetime" />
+    <Property Name="sci_Status" Type="int" />
+    <Property Name="sci_ErrorDesc" Type="nvarchar" MaxLength="100" />
+    <Property Name="sci_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sci_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="sci_StudentId" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“ShuHuaDb.dbo.StudentCourseImportDeleted”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="StudentCourseImportDeleted">
+          <Property Name="sci_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="sci_Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="sci_Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="sci_BirthDay" Type="datetime" />
+          <Property Name="sci_LinkerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="sci_LinkerMobile" Type="varchar" MaxLength="50" />
+          <Property Name="sci_Email" Type="varchar" MaxLength="100" />
+          <Property Name="sci_StartDate" Type="datetime" />
+          <Property Name="sci_EndDate" Type="datetime" />
+          <Property Name="sci_Amount" Type="int" />
+          <Property Name="sci_ClassId" Type="int" />
+          <Property Name="sci_Import" Type="varchar" MaxLength="50" />
+          <Property Name="sci_StaffId" Type="int" />
+          <Property Name="sci_AddTime" Type="datetime" />
+          <Property Name="sci_Status" Type="int" />
+          <Property Name="sci_ErrorDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="sci_Id" Type="int" />
+          <Property Name="sci_OrderId" Type="varchar" MaxLength="300" />
+          <Property Name="sci_StudentId" Type="int" />
+          <Property Name="sc_Id" Type="int" />
+          <Property Name="sc_UserId" Type="int" />
+          <Property Name="sc_StudentId" Type="int" />
+          <Property Name="sc_OrderId" Type="varchar" MaxLength="300" />
+          <Property Name="sc_ClassId" Type="int" />
+          <Property Name="sc_ClassStartDate" Type="datetime" />
+          <Property Name="sc_ClassEndDate" Type="datetime" />
+          <Property Name="sc_ValidDate" Type="datetime" />
+          <Property Name="sc_Amount" Type="int" />
+          <Property Name="sc_Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="sc_Status" Type="int" />
+          <Property Name="sc_AddTime" Type="datetime" />
+          <Property Name="sc_CampusId" Type="int" />
+          <Property Name="sc_ClassPriceType" Type="int" />
+          <Property Name="sc_PerClassPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_Id" Type="int" />
+          <Property Name="so_OrderId" Type="varchar" MaxLength="300" />
+          <Property Name="so_ChildOrderId" Type="varchar" MaxLength="300" />
+          <Property Name="so_Type" Type="int" />
+          <Property Name="so_StudentId" Type="int" />
+          <Property Name="so_ConsultId" Type="int" />
+          <Property Name="so_CompusId" Type="int" />
+          <Property Name="so_CourseId" Type="int" />
+          <Property Name="so_ClassId" Type="int" />
+          <Property Name="so_ClassStartDate" Type="datetime" />
+          <Property Name="so_ClassEndDate" Type="datetime" />
+          <Property Name="so_ValidDate" Type="datetime" />
+          <Property Name="so_Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_Amount" Type="int" />
+          <Property Name="so_Money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_OffType" Type="int" />
+          <Property Name="so_OffValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_OffMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_MaterialMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_OutRemark" Type="nvarchar" MaxLength="500" />
+          <Property Name="so_InnerRemark" Type="nvarchar" MaxLength="500" />
+          <Property Name="so_NeedStay" Type="bit" />
+          <Property Name="so_ActiveCode" Type="varchar" MaxLength="50" />
+          <Property Name="so_SellerId" Type="int" />
+          <Property Name="so_LeafLetId" Type="int" />
+          <Property Name="so_HandleCompusId" Type="int" />
+          <Property Name="so_HandleTime" Type="datetime" />
+          <Property Name="so_StaffId" Type="int" />
+          <Property Name="so_AddTime" Type="datetime" />
+          <Property Name="so_ChannelId" Type="int" />
+          <Property Name="so_RefundMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="so_ClassHour" Type="int" />
+          <Property Name="o_Id" Type="int" />
+          <Property Name="o_OrderId" Type="varchar" MaxLength="300" />
+          <Property Name="o_UserId" Type="int" />
+          <Property Name="o_Type" Type="int" />
+          <Property Name="o_OrderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="o_Money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="o_Status" Type="int" />
+          <Property Name="o_OldStatus" Type="int" />
+          <Property Name="o_IsEvaluate" Type="bit" />
+          <Property Name="o_AddTime" Type="datetime" />
+          <Property Name="p_Id" Type="int" />
+          <Property Name="p_PayId" Type="varchar" MaxLength="300" />
+          <Property Name="p_UserId" Type="int" />
+          <Property Name="p_StudentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="p_Type" Type="int" />
+          <Property Name="p_OrderName" Type="varchar" MaxLength="300" />
+          <Property Name="p_Money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_UseBalance" Type="bit" />
+          <Property Name="p_Balance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_PayMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_PayWay" Type="nvarchar" MaxLength="50" />
+          <Property Name="p_NotCash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_Tuition" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_Repayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_Refund" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_TransactionId" Type="varchar" MaxLength="300" />
+          <Property Name="p_ThirdTradeNo" Type="varchar" MaxLength="300" />
+          <Property Name="p_Certificate" Type="varchar(max)" />
+          <Property Name="p_PayTime" Type="datetime" />
+          <Property Name="p_PayTime_invalid" Type="datetime" />
+          <Property Name="p_PayTime_status" Type="bit" />
+          <Property Name="p_Enter" Type="bit" />
+          <Property Name="p_EnterMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="p_Status" Type="int" />
+          <Property Name="p_OldStatus" Type="int" />
+          <Property Name="p_Arrears" Type="bit" />
+          <Property Name="p_SellerId" Type="int" />
+          <Property Name="p_AddTime" Type="datetime" />
+          <Property Name="p_PayAccount" Type="varchar" MaxLength="50" />
+          <Property Name="p_MoneyTaker" Type="int" />
+          <Property Name="p_AuditTime" Type="datetime" />
+          <Property Name="p_AuditStaffId" Type="int" />
+          <Property Name="p_ConsultId" Type="int" />
+        </EntityType>-->
+  <EntityType Name="StudentCourseTable">
+    <Key>
+      <PropertyRef Name="sc_Id" />
+    </Key>
+    <Property Name="sc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sc_UserId" Type="int" />
+    <Property Name="sc_StudentId" Type="int" Nullable="false" />
+    <Property Name="sc_OrderId" Type="varchar" MaxLength="300" />
+    <Property Name="sc_ClassId" Type="int" Nullable="false" />
+    <Property Name="sc_ClassStartDate" Type="datetime" />
+    <Property Name="sc_ClassEndDate" Type="datetime" />
+    <Property Name="sc_ValidDate" Type="datetime" />
+    <Property Name="sc_Amount" Type="int" />
+    <Property Name="sc_Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="sc_Status" Type="int" />
+    <Property Name="sc_AddTime" Type="datetime" />
+    <Property Name="sc_CampusId" Type="int" />
+    <Property Name="sc_ClassPriceType" Type="int" />
+    <Property Name="sc_PerClassPrice" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="StudentTable">
+    <Key>
+      <PropertyRef Name="s_Id" />
+    </Key>
+    <Property Name="s_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_UserId" Type="int" />
+    <Property Name="s_Avatar" Type="varchar" MaxLength="3000" />
+    <Property Name="s_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_BirthDay" Type="date" />
+    <Property Name="s_School" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="s_LinkerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_LinkerMobile" Type="varchar" MaxLength="50" />
+    <Property Name="s_Email" Type="varchar" MaxLength="100" />
+    <Property Name="s_Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_DetailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="s_BalanceMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="s_AddTime" Type="datetime" />
+    <Property Name="s_Status" Type="int" />
+    <Property Name="s_Type" Type="int" />
+  </EntityType>
+  <EntityType Name="StuffTable">
+    <Key>
+      <PropertyRef Name="s_Id" />
+    </Key>
+    <Property Name="s_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_Name" Type="nvarchar" MaxLength="10" />
+    <Property Name="s_Status" Type="int" Nullable="false" />
+    <Property Name="s_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SuspendTable">
+    <Key>
+      <PropertyRef Name="s_Id" />
+    </Key>
+    <Property Name="s_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_Type" Type="int" Nullable="false" />
+    <Property Name="s_Status" Type="int" />
+    <Property Name="s_Date" Type="datetime" />
+    <Property Name="s_DataId" Type="int" Nullable="false" />
+    <Property Name="s_CampusId" Type="int" />
+    <Property Name="s_ClassId" Type="int" />
+    <Property Name="s_StudentId" Type="int" />
+    <Property Name="s_Teacher" Type="varchar" MaxLength="500" />
+    <Property Name="s_RoomId" Type="int" />
+    <Property Name="s_Start_time" Type="time" Precision="0" />
+    <Property Name="s_End_time" Type="time" Precision="0" />
+    <Property Name="s_StaffId" Type="int" Nullable="false" />
+    <Property Name="s_Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="s_AddTime" Type="datetime" />
+    <Property Name="s_CancelTime" Type="datetime" />
+    <Property Name="s_CancelStaffId" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ShuHuaDb.dbo.TempPermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="TempPermission">
+    <Key>
+      <PropertyRef Name="p_Id" />
+      <PropertyRef Name="p_Name" />
+      <PropertyRef Name="p_Module_id" />
+    </Key>
+    <Property Name="p_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_Mark" Type="varchar" MaxLength="50" />
+    <Property Name="p_Group" Type="varchar" MaxLength="50" />
+    <Property Name="p_Module_id" Type="int" Nullable="false" />
+    <Property Name="p_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ThumbsUpTable">
+    <Key>
+      <PropertyRef Name="t_Id" />
+    </Key>
+    <Property Name="t_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_Type" Type="int" />
+    <Property Name="t_UserId" Type="int" />
+    <Property Name="t_DataId" Type="int" />
+    <Property Name="t_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserCollectTable">
+    <Key>
+      <PropertyRef Name="uc_Id" />
+    </Key>
+    <Property Name="uc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uc_User_id" Type="int" Nullable="false" />
+    <Property Name="uc_Type" Type="int" Nullable="false" />
+    <Property Name="uc_Collect_id" Type="int" Nullable="false" />
+    <Property Name="uc_Status" Type="int" Nullable="false" />
+    <Property Name="uc_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserConsultQuestionTable">
+    <Key>
+      <PropertyRef Name="uca_Id" />
+    </Key>
+    <Property Name="uca_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uca_Sequence" Type="int" />
+    <Property Name="uca_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="uca_Content" Type="nvarchar(max)" />
+    <Property Name="uca_Status" Type="int" />
+    <Property Name="uca_Created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserMessageAcceptTable">
+    <Key>
+      <PropertyRef Name="uma_Id" />
+    </Key>
+    <Property Name="uma_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uma_Type" Type="int" Nullable="false" />
+    <Property Name="uma_Class_id" Type="int" />
+    <Property Name="uma_User_id" Type="int" Nullable="false" />
+    <Property Name="uma_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="uma_Content" Type="nvarchar" MaxLength="1000" />
+    <Property Name="uma_Data_url" Type="varchar" MaxLength="1000" />
+    <Property Name="uma_Push_id" Type="int" />
+    <Property Name="uma_Status" Type="int" Nullable="false" />
+    <Property Name="uma_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserMessagePushTable">
+    <Key>
+      <PropertyRef Name="ump_Id" />
+    </Key>
+    <Property Name="ump_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ump_Type" Type="int" Nullable="false" />
+    <Property Name="ump_Class_id" Type="int" />
+    <Property Name="ump_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ump_Content" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ump_Data_url" Type="varchar" MaxLength="1000" />
+    <Property Name="ump_Status" Type="int" Nullable="false" />
+    <Property Name="ump_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="u_Id" />
+    </Key>
+    <Property Name="u_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_OpenId" Type="varchar" MaxLength="100" />
+    <Property Name="u_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_Picture" Type="varchar(max)" />
+    <Property Name="u_Sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="u_RoleId" Type="int" />
+    <Property Name="u_Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="u_IdCard" Type="varchar" MaxLength="20" />
+    <Property Name="u_BirthDay" Type="datetime" />
+    <Property Name="u_Province" Type="nvarchar" MaxLength="20" />
+    <Property Name="u_City" Type="nvarchar" MaxLength="20" />
+    <Property Name="u_District" Type="nvarchar" MaxLength="50" />
+    <Property Name="u_Signature" Type="nvarchar" MaxLength="500" />
+    <Property Name="u_Balance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_RecommendCode" Type="nchar" MaxLength="10" />
+    <Property Name="u_ConsumeMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_Point" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="u_Status" Type="int" />
+    <Property Name="u_Created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WebSetTable">
+    <Key>
+      <PropertyRef Name="ws_Id" />
+    </Key>
+    <Property Name="ws_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ws_Title" Type="varchar" MaxLength="50" />
+    <Property Name="ws_Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="ws_Content" Type="nvarchar(max)" />
+    <Property Name="ws_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WorkEvaluateTable">
+    <Key>
+      <PropertyRef Name="we_Id" />
+    </Key>
+    <Property Name="we_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="we_User_id" Type="int" />
+    <Property Name="we_Work_id" Type="int" />
+    <Property Name="we_Status" Type="int" />
+    <Property Name="we_Created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WorkTable">
+    <Key>
+      <PropertyRef Name="w_Id" />
+    </Key>
+    <Property Name="w_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="w_Type" Type="int" />
+    <Property Name="w_UserId" Type="int" />
+    <Property Name="w_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="w_Tag" Type="varchar" MaxLength="500" />
+    <Property Name="w_Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="w_Cover" Type="varchar" MaxLength="3000" />
+    <Property Name="w_Picture" Type="varchar(max)" />
+    <Property Name="w_ThumbNail" Type="varchar(max)" />
+    <Property Name="w_ThumbUp" Type="int" />
+    <Property Name="w_Collection" Type="int" />
+    <Property Name="w_Evaluate" Type="int" />
+    <Property Name="w_IsRecommend" Type="int" />
+    <Property Name="w_IsNew" Type="int" />
+    <Property Name="w_Commentcount" Type="int" />
+    <Property Name="w_Sequence" Type="int" />
+    <Property Name="w_Status" Type="int" />
+    <Property Name="w_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WorkTagMapTable">
+    <Key>
+      <PropertyRef Name="tm_Id" />
+    </Key>
+    <Property Name="tm_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tm_WorkId" Type="int" />
+    <Property Name="tm_TagId" Type="int" />
+  </EntityType>
+  <EntityType Name="WorkTagTable">
+    <Key>
+      <PropertyRef Name="t_Id" />
+    </Key>
+    <Property Name="t_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="t_Type" Type="int" />
+    <Property Name="t_IsMust" Type="bit" />
+    <Property Name="t_Status" Type="int" />
+    <Property Name="t_AddTime" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="ShuHuaDbModelStoreContainer">
+    <EntitySet Name="AreaTable" EntityType="Self.AreaTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleTable" EntityType="Self.ArticleTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleTypeTable" EntityType="Self.ArticleTypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttendanceTable" EntityType="Self.AttendanceTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttentionTable" EntityType="Self.AttentionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditionActivityTable" EntityType="Self.AuditionActivityTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditionRecordTable" EntityType="Self.AuditionRecordTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BalanceRecordTable" EntityType="Self.BalanceRecordTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankCardTransferTable" EntityType="Self.BankCardTransferTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BannerTable" EntityType="Self.BannerTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChangeClassSnapshot" EntityType="Self.ChangeClassSnapshot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChangeClassTable" EntityType="Self.ChangeClassTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChannelTable" EntityType="Self.ChannelTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChannelTypeTable" EntityType="Self.ChannelTypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatStatusTable" EntityType="Self.ChatStatusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatTable" EntityType="Self.ChatTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class_Time_Teacher_ChangeTable" EntityType="Self.Class_Time_Teacher_ChangeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class_Time_TeacherTable" EntityType="Self.Class_Time_TeacherTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class_TimeTable" EntityType="Self.Class_TimeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassRelationTable" EntityType="Self.ClassRelationTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassRoomTable" EntityType="Self.ClassRoomTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassTable" EntityType="Self.ClassTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CollectTable" EntityType="Self.CollectTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentTable" EntityType="Self.CommentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompusAreaTable" EntityType="Self.CompusAreaTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompusTable" EntityType="Self.CompusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfigTable" EntityType="Self.ConfigTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsultFollowTable" EntityType="Self.ConsultFollowTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsultLogTable" EntityType="Self.ConsultLogTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsultTable" EntityType="Self.ConsultTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsultTransferTable" EntityType="Self.ConsultTransferTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course_TypeTable" EntityType="Self.Course_TypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseActiveTable" EntityType="Self.CourseActiveTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursePriceTable" EntityType="Self.CoursePriceTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseTable" EntityType="Self.CourseTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursewareAdjunctTable" EntityType="Self.CoursewareAdjunctTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursewareDecipheringTable" EntityType="Self.CoursewareDecipheringTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursewareTable" EntityType="Self.CoursewareTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CurrentSchoolTable" EntityType="Self.CurrentSchoolTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FriendApplyTable" EntityType="Self.FriendApplyTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FriendRelationTable" EntityType="Self.FriendRelationTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveRecordTable" EntityType="Self.LeaveRecordTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MakeUpClassTable" EntityType="Self.MakeUpClassTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialOrderTable" EntityType="Self.MaterialOrderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialTable" EntityType="Self.MaterialTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageStatusTable" EntityType="Self.MessageStatusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageTable" EntityType="Self.MessageTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotifyTable" EntityType="Self.NotifyTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderTable" EntityType="Self.OrderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PayTable" EntityType="Self.PayTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrivateMessageTable" EntityType="Self.PrivateMessageTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductUserActiveTable" EntityType="Self.ProductUserActiveTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductUserTable" EntityType="Self.ProductUserTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReaderTable" EntityType="Self.ReaderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecruitAddressTable" EntityType="Self.RecruitAddressTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefundSnapShot" EntityType="Self.RefundSnapShot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefundTable" EntityType="Self.RefundTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepaymentTable" EntityType="Self.RepaymentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_ItemTable" EntityType="Self.Role_ItemTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_ModuleTable" EntityType="Self.Role_ModuleTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_PermissionTable" EntityType="Self.Role_PermissionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleTable" EntityType="Self.RoleTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SignUpOrder_Edit_Table" EntityType="Self.SignUpOrder_Edit_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SignUpOrderOffTable" EntityType="Self.SignUpOrderOffTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SignUpOrderTable" EntityType="Self.SignUpOrderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff_ImportRecordTable" EntityType="Self.Staff_ImportRecordTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffActiveTable" EntityType="Self.StaffActiveTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffCompusTable" EntityType="Self.StaffCompusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffMsgStatusTable" EntityType="Self.StaffMsgStatusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffMsgTable" EntityType="Self.StaffMsgTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffTable" EntityType="Self.StaffTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffTask" EntityType="Self.StaffTask" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatisticsTable" EntityType="Self.StatisticsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourseImport" EntityType="Self.StudentCourseImport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourseTable" EntityType="Self.StudentCourseTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentTable" EntityType="Self.StudentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StuffTable" EntityType="Self.StuffTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SuspendTable" EntityType="Self.SuspendTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThumbsUpTable" EntityType="Self.ThumbsUpTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCollectTable" EntityType="Self.UserCollectTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserConsultQuestionTable" EntityType="Self.UserConsultQuestionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMessageAcceptTable" EntityType="Self.UserMessageAcceptTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMessagePushTable" EntityType="Self.UserMessagePushTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WebSetTable" EntityType="Self.WebSetTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkEvaluateTable" EntityType="Self.WorkEvaluateTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkTable" EntityType="Self.WorkTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkTagMapTable" EntityType="Self.WorkTagMapTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkTagTable" EntityType="Self.WorkTagTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area_UpdateTable" EntityType="Self.Area_UpdateTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Area_UpdateTable].[au_Code] AS [au_Code], 
+[Area_UpdateTable].[au_Name] AS [au_Name], 
+[Area_UpdateTable].[au_Updated_at] AS [au_Updated_at]
+FROM [dbo].[Area_UpdateTable] AS [Area_UpdateTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ConsultDeleteTable" EntityType="Self.ConsultDeleteTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ConsultDeleteTable].[c_Id] AS [c_Id], 
+[ConsultDeleteTable].[c_StudentId] AS [c_StudentId], 
+[ConsultDeleteTable].[c_CreatorId] AS [c_CreatorId], 
+[ConsultDeleteTable].[c_Channel] AS [c_Channel], 
+[ConsultDeleteTable].[c_Concern] AS [c_Concern], 
+[ConsultDeleteTable].[c_ConcernOther] AS [c_ConcernOther], 
+[ConsultDeleteTable].[c_Relation] AS [c_Relation], 
+[ConsultDeleteTable].[c_RelationOther] AS [c_RelationOther], 
+[ConsultDeleteTable].[c_ConsultWay] AS [c_ConsultWay], 
+[ConsultDeleteTable].[c_Intention] AS [c_Intention], 
+[ConsultDeleteTable].[c_CompusId] AS [c_CompusId], 
+[ConsultDeleteTable].[c_LeafLetStaffId] AS [c_LeafLetStaffId], 
+[ConsultDeleteTable].[c_SellerStaffId] AS [c_SellerStaffId], 
+[ConsultDeleteTable].[c_CourseId_1] AS [c_CourseId_1], 
+[ConsultDeleteTable].[c_CourseId_2] AS [c_CourseId_2], 
+[ConsultDeleteTable].[c_CourseId_3] AS [c_CourseId_3], 
+[ConsultDeleteTable].[c_Status] AS [c_Status], 
+[ConsultDeleteTable].[c_IsInPool] AS [c_IsInPool], 
+[ConsultDeleteTable].[c_ReceiveTime] AS [c_ReceiveTime], 
+[ConsultDeleteTable].[c_UpdateTime] AS [c_UpdateTime], 
+[ConsultDeleteTable].[c_FollowUpTime] AS [c_FollowUpTime], 
+[ConsultDeleteTable].[c_AddTime] AS [c_AddTime]
+FROM [dbo].[ConsultDeleteTable] AS [ConsultDeleteTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Courseware_OpinionTable" EntityType="Self.Courseware_OpinionTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Courseware_OpinionTable].[o_Id] AS [o_Id], 
+[Courseware_OpinionTable].[o_Cause] AS [o_Cause], 
+[Courseware_OpinionTable].[o_Picture] AS [o_Picture], 
+[Courseware_OpinionTable].[o_State] AS [o_State], 
+[Courseware_OpinionTable].[o_AddTime] AS [o_AddTime], 
+[Courseware_OpinionTable].[c_Id] AS [c_Id], 
+[Courseware_OpinionTable].[c_StaffId] AS [c_StaffId], 
+[Courseware_OpinionTable].[c_UserId] AS [c_UserId], 
+[Courseware_OpinionTable].[o_processState] AS [o_processState], 
+[Courseware_OpinionTable].[o_Title] AS [o_Title]
+FROM [dbo].[Courseware_OpinionTable] AS [Courseware_OpinionTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Material_ImportRecord" EntityType="Self.Material_ImportRecord" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Material_ImportRecord].[mi_id] AS [mi_id], 
+[Material_ImportRecord].[mi_material_id] AS [mi_material_id], 
+[Material_ImportRecord].[mi_Batch_nub] AS [mi_Batch_nub], 
+[Material_ImportRecord].[mi_Created_at] AS [mi_Created_at]
+FROM [dbo].[Material_ImportRecord] AS [Material_ImportRecord]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Role_Permission_ImportTable" EntityType="Self.Role_Permission_ImportTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Role_Permission_ImportTable].[t_ImportNo] AS [t_ImportNo], 
+[Role_Permission_ImportTable].[t_RoleId] AS [t_RoleId], 
+[Role_Permission_ImportTable].[t_PermissionId] AS [t_PermissionId], 
+[Role_Permission_ImportTable].[t_StaffId] AS [t_StaffId], 
+[Role_Permission_ImportTable].[t_AddTime] AS [t_AddTime]
+FROM [dbo].[Role_Permission_ImportTable] AS [Role_Permission_ImportTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempPermission" EntityType="Self.TempPermission" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TempPermission].[p_Id] AS [p_Id], 
+[TempPermission].[p_Name] AS [p_Name], 
+[TempPermission].[p_Mark] AS [p_Mark], 
+[TempPermission].[p_Group] AS [p_Group], 
+[TempPermission].[p_Module_id] AS [p_Module_id], 
+[TempPermission].[p_AddTime] AS [p_AddTime]
+FROM [dbo].[TempPermission] AS [TempPermission]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Container", "Container\Cont
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbConsole", "DbConsole\DbConsole.csproj", "{8B5EC80C-F033-46AF-972E-71D319A1E367}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsole", "SimpleConsole\SimpleConsole.csproj", "{58711178-2C59-43C6-9412-8EB247C7AED7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyConsole", "EmptyConsole\EmptyConsole.csproj", "{6368A3C8-6CCC-4346-B765-3C713879143F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{8B5EC80C-F033-46AF-972E-71D319A1E367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B5EC80C-F033-46AF-972E-71D319A1E367}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B5EC80C-F033-46AF-972E-71D319A1E367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58711178-2C59-43C6-9412-8EB247C7AED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58711178-2C59-43C6-9412-8EB247C7AED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58711178-2C59-43C6-9412-8EB247C7AED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58711178-2C59-43C6-9412-8EB247C7AED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6368A3C8-6CCC-4346-B765-3C713879143F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6368A3C8-6CCC-4346-B765-3C713879143F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6368A3C8-6CCC-4346-B765-3C713879143F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6368A3C8-6CCC-4346-B765-3C713879143F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

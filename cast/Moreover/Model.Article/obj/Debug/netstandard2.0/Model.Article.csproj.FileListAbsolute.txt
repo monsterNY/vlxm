@@ -1,0 +1,9 @@
+D:\work_y\git\szhw\cast\Moreover\Model.Article\bin\Debug\netstandard2.0\Model.Article.deps.json
+D:\work_y\git\szhw\cast\Moreover\Model.Article\bin\Debug\netstandard2.0\Model.Article.dll
+D:\work_y\git\szhw\cast\Moreover\Model.Article\bin\Debug\netstandard2.0\Model.Article.pdb
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.dll
+D:\work_y\git\szhw\cast\Moreover\Model.Article\obj\Debug\netstandard2.0\Model.Article.pdb

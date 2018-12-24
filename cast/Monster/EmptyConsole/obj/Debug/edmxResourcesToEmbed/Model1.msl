@@ -1,0 +1,1650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShuHuaDbModelStoreContainer" CdmEntityContainer="ShuHuaDbEntities">
+    <EntitySetMapping Name="AreaTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.AreaTable">
+        <MappingFragment StoreEntitySet="AreaTable">
+          <ScalarProperty Name="a_Code" ColumnName="a_Code" />
+          <ScalarProperty Name="a_Parent" ColumnName="a_Parent" />
+          <ScalarProperty Name="a_Name" ColumnName="a_Name" />
+          <ScalarProperty Name="a_Level" ColumnName="a_Level" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_Created_at" ColumnName="a_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ArticleTable">
+        <MappingFragment StoreEntitySet="ArticleTable">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="a_Title" ColumnName="a_Title" />
+          <ScalarProperty Name="a_Type" ColumnName="a_Type" />
+          <ScalarProperty Name="a_Picture" ColumnName="a_Picture" />
+          <ScalarProperty Name="a_Author" ColumnName="a_Author" />
+          <ScalarProperty Name="a_Description" ColumnName="a_Description" />
+          <ScalarProperty Name="a_KeyWord" ColumnName="a_KeyWord" />
+          <ScalarProperty Name="a_Seqence" ColumnName="a_Seqence" />
+          <ScalarProperty Name="a_Content" ColumnName="a_Content" />
+          <ScalarProperty Name="a_Hits" ColumnName="a_Hits" />
+          <ScalarProperty Name="a_Thumbs" ColumnName="a_Thumbs" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_UrlStatus" ColumnName="a_UrlStatus" />
+          <ScalarProperty Name="a_Url" ColumnName="a_Url" />
+          <ScalarProperty Name="a_AddTime" ColumnName="a_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleTypeTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ArticleTypeTable">
+        <MappingFragment StoreEntitySet="ArticleTypeTable">
+          <ScalarProperty Name="at_Id" ColumnName="at_Id" />
+          <ScalarProperty Name="at_Name" ColumnName="at_Name" />
+          <ScalarProperty Name="at_ParentTye" ColumnName="at_ParentTye" />
+          <ScalarProperty Name="at_Status" ColumnName="at_Status" />
+          <ScalarProperty Name="at_AddTime" ColumnName="at_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.AttendanceTable">
+        <MappingFragment StoreEntitySet="AttendanceTable">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="a_AttendanceDate" ColumnName="a_AttendanceDate" />
+          <ScalarProperty Name="a_ClassTimeId" ColumnName="a_ClassTimeId" />
+          <ScalarProperty Name="a_CompusId" ColumnName="a_CompusId" />
+          <ScalarProperty Name="a_ClassId" ColumnName="a_ClassId" />
+          <ScalarProperty Name="a_ClassRoomId" ColumnName="a_ClassRoomId" />
+          <ScalarProperty Name="a_TeacherId" ColumnName="a_TeacherId" />
+          <ScalarProperty Name="a_StudentId" ColumnName="a_StudentId" />
+          <ScalarProperty Name="a_StudentType" ColumnName="a_StudentType" />
+          <ScalarProperty Name="a_AttendanceStatus" ColumnName="a_AttendanceStatus" />
+          <ScalarProperty Name="a_Remark" ColumnName="a_Remark" />
+          <ScalarProperty Name="a_AddTime" ColumnName="a_AddTime" />
+          <ScalarProperty Name="a_RegistrarId" ColumnName="a_RegistrarId" />
+          <ScalarProperty Name="a_CheckStatus" ColumnName="a_CheckStatus" />
+          <ScalarProperty Name="a_CheckTime" ColumnName="a_CheckTime" />
+          <ScalarProperty Name="a_Week" ColumnName="a_Week" />
+          <ScalarProperty Name="a_StartTime" ColumnName="a_StartTime" />
+          <ScalarProperty Name="a_EndTime" ColumnName="a_EndTime" />
+          <ScalarProperty Name="a_NeedArrive" ColumnName="a_NeedArrive" />
+          <ScalarProperty Name="a_ActualArrive" ColumnName="a_ActualArrive" />
+          <ScalarProperty Name="a_LeaveNumber" ColumnName="a_LeaveNumber" />
+          <ScalarProperty Name="a_AbsenceNumber" ColumnName="a_AbsenceNumber" />
+          <ScalarProperty Name="a_StudentCourseId" ColumnName="a_StudentCourseId" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_ClassTeacherId" ColumnName="a_ClassTeacherId" />
+          <ScalarProperty Name="a_OldAttendanceStatus" ColumnName="a_OldAttendanceStatus" />
+          <ScalarProperty Name="a_DataId" ColumnName="a_DataId" />
+          <ScalarProperty Name="a_SignUpId" ColumnName="a_SignUpId" />
+          <ScalarProperty Name="a_ClassHours" ColumnName="a_ClassHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttentionTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.AttentionTable">
+        <MappingFragment StoreEntitySet="AttentionTable">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="a_User_id" ColumnName="a_User_id" />
+          <ScalarProperty Name="a_Attention_id" ColumnName="a_Attention_id" />
+          <ScalarProperty Name="a_Is_new" ColumnName="a_Is_new" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_Created_at" ColumnName="a_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditionActivityTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.AuditionActivityTable">
+        <MappingFragment StoreEntitySet="AuditionActivityTable">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="a_Name" ColumnName="a_Name" />
+          <ScalarProperty Name="a_Type" ColumnName="a_Type" />
+          <ScalarProperty Name="a_CompuId" ColumnName="a_CompuId" />
+          <ScalarProperty Name="a_CourseId" ColumnName="a_CourseId" />
+          <ScalarProperty Name="a_TeacherId" ColumnName="a_TeacherId" />
+          <ScalarProperty Name="a_ClassRoomId" ColumnName="a_ClassRoomId" />
+          <ScalarProperty Name="a_Date" ColumnName="a_Date" />
+          <ScalarProperty Name="a_StartTime" ColumnName="a_StartTime" />
+          <ScalarProperty Name="a_EndTime" ColumnName="a_EndTime" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_AddTime" ColumnName="a_AddTime" />
+          <ScalarProperty Name="a_AddStaffId" ColumnName="a_AddStaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditionRecordTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.AuditionRecordTable">
+        <MappingFragment StoreEntitySet="AuditionRecordTable">
+          <ScalarProperty Name="ar_Id" ColumnName="ar_Id" />
+          <ScalarProperty Name="ar_ConsultId" ColumnName="ar_ConsultId" />
+          <ScalarProperty Name="ar_StudentId" ColumnName="ar_StudentId" />
+          <ScalarProperty Name="ar_Type" ColumnName="ar_Type" />
+          <ScalarProperty Name="ar_DataId" ColumnName="ar_DataId" />
+          <ScalarProperty Name="ar_DataName" ColumnName="ar_DataName" />
+          <ScalarProperty Name="ar_CompusId" ColumnName="ar_CompusId" />
+          <ScalarProperty Name="ar_CourseId" ColumnName="ar_CourseId" />
+          <ScalarProperty Name="ar_TeacherId" ColumnName="ar_TeacherId" />
+          <ScalarProperty Name="ar_ClassRoomId" ColumnName="ar_ClassRoomId" />
+          <ScalarProperty Name="ar_Date" ColumnName="ar_Date" />
+          <ScalarProperty Name="ar_StartTime" ColumnName="ar_StartTime" />
+          <ScalarProperty Name="ar_EndTime" ColumnName="ar_EndTime" />
+          <ScalarProperty Name="ar_FeedBack" ColumnName="ar_FeedBack" />
+          <ScalarProperty Name="ar_Remark" ColumnName="ar_Remark" />
+          <ScalarProperty Name="ar_Status" ColumnName="ar_Status" />
+          <ScalarProperty Name="ar_StaffId" ColumnName="ar_StaffId" />
+          <ScalarProperty Name="ar_StaffName" ColumnName="ar_StaffName" />
+          <ScalarProperty Name="ar_AddTime" ColumnName="ar_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BalanceRecordTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.BalanceRecordTable">
+        <MappingFragment StoreEntitySet="BalanceRecordTable">
+          <ScalarProperty Name="br_Id" ColumnName="br_Id" />
+          <ScalarProperty Name="br_StudentId" ColumnName="br_StudentId" />
+          <ScalarProperty Name="br_UserId" ColumnName="br_UserId" />
+          <ScalarProperty Name="br_OrderId" ColumnName="br_OrderId" />
+          <ScalarProperty Name="br_Money" ColumnName="br_Money" />
+          <ScalarProperty Name="br_Remark" ColumnName="br_Remark" />
+          <ScalarProperty Name="br_Type" ColumnName="br_Type" />
+          <ScalarProperty Name="br_FromUserId" ColumnName="br_FromUserId" />
+          <ScalarProperty Name="br_Channel" ColumnName="br_Channel" />
+          <ScalarProperty Name="br_AddTime" ColumnName="br_AddTime" />
+          <ScalarProperty Name="br_Flag" ColumnName="br_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankCardTransferTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.BankCardTransferTable">
+        <MappingFragment StoreEntitySet="BankCardTransferTable">
+          <ScalarProperty Name="bt_Id" ColumnName="bt_Id" />
+          <ScalarProperty Name="bt_OrderId" ColumnName="bt_OrderId" />
+          <ScalarProperty Name="bt_UserId" ColumnName="bt_UserId" />
+          <ScalarProperty Name="bt_Picture" ColumnName="bt_Picture" />
+          <ScalarProperty Name="bt_Remark" ColumnName="bt_Remark" />
+          <ScalarProperty Name="bt_Status" ColumnName="bt_Status" />
+          <ScalarProperty Name="bt_AddTime" ColumnName="bt_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannerTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.BannerTable">
+        <MappingFragment StoreEntitySet="BannerTable">
+          <ScalarProperty Name="b_Id" ColumnName="b_Id" />
+          <ScalarProperty Name="b_Type" ColumnName="b_Type" />
+          <ScalarProperty Name="b_Title" ColumnName="b_Title" />
+          <ScalarProperty Name="b_Picture" ColumnName="b_Picture" />
+          <ScalarProperty Name="b_Author" ColumnName="b_Author" />
+          <ScalarProperty Name="b_KeyWord" ColumnName="b_KeyWord" />
+          <ScalarProperty Name="b_Description" ColumnName="b_Description" />
+          <ScalarProperty Name="b_Content" ColumnName="b_Content" />
+          <ScalarProperty Name="b_Hits" ColumnName="b_Hits" />
+          <ScalarProperty Name="b_UrlStatus" ColumnName="b_UrlStatus" />
+          <ScalarProperty Name="b_Url" ColumnName="b_Url" />
+          <ScalarProperty Name="b_Sequence" ColumnName="b_Sequence" />
+          <ScalarProperty Name="b_Status" ColumnName="b_Status" />
+          <ScalarProperty Name="b_AddTime" ColumnName="b_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChangeClassSnapshot">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChangeClassSnapshot">
+        <MappingFragment StoreEntitySet="ChangeClassSnapshot">
+          <ScalarProperty Name="ccs_Id" ColumnName="ccs_Id" />
+          <ScalarProperty Name="ccs_OrderId" ColumnName="ccs_OrderId" />
+          <ScalarProperty Name="ccs_SignUpId" ColumnName="ccs_SignUpId" />
+          <ScalarProperty Name="ccs_Type" ColumnName="ccs_Type" />
+          <ScalarProperty Name="ccs_DataId" ColumnName="ccs_DataId" />
+          <ScalarProperty Name="ccs_Value" ColumnName="ccs_Value" />
+          <ScalarProperty Name="ccs_AddTime" ColumnName="ccs_AddTime" />
+          <ScalarProperty Name="ccs_Status" ColumnName="ccs_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChangeClassTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChangeClassTable">
+        <MappingFragment StoreEntitySet="ChangeClassTable">
+          <ScalarProperty Name="cc_Id" ColumnName="cc_Id" />
+          <ScalarProperty Name="cc_StudentId" ColumnName="cc_StudentId" />
+          <ScalarProperty Name="cc_CampusId" ColumnName="cc_CampusId" />
+          <ScalarProperty Name="cc_ClassId" ColumnName="cc_ClassId" />
+          <ScalarProperty Name="cc_OrderId" ColumnName="cc_OrderId" />
+          <ScalarProperty Name="cc_SignUpId" ColumnName="cc_SignUpId" />
+          <ScalarProperty Name="cc_StudentClassId" ColumnName="cc_StudentClassId" />
+          <ScalarProperty Name="cc_StudentCampusId" ColumnName="cc_StudentCampusId" />
+          <ScalarProperty Name="cc_Amount" ColumnName="cc_Amount" />
+          <ScalarProperty Name="cc_LeftAmount" ColumnName="cc_LeftAmount" />
+          <ScalarProperty Name="cc_LeftTuition" ColumnName="cc_LeftTuition" />
+          <ScalarProperty Name="cc_PayTuition" ColumnName="cc_PayTuition" />
+          <ScalarProperty Name="cc_StaffId" ColumnName="cc_StaffId" />
+          <ScalarProperty Name="cc_Status" ColumnName="cc_Status" />
+          <ScalarProperty Name="cc_CheckTime" ColumnName="cc_CheckTime" />
+          <ScalarProperty Name="cc_CheckStaffId" ColumnName="cc_CheckStaffId" />
+          <ScalarProperty Name="cc_AddTime" ColumnName="cc_AddTime" />
+          <ScalarProperty Name="cc_RefundType" ColumnName="cc_RefundType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChannelTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChannelTable">
+        <MappingFragment StoreEntitySet="ChannelTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+          <ScalarProperty Name="c_Type" ColumnName="c_Type" />
+          <ScalarProperty Name="c_Remark" ColumnName="c_Remark" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+          <ScalarProperty Name="c_AddStaffId" ColumnName="c_AddStaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChannelTypeTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChannelTypeTable">
+        <MappingFragment StoreEntitySet="ChannelTypeTable">
+          <ScalarProperty Name="ct_Id" ColumnName="ct_Id" />
+          <ScalarProperty Name="ct_Name" ColumnName="ct_Name" />
+          <ScalarProperty Name="ct_Count" ColumnName="ct_Count" />
+          <ScalarProperty Name="ct_Status" ColumnName="ct_Status" />
+          <ScalarProperty Name="ct_AddTime" ColumnName="ct_AddTime" />
+          <ScalarProperty Name="ct_AddStaffId" ColumnName="ct_AddStaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatStatusTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChatStatusTable">
+        <MappingFragment StoreEntitySet="ChatStatusTable">
+          <ScalarProperty Name="cs_Id" ColumnName="cs_Id" />
+          <ScalarProperty Name="cs_UserId" ColumnName="cs_UserId" />
+          <ScalarProperty Name="cs_Type" ColumnName="cs_Type" />
+          <ScalarProperty Name="cs_DataId" ColumnName="cs_DataId" />
+          <ScalarProperty Name="cs_Time" ColumnName="cs_Time" />
+          <ScalarProperty Name="cs_LastChatId" ColumnName="cs_LastChatId" />
+          <ScalarProperty Name="cs_AddTime" ColumnName="cs_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ChatTable">
+        <MappingFragment StoreEntitySet="ChatTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_FromUserId" ColumnName="c_FromUserId" />
+          <ScalarProperty Name="c_ToUserId" ColumnName="c_ToUserId" />
+          <ScalarProperty Name="c_ContentType" ColumnName="c_ContentType" />
+          <ScalarProperty Name="c_Content" ColumnName="c_Content" />
+          <ScalarProperty Name="c_GroupId" ColumnName="c_GroupId" />
+          <ScalarProperty Name="c_ChatType" ColumnName="c_ChatType" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class_Time_Teacher_ChangeTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Class_Time_Teacher_ChangeTable">
+        <MappingFragment StoreEntitySet="Class_Time_Teacher_ChangeTable">
+          <ScalarProperty Name="cttc_id" ColumnName="cttc_id" />
+          <ScalarProperty Name="cttc_teacher_id" ColumnName="cttc_teacher_id" />
+          <ScalarProperty Name="cttc_class_time_id" ColumnName="cttc_class_time_id" />
+          <ScalarProperty Name="cttc_date" ColumnName="cttc_date" />
+          <ScalarProperty Name="cttc_status" ColumnName="cttc_status" />
+          <ScalarProperty Name="cttc_staff_id" ColumnName="cttc_staff_id" />
+          <ScalarProperty Name="cttc_add_time" ColumnName="cttc_add_time" />
+          <ScalarProperty Name="cttc_cancel_time" ColumnName="cttc_cancel_time" />
+          <ScalarProperty Name="cttc_cancel_staff" ColumnName="cttc_cancel_staff" />
+          <ScalarProperty Name="cttc_no" ColumnName="cttc_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class_Time_TeacherTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Class_Time_TeacherTable">
+        <MappingFragment StoreEntitySet="Class_Time_TeacherTable">
+          <ScalarProperty Name="ctt_id" ColumnName="ctt_id" />
+          <ScalarProperty Name="ctt_Class_time_id" ColumnName="ctt_Class_time_id" />
+          <ScalarProperty Name="ctt_Teacher_id" ColumnName="ctt_Teacher_id" />
+          <ScalarProperty Name="ctt_Status" ColumnName="ctt_Status" />
+          <ScalarProperty Name="ctt_Created_at" ColumnName="ctt_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class_TimeTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Class_TimeTable">
+        <MappingFragment StoreEntitySet="Class_TimeTable">
+          <ScalarProperty Name="ct_id" ColumnName="ct_id" />
+          <ScalarProperty Name="ct_Class_id" ColumnName="ct_Class_id" />
+          <ScalarProperty Name="ct_Room_id" ColumnName="ct_Room_id" />
+          <ScalarProperty Name="ct_Week" ColumnName="ct_Week" />
+          <ScalarProperty Name="ct_Start_time" ColumnName="ct_Start_time" />
+          <ScalarProperty Name="ct_End_time" ColumnName="ct_End_time" />
+          <ScalarProperty Name="ct_Status" ColumnName="ct_Status" />
+          <ScalarProperty Name="ct_Created_at" ColumnName="ct_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassRelationTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ClassRelationTable">
+        <MappingFragment StoreEntitySet="ClassRelationTable">
+          <ScalarProperty Name="cr_Id" ColumnName="cr_Id" />
+          <ScalarProperty Name="cr_UserId" ColumnName="cr_UserId" />
+          <ScalarProperty Name="cr_Identity" ColumnName="cr_Identity" />
+          <ScalarProperty Name="cr_ClassId" ColumnName="cr_ClassId" />
+          <ScalarProperty Name="cr_AddTime" ColumnName="cr_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassRoomTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ClassRoomTable">
+        <MappingFragment StoreEntitySet="ClassRoomTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_CompusId" ColumnName="c_CompusId" />
+          <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ClassTable">
+        <MappingFragment StoreEntitySet="ClassTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_CompusId" ColumnName="c_CompusId" />
+          <ScalarProperty Name="c_CourseId" ColumnName="c_CourseId" />
+          <ScalarProperty Name="c_CourseType" ColumnName="c_CourseType" />
+          <ScalarProperty Name="c_ChargeType" ColumnName="c_ChargeType" />
+          <ScalarProperty Name="c_Course_price_id" ColumnName="c_Course_price_id" />
+          <ScalarProperty Name="c_ClassRoomId" ColumnName="c_ClassRoomId" />
+          <ScalarProperty Name="c_TeacherId" ColumnName="c_TeacherId" />
+          <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+          <ScalarProperty Name="c_LimitAmount" ColumnName="c_LimitAmount" />
+          <ScalarProperty Name="c_Amount" ColumnName="c_Amount" />
+          <ScalarProperty Name="c_RecruitStatus" ColumnName="c_RecruitStatus" />
+          <ScalarProperty Name="c_StartClassTime" ColumnName="c_StartClassTime" />
+          <ScalarProperty Name="c_EndClassTime" ColumnName="c_EndClassTime" />
+          <ScalarProperty Name="c_UnifyClose" ColumnName="c_UnifyClose" />
+          <ScalarProperty Name="c_IsEndClass" ColumnName="c_IsEndClass" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_Remark" ColumnName="c_Remark" />
+          <ScalarProperty Name="c_Creator" ColumnName="c_Creator" />
+          <ScalarProperty Name="c_ClassHoursStudent" ColumnName="c_ClassHoursStudent" />
+          <ScalarProperty Name="c_ClassHoursTeacher" ColumnName="c_ClassHoursTeacher" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CollectTable">
+        <MappingFragment StoreEntitySet="CollectTable">
+          <ScalarProperty Name="co_Id" ColumnName="co_Id" />
+          <ScalarProperty Name="co_StaffId" ColumnName="co_StaffId" />
+          <ScalarProperty Name="co_uId" ColumnName="co_uId" />
+          <ScalarProperty Name="co_CourseId" ColumnName="co_CourseId" />
+          <ScalarProperty Name="co_Status" ColumnName="co_Status" />
+          <ScalarProperty Name="co_Created_at" ColumnName="co_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CommentTable">
+        <MappingFragment StoreEntitySet="CommentTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_Type" ColumnName="c_Type" />
+          <ScalarProperty Name="c_UserId" ColumnName="c_UserId" />
+          <ScalarProperty Name="c_ToUserId" ColumnName="c_ToUserId" />
+          <ScalarProperty Name="c_Work_id" ColumnName="c_Work_id" />
+          <ScalarProperty Name="c_ContentType" ColumnName="c_ContentType" />
+          <ScalarProperty Name="c_Content" ColumnName="c_Content" />
+          <ScalarProperty Name="c_IsRead" ColumnName="c_IsRead" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompusAreaTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CompusAreaTable">
+        <MappingFragment StoreEntitySet="CompusAreaTable">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="a_Name" ColumnName="a_Name" />
+          <ScalarProperty Name="a_AddStaffId" ColumnName="a_AddStaffId" />
+          <ScalarProperty Name="a_AddStaffName" ColumnName="a_AddStaffName" />
+          <ScalarProperty Name="a_Status" ColumnName="a_Status" />
+          <ScalarProperty Name="a_AddTime" ColumnName="a_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompusTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CompusTable">
+        <MappingFragment StoreEntitySet="CompusTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_Sequence" ColumnName="c_Sequence" />
+          <ScalarProperty Name="c_Area" ColumnName="c_Area" />
+          <ScalarProperty Name="c_Type" ColumnName="c_Type" />
+          <ScalarProperty Name="c_Compus_Name" ColumnName="c_Compus_Name" />
+          <ScalarProperty Name="c_Province" ColumnName="c_Province" />
+          <ScalarProperty Name="c_Province_code" ColumnName="c_Province_code" />
+          <ScalarProperty Name="c_City" ColumnName="c_City" />
+          <ScalarProperty Name="c_City_code" ColumnName="c_City_code" />
+          <ScalarProperty Name="c_District" ColumnName="c_District" />
+          <ScalarProperty Name="c_District_code" ColumnName="c_District_code" />
+          <ScalarProperty Name="c_DetailAddr" ColumnName="c_DetailAddr" />
+          <ScalarProperty Name="c_Lng" ColumnName="c_Lng" />
+          <ScalarProperty Name="c_Lat" ColumnName="c_Lat" />
+          <ScalarProperty Name="c_Mobile1" ColumnName="c_Mobile1" />
+          <ScalarProperty Name="c_Mobile2" ColumnName="c_Mobile2" />
+          <ScalarProperty Name="c_Picture" ColumnName="c_Picture" />
+          <ScalarProperty Name="c_Carousel" ColumnName="c_Carousel" />
+          <ScalarProperty Name="c_Description" ColumnName="c_Description" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConfigTable">
+        <MappingFragment StoreEntitySet="ConfigTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_Title" ColumnName="c_Title" />
+          <ScalarProperty Name="c_Value" ColumnName="c_Value" />
+          <ScalarProperty Name="c_Remark" ColumnName="c_Remark" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultFollowTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConsultFollowTable">
+        <MappingFragment StoreEntitySet="ConsultFollowTable">
+          <ScalarProperty Name="cf_Id" ColumnName="cf_Id" />
+          <ScalarProperty Name="cf_ConsultId" ColumnName="cf_ConsultId" />
+          <ScalarProperty Name="cf_Mobile" ColumnName="cf_Mobile" />
+          <ScalarProperty Name="cf_Type" ColumnName="cf_Type" />
+          <ScalarProperty Name="cf_IntentionContent" ColumnName="cf_IntentionContent" />
+          <ScalarProperty Name="cf_FollowType" ColumnName="cf_FollowType" />
+          <ScalarProperty Name="cf_FollowTime" ColumnName="cf_FollowTime" />
+          <ScalarProperty Name="cf_FollowStaffId" ColumnName="cf_FollowStaffId" />
+          <ScalarProperty Name="cf_AddTime" ColumnName="cf_AddTime" />
+          <ScalarProperty Name="cf_IsNoticed" ColumnName="cf_IsNoticed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultLogTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConsultLogTable">
+        <MappingFragment StoreEntitySet="ConsultLogTable">
+          <ScalarProperty Name="cl_Id" ColumnName="cl_Id" />
+          <ScalarProperty Name="cl_ConsultId" ColumnName="cl_ConsultId" />
+          <ScalarProperty Name="cl_Content" ColumnName="cl_Content" />
+          <ScalarProperty Name="cl_StaffId" ColumnName="cl_StaffId" />
+          <ScalarProperty Name="cl_AddTime" ColumnName="cl_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConsultTable">
+        <MappingFragment StoreEntitySet="ConsultTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_StudentId" ColumnName="c_StudentId" />
+          <ScalarProperty Name="c_CreatorId" ColumnName="c_CreatorId" />
+          <ScalarProperty Name="c_Channel" ColumnName="c_Channel" />
+          <ScalarProperty Name="c_Concern" ColumnName="c_Concern" />
+          <ScalarProperty Name="c_ConcernOther" ColumnName="c_ConcernOther" />
+          <ScalarProperty Name="c_Relation" ColumnName="c_Relation" />
+          <ScalarProperty Name="c_RelationOther" ColumnName="c_RelationOther" />
+          <ScalarProperty Name="c_ConsultWay" ColumnName="c_ConsultWay" />
+          <ScalarProperty Name="c_Intention" ColumnName="c_Intention" />
+          <ScalarProperty Name="c_CompusId" ColumnName="c_CompusId" />
+          <ScalarProperty Name="c_LeafLetStaffId" ColumnName="c_LeafLetStaffId" />
+          <ScalarProperty Name="c_SellerStaffId" ColumnName="c_SellerStaffId" />
+          <ScalarProperty Name="c_CourseId_1" ColumnName="c_CourseId_1" />
+          <ScalarProperty Name="c_CourseId_2" ColumnName="c_CourseId_2" />
+          <ScalarProperty Name="c_CourseId_3" ColumnName="c_CourseId_3" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_IsInPool" ColumnName="c_IsInPool" />
+          <ScalarProperty Name="c_ReceiveTime" ColumnName="c_ReceiveTime" />
+          <ScalarProperty Name="c_UpdateTime" ColumnName="c_UpdateTime" />
+          <ScalarProperty Name="c_FollowUpTime" ColumnName="c_FollowUpTime" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultTransferTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConsultTransferTable">
+        <MappingFragment StoreEntitySet="ConsultTransferTable">
+          <ScalarProperty Name="ct_Id" ColumnName="ct_Id" />
+          <ScalarProperty Name="ct_ConsultId" ColumnName="ct_ConsultId" />
+          <ScalarProperty Name="ct_Type" ColumnName="ct_Type" />
+          <ScalarProperty Name="ct_FromRecruiter" ColumnName="ct_FromRecruiter" />
+          <ScalarProperty Name="ct_ToRecruiter" ColumnName="ct_ToRecruiter" />
+          <ScalarProperty Name="ct_Content" ColumnName="ct_Content" />
+          <ScalarProperty Name="ct_StaffId" ColumnName="ct_StaffId" />
+          <ScalarProperty Name="ct_Remark" ColumnName="ct_Remark" />
+          <ScalarProperty Name="ct_AddTime" ColumnName="ct_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_TypeTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Course_TypeTable">
+        <MappingFragment StoreEntitySet="Course_TypeTable">
+          <ScalarProperty Name="ct_Id" ColumnName="ct_Id" />
+          <ScalarProperty Name="ct_Name" ColumnName="ct_Name" />
+          <ScalarProperty Name="ct_Type" ColumnName="ct_Type" />
+          <ScalarProperty Name="ct_Sequence" ColumnName="ct_Sequence" />
+          <ScalarProperty Name="ct_Status" ColumnName="ct_Status" />
+          <ScalarProperty Name="ct_AddTime" ColumnName="ct_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseActiveTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CourseActiveTable">
+        <MappingFragment StoreEntitySet="CourseActiveTable">
+          <ScalarProperty Name="ca_Id" ColumnName="ca_Id" />
+          <ScalarProperty Name="ca_OrderId" ColumnName="ca_OrderId" />
+          <ScalarProperty Name="ca_ActiveCode" ColumnName="ca_ActiveCode" />
+          <ScalarProperty Name="ca_ActiveStatus" ColumnName="ca_ActiveStatus" />
+          <ScalarProperty Name="ca_ActiveTime" ColumnName="ca_ActiveTime" />
+          <ScalarProperty Name="ca_UserId" ColumnName="ca_UserId" />
+          <ScalarProperty Name="ca_StaffId" ColumnName="ca_StaffId" />
+          <ScalarProperty Name="ca_ConsultId" ColumnName="ca_ConsultId" />
+          <ScalarProperty Name="ca_AddTime" ColumnName="ca_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursePriceTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CoursePriceTable">
+        <MappingFragment StoreEntitySet="CoursePriceTable">
+          <ScalarProperty Name="cp_Id" ColumnName="cp_Id" />
+          <ScalarProperty Name="cp_CourseId" ColumnName="cp_CourseId" />
+          <ScalarProperty Name="cp_Type" ColumnName="cp_Type" />
+          <ScalarProperty Name="cp_Name" ColumnName="cp_Name" />
+          <ScalarProperty Name="cp_Remark" ColumnName="cp_Remark" />
+          <ScalarProperty Name="cp_Price" ColumnName="cp_Price" />
+          <ScalarProperty Name="cp_ClassHours" ColumnName="cp_ClassHours" />
+          <ScalarProperty Name="cp_Status" ColumnName="cp_Status" />
+          <ScalarProperty Name="cp_AddTime" ColumnName="cp_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CourseTable">
+        <MappingFragment StoreEntitySet="CourseTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_CompusId" ColumnName="c_CompusId" />
+          <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+          <ScalarProperty Name="c_Type" ColumnName="c_Type" />
+          <ScalarProperty Name="c_ClassStyle" ColumnName="c_ClassStyle" />
+          <ScalarProperty Name="c_Picture" ColumnName="c_Picture" />
+          <ScalarProperty Name="c_Banner" ColumnName="c_Banner" />
+          <ScalarProperty Name="c_StudyLength" ColumnName="c_StudyLength" />
+          <ScalarProperty Name="c_Description" ColumnName="c_Description" />
+          <ScalarProperty Name="c_Content" ColumnName="c_Content" />
+          <ScalarProperty Name="c_ClassAmount" ColumnName="c_ClassAmount" />
+          <ScalarProperty Name="c_Sequence" ColumnName="c_Sequence" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_CanAudition" ColumnName="c_CanAudition" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+          <ScalarProperty Name="c_ForAges" ColumnName="c_ForAges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursewareAdjunctTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CoursewareAdjunctTable">
+        <MappingFragment StoreEntitySet="CoursewareAdjunctTable">
+          <ScalarProperty Name="ca_Id" ColumnName="ca_Id" />
+          <ScalarProperty Name="ca_Courseware_id" ColumnName="ca_Courseware_id" />
+          <ScalarProperty Name="ca_Staff_id" ColumnName="ca_Staff_id" />
+          <ScalarProperty Name="ca_Name" ColumnName="ca_Name" />
+          <ScalarProperty Name="ca_Filename" ColumnName="ca_Filename" />
+          <ScalarProperty Name="ca_File_url" ColumnName="ca_File_url" />
+          <ScalarProperty Name="ca_Status" ColumnName="ca_Status" />
+          <ScalarProperty Name="ca_Created_at" ColumnName="ca_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursewareDecipheringTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CoursewareDecipheringTable">
+        <MappingFragment StoreEntitySet="CoursewareDecipheringTable">
+          <ScalarProperty Name="cd_Id" ColumnName="cd_Id" />
+          <ScalarProperty Name="cd_Cid" ColumnName="cd_Cid" />
+          <ScalarProperty Name="cd_deciphering_time" ColumnName="cd_deciphering_time" />
+          <ScalarProperty Name="cd_Status" ColumnName="cd_Status" />
+          <ScalarProperty Name="cd_Create_at" ColumnName="cd_Create_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursewareTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CoursewareTable">
+        <MappingFragment StoreEntitySet="CoursewareTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_Title" ColumnName="c_Title" />
+          <ScalarProperty Name="c_Type" ColumnName="c_Type" />
+          <ScalarProperty Name="c_Picture" ColumnName="c_Picture" />
+          <ScalarProperty Name="c_KnowledgePoint" ColumnName="c_KnowledgePoint" />
+          <ScalarProperty Name="c_Procedure" ColumnName="c_Procedure" />
+          <ScalarProperty Name="c_Adjunct" ColumnName="c_Adjunct" />
+          <ScalarProperty Name="c_Adjunct_id" ColumnName="c_Adjunct_id" />
+          <ScalarProperty Name="c_AuditState" ColumnName="c_AuditState" />
+          <ScalarProperty Name="c_State" ColumnName="c_State" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+          <ScalarProperty Name="c_StaffId" ColumnName="c_StaffId" />
+          <ScalarProperty Name="c_Score" ColumnName="c_Score" />
+          <ScalarProperty Name="c_Stuff" ColumnName="c_Stuff" />
+          <ScalarProperty Name="c_Video" ColumnName="c_Video" />
+          <ScalarProperty Name="c_Remarks" ColumnName="c_Remarks" />
+          <ScalarProperty Name="c_DownloadsCount" ColumnName="c_DownloadsCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentSchoolTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.CurrentSchoolTable">
+        <MappingFragment StoreEntitySet="CurrentSchoolTable">
+          <ScalarProperty Name="cs_Id" ColumnName="cs_Id" />
+          <ScalarProperty Name="cs_Name" ColumnName="cs_Name" />
+          <ScalarProperty Name="cs_Status" ColumnName="cs_Status" />
+          <ScalarProperty Name="cs_Sequence" ColumnName="cs_Sequence" />
+          <ScalarProperty Name="cs_AddTime" ColumnName="cs_AddTime" />
+          <ScalarProperty Name="cs_AddStaff" ColumnName="cs_AddStaff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.DepartmentTable">
+        <MappingFragment StoreEntitySet="DepartmentTable">
+          <ScalarProperty Name="d_Id" ColumnName="d_Id" />
+          <ScalarProperty Name="d_Name" ColumnName="d_Name" />
+          <ScalarProperty Name="d_Status" ColumnName="d_Status" />
+          <ScalarProperty Name="d_AddStaffId" ColumnName="d_AddStaffId" />
+          <ScalarProperty Name="d_AddTime" ColumnName="d_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FriendApplyTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.FriendApplyTable">
+        <MappingFragment StoreEntitySet="FriendApplyTable">
+          <ScalarProperty Name="fa_Id" ColumnName="fa_Id" />
+          <ScalarProperty Name="fa_UserId" ColumnName="fa_UserId" />
+          <ScalarProperty Name="fa_FriendId" ColumnName="fa_FriendId" />
+          <ScalarProperty Name="fa_Status" ColumnName="fa_Status" />
+          <ScalarProperty Name="fa_Remark" ColumnName="fa_Remark" />
+          <ScalarProperty Name="fa_UpdateTime" ColumnName="fa_UpdateTime" />
+          <ScalarProperty Name="fa_AddTime" ColumnName="fa_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FriendRelationTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.FriendRelationTable">
+        <MappingFragment StoreEntitySet="FriendRelationTable">
+          <ScalarProperty Name="fr_Id" ColumnName="fr_Id" />
+          <ScalarProperty Name="fr_UserId" ColumnName="fr_UserId" />
+          <ScalarProperty Name="fr_FriendId" ColumnName="fr_FriendId" />
+          <ScalarProperty Name="fr_Status" ColumnName="fr_Status" />
+          <ScalarProperty Name="fr_Remark" ColumnName="fr_Remark" />
+          <ScalarProperty Name="fr_Sequence" ColumnName="fr_Sequence" />
+          <ScalarProperty Name="fr_AddTime" ColumnName="fr_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.JobTable">
+        <MappingFragment StoreEntitySet="JobTable">
+          <ScalarProperty Name="j_Id" ColumnName="j_Id" />
+          <ScalarProperty Name="j_Name" ColumnName="j_Name" />
+          <ScalarProperty Name="j_DepartmentId" ColumnName="j_DepartmentId" />
+          <ScalarProperty Name="j_Status" ColumnName="j_Status" />
+          <ScalarProperty Name="j_AddStaffId" ColumnName="j_AddStaffId" />
+          <ScalarProperty Name="j_AddTime" ColumnName="j_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveRecordTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.LeaveRecordTable">
+        <MappingFragment StoreEntitySet="LeaveRecordTable">
+          <ScalarProperty Name="lr_Id" ColumnName="lr_Id" />
+          <ScalarProperty Name="lr_StudentId" ColumnName="lr_StudentId" />
+          <ScalarProperty Name="lr_CampusId" ColumnName="lr_CampusId" />
+          <ScalarProperty Name="lr_ClassId" ColumnName="lr_ClassId" />
+          <ScalarProperty Name="lr_StartTime" ColumnName="lr_StartTime" />
+          <ScalarProperty Name="lr_EndTime" ColumnName="lr_EndTime" />
+          <ScalarProperty Name="lr_Amount" ColumnName="lr_Amount" />
+          <ScalarProperty Name="lr_AddStaff" ColumnName="lr_AddStaff" />
+          <ScalarProperty Name="lr_Remark" ColumnName="lr_Remark" />
+          <ScalarProperty Name="lr_Status" ColumnName="lr_Status" />
+          <ScalarProperty Name="lr_AddTime" ColumnName="lr_AddTime" />
+          <ScalarProperty Name="lr_HasMakeUp" ColumnName="lr_HasMakeUp" />
+          <ScalarProperty Name="lr_MakeUp_StartTime" ColumnName="lr_MakeUp_StartTime" />
+          <ScalarProperty Name="lr_MakeUp_EndTime" ColumnName="lr_MakeUp_EndTime" />
+          <ScalarProperty Name="lr_MakeUp_ClassId" ColumnName="lr_MakeUp_ClassId" />
+          <ScalarProperty Name="lr_OldEndTime" ColumnName="lr_OldEndTime" />
+          <ScalarProperty Name="lr_DataId" ColumnName="lr_DataId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MakeUpClassTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.MakeUpClassTable">
+        <MappingFragment StoreEntitySet="MakeUpClassTable">
+          <ScalarProperty Name="mc_Id" ColumnName="mc_Id" />
+          <ScalarProperty Name="mc_Type" ColumnName="mc_Type" />
+          <ScalarProperty Name="mc_CampusId" ColumnName="mc_CampusId" />
+          <ScalarProperty Name="mc_StudentId" ColumnName="mc_StudentId" />
+          <ScalarProperty Name="mc_ClassId" ColumnName="mc_ClassId" />
+          <ScalarProperty Name="mc_StartTime" ColumnName="mc_StartTime" />
+          <ScalarProperty Name="mc_EndTime" ColumnName="mc_EndTime" />
+          <ScalarProperty Name="mc_Amount" ColumnName="mc_Amount" />
+          <ScalarProperty Name="mc_AddStaff" ColumnName="mc_AddStaff" />
+          <ScalarProperty Name="mc_AddTime" ColumnName="mc_AddTime" />
+          <ScalarProperty Name="mc_Status" ColumnName="mc_Status" />
+          <ScalarProperty Name="mc_DataId" ColumnName="mc_DataId" />
+          <ScalarProperty Name="mc_LeaveRecordId" ColumnName="mc_LeaveRecordId" />
+          <ScalarProperty Name="mc_StudentClassId" ColumnName="mc_StudentClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialOrderTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.MaterialOrderTable">
+        <MappingFragment StoreEntitySet="MaterialOrderTable">
+          <ScalarProperty Name="mo_Id" ColumnName="mo_Id" />
+          <ScalarProperty Name="mo_Type" ColumnName="mo_Type" />
+          <ScalarProperty Name="mo_OrderId" ColumnName="mo_OrderId" />
+          <ScalarProperty Name="mo_ChildOrderId" ColumnName="mo_ChildOrderId" />
+          <ScalarProperty Name="mo_MaterialId" ColumnName="mo_MaterialId" />
+          <ScalarProperty Name="mo_MaterialName" ColumnName="mo_MaterialName" />
+          <ScalarProperty Name="mo_MaterialMoney" ColumnName="mo_MaterialMoney" />
+          <ScalarProperty Name="mo_AddTime" ColumnName="mo_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.MaterialTable">
+        <MappingFragment StoreEntitySet="MaterialTable">
+          <ScalarProperty Name="m_Id" ColumnName="m_Id" />
+          <ScalarProperty Name="m_Type" ColumnName="m_Type" />
+          <ScalarProperty Name="m_Name" ColumnName="m_Name" />
+          <ScalarProperty Name="m_CourseType" ColumnName="m_CourseType" />
+          <ScalarProperty Name="m_Money" ColumnName="m_Money" />
+          <ScalarProperty Name="m_Status" ColumnName="m_Status" />
+          <ScalarProperty Name="m_AddTime" ColumnName="m_AddTime" />
+          <ScalarProperty Name="m_ImportNo" ColumnName="m_ImportNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageStatusTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.MessageStatusTable">
+        <MappingFragment StoreEntitySet="MessageStatusTable">
+          <ScalarProperty Name="ms_Id" ColumnName="ms_Id" />
+          <ScalarProperty Name="ms_UserId" ColumnName="ms_UserId" />
+          <ScalarProperty Name="ms_DataId" ColumnName="ms_DataId" />
+          <ScalarProperty Name="ms_IsRead" ColumnName="ms_IsRead" />
+          <ScalarProperty Name="ms_Status" ColumnName="ms_Status" />
+          <ScalarProperty Name="ms_AddTime" ColumnName="ms_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.MessageTable">
+        <MappingFragment StoreEntitySet="MessageTable">
+          <ScalarProperty Name="m_Id" ColumnName="m_Id" />
+          <ScalarProperty Name="m_Type" ColumnName="m_Type" />
+          <ScalarProperty Name="m_FromUserId" ColumnName="m_FromUserId" />
+          <ScalarProperty Name="m_ToUserId" ColumnName="m_ToUserId" />
+          <ScalarProperty Name="m_Title" ColumnName="m_Title" />
+          <ScalarProperty Name="m_Content" ColumnName="m_Content" />
+          <ScalarProperty Name="m_Remark" ColumnName="m_Remark" />
+          <ScalarProperty Name="m_Status" ColumnName="m_Status" />
+          <ScalarProperty Name="m_AddTime" ColumnName="m_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotifyTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.NotifyTable">
+        <MappingFragment StoreEntitySet="NotifyTable">
+          <ScalarProperty Name="n_Id" ColumnName="n_Id" />
+          <ScalarProperty Name="n_Staff_id" ColumnName="n_Staff_id" />
+          <ScalarProperty Name="n_Sequence" ColumnName="n_Sequence" />
+          <ScalarProperty Name="n_Title" ColumnName="n_Title" />
+          <ScalarProperty Name="n_Content" ColumnName="n_Content" />
+          <ScalarProperty Name="n_Messagetype" ColumnName="n_Messagetype" />
+          <ScalarProperty Name="n_Status" ColumnName="n_Status" />
+          <ScalarProperty Name="n_Created_at" ColumnName="n_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.OrderTable">
+        <MappingFragment StoreEntitySet="OrderTable">
+          <ScalarProperty Name="o_Id" ColumnName="o_Id" />
+          <ScalarProperty Name="o_OrderId" ColumnName="o_OrderId" />
+          <ScalarProperty Name="o_UserId" ColumnName="o_UserId" />
+          <ScalarProperty Name="o_Type" ColumnName="o_Type" />
+          <ScalarProperty Name="o_OrderName" ColumnName="o_OrderName" />
+          <ScalarProperty Name="o_Money" ColumnName="o_Money" />
+          <ScalarProperty Name="o_Status" ColumnName="o_Status" />
+          <ScalarProperty Name="o_OldStatus" ColumnName="o_OldStatus" />
+          <ScalarProperty Name="o_IsEvaluate" ColumnName="o_IsEvaluate" />
+          <ScalarProperty Name="o_AddTime" ColumnName="o_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.PayTable">
+        <MappingFragment StoreEntitySet="PayTable">
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="p_PayId" ColumnName="p_PayId" />
+          <ScalarProperty Name="p_UserId" ColumnName="p_UserId" />
+          <ScalarProperty Name="p_StudentId" ColumnName="p_StudentId" />
+          <ScalarProperty Name="p_Type" ColumnName="p_Type" />
+          <ScalarProperty Name="p_OrderName" ColumnName="p_OrderName" />
+          <ScalarProperty Name="p_Money" ColumnName="p_Money" />
+          <ScalarProperty Name="p_UseBalance" ColumnName="p_UseBalance" />
+          <ScalarProperty Name="p_Balance" ColumnName="p_Balance" />
+          <ScalarProperty Name="p_PayMoney" ColumnName="p_PayMoney" />
+          <ScalarProperty Name="p_PayWay" ColumnName="p_PayWay" />
+          <ScalarProperty Name="p_NotCash" ColumnName="p_NotCash" />
+          <ScalarProperty Name="p_Cash" ColumnName="p_Cash" />
+          <ScalarProperty Name="p_Tuition" ColumnName="p_Tuition" />
+          <ScalarProperty Name="p_Repayment" ColumnName="p_Repayment" />
+          <ScalarProperty Name="p_Refund" ColumnName="p_Refund" />
+          <ScalarProperty Name="p_TransactionId" ColumnName="p_TransactionId" />
+          <ScalarProperty Name="p_ThirdTradeNo" ColumnName="p_ThirdTradeNo" />
+          <ScalarProperty Name="p_Certificate" ColumnName="p_Certificate" />
+          <ScalarProperty Name="p_PayTime" ColumnName="p_PayTime" />
+          <ScalarProperty Name="p_PayTime_invalid" ColumnName="p_PayTime_invalid" />
+          <ScalarProperty Name="p_PayTime_status" ColumnName="p_PayTime_status" />
+          <ScalarProperty Name="p_Enter" ColumnName="p_Enter" />
+          <ScalarProperty Name="p_EnterMoney" ColumnName="p_EnterMoney" />
+          <ScalarProperty Name="p_Status" ColumnName="p_Status" />
+          <ScalarProperty Name="p_OldStatus" ColumnName="p_OldStatus" />
+          <ScalarProperty Name="p_Arrears" ColumnName="p_Arrears" />
+          <ScalarProperty Name="p_SellerId" ColumnName="p_SellerId" />
+          <ScalarProperty Name="p_AddTime" ColumnName="p_AddTime" />
+          <ScalarProperty Name="p_PayAccount" ColumnName="p_PayAccount" />
+          <ScalarProperty Name="p_MoneyTaker" ColumnName="p_MoneyTaker" />
+          <ScalarProperty Name="p_AuditTime" ColumnName="p_AuditTime" />
+          <ScalarProperty Name="p_AuditStaffId" ColumnName="p_AuditStaffId" />
+          <ScalarProperty Name="p_ConsultId" ColumnName="p_ConsultId" />
+          <ScalarProperty Name="p_Pos_pay_type" ColumnName="p_Pos_pay_type" />
+          <ScalarProperty Name="p_Pos_qr_type" ColumnName="p_Pos_qr_type" />
+          <ScalarProperty Name="p_Pos_mer_id" ColumnName="p_Pos_mer_id" />
+          <ScalarProperty Name="p_Pos_mer_name" ColumnName="p_Pos_mer_name" />
+          <ScalarProperty Name="p_Pos_ter_id" ColumnName="p_Pos_ter_id" />
+          <ScalarProperty Name="p_Pos_card_num" ColumnName="p_Pos_card_num" />
+          <ScalarProperty Name="p_Pos_card_name" ColumnName="p_Pos_card_name" />
+          <ScalarProperty Name="p_Pos_card_bank" ColumnName="p_Pos_card_bank" />
+          <ScalarProperty Name="p_Is_invoice" ColumnName="p_Is_invoice" />
+          <ScalarProperty Name="p_Invoice_status" ColumnName="p_Invoice_status" />
+          <ScalarProperty Name="p_Invoice_url" ColumnName="p_Invoice_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivateMessageTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.PrivateMessageTable">
+        <MappingFragment StoreEntitySet="PrivateMessageTable">
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="p_Type" ColumnName="p_Type" />
+          <ScalarProperty Name="p_User_id" ColumnName="p_User_id" />
+          <ScalarProperty Name="p_Face_id" ColumnName="p_Face_id" />
+          <ScalarProperty Name="p_Content" ColumnName="p_Content" />
+          <ScalarProperty Name="p_Is_read" ColumnName="p_Is_read" />
+          <ScalarProperty Name="p_Status" ColumnName="p_Status" />
+          <ScalarProperty Name="p_Created_at" ColumnName="p_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductUserActiveTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ProductUserActiveTable">
+        <MappingFragment StoreEntitySet="ProductUserActiveTable">
+          <ScalarProperty Name="ua_Id" ColumnName="ua_Id" />
+          <ScalarProperty Name="ua_uId" ColumnName="ua_uId" />
+          <ScalarProperty Name="ua_Staff_id" ColumnName="ua_Staff_id" />
+          <ScalarProperty Name="ua_StartValidity" ColumnName="ua_StartValidity" />
+          <ScalarProperty Name="ua_EndValidity" ColumnName="ua_EndValidity" />
+          <ScalarProperty Name="ua_Voucher_url" ColumnName="ua_Voucher_url" />
+          <ScalarProperty Name="ua_Auditor" ColumnName="ua_Auditor" />
+          <ScalarProperty Name="ua_Content" ColumnName="ua_Content" />
+          <ScalarProperty Name="ua_Status" ColumnName="ua_Status" />
+          <ScalarProperty Name="ua_Create_at" ColumnName="ua_Create_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductUserTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ProductUserTable">
+        <MappingFragment StoreEntitySet="ProductUserTable">
+          <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+          <ScalarProperty Name="u_OpenId" ColumnName="u_OpenId" />
+          <ScalarProperty Name="u_Name" ColumnName="u_Name" />
+          <ScalarProperty Name="u_NickName" ColumnName="u_NickName" />
+          <ScalarProperty Name="u_Picture" ColumnName="u_Picture" />
+          <ScalarProperty Name="u_Sex" ColumnName="u_Sex" />
+          <ScalarProperty Name="u_RoleId" ColumnName="u_RoleId" />
+          <ScalarProperty Name="u_IsActive" ColumnName="u_IsActive" />
+          <ScalarProperty Name="u_IsRegister" ColumnName="u_IsRegister" />
+          <ScalarProperty Name="u_Signature" ColumnName="u_Signature" />
+          <ScalarProperty Name="u_Mobile" ColumnName="u_Mobile" />
+          <ScalarProperty Name="u_IdCard" ColumnName="u_IdCard" />
+          <ScalarProperty Name="u_BirthDay" ColumnName="u_BirthDay" />
+          <ScalarProperty Name="u_Province" ColumnName="u_Province" />
+          <ScalarProperty Name="u_City" ColumnName="u_City" />
+          <ScalarProperty Name="u_District" ColumnName="u_District" />
+          <ScalarProperty Name="u_Balance" ColumnName="u_Balance" />
+          <ScalarProperty Name="u_RecommendCode" ColumnName="u_RecommendCode" />
+          <ScalarProperty Name="u_ConsumeMoney" ColumnName="u_ConsumeMoney" />
+          <ScalarProperty Name="u_Point" ColumnName="u_Point" />
+          <ScalarProperty Name="u_Status" ColumnName="u_Status" />
+          <ScalarProperty Name="u_AddTime" ColumnName="u_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReaderTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ReaderTable">
+        <MappingFragment StoreEntitySet="ReaderTable">
+          <ScalarProperty Name="r_Id" ColumnName="r_Id" />
+          <ScalarProperty Name="r_nId" ColumnName="r_nId" />
+          <ScalarProperty Name="r_Readstatus" ColumnName="r_Readstatus" />
+          <ScalarProperty Name="r_uId" ColumnName="r_uId" />
+          <ScalarProperty Name="r_Staff_id" ColumnName="r_Staff_id" />
+          <ScalarProperty Name="r_Create_at" ColumnName="r_Create_at" />
+          <ScalarProperty Name="r_Status" ColumnName="r_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecruitAddressTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.RecruitAddressTable">
+        <MappingFragment StoreEntitySet="RecruitAddressTable">
+          <ScalarProperty Name="ra_Id" ColumnName="ra_Id" />
+          <ScalarProperty Name="ra_CompusId" ColumnName="ra_CompusId" />
+          <ScalarProperty Name="ra_Name" ColumnName="ra_Name" />
+          <ScalarProperty Name="ra_Address" ColumnName="ra_Address" />
+          <ScalarProperty Name="ra_Mobile" ColumnName="ra_Mobile" />
+          <ScalarProperty Name="ra_Status" ColumnName="ra_Status" />
+          <ScalarProperty Name="ra_Sequence" ColumnName="ra_Sequence" />
+          <ScalarProperty Name="ra_AddTime" ColumnName="ra_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefundSnapShot">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.RefundSnapShot">
+        <MappingFragment StoreEntitySet="RefundSnapShot">
+          <ScalarProperty Name="rs_Id" ColumnName="rs_Id" />
+          <ScalarProperty Name="rs_RefundId" ColumnName="rs_RefundId" />
+          <ScalarProperty Name="rs_SignUpId" ColumnName="rs_SignUpId" />
+          <ScalarProperty Name="rs_Type" ColumnName="rs_Type" />
+          <ScalarProperty Name="rs_DataId" ColumnName="rs_DataId" />
+          <ScalarProperty Name="rs_Value" ColumnName="rs_Value" />
+          <ScalarProperty Name="rs_AddTime" ColumnName="rs_AddTime" />
+          <ScalarProperty Name="rs_Status" ColumnName="rs_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefundTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.RefundTable">
+        <MappingFragment StoreEntitySet="RefundTable">
+          <ScalarProperty Name="r_Id" ColumnName="r_Id" />
+          <ScalarProperty Name="r_OrderId" ColumnName="r_OrderId" />
+          <ScalarProperty Name="r_ChildOrderId" ColumnName="r_ChildOrderId" />
+          <ScalarProperty Name="r_Type" ColumnName="r_Type" />
+          <ScalarProperty Name="r_Body" ColumnName="r_Body" />
+          <ScalarProperty Name="r_StudentId" ColumnName="r_StudentId" />
+          <ScalarProperty Name="r_SignUpId" ColumnName="r_SignUpId" />
+          <ScalarProperty Name="r_CampusId" ColumnName="r_CampusId" />
+          <ScalarProperty Name="r_ClassId" ColumnName="r_ClassId" />
+          <ScalarProperty Name="r_SellerId" ColumnName="r_SellerId" />
+          <ScalarProperty Name="r_Money" ColumnName="r_Money" />
+          <ScalarProperty Name="r_Remark" ColumnName="r_Remark" />
+          <ScalarProperty Name="r_Status" ColumnName="r_Status" />
+          <ScalarProperty Name="r_StaffId" ColumnName="r_StaffId" />
+          <ScalarProperty Name="r_AuditStaffId" ColumnName="r_AuditStaffId" />
+          <ScalarProperty Name="r_AuditTime" ColumnName="r_AuditTime" />
+          <ScalarProperty Name="r_AuditRemark" ColumnName="r_AuditRemark" />
+          <ScalarProperty Name="r_AddTime" ColumnName="r_AddTime" />
+          <ScalarProperty Name="r_RefundWay" ColumnName="r_RefundWay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RepaymentTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.RepaymentTable">
+        <MappingFragment StoreEntitySet="RepaymentTable">
+          <ScalarProperty Name="rt_Id" ColumnName="rt_Id" />
+          <ScalarProperty Name="rt_OrderId" ColumnName="rt_OrderId" />
+          <ScalarProperty Name="rt_Type" ColumnName="rt_Type" />
+          <ScalarProperty Name="rt_CampusId" ColumnName="rt_CampusId" />
+          <ScalarProperty Name="rt_OriginalMoney" ColumnName="rt_OriginalMoney" />
+          <ScalarProperty Name="rt_Money" ColumnName="rt_Money" />
+          <ScalarProperty Name="rt_PayWay" ColumnName="rt_PayWay" />
+          <ScalarProperty Name="rt_Certificate" ColumnName="rt_Certificate" />
+          <ScalarProperty Name="rt_Status" ColumnName="rt_Status" />
+          <ScalarProperty Name="rt_Remark" ColumnName="rt_Remark" />
+          <ScalarProperty Name="rt_AddStaffId" ColumnName="rt_AddStaffId" />
+          <ScalarProperty Name="rt_AddTime" ColumnName="rt_AddTime" />
+          <ScalarProperty Name="rt_AuditStaffId" ColumnName="rt_AuditStaffId" />
+          <ScalarProperty Name="rt_AuditTime" ColumnName="rt_AuditTime" />
+          <ScalarProperty Name="rt_AuditRemark" ColumnName="rt_AuditRemark" />
+          <ScalarProperty Name="rt_IsError" ColumnName="rt_IsError" />
+          <ScalarProperty Name="rt_ErrorMoney" ColumnName="rt_ErrorMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_ItemTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Role_ItemTable">
+        <MappingFragment StoreEntitySet="Role_ItemTable">
+          <ScalarProperty Name="rp_Id" ColumnName="rp_Id" />
+          <ScalarProperty Name="rp_Role_id" ColumnName="rp_Role_id" />
+          <ScalarProperty Name="rp_Permission_id" ColumnName="rp_Permission_id" />
+          <ScalarProperty Name="rp_Create_at" ColumnName="rp_Create_at" />
+          <ScalarProperty Name="rp_ImportNo" ColumnName="rp_ImportNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_ModuleTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Role_ModuleTable">
+        <MappingFragment StoreEntitySet="Role_ModuleTable">
+          <ScalarProperty Name="m_Id" ColumnName="m_Id" />
+          <ScalarProperty Name="m_Name" ColumnName="m_Name" />
+          <ScalarProperty Name="m_Remark" ColumnName="m_Remark" />
+          <ScalarProperty Name="m_Create_at" ColumnName="m_Create_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_PermissionTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Role_PermissionTable">
+        <MappingFragment StoreEntitySet="Role_PermissionTable">
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="p_Name" ColumnName="p_Name" />
+          <ScalarProperty Name="p_Mark" ColumnName="p_Mark" />
+          <ScalarProperty Name="p_Group" ColumnName="p_Group" />
+          <ScalarProperty Name="p_Module_id" ColumnName="p_Module_id" />
+          <ScalarProperty Name="p_AddTime" ColumnName="p_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.RoleTable">
+        <MappingFragment StoreEntitySet="RoleTable">
+          <ScalarProperty Name="r_Id" ColumnName="r_Id" />
+          <ScalarProperty Name="r_Name" ColumnName="r_Name" />
+          <ScalarProperty Name="r_Remark" ColumnName="r_Remark" />
+          <ScalarProperty Name="r_Level" ColumnName="r_Level" />
+          <ScalarProperty Name="r_Staff_add" ColumnName="r_Staff_add" />
+          <ScalarProperty Name="r_Create_at" ColumnName="r_Create_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignUpOrder_Edit_Table">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.SignUpOrder_Edit_Table">
+        <MappingFragment StoreEntitySet="SignUpOrder_Edit_Table">
+          <ScalarProperty Name="se_ImportNo" ColumnName="se_ImportNo" />
+          <ScalarProperty Name="se_OrderId" ColumnName="se_OrderId" />
+          <ScalarProperty Name="se_ChildOrderId" ColumnName="se_ChildOrderId" />
+          <ScalarProperty Name="se_Remark" ColumnName="se_Remark" />
+          <ScalarProperty Name="se_PayWay" ColumnName="se_PayWay" />
+          <ScalarProperty Name="se_SellerId" ColumnName="se_SellerId" />
+          <ScalarProperty Name="se_StaffId" ColumnName="se_StaffId" />
+          <ScalarProperty Name="se_Status" ColumnName="se_Status" />
+          <ScalarProperty Name="se_AddTime" ColumnName="se_AddTime" />
+          <ScalarProperty Name="se_Id" ColumnName="se_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignUpOrderOffTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.SignUpOrderOffTable">
+        <MappingFragment StoreEntitySet="SignUpOrderOffTable">
+          <ScalarProperty Name="sf_Id" ColumnName="sf_Id" />
+          <ScalarProperty Name="sf_OrderId" ColumnName="sf_OrderId" />
+          <ScalarProperty Name="sf_ChildOrderId" ColumnName="sf_ChildOrderId" />
+          <ScalarProperty Name="sf_Type" ColumnName="sf_Type" />
+          <ScalarProperty Name="sf_Value" ColumnName="sf_Value" />
+          <ScalarProperty Name="sf_Money" ColumnName="sf_Money" />
+          <ScalarProperty Name="sf_Status" ColumnName="sf_Status" />
+          <ScalarProperty Name="sf_AddTime" ColumnName="sf_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignUpOrderTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.SignUpOrderTable">
+        <MappingFragment StoreEntitySet="SignUpOrderTable">
+          <ScalarProperty Name="so_Id" ColumnName="so_Id" />
+          <ScalarProperty Name="so_OrderId" ColumnName="so_OrderId" />
+          <ScalarProperty Name="so_ChildOrderId" ColumnName="so_ChildOrderId" />
+          <ScalarProperty Name="so_Type" ColumnName="so_Type" />
+          <ScalarProperty Name="so_StudentId" ColumnName="so_StudentId" />
+          <ScalarProperty Name="so_ConsultId" ColumnName="so_ConsultId" />
+          <ScalarProperty Name="so_CompusId" ColumnName="so_CompusId" />
+          <ScalarProperty Name="so_CourseId" ColumnName="so_CourseId" />
+          <ScalarProperty Name="so_ClassId" ColumnName="so_ClassId" />
+          <ScalarProperty Name="so_ClassStartDate" ColumnName="so_ClassStartDate" />
+          <ScalarProperty Name="so_ClassEndDate" ColumnName="so_ClassEndDate" />
+          <ScalarProperty Name="so_ValidDate" ColumnName="so_ValidDate" />
+          <ScalarProperty Name="so_Price" ColumnName="so_Price" />
+          <ScalarProperty Name="so_Amount" ColumnName="so_Amount" />
+          <ScalarProperty Name="so_Money" ColumnName="so_Money" />
+          <ScalarProperty Name="so_OffType" ColumnName="so_OffType" />
+          <ScalarProperty Name="so_OffValue" ColumnName="so_OffValue" />
+          <ScalarProperty Name="so_OffMoney" ColumnName="so_OffMoney" />
+          <ScalarProperty Name="so_MaterialMoney" ColumnName="so_MaterialMoney" />
+          <ScalarProperty Name="so_OutRemark" ColumnName="so_OutRemark" />
+          <ScalarProperty Name="so_InnerRemark" ColumnName="so_InnerRemark" />
+          <ScalarProperty Name="so_NeedStay" ColumnName="so_NeedStay" />
+          <ScalarProperty Name="so_ActiveCode" ColumnName="so_ActiveCode" />
+          <ScalarProperty Name="so_SellerId" ColumnName="so_SellerId" />
+          <ScalarProperty Name="so_LeafLetId" ColumnName="so_LeafLetId" />
+          <ScalarProperty Name="so_HandleCompusId" ColumnName="so_HandleCompusId" />
+          <ScalarProperty Name="so_HandleTime" ColumnName="so_HandleTime" />
+          <ScalarProperty Name="so_StaffId" ColumnName="so_StaffId" />
+          <ScalarProperty Name="so_AddTime" ColumnName="so_AddTime" />
+          <ScalarProperty Name="so_ChannelId" ColumnName="so_ChannelId" />
+          <ScalarProperty Name="so_RefundMoney" ColumnName="so_RefundMoney" />
+          <ScalarProperty Name="so_ClassHour" ColumnName="so_ClassHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff_ImportRecordTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Staff_ImportRecordTable">
+        <MappingFragment StoreEntitySet="Staff_ImportRecordTable">
+          <ScalarProperty Name="si_Id" ColumnName="si_Id" />
+          <ScalarProperty Name="si_Staff_id" ColumnName="si_Staff_id" />
+          <ScalarProperty Name="si_Batch_nub" ColumnName="si_Batch_nub" />
+          <ScalarProperty Name="si_Created_at" ColumnName="si_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffActiveTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffActiveTable">
+        <MappingFragment StoreEntitySet="StaffActiveTable">
+          <ScalarProperty Name="sa_Id" ColumnName="sa_Id" />
+          <ScalarProperty Name="sa_Avatar" ColumnName="sa_Avatar" />
+          <ScalarProperty Name="sa_Name" ColumnName="sa_Name" />
+          <ScalarProperty Name="sa_Sex" ColumnName="sa_Sex" />
+          <ScalarProperty Name="sa_Mobile" ColumnName="sa_Mobile" />
+          <ScalarProperty Name="sa_Email" ColumnName="sa_Email" />
+          <ScalarProperty Name="sa_BirthDay" ColumnName="sa_BirthDay" />
+          <ScalarProperty Name="sa_Role" ColumnName="sa_Role" />
+          <ScalarProperty Name="sa_ActiveCode" ColumnName="sa_ActiveCode" />
+          <ScalarProperty Name="sa_ActiveStatus" ColumnName="sa_ActiveStatus" />
+          <ScalarProperty Name="sa_ActiveTime" ColumnName="sa_ActiveTime" />
+          <ScalarProperty Name="sa_StaffId" ColumnName="sa_StaffId" />
+          <ScalarProperty Name="sa_ImportNo" ColumnName="sa_ImportNo" />
+          <ScalarProperty Name="sa_Status" ColumnName="sa_Status" />
+          <ScalarProperty Name="sa_AddTime" ColumnName="sa_AddTime" />
+          <ScalarProperty Name="sa_Marry" ColumnName="sa_Marry" />
+          <ScalarProperty Name="sa_NativePlace" ColumnName="sa_NativePlace" />
+          <ScalarProperty Name="sa_HouseHoldType" ColumnName="sa_HouseHoldType" />
+          <ScalarProperty Name="sa_IdCard" ColumnName="sa_IdCard" />
+          <ScalarProperty Name="sa_IdCardAddr" ColumnName="sa_IdCardAddr" />
+          <ScalarProperty Name="sa_Education" ColumnName="sa_Education" />
+          <ScalarProperty Name="sa_School" ColumnName="sa_School" />
+          <ScalarProperty Name="sa_Major" ColumnName="sa_Major" />
+          <ScalarProperty Name="sa_Linker" ColumnName="sa_Linker" />
+          <ScalarProperty Name="sa_LinkerMob" ColumnName="sa_LinkerMob" />
+          <ScalarProperty Name="sa_Bank_ICBC" ColumnName="sa_Bank_ICBC" />
+          <ScalarProperty Name="sa_Bank_ABC" ColumnName="sa_Bank_ABC" />
+          <ScalarProperty Name="sa_IdCard_Front" ColumnName="sa_IdCard_Front" />
+          <ScalarProperty Name="sa_IdCard_Back" ColumnName="sa_IdCard_Back" />
+          <ScalarProperty Name="sa_Resume" ColumnName="sa_Resume" />
+          <ScalarProperty Name="sa_LaborContract" ColumnName="sa_LaborContract" />
+          <ScalarProperty Name="sa_LaborContract_Start" ColumnName="sa_LaborContract_Start" />
+          <ScalarProperty Name="sa_LaborContract_End" ColumnName="sa_LaborContract_End" />
+          <ScalarProperty Name="sa_LaborContract_Count" ColumnName="sa_LaborContract_Count" />
+          <ScalarProperty Name="sa_DepartmentId" ColumnName="sa_DepartmentId" />
+          <ScalarProperty Name="sa_JobId" ColumnName="sa_JobId" />
+          <ScalarProperty Name="sa_JobGrade" ColumnName="sa_JobGrade" />
+          <ScalarProperty Name="sa_HireDate" ColumnName="sa_HireDate" />
+          <ScalarProperty Name="sa_WorkAge" ColumnName="sa_WorkAge" />
+          <ScalarProperty Name="sa_Insurer" ColumnName="sa_Insurer" />
+          <ScalarProperty Name="sa_HasQC" ColumnName="sa_HasQC" />
+          <ScalarProperty Name="sa_WorkExperience" ColumnName="sa_WorkExperience" />
+          <ScalarProperty Name="sa_DirectSuperior" ColumnName="sa_DirectSuperior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffCompusTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffCompusTable">
+        <MappingFragment StoreEntitySet="StaffCompusTable">
+          <ScalarProperty Name="sc_Id" ColumnName="sc_Id" />
+          <ScalarProperty Name="sc_StaffId" ColumnName="sc_StaffId" />
+          <ScalarProperty Name="sc_CompusId" ColumnName="sc_CompusId" />
+          <ScalarProperty Name="sc_ActiveId" ColumnName="sc_ActiveId" />
+          <ScalarProperty Name="sc_ImportNo" ColumnName="sc_ImportNo" />
+          <ScalarProperty Name="sc_AddTime" ColumnName="sc_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffMsgStatusTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffMsgStatusTable">
+        <MappingFragment StoreEntitySet="StaffMsgStatusTable">
+          <ScalarProperty Name="sms_msgId" ColumnName="sms_msgId" />
+          <ScalarProperty Name="sms_StaffId" ColumnName="sms_StaffId" />
+          <ScalarProperty Name="sms_Status" ColumnName="sms_Status" />
+          <ScalarProperty Name="sms_AddTime" ColumnName="sms_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffMsgTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffMsgTable">
+        <MappingFragment StoreEntitySet="StaffMsgTable">
+          <ScalarProperty Name="sm_Id" ColumnName="sm_Id" />
+          <ScalarProperty Name="sm_Type" ColumnName="sm_Type" />
+          <ScalarProperty Name="sm_Title" ColumnName="sm_Title" />
+          <ScalarProperty Name="sm_Content" ColumnName="sm_Content" />
+          <ScalarProperty Name="sm_Status" ColumnName="sm_Status" />
+          <ScalarProperty Name="sm_CompusId" ColumnName="sm_CompusId" />
+          <ScalarProperty Name="sm_RoleId" ColumnName="sm_RoleId" />
+          <ScalarProperty Name="sm_AddStaff" ColumnName="sm_AddStaff" />
+          <ScalarProperty Name="sm_AddTime" ColumnName="sm_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffTable">
+        <MappingFragment StoreEntitySet="StaffTable">
+          <ScalarProperty Name="s_Id" ColumnName="s_Id" />
+          <ScalarProperty Name="s_Role" ColumnName="s_Role" />
+          <ScalarProperty Name="s_Open_id" ColumnName="s_Open_id" />
+          <ScalarProperty Name="s_Account" ColumnName="s_Account" />
+          <ScalarProperty Name="s_Password" ColumnName="s_Password" />
+          <ScalarProperty Name="s_Name" ColumnName="s_Name" />
+          <ScalarProperty Name="s_NickName" ColumnName="s_NickName" />
+          <ScalarProperty Name="s_Avatar" ColumnName="s_Avatar" />
+          <ScalarProperty Name="s_Sex" ColumnName="s_Sex" />
+          <ScalarProperty Name="s_BirthDay" ColumnName="s_BirthDay" />
+          <ScalarProperty Name="s_Email" ColumnName="s_Email" />
+          <ScalarProperty Name="s_Mobile" ColumnName="s_Mobile" />
+          <ScalarProperty Name="s_IsActive" ColumnName="s_IsActive" />
+          <ScalarProperty Name="s_IsTeacher" ColumnName="s_IsTeacher" />
+          <ScalarProperty Name="s_Status" ColumnName="s_Status" />
+          <ScalarProperty Name="s_AddTime" ColumnName="s_AddTime" />
+          <ScalarProperty Name="s_Marry" ColumnName="s_Marry" />
+          <ScalarProperty Name="s_NativePlace" ColumnName="s_NativePlace" />
+          <ScalarProperty Name="s_HouseHoldType" ColumnName="s_HouseHoldType" />
+          <ScalarProperty Name="s_IdCard" ColumnName="s_IdCard" />
+          <ScalarProperty Name="s_IdCardAddr" ColumnName="s_IdCardAddr" />
+          <ScalarProperty Name="s_Education" ColumnName="s_Education" />
+          <ScalarProperty Name="s_Major" ColumnName="s_Major" />
+          <ScalarProperty Name="s_School" ColumnName="s_School" />
+          <ScalarProperty Name="s_Linker" ColumnName="s_Linker" />
+          <ScalarProperty Name="s_LinkerMob" ColumnName="s_LinkerMob" />
+          <ScalarProperty Name="s_Bank_ICBC" ColumnName="s_Bank_ICBC" />
+          <ScalarProperty Name="s_Bank_ABC" ColumnName="s_Bank_ABC" />
+          <ScalarProperty Name="s_IdCard_Front" ColumnName="s_IdCard_Front" />
+          <ScalarProperty Name="s_IdCard_Back" ColumnName="s_IdCard_Back" />
+          <ScalarProperty Name="s_Resume" ColumnName="s_Resume" />
+          <ScalarProperty Name="s_LaborContract" ColumnName="s_LaborContract" />
+          <ScalarProperty Name="s_LaborContract_Start" ColumnName="s_LaborContract_Start" />
+          <ScalarProperty Name="s_LaborContract_End" ColumnName="s_LaborContract_End" />
+          <ScalarProperty Name="s_LaborContract_Count" ColumnName="s_LaborContract_Count" />
+          <ScalarProperty Name="s_DepartmentId" ColumnName="s_DepartmentId" />
+          <ScalarProperty Name="s_JobId" ColumnName="s_JobId" />
+          <ScalarProperty Name="s_JobGrade" ColumnName="s_JobGrade" />
+          <ScalarProperty Name="s_HireDate" ColumnName="s_HireDate" />
+          <ScalarProperty Name="s_WorkAge" ColumnName="s_WorkAge" />
+          <ScalarProperty Name="s_Insurer" ColumnName="s_Insurer" />
+          <ScalarProperty Name="s_HasQC" ColumnName="s_HasQC" />
+          <ScalarProperty Name="s_WorkExperience" ColumnName="s_WorkExperience" />
+          <ScalarProperty Name="s_DirectSuperior" ColumnName="s_DirectSuperior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffTask">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StaffTask">
+        <MappingFragment StoreEntitySet="StaffTask">
+          <ScalarProperty Name="st_Id" ColumnName="st_Id" />
+          <ScalarProperty Name="st_StaffId" ColumnName="st_StaffId" />
+          <ScalarProperty Name="st_Year" ColumnName="st_Year" />
+          <ScalarProperty Name="st_Month" ColumnName="st_Month" />
+          <ScalarProperty Name="st_Money" ColumnName="st_Money" />
+          <ScalarProperty Name="st_AddStaffId" ColumnName="st_AddStaffId" />
+          <ScalarProperty Name="st_AddTime" ColumnName="st_AddTime" />
+          <ScalarProperty Name="st_Status" ColumnName="st_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatisticsTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StatisticsTable">
+        <MappingFragment StoreEntitySet="StatisticsTable">
+          <ScalarProperty Name="s_Id" ColumnName="s_Id" />
+          <ScalarProperty Name="s_Staff_id" ColumnName="s_Staff_id" />
+          <ScalarProperty Name="s_User_id" ColumnName="s_User_id" />
+          <ScalarProperty Name="s_Num" ColumnName="s_Num" />
+          <ScalarProperty Name="s_Time" ColumnName="s_Time" />
+          <ScalarProperty Name="s_Status" ColumnName="s_Status" />
+          <ScalarProperty Name="s_Created_at" ColumnName="s_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCourseImport">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StudentCourseImport">
+        <MappingFragment StoreEntitySet="StudentCourseImport">
+          <ScalarProperty Name="sci_Name" ColumnName="sci_Name" />
+          <ScalarProperty Name="sci_Mobile" ColumnName="sci_Mobile" />
+          <ScalarProperty Name="sci_Sex" ColumnName="sci_Sex" />
+          <ScalarProperty Name="sci_BirthDay" ColumnName="sci_BirthDay" />
+          <ScalarProperty Name="sci_LinkerName" ColumnName="sci_LinkerName" />
+          <ScalarProperty Name="sci_LinkerMobile" ColumnName="sci_LinkerMobile" />
+          <ScalarProperty Name="sci_Email" ColumnName="sci_Email" />
+          <ScalarProperty Name="sci_StartDate" ColumnName="sci_StartDate" />
+          <ScalarProperty Name="sci_EndDate" ColumnName="sci_EndDate" />
+          <ScalarProperty Name="sci_Amount" ColumnName="sci_Amount" />
+          <ScalarProperty Name="sci_ClassId" ColumnName="sci_ClassId" />
+          <ScalarProperty Name="sci_Import" ColumnName="sci_Import" />
+          <ScalarProperty Name="sci_StaffId" ColumnName="sci_StaffId" />
+          <ScalarProperty Name="sci_AddTime" ColumnName="sci_AddTime" />
+          <ScalarProperty Name="sci_Status" ColumnName="sci_Status" />
+          <ScalarProperty Name="sci_ErrorDesc" ColumnName="sci_ErrorDesc" />
+          <ScalarProperty Name="sci_Id" ColumnName="sci_Id" />
+          <ScalarProperty Name="sci_OrderId" ColumnName="sci_OrderId" />
+          <ScalarProperty Name="sci_StudentId" ColumnName="sci_StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCourseTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StudentCourseTable">
+        <MappingFragment StoreEntitySet="StudentCourseTable">
+          <ScalarProperty Name="sc_Id" ColumnName="sc_Id" />
+          <ScalarProperty Name="sc_UserId" ColumnName="sc_UserId" />
+          <ScalarProperty Name="sc_StudentId" ColumnName="sc_StudentId" />
+          <ScalarProperty Name="sc_OrderId" ColumnName="sc_OrderId" />
+          <ScalarProperty Name="sc_ClassId" ColumnName="sc_ClassId" />
+          <ScalarProperty Name="sc_ClassStartDate" ColumnName="sc_ClassStartDate" />
+          <ScalarProperty Name="sc_ClassEndDate" ColumnName="sc_ClassEndDate" />
+          <ScalarProperty Name="sc_ValidDate" ColumnName="sc_ValidDate" />
+          <ScalarProperty Name="sc_Amount" ColumnName="sc_Amount" />
+          <ScalarProperty Name="sc_Remark" ColumnName="sc_Remark" />
+          <ScalarProperty Name="sc_Status" ColumnName="sc_Status" />
+          <ScalarProperty Name="sc_AddTime" ColumnName="sc_AddTime" />
+          <ScalarProperty Name="sc_CampusId" ColumnName="sc_CampusId" />
+          <ScalarProperty Name="sc_ClassPriceType" ColumnName="sc_ClassPriceType" />
+          <ScalarProperty Name="sc_PerClassPrice" ColumnName="sc_PerClassPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StudentTable">
+        <MappingFragment StoreEntitySet="StudentTable">
+          <ScalarProperty Name="s_Id" ColumnName="s_Id" />
+          <ScalarProperty Name="s_UserId" ColumnName="s_UserId" />
+          <ScalarProperty Name="s_Avatar" ColumnName="s_Avatar" />
+          <ScalarProperty Name="s_Name" ColumnName="s_Name" />
+          <ScalarProperty Name="s_Sex" ColumnName="s_Sex" />
+          <ScalarProperty Name="s_BirthDay" ColumnName="s_BirthDay" />
+          <ScalarProperty Name="s_School" ColumnName="s_School" />
+          <ScalarProperty Name="s_Mobile" ColumnName="s_Mobile" />
+          <ScalarProperty Name="s_LinkerName" ColumnName="s_LinkerName" />
+          <ScalarProperty Name="s_LinkerMobile" ColumnName="s_LinkerMobile" />
+          <ScalarProperty Name="s_Email" ColumnName="s_Email" />
+          <ScalarProperty Name="s_Address" ColumnName="s_Address" />
+          <ScalarProperty Name="s_DetailAddress" ColumnName="s_DetailAddress" />
+          <ScalarProperty Name="s_BalanceMoney" ColumnName="s_BalanceMoney" />
+          <ScalarProperty Name="s_AddTime" ColumnName="s_AddTime" />
+          <ScalarProperty Name="s_Status" ColumnName="s_Status" />
+          <ScalarProperty Name="s_Type" ColumnName="s_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StuffTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.StuffTable">
+        <MappingFragment StoreEntitySet="StuffTable">
+          <ScalarProperty Name="s_Id" ColumnName="s_Id" />
+          <ScalarProperty Name="s_Name" ColumnName="s_Name" />
+          <ScalarProperty Name="s_Status" ColumnName="s_Status" />
+          <ScalarProperty Name="s_Created_at" ColumnName="s_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuspendTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.SuspendTable">
+        <MappingFragment StoreEntitySet="SuspendTable">
+          <ScalarProperty Name="s_Id" ColumnName="s_Id" />
+          <ScalarProperty Name="s_Type" ColumnName="s_Type" />
+          <ScalarProperty Name="s_Status" ColumnName="s_Status" />
+          <ScalarProperty Name="s_Date" ColumnName="s_Date" />
+          <ScalarProperty Name="s_DataId" ColumnName="s_DataId" />
+          <ScalarProperty Name="s_CampusId" ColumnName="s_CampusId" />
+          <ScalarProperty Name="s_ClassId" ColumnName="s_ClassId" />
+          <ScalarProperty Name="s_StudentId" ColumnName="s_StudentId" />
+          <ScalarProperty Name="s_Teacher" ColumnName="s_Teacher" />
+          <ScalarProperty Name="s_RoomId" ColumnName="s_RoomId" />
+          <ScalarProperty Name="s_Start_time" ColumnName="s_Start_time" />
+          <ScalarProperty Name="s_End_time" ColumnName="s_End_time" />
+          <ScalarProperty Name="s_StaffId" ColumnName="s_StaffId" />
+          <ScalarProperty Name="s_Remark" ColumnName="s_Remark" />
+          <ScalarProperty Name="s_AddTime" ColumnName="s_AddTime" />
+          <ScalarProperty Name="s_CancelTime" ColumnName="s_CancelTime" />
+          <ScalarProperty Name="s_CancelStaffId" ColumnName="s_CancelStaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThumbsUpTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ThumbsUpTable">
+        <MappingFragment StoreEntitySet="ThumbsUpTable">
+          <ScalarProperty Name="t_Id" ColumnName="t_Id" />
+          <ScalarProperty Name="t_Type" ColumnName="t_Type" />
+          <ScalarProperty Name="t_UserId" ColumnName="t_UserId" />
+          <ScalarProperty Name="t_DataId" ColumnName="t_DataId" />
+          <ScalarProperty Name="t_AddTime" ColumnName="t_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCollectTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.UserCollectTable">
+        <MappingFragment StoreEntitySet="UserCollectTable">
+          <ScalarProperty Name="uc_Id" ColumnName="uc_Id" />
+          <ScalarProperty Name="uc_User_id" ColumnName="uc_User_id" />
+          <ScalarProperty Name="uc_Type" ColumnName="uc_Type" />
+          <ScalarProperty Name="uc_Collect_id" ColumnName="uc_Collect_id" />
+          <ScalarProperty Name="uc_Status" ColumnName="uc_Status" />
+          <ScalarProperty Name="uc_Created_at" ColumnName="uc_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserConsultQuestionTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.UserConsultQuestionTable">
+        <MappingFragment StoreEntitySet="UserConsultQuestionTable">
+          <ScalarProperty Name="uca_Id" ColumnName="uca_Id" />
+          <ScalarProperty Name="uca_Sequence" ColumnName="uca_Sequence" />
+          <ScalarProperty Name="uca_Title" ColumnName="uca_Title" />
+          <ScalarProperty Name="uca_Content" ColumnName="uca_Content" />
+          <ScalarProperty Name="uca_Status" ColumnName="uca_Status" />
+          <ScalarProperty Name="uca_Created_at" ColumnName="uca_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessageAcceptTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.UserMessageAcceptTable">
+        <MappingFragment StoreEntitySet="UserMessageAcceptTable">
+          <ScalarProperty Name="uma_Id" ColumnName="uma_Id" />
+          <ScalarProperty Name="uma_Type" ColumnName="uma_Type" />
+          <ScalarProperty Name="uma_Class_id" ColumnName="uma_Class_id" />
+          <ScalarProperty Name="uma_User_id" ColumnName="uma_User_id" />
+          <ScalarProperty Name="uma_Title" ColumnName="uma_Title" />
+          <ScalarProperty Name="uma_Content" ColumnName="uma_Content" />
+          <ScalarProperty Name="uma_Data_url" ColumnName="uma_Data_url" />
+          <ScalarProperty Name="uma_Push_id" ColumnName="uma_Push_id" />
+          <ScalarProperty Name="uma_Status" ColumnName="uma_Status" />
+          <ScalarProperty Name="uma_Created_at" ColumnName="uma_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessagePushTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.UserMessagePushTable">
+        <MappingFragment StoreEntitySet="UserMessagePushTable">
+          <ScalarProperty Name="ump_Id" ColumnName="ump_Id" />
+          <ScalarProperty Name="ump_Type" ColumnName="ump_Type" />
+          <ScalarProperty Name="ump_Class_id" ColumnName="ump_Class_id" />
+          <ScalarProperty Name="ump_Title" ColumnName="ump_Title" />
+          <ScalarProperty Name="ump_Content" ColumnName="ump_Content" />
+          <ScalarProperty Name="ump_Data_url" ColumnName="ump_Data_url" />
+          <ScalarProperty Name="ump_Status" ColumnName="ump_Status" />
+          <ScalarProperty Name="ump_Created_at" ColumnName="ump_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+          <ScalarProperty Name="u_OpenId" ColumnName="u_OpenId" />
+          <ScalarProperty Name="u_Name" ColumnName="u_Name" />
+          <ScalarProperty Name="u_NickName" ColumnName="u_NickName" />
+          <ScalarProperty Name="u_Picture" ColumnName="u_Picture" />
+          <ScalarProperty Name="u_Sex" ColumnName="u_Sex" />
+          <ScalarProperty Name="u_RoleId" ColumnName="u_RoleId" />
+          <ScalarProperty Name="u_Mobile" ColumnName="u_Mobile" />
+          <ScalarProperty Name="u_IdCard" ColumnName="u_IdCard" />
+          <ScalarProperty Name="u_BirthDay" ColumnName="u_BirthDay" />
+          <ScalarProperty Name="u_Province" ColumnName="u_Province" />
+          <ScalarProperty Name="u_City" ColumnName="u_City" />
+          <ScalarProperty Name="u_District" ColumnName="u_District" />
+          <ScalarProperty Name="u_Signature" ColumnName="u_Signature" />
+          <ScalarProperty Name="u_Balance" ColumnName="u_Balance" />
+          <ScalarProperty Name="u_RecommendCode" ColumnName="u_RecommendCode" />
+          <ScalarProperty Name="u_ConsumeMoney" ColumnName="u_ConsumeMoney" />
+          <ScalarProperty Name="u_Point" ColumnName="u_Point" />
+          <ScalarProperty Name="u_Status" ColumnName="u_Status" />
+          <ScalarProperty Name="u_Created_at" ColumnName="u_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WebSetTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.WebSetTable">
+        <MappingFragment StoreEntitySet="WebSetTable">
+          <ScalarProperty Name="ws_Id" ColumnName="ws_Id" />
+          <ScalarProperty Name="ws_Title" ColumnName="ws_Title" />
+          <ScalarProperty Name="ws_Remark" ColumnName="ws_Remark" />
+          <ScalarProperty Name="ws_Content" ColumnName="ws_Content" />
+          <ScalarProperty Name="ws_AddTime" ColumnName="ws_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkEvaluateTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.WorkEvaluateTable">
+        <MappingFragment StoreEntitySet="WorkEvaluateTable">
+          <ScalarProperty Name="we_Id" ColumnName="we_Id" />
+          <ScalarProperty Name="we_User_id" ColumnName="we_User_id" />
+          <ScalarProperty Name="we_Work_id" ColumnName="we_Work_id" />
+          <ScalarProperty Name="we_Status" ColumnName="we_Status" />
+          <ScalarProperty Name="we_Created_at" ColumnName="we_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.WorkTable">
+        <MappingFragment StoreEntitySet="WorkTable">
+          <ScalarProperty Name="w_Id" ColumnName="w_Id" />
+          <ScalarProperty Name="w_Type" ColumnName="w_Type" />
+          <ScalarProperty Name="w_UserId" ColumnName="w_UserId" />
+          <ScalarProperty Name="w_Title" ColumnName="w_Title" />
+          <ScalarProperty Name="w_Tag" ColumnName="w_Tag" />
+          <ScalarProperty Name="w_Description" ColumnName="w_Description" />
+          <ScalarProperty Name="w_Cover" ColumnName="w_Cover" />
+          <ScalarProperty Name="w_Picture" ColumnName="w_Picture" />
+          <ScalarProperty Name="w_ThumbNail" ColumnName="w_ThumbNail" />
+          <ScalarProperty Name="w_ThumbUp" ColumnName="w_ThumbUp" />
+          <ScalarProperty Name="w_Collection" ColumnName="w_Collection" />
+          <ScalarProperty Name="w_Evaluate" ColumnName="w_Evaluate" />
+          <ScalarProperty Name="w_IsRecommend" ColumnName="w_IsRecommend" />
+          <ScalarProperty Name="w_IsNew" ColumnName="w_IsNew" />
+          <ScalarProperty Name="w_Commentcount" ColumnName="w_Commentcount" />
+          <ScalarProperty Name="w_Sequence" ColumnName="w_Sequence" />
+          <ScalarProperty Name="w_Status" ColumnName="w_Status" />
+          <ScalarProperty Name="w_AddTime" ColumnName="w_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTagMapTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.WorkTagMapTable">
+        <MappingFragment StoreEntitySet="WorkTagMapTable">
+          <ScalarProperty Name="tm_Id" ColumnName="tm_Id" />
+          <ScalarProperty Name="tm_WorkId" ColumnName="tm_WorkId" />
+          <ScalarProperty Name="tm_TagId" ColumnName="tm_TagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTagTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.WorkTagTable">
+        <MappingFragment StoreEntitySet="WorkTagTable">
+          <ScalarProperty Name="t_Id" ColumnName="t_Id" />
+          <ScalarProperty Name="t_Name" ColumnName="t_Name" />
+          <ScalarProperty Name="t_Type" ColumnName="t_Type" />
+          <ScalarProperty Name="t_IsMust" ColumnName="t_IsMust" />
+          <ScalarProperty Name="t_Status" ColumnName="t_Status" />
+          <ScalarProperty Name="t_AddTime" ColumnName="t_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_UpdateTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Area_UpdateTable">
+        <MappingFragment StoreEntitySet="Area_UpdateTable">
+          <ScalarProperty Name="au_Code" ColumnName="au_Code" />
+          <ScalarProperty Name="au_Name" ColumnName="au_Name" />
+          <ScalarProperty Name="au_Updated_at" ColumnName="au_Updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultDeleteTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.ConsultDeleteTable">
+        <MappingFragment StoreEntitySet="ConsultDeleteTable">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_StudentId" ColumnName="c_StudentId" />
+          <ScalarProperty Name="c_CreatorId" ColumnName="c_CreatorId" />
+          <ScalarProperty Name="c_Channel" ColumnName="c_Channel" />
+          <ScalarProperty Name="c_Concern" ColumnName="c_Concern" />
+          <ScalarProperty Name="c_ConcernOther" ColumnName="c_ConcernOther" />
+          <ScalarProperty Name="c_Relation" ColumnName="c_Relation" />
+          <ScalarProperty Name="c_RelationOther" ColumnName="c_RelationOther" />
+          <ScalarProperty Name="c_ConsultWay" ColumnName="c_ConsultWay" />
+          <ScalarProperty Name="c_Intention" ColumnName="c_Intention" />
+          <ScalarProperty Name="c_CompusId" ColumnName="c_CompusId" />
+          <ScalarProperty Name="c_LeafLetStaffId" ColumnName="c_LeafLetStaffId" />
+          <ScalarProperty Name="c_SellerStaffId" ColumnName="c_SellerStaffId" />
+          <ScalarProperty Name="c_CourseId_1" ColumnName="c_CourseId_1" />
+          <ScalarProperty Name="c_CourseId_2" ColumnName="c_CourseId_2" />
+          <ScalarProperty Name="c_CourseId_3" ColumnName="c_CourseId_3" />
+          <ScalarProperty Name="c_Status" ColumnName="c_Status" />
+          <ScalarProperty Name="c_IsInPool" ColumnName="c_IsInPool" />
+          <ScalarProperty Name="c_ReceiveTime" ColumnName="c_ReceiveTime" />
+          <ScalarProperty Name="c_UpdateTime" ColumnName="c_UpdateTime" />
+          <ScalarProperty Name="c_FollowUpTime" ColumnName="c_FollowUpTime" />
+          <ScalarProperty Name="c_AddTime" ColumnName="c_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courseware_OpinionTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Courseware_OpinionTable">
+        <MappingFragment StoreEntitySet="Courseware_OpinionTable">
+          <ScalarProperty Name="o_Id" ColumnName="o_Id" />
+          <ScalarProperty Name="o_Cause" ColumnName="o_Cause" />
+          <ScalarProperty Name="o_Picture" ColumnName="o_Picture" />
+          <ScalarProperty Name="o_State" ColumnName="o_State" />
+          <ScalarProperty Name="o_AddTime" ColumnName="o_AddTime" />
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="c_StaffId" ColumnName="c_StaffId" />
+          <ScalarProperty Name="c_UserId" ColumnName="c_UserId" />
+          <ScalarProperty Name="o_processState" ColumnName="o_processState" />
+          <ScalarProperty Name="o_Title" ColumnName="o_Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material_ImportRecord">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Material_ImportRecord">
+        <MappingFragment StoreEntitySet="Material_ImportRecord">
+          <ScalarProperty Name="mi_id" ColumnName="mi_id" />
+          <ScalarProperty Name="mi_material_id" ColumnName="mi_material_id" />
+          <ScalarProperty Name="mi_Batch_nub" ColumnName="mi_Batch_nub" />
+          <ScalarProperty Name="mi_Created_at" ColumnName="mi_Created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Permission_ImportTable">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.Role_Permission_ImportTable">
+        <MappingFragment StoreEntitySet="Role_Permission_ImportTable">
+          <ScalarProperty Name="t_ImportNo" ColumnName="t_ImportNo" />
+          <ScalarProperty Name="t_RoleId" ColumnName="t_RoleId" />
+          <ScalarProperty Name="t_PermissionId" ColumnName="t_PermissionId" />
+          <ScalarProperty Name="t_StaffId" ColumnName="t_StaffId" />
+          <ScalarProperty Name="t_AddTime" ColumnName="t_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempPermission">
+      <EntityTypeMapping TypeName="ShuHuaDbModel.TempPermission">
+        <MappingFragment StoreEntitySet="TempPermission">
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="p_Name" ColumnName="p_Name" />
+          <ScalarProperty Name="p_Mark" ColumnName="p_Mark" />
+          <ScalarProperty Name="p_Group" ColumnName="p_Group" />
+          <ScalarProperty Name="p_Module_id" ColumnName="p_Module_id" />
+          <ScalarProperty Name="p_AddTime" ColumnName="p_AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
