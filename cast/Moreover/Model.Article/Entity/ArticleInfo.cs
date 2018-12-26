@@ -8,10 +8,8 @@ namespace Model.Article.Entity
   /// <summary>
   /// 文章信息
   /// </summary>
-  public class ArticleInfo
+  public class ArticleInfo:BaseModel
   {
-
-    public long Id { get; set; }
 
     public string Title { get; set; }
 
@@ -20,12 +18,6 @@ namespace Model.Article.Entity
     public int Status { get; set; }
 
     public DateTime? PublishTime { get; set; }
-
-    public DateTime? CreateTime { get; set; }
-
-    public DateTime? UpdateTime { get; set; }
-
-    public int ValidFlag { get; set; }
 
   }
 }
