@@ -4,10 +4,3 @@
 cast/Monster/.vs/Monster/DesignTimeBuild/.dtbcache
 cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide
 cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide-wal
-cast/Moreover/.vs/Moreover/DesignTimeBuild/.dtbcache
-cast/Moreover/.vs/Moreover/v15/.suo
-*.ide-shm
-*.ide-wal
-*.cache
-html/cms/src/menuConfig.js
-html/cms/src/pages/TagList/components/TabTable/TabTable.jsx
