@@ -1,6 +1,16 @@
 
 *.ide
 */.vs/*
-cast/Monster/.vs/Monster/DesignTimeBuild/.dtbcache
-cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide
-cast/Monster/.vs/Monster/v15/Server/sqlite3/storage.ide-wal
+cast/Monster/.vs/*
+cast/*/.vs/*
+cast/*/bin/*
+cast/*/obj/*
+cast/*/*/bin/*
+cast/*/*/obj/*
+*.dll
+*.pdb
+*.cache
+cast/Moreover/Api.Manage/bin/*
+cast/Moreover/DapperContext/obj/*
+cast/Moreover/TestConsole/obj/*
+cast/Moreover/TestConsole/obj/*

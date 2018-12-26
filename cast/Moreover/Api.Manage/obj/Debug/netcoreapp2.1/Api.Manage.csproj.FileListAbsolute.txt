@@ -42,3 +42,7 @@ D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.Redi
 D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.dll
 D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.RedisHelper.pdb
 D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.pdb
+D:\git\szhw\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.RedisHelper.dll
+D:\git\szhw\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.dll
+D:\git\szhw\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.RedisHelper.pdb
+D:\git\szhw\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.pdb

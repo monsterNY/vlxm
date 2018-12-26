@@ -12,3 +12,17 @@ D:\work_y\git\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperCo
 D:\work_y\git\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.pdb
 D:\work_y\git\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Common.dll
 D:\work_y\git\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Common.pdb
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\DapperContext.deps.json
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\DapperContext.dll
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\DapperContext.pdb
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Article.dll
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Common.dll
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Article.pdb
+D:\git\szhw\szhw\cast\Moreover\DapperContext\bin\Debug\netstandard2.0\Model.Common.pdb
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.csprojAssemblyReference.cache
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.csproj.CoreCompileInputs.cache
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.AssemblyInfoInputs.cache
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.AssemblyInfo.cs
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.csproj.CopyComplete
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.dll
+D:\git\szhw\szhw\cast\Moreover\DapperContext\obj\Debug\netstandard2.0\DapperContext.pdb
