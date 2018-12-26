@@ -66,6 +66,7 @@ export default class TabTable extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       dataSource: MOCK_DATA,
     };
@@ -74,6 +75,12 @@ export default class TabTable extends Component {
         title: '名称',
         dataIndex: 'name',
         key: 'name',
+        width: 200,
+      },
+      {
+        title: '名称2',
+        dataIndex: 'name2',
+        key: 'name2',
         width: 200,
       },
       {
