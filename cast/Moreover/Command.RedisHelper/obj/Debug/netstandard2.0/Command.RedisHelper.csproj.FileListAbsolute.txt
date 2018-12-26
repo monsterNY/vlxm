@@ -28,3 +28,12 @@ D:\git\szhw\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Comm
 D:\git\szhw\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.AssemblyInfo.cs
 D:\git\szhw\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.dll
 D:\git\szhw\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.pdb
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\bin\Debug\netstandard2.0\Command.RedisHelper.deps.json
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\bin\Debug\netstandard2.0\Command.RedisHelper.dll
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\bin\Debug\netstandard2.0\Command.RedisHelper.pdb
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.csprojAssemblyReference.cache
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.csproj.CoreCompileInputs.cache
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.AssemblyInfoInputs.cache
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.AssemblyInfo.cs
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.dll
+D:\work_y\git\szhw\cast\Moreover\Command.RedisHelper\obj\Debug\netstandard2.0\Command.RedisHelper.pdb

@@ -9,6 +9,12 @@ namespace Model.Common.CusAttr
   /// </summary>
   public class DealAttribute : Attribute
   {
+    public DealAttribute(Type dealService, string description)
+    {
+      DealService = dealService;
+      Description = description;
+    }
+
     /// <summary>
     /// 处理Service
     /// </summary>

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Assist\Extension\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -21,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Command.RedisHelper\Command.RedisHelper.csproj" />
+    <ProjectReference Include="..\DapperContext\DapperContext.csproj" />
     <ProjectReference Include="..\Model.Article\Model.Article.csproj" />
     <ProjectReference Include="..\Model.Common\Model.Common.csproj" />
   </ItemGroup>

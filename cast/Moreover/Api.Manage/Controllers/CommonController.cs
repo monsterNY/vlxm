@@ -7,10 +7,12 @@ using Api.Manage.Assist.Utils;
 using Command.RedisHelper.CusInhert;
 using Command.RedisHelper.Helper;
 using Dapper;
+using DapperContext.Const;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Model.Article.Entity;
+using Model.Article.Tools;
 using Model.Common.ConfigModels;
 using MySql.Data.MySqlClient;
 
@@ -44,9 +46,14 @@ namespace Api.Manage.Controllers
     [Route(nameof(TestDb))]
     public ActionResult<object> TestDb()
     {
-      using (IDbConnection conn = new MySqlConnection(AppSetting.ConnectionString["Mysql"]))
+      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
       {
-        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>("select * from article_info");
+        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>(
+          $@"
+{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<ArticleInfo>())} 
+{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
+{SqlCharConst.WHERE} {SqlCharConst.DefaultWhere}
+");
         return articleInfos.ToList();
       }
     }
@@ -66,10 +73,10 @@ namespace Api.Manage.Controllers
       //验证码放到redis
       //            Session["VCode"] = strCode;
       CusRedisHelper helper =
-        new CusRedisHelper(AppSetting.ConnectionString["redis"], "moreover", new NewtonsoftDeal(), 22);
+        new CusRedisHelper(AppSetting.DbConnMap["redis"].ConnStr, "moreover", new NewtonsoftDeal(), 22);
 
       helper.StringSet(Request.HttpContext.Connection.RemoteIpAddress.ToString() + Request.Headers["User-Agent"],
-        strCode, TimeSpan.FromMinutes(3));。
+        strCode, TimeSpan.FromMinutes(3));
 
       byte[] imgBytes = validateCode.CreateValidateGraphic(strCode);
 
