@@ -38,3 +38,7 @@ D:\git\szhw\szhw\cast\Moreover\Api.Manage\obj\Debug\netcoreapp2.1\Api.Manage.Raz
 D:\git\szhw\szhw\cast\Moreover\Api.Manage\obj\Debug\netcoreapp2.1\Api.Manage.csproj.CopyComplete
 D:\git\szhw\szhw\cast\Moreover\Api.Manage\obj\Debug\netcoreapp2.1\Api.Manage.dll
 D:\git\szhw\szhw\cast\Moreover\Api.Manage\obj\Debug\netcoreapp2.1\Api.Manage.pdb
+D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.RedisHelper.dll
+D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.dll
+D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\Command.RedisHelper.pdb
+D:\work_y\git\szhw\cast\Moreover\Api.Manage\bin\Debug\netcoreapp2.1\DapperContext.pdb

@@ -62,6 +62,20 @@ const asideMenuConfig = [
     path: '/user/login',
     icon: 'home',
   },
+  {
+    name: 'Nav3',
+    path: '/page3',
+    icon: 'home',
+  },
+  {
+    name: '文章管理',
+    path: '/info',
+    icon: 'home',
+    children: [
+      { name: '文章列表', path: '/page4' },
+      { name: '添加文章', path: '/page5' },
+    ],
+  },
 ];
 
 export { headerMenuConfig, asideMenuConfig };

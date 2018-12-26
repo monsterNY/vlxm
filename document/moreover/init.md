@@ -35,3 +35,49 @@
 	      return customAttribute as T;
 	
 	    }
+
+5.解决.net core 跨域：
+
+	<step1:startUp>
+
+		services.AddCors(options =>
+	          options.AddPolicy("AllowCors",
+	            builder =>
+	            {
+	              builder.AllowAnyOrigin() //允许任何来源的主机访问
+	                .AllowAnyMethod()
+	                .AllowAnyHeader()
+	                .AllowCredentials(); //指定处理cookie
+	            })
+	        );
+	    }
+
+	<step2:在需要使用跨域的控制器上>
+		[EnableCors("AllowCors")]
+
+6.react发送请求：
+	
+	import axios from 'axios';
+
+	axios
+      .post(baseUrl, paramData)
+      .then((response) => {
+        if (response.data.errorCode === code.successCode) {
+          // response.joson().then((data) => {
+          console.log(response.data.result);
+          this.setState({
+            dataSource: response.data.result,
+          });
+          // });
+        } else {
+          console.log(response);
+        }
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+7.查看被占用文件夹的进程
+
+	开始》资源监视器》在关联的句柄中搜索文件夹

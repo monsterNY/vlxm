@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
+using Api.Manage.Assist.CusAttribute;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Menu;
 using Api.Manage.CusInterface;
-using Dapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Model.Article.Entity;
 using Model.Common.ConfigModels;
 using Model.Common.CusAttr;
 using Model.Common.Extension;
-using MySql.Data.MySqlClient;
 
 namespace Api.Manage.Controllers
 {
+
+  [EnableCors("AllowCors")]
   [ApiController]
   [Route("api/[controller]")]
+//  [NotFoundActionFilter]//
   public class HomeController : ControllerBase
   {
     protected AppSetting AppSetting { get; set; }
@@ -52,13 +49,19 @@ namespace Api.Manage.Controllers
             if (acceptParam.Param != null || !ValidSign(acceptParam))
               return "验签失败！";
 
-          var instance = Activator.CreateInstance(dealAttribute.DealService);
+          var resultModel = await Run(acceptParam, AppSetting, dealAttribute);
 
-          if (instance is IDeal deal)
-            return await Run(acceptParam, AppSetting, deal.Run);
+          resultModel.Title = dealAttribute.Description;
+
+          return resultModel;
+
+        }
+        else
+        {
         }
 
         return acceptParam;
+
       }
       catch (Exception e)
       {
@@ -74,10 +77,12 @@ namespace Api.Manage.Controllers
     /// <param name="func"></param>
     /// <returns></returns>
     [NonAction]
-    public async Task<object> Run(AcceptParam acceptParam, AppSetting appSetting,
-      Func<AcceptParam, AppSetting, Task<object>> func)
+    public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting,
+      DealAttribute dealAttribute)
     {
-      return await func.Invoke(acceptParam, appSetting);
+      var instance = Activator.CreateInstance(dealAttribute.DealService) as IDeal;
+
+      return await instance.Run(acceptParam, appSetting, HttpContext);
     }
 
     /// <summary>
