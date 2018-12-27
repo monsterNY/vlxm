@@ -8,11 +8,9 @@ D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTest
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.dll
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.pdb
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Api.Manage.dll
-D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Article.dll
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Common.dll
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Api.Manage.pdb
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Common.pdb
-D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Article.pdb
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csprojAssemblyReference.cache
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CoreCompileInputs.cache
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.AssemblyInfoInputs.cache
@@ -20,3 +18,9 @@ D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTest
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CopyComplete
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.dll
 D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.pdb
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Command.RedisHelper.dll
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\DapperContext.dll
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Vlxm.dll
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Command.RedisHelper.pdb
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\DapperContext.pdb
+D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Vlxm.pdb

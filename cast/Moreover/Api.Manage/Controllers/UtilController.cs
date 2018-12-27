@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Api.Manage.Assist.Entity;
@@ -19,6 +20,68 @@ namespace Api.Manage.Controllers
     public UtilController(IHostingEnvironment hostingEnvironment)
     {
       this.hostingEnvironment = hostingEnvironment;
+    }
+
+    /// <summary>
+    /// 上传图片 单图片
+    /// </summary>
+    /// <returns></returns>
+    [Route(nameof(UploadSingleImage))]
+    [HttpPost]
+    public object UploadSingleImage()
+    {
+
+      var title = "图片上传";
+
+      //获取文件
+      var file = Request.Form.Files.FirstOrDefault();
+
+      //获取项目地址
+      string webRootPath = hostingEnvironment.WebRootPath;
+
+      if (file == null)
+      {
+        return ResultModel.GetNullErrorModel(title);
+      }
+
+      //允许的图片类型
+      var allowFileType = new Dictionary<string,string>
+      {
+        {"image/jpeg","jpg" },
+        {"image/jpg","jpg" },
+        {"image/gif","jpg" },
+        {"image/png","jpg" },
+        {"image/bmp","jpg" },
+      };
+
+      if (!allowFileType.ContainsKey(file.ContentType))
+      {
+        return ResultModel.GetParamErrorModel(title, $"不支持的文件格式：{file.ContentType}");
+      }
+
+      var maxSize = 5;//文件上传的最大大小 (mb)
+      if (file.Length > maxSize * 1024 * 1024)
+      {
+        return ResultModel.GetParamErrorModel(title, $"文件最大支持：{maxSize}MB,当前文件大小：{file.Length}字节");
+      }
+
+      var fileName = $"{Guid.NewGuid().ToString().Replace("-", "")}.{allowFileType[file.ContentType]}";
+
+      var floderPath = $"/upload/image/{DateTime.Now:yyyy-MM-dd}/";
+
+      //检测是否存在此文件夹
+      if (!Directory.Exists(webRootPath + floderPath))
+      {
+        Directory.CreateDirectory(webRootPath+floderPath);
+      }
+
+      using (var stream = new FileStream(webRootPath + floderPath + fileName, FileMode.Create))
+      {
+        file.CopyTo(stream);
+      }
+
+      return ResultModel.GetSuccessModel(title, floderPath + fileName);
+
     }
 
     [Route(nameof(Upload))]
@@ -67,44 +130,5 @@ namespace Api.Manage.Controllers
       return fileName.Substring(fileName?.LastIndexOf(".") + 1 ?? 0);
     }
   }
-
-  public class UploadResult
-  {
-    /// <summary>
-    /// 状态码，0 代表成功
-    /// </summary>
-    public int Code { get; set; } = -1;
-
-    /// <summary>
-    /// 图片预览地址
-    /// </summary>
-    public string ImgUrl { get; set; }
-
-    /// <summary>
-    /// 文件下载地址 (可选)
-    /// </summary>
-    public string DownloadUrl { get; set; }
-
-    /// <summary>
-    /// 文件大小 (可选)
-    /// </summary>
-    public int Size { get; set; }
-
-    /// <summary>
-    /// 图片高度，非图片类型不需要 (可选)
-    /// </summary>
-    public int FileHeight { get; set; }
-
-    /// <summary>
-    /// 图片宽度，非图片类型不需要 (可选)
-    /// </summary>
-    public int FileWidth { get; set; }
-
-    /// <summary>
-    /// 文件 hash 值 (可选)
-    /// </summary>
-    public string FileMd5 { get; set; }
-
-    public string Path { get; set; }
-  }
+  
 }

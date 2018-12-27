@@ -16,7 +16,7 @@ global.CusStyle = {
 global.APIConfig = {
   baseUrl: 'http://api.moreover.manage/api/home',
   imgBaseUrl: 'http://api.moreover.manage/',
-  uploadUrl: 'http://api.moreover.manage/api/util/upload',
+  uploadUrl: 'http://api.moreover.manage/api/util/UploadSingleImage',
   resultCodeMap: {
     success: 0,
   },

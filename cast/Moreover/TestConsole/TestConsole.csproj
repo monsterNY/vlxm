@@ -9,10 +9,4 @@
     <PackageReference Include="Dapper" Version="1.50.5" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>C:\Users\lxm\.nuget\packages\mysql.data\8.0.13\lib\netcoreapp2.0\MySql.Data.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

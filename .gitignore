@@ -29,7 +29,6 @@ cast/Moreover/Command.RedisHelper/obj/*
 cast/Moreover/Command.RedisHelper/obj/Debug/netstandard2.0/Command.RedisHelper.assets.cache
 cast/Moreover/Command.RedisHelper/obj/Debug/netstandard2.0/Command.RedisHelper.csproj.FileListAbsolute.txt
 cast/Moreover/Command.RedisHelper/obj/project.assets.json
-*.csproj
 *.props
 cast/Moreover/DapperContext/obj/Debug/netstandard2.0/DapperContext.csproj.FileListAbsolute.txt
 cast/Moreover/DapperContext/obj/project.assets.json

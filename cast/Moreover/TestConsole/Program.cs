@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Dapper;
-using MySql.Data.MySqlClient;
 
 namespace TestConsole
 {
@@ -13,15 +12,7 @@ namespace TestConsole
     static void Main(string[] args)
     {
 
-      IDbConnection conn = new MySqlConnection("Server=localhost;Database=vlxm; User=root;Password=root;charset=utf8;");
-
-      var content =
-        "<p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">🤣</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">真逗呢</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">哈哈哈</span></span></p>";
-
-      conn.Execute($@"INSERT INTO article_info
-        ( title, author, category, content)
-
-      VALUES( '', '', '', '{content}'");
+      Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
 
       var fileName = "xxx.jpg";
 
