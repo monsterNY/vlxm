@@ -21,7 +21,6 @@ namespace Api.Manage.CusInherit
 {
   public class GetArticlePageListService : IDeal
   {
-    ILogger logger = LogManager.GetLogger(nameof(GetArticlePageListService));
 
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {

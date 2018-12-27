@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Model.Common.Cache;
-using Module.Api.ServerY.ConfigModel;
+using Model.Common.ConfigModels;
 using Monster.AuthServer.CusConfig;
 using Monster.AuthServer.CusInherit;
 

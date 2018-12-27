@@ -1,12 +1,3 @@
-D:\work_y\git\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.deps.json
-D:\work_y\git\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.dll
-D:\work_y\git\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.pdb
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.csprojAssemblyReference.cache
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.csproj.CoreCompileInputs.cache
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.AssemblyInfoInputs.cache
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.AssemblyInfo.cs
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.dll
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.pdb
 D:\git\szhw\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.deps.json
 D:\git\szhw\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.dll
 D:\git\szhw\szhw\cast\Moreover\Model.Common\bin\Debug\netstandard2.0\Model.Common.pdb
