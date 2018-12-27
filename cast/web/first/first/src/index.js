@@ -28,7 +28,7 @@ global.APIConfig = {
   getSignFunc: (paramObj) => {
     return `no sign ${paramObj}`;
   },
-  sendAjax: (paramObj, optFlag, callBack) => {
+  sendAjax: (paramObj, optFlag, callBack, errorFunc) => {
     paramObj = global.APIConfig.getParamFunc(optFlag, paramObj);
 
     axios
@@ -42,6 +42,9 @@ global.APIConfig = {
       })
       .catch((error) => {
         console.log(error);
+        if (errorFunc) {
+          errorFunc(error); // 异常回调
+        }
       });
   },
   getParamFunc: (optFlag, paramObj) => {

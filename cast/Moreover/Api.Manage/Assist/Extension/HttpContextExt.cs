@@ -20,7 +20,6 @@ namespace Api.Manage.Assist.Extension
     public static IDbConnection GetConnection(this HttpContext context, string key, string connStr)
     {
       IDbConnection conn;
-
       if (context.Items.ContainsKey(key))
       {
         conn = context.Items[key] as IDbConnection;

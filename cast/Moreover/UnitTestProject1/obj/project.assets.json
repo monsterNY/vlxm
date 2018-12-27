@@ -3176,8 +3176,8 @@
           "DapperContext": "1.0.0",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
-          "Model.Article": "1.0.0",
           "Model.Common": "1.0.0",
+          "Model.Vlxm": "1.0.0",
           "MySql.Data": "8.0.13",
           "NLog.Web.AspNetCore": "4.7.0",
           "ZKWeb.System.Drawing": "4.0.1"
@@ -3208,24 +3208,14 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Dapper": "1.50.5",
-          "Model.Article": "1.0.0",
-          "Model.Common": "1.0.0"
+          "Model.Common": "1.0.0",
+          "Model.Vlxm": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DapperContext.dll": {}
         },
         "runtime": {
           "bin/placeholder/DapperContext.dll": {}
-        }
-      },
-      "Model.Article/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/Model.Article.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Model.Article.dll": {}
         }
       },
       "Model.Common/1.0.0": {
@@ -3236,6 +3226,16 @@
         },
         "runtime": {
           "bin/placeholder/Model.Common.dll": {}
+        }
+      },
+      "Model.Vlxm/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Model.Vlxm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.Vlxm.dll": {}
         }
       }
     }
@@ -9968,15 +9968,15 @@
       "path": "../DapperContext/DapperContext.csproj",
       "msbuildProject": "../DapperContext/DapperContext.csproj"
     },
-    "Model.Article/1.0.0": {
-      "type": "project",
-      "path": "../Model.Article/Model.Article.csproj",
-      "msbuildProject": "../Model.Article/Model.Article.csproj"
-    },
     "Model.Common/1.0.0": {
       "type": "project",
       "path": "../Model.Common/Model.Common.csproj",
       "msbuildProject": "../Model.Common/Model.Common.csproj"
+    },
+    "Model.Vlxm/1.0.0": {
+      "type": "project",
+      "path": "../Model.Vlxm/Model.Vlxm.csproj",
+      "msbuildProject": "../Model.Vlxm/Model.Vlxm.csproj"
     }
   },
   "projectFileDependencyGroups": {

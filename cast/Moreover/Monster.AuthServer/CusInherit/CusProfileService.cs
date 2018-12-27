@@ -51,7 +51,7 @@ namespace Monster.AuthServer.CusInherit
       //判断是否有请求Claim信息
       if (context.RequestedClaimTypes.Any())
       {
-        using (IDbConnection conn = new MySqlConnection(AppSetting.ConnectionString["Mysql"]))
+        using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
         {
           //根据用户唯一标识查找用户信息
           var user = conn.QueryFirst<UserInfo>(
@@ -82,7 +82,7 @@ namespace Monster.AuthServer.CusInherit
     public virtual Task IsActiveAsync(IsActiveContext context)
     {
       Logger.LogDebug("IsActive called from: {caller}", context.Caller);
-      using (IDbConnection conn = new MySqlConnection(AppSetting.ConnectionString["Mysql"]))
+      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
       {
         var user = conn.QueryFirst<UserInfo>(
           $"select * from article_info WHERE {nameof(UserInfo.RoleCode)} = {context.Subject.GetSubjectId()}");

@@ -21,8 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Command.RedisHelper\Command.RedisHelper.csproj" />
     <ProjectReference Include="..\DapperContext\DapperContext.csproj" />
-    <ProjectReference Include="..\Model.Article\Model.Article.csproj" />
     <ProjectReference Include="..\Model.Common\Model.Common.csproj" />
+    <ProjectReference Include="..\Model.Vlxm\Model.Vlxm.csproj" />
   </ItemGroup>
 
   <ItemGroup>

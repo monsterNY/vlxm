@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model.Article\Model.Article.csproj" />
     <ProjectReference Include="..\Model.Common\Model.Common.csproj" />
+    <ProjectReference Include="..\Model.Vlxm\Model.Vlxm.csproj" />
   </ItemGroup>
 
   <ItemGroup>

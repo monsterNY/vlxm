@@ -35,7 +35,7 @@ namespace Monster.AuthServer.CusInherit
     {
       UserInfo clientUserInfo = null;
 
-      using (IDbConnection conn = new MySqlConnection(AppSetting.ConnectionString["Mysql"]))
+      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
       {
         //根据用户唯一标识查找用户信息
         clientUserInfo = conn.QueryFirst<UserInfo>(

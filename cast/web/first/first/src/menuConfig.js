@@ -76,6 +76,16 @@ const asideMenuConfig = [
       { name: '添加文章', path: '/page5' },
     ],
   },
+  {
+    name: 'Nav6',
+    path: '/page6',
+    icon: 'home',
+  },
+  {
+    name: 'Nav7',
+    path: '/page7',
+    icon: 'home',
+  },
 ];
 
 export { headerMenuConfig, asideMenuConfig };

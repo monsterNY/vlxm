@@ -359,16 +359,6 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "Model.Article/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/Model.Article.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Model.Article.dll": {}
-        }
-      },
       "Model.Common/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -377,6 +367,16 @@
         },
         "runtime": {
           "bin/placeholder/Model.Common.dll": {}
+        }
+      },
+      "Model.Vlxm/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Model.Vlxm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.Vlxm.dll": {}
         }
       }
     }
@@ -1844,22 +1844,22 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "Model.Article/1.0.0": {
-      "type": "project",
-      "path": "../Model.Article/Model.Article.csproj",
-      "msbuildProject": "../Model.Article/Model.Article.csproj"
-    },
     "Model.Common/1.0.0": {
       "type": "project",
       "path": "../Model.Common/Model.Common.csproj",
       "msbuildProject": "../Model.Common/Model.Common.csproj"
+    },
+    "Model.Vlxm/1.0.0": {
+      "type": "project",
+      "path": "../Model.Vlxm/Model.Vlxm.csproj",
+      "msbuildProject": "../Model.Vlxm/Model.Vlxm.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Dapper >= 1.50.5",
-      "Model.Article >= 1.0.0",
       "Model.Common >= 1.0.0",
+      "Model.Vlxm >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -1893,11 +1893,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Article\\Model.Article.csproj": {
-              "projectPath": "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Article\\Model.Article.csproj"
-            },
             "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Common\\Model.Common.csproj": {
               "projectPath": "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Common\\Model.Common.csproj"
+            },
+            "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Vlxm\\Model.Vlxm.csproj": {
+              "projectPath": "D:\\work_y\\git\\szhw\\cast\\Moreover\\Model.Vlxm\\Model.Vlxm.csproj"
             }
           }
         }

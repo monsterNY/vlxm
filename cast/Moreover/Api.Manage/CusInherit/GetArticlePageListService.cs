@@ -11,10 +11,10 @@ using Dapper;
 using DapperContext;
 using DapperContext.Const;
 using Microsoft.AspNetCore.Http;
-using Model.Article.Entity;
-using Model.Article.Tools;
 using Model.Common.ConfigModels;
 using Model.Common.Models;
+using Model.Vlxm.Entity;
+using Model.Vlxm.Tools;
 using NLog;
 
 namespace Api.Manage.CusInherit

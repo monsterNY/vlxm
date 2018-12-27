@@ -73,16 +73,26 @@ export default class SettingsForm extends Component {
     });
   };
 
+  changeDialog = (isShow) => {
+    if (isShow) {
+      this.processStyle = this.showStyle;
+      this.btnSubmitStyle = this.hideStyle;
+      this.setState({
+        process: 0,
+      });// 用于刷新，通知重新渲染
+    } else {
+      this.processStyle = this.hideStyle;
+      this.btnSubmitStyle = this.showStyle;
+      this.setState({
+        process: 0,
+      });// 用于刷新，通知重新渲染
+    }
+  }
+
   validateAllFormField = () => {
     this.refs.form.validateAll((errors, values) => {
-
       if (!errors) {
-        this.processStyle = this.showStyle;
-        this.btnSubmitStyle = this.hideStyle;
-
-        this.setState({
-          process: 0,
-        });
+        this.changeDialog(true);
 
         global.APIConfig.sendAjax(values, global.APIConfig.optMethod.InsertArticle, (data) => {
           this.setState({
@@ -91,7 +101,10 @@ export default class SettingsForm extends Component {
           setTimeout(() => {
             this.dialog.showDialog();
             console.log(data);
+            this.changeDialog(false);
           }, 1000);
+        }, () => {
+          this.changeDialog(false);
         });
       }
       console.log('errors', errors, 'values', values);

@@ -7,41 +7,39 @@ namespace Api.Manage.Assist.Dto
 {
   public class CreateArticleDto
   {
-    /// <summary>
-    /// 标题
-    /// </summary>
     public string Title { get; set; }
 
-    /// <summary>
-    /// 作者
-    /// </summary>
     public string Author { get; set; }
 
-    /// <summary>
-    /// 文章类型
-    /// </summary>
-    public long ArticleType { get; set; }
+    public string[] Category { get; set; }
 
-    /// <summary>
-    /// 是否立即发布
-    /// </summary>
-    public bool Notice { get; set; }
+    public string Description { get; set; }
+
+    public string Content { get; set; }
+
+    public string FaceImg { get; set; }
+
+    public int Status { get; set; }
+
+    public DateTime PublishTime { get; set; }
+
+    public int ArticleType { get; set; }
 
     public string ValidInfo()
     {
-      if (string.IsNullOrWhiteSpace(Title))
+      if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Author) || string.IsNullOrWhiteSpace(FaceImg))
       {
-        return "文章标题不能为空！";
+        return "文章基本信息录入不完整！";
       }
 
-      if (string.IsNullOrWhiteSpace(Author))
+      if (Category == null || Category.Length == 0)
       {
-        return "文章作者不能为空！";
+        return "未选择文章标签！";
       }
 
       if (ArticleType <= 0)
       {
-        return "请选择文章类型！";
+        return "未选择文章类目！";
       }
 
       return String.Empty;

@@ -8,9 +8,9 @@ using Api.Manage.CusInterface;
 using Dapper;
 using DapperContext.Const;
 using Microsoft.AspNetCore.Http;
-using Model.Article.Entity;
-using Model.Article.Tools;
 using Model.Common.ConfigModels;
+using Model.Vlxm.Entity;
+using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
 
 namespace Api.Manage.CusInherit

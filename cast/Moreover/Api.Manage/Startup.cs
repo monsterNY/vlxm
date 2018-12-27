@@ -55,6 +55,7 @@ namespace Api.Manage
               .AllowCredentials(); //指定处理cookie
           })
       );
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +69,8 @@ namespace Api.Manage
       {
         app.UseDeveloperExceptionPage();
       }
+
+      app.UseStaticFiles();
 
       app.UseMvc(routes =>
       {

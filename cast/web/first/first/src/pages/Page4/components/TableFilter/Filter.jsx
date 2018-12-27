@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button, DatePicker, Select } from '@icedesign/base';
+import { Button, DatePicker, Select, Input } from '@icedesign/base';
 
+@withRouter
 export default class TableFilter extends Component {
   static displayName = 'TableFilter';
 
@@ -12,7 +13,7 @@ export default class TableFilter extends Component {
       endValue: null,
       endOpen: false,
       validFlag: -1,
-      onSearchFunc: props.onSearch,
+      title: '',
     };
   }
 
@@ -56,12 +57,20 @@ export default class TableFilter extends Component {
     this.setState({ endOpen: open });
   };
 
+  // handleInputChange = (value, e) => {
+  handleInputChange = (value) => {
+    this.setState({
+      title: value,
+    });
+    // console.log(e);
+  }
+
   handleSelectChange = (value) => {
     this.setState({ validFlag: value });
   };
 
   onSearch = () => {
-    this.state.onSearchFunc(this.state);
+    this.props.onSearch(this.state);// 回调父控件事件
   }
 
   render() {
@@ -69,7 +78,7 @@ export default class TableFilter extends Component {
     return (
       <div style={styles.tableFilter}>
         <div style={styles.filterItem}>
-          <span style={styles.filterLabel}>调价日期：</span>
+          <span style={styles.filterLabel}>创建日期：</span>
           <DatePicker
             disabledDate={this.disabledStartDate}
             value={startValue}
@@ -85,6 +94,12 @@ export default class TableFilter extends Component {
             onChange={this.onEndChange}
             open={endOpen}
             onOpenChange={this.handleEndOpenChange}
+          />
+        </div>
+        <div style={styles.filterItem}>
+          <span style={styles.filterLabel}>标题：</span>
+          <Input
+            onChange={this.handleInputChange}
           />
         </div>
         <div style={styles.filterItem}>

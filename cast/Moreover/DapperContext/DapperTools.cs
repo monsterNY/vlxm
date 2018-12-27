@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DapperContext.Const;
-using Model.Article.Entity;
-using Model.Article.Tools;
 using Model.Common.ConfigModels;
 using Model.Common.Models;
+using Model.Vlxm.Entity;
+using Model.Vlxm.Tools;
 
 namespace DapperContext
 {
@@ -30,7 +30,7 @@ namespace DapperContext
     {
       var count = await conn.QueryFirstAsync<int>($@"
 {SqlCharConst.SELECT} {SqlCharConst.COUNT}(1) 
-{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
+{SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
 {whereSql}
 ");
 

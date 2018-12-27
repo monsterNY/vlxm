@@ -11,10 +11,11 @@ using DapperContext.Const;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Model.Article.Entity;
-using Model.Article.Tools;
 using Model.Common.ConfigModels;
+using Model.Vlxm.Entity;
+using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 namespace Api.Manage.Controllers
 {
@@ -48,13 +49,32 @@ namespace Api.Manage.Controllers
     {
       using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
       {
-        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>(
-          $@"
-{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<ArticleInfo>())} 
-{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
-{SqlCharConst.WHERE} {SqlCharConst.DefaultWhere}
-");
-        return articleInfos.ToList();
+        try
+        {
+
+          var content =
+            "<p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">🤣</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">真逗呢</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">哈哈哈</span></span></p>";
+          var param = new {content};
+
+          var result = conn.Execute($@"INSERT INTO article_info
+        ( title, author, category, content,articleType)
+
+      VALUES( '', '', '', @content,0)",param);
+          return result;
+
+        }
+        catch (Exception e)
+        {
+          return JsonConvert.SerializeObject(e);
+        }
+
+
+//        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>(
+//          $@"
+//{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<ArticleInfo>())} 
+//{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
+//{SqlCharConst.WHERE} {SqlCharConst.DefaultWhere}
+//");
       }
     }
 

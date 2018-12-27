@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Model.Article.Menu;
+using Model.Vlxm.Menu;
 
 namespace DapperContext.Const
 {

@@ -6,6 +6,8 @@ import User from './pages/User';
 import Page3 from './pages/Page3';
 import Page4 from './pages/Page4';
 import Page5 from './pages/Page5';
+import Page6 from './pages/Page6';
+import Page7 from './pages/Page7';
 import Dashboard from './pages/Dashboard';
 
 const routerConfig = [
@@ -32,6 +34,16 @@ const routerConfig = [
     path: '/page5',
     layout: BasicLayout,
     component: Page5,
+  },
+  {
+    path: '/page6',
+    layout: BasicLayout,
+    component: Page6,
+  },
+  {
+    path: '/page7',
+    layout: BasicLayout,
+    component: Page7,
   },
 ];
 

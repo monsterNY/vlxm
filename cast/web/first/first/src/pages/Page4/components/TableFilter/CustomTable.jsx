@@ -113,7 +113,7 @@ export default class Home extends Component {
   };
 
   renderStatus = (value) => {
-    console.log(value);
+    // console.log(value);
     return (
       <div style={styles.state}>
         <span style={styles.circle} />
