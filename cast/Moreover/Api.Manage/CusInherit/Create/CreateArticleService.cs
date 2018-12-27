@@ -24,10 +24,6 @@ namespace Api.Manage.CusInherit.Create
 
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
-      var mysqlConn = appSetting.GetMysqlConn();
-
-      var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
-
       var createArticleDto = acceptParam.AnalyzeParam<CreateArticleDto>();
 
       if (createArticleDto == null)
@@ -43,6 +39,10 @@ namespace Api.Manage.CusInherit.Create
       }
 
       var createArticleParam = (CreateArticleParam) createArticleDto;
+
+      var mysqlConn = appSetting.GetMysqlConn();
+
+      var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
 
       var result =
         await DapperTools.CreateItem(dbConnection, EntityTools.GetTableName<ArticleInfo>(), createArticleParam);

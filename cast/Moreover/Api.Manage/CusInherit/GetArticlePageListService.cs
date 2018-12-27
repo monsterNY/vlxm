@@ -33,11 +33,6 @@ namespace Api.Manage.CusInherit
         return await Task.Run(() => ResultModel.GetNullErrorModel(string.Empty));
       }
 
-      //获取连接
-      var mysqlConn = appSetting.GetMysqlConn();
-
-      var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
-
       //动态sql
       StringBuilder whereBuilder = new StringBuilder();
 
@@ -47,6 +42,11 @@ namespace Api.Manage.CusInherit
 {SqlCharConst.WHERE} {EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {pageModel.Result.ValidFlag}
 ");
       }
+
+      //获取连接
+      var mysqlConn = appSetting.GetMysqlConn();
+
+      var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
 
       //采用工具类分页查询
       var pageList = await DapperTools.GetPageList<ArticleInfo>(pageModel.PageNo, pageModel.PageSize, dbConnection,
