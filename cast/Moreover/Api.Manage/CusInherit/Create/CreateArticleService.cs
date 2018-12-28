@@ -34,6 +34,8 @@ namespace Api.Manage.CusInherit.Create
 
       var createArticleParam = (CreateArticleParam) createArticleDto;
 
+      createArticleParam.UserId = acceptParam.GetUserId();
+
       var mysqlConn = appSetting.GetMysqlConn();
 
       var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);

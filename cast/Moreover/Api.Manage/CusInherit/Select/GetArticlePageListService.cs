@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Api.Manage.Assist.Dto;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
-using Dapper;
 using DapperContext;
 using DapperContext.Const;
 using Microsoft.AspNetCore.Http;
@@ -15,9 +12,8 @@ using Model.Common.ConfigModels;
 using Model.Common.Models;
 using Model.Vlxm.Entity;
 using Model.Vlxm.Tools;
-using NLog;
 
-namespace Api.Manage.CusInherit
+namespace Api.Manage.CusInherit.Select
 {
   public class GetArticlePageListService : IDeal
   {
@@ -25,7 +21,7 @@ namespace Api.Manage.CusInherit
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
       //解析参数
-      var pageModel = acceptParam.AnalyzeParam<PageModel<FilterDto>>();
+      var pageModel = acceptParam.AnalyzeParam<PageModel<ArticlePageFilterDto>>();
 
       if (pageModel == null)
       {
@@ -33,12 +29,26 @@ namespace Api.Manage.CusInherit
       }
 
       //动态sql
-      StringBuilder whereBuilder = new StringBuilder();
+      var whereArr = new List<string>();
 
       if (pageModel.Result.ValidFlag != null && pageModel.Result.ValidFlag >= 0)
       {
-        whereBuilder.Append($@"
-{SqlCharConst.WHERE} {EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {pageModel.Result.ValidFlag}
+        whereArr.Add($@"
+{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {pageModel.Result.ValidFlag}
+");
+      }
+
+      if (pageModel.Result.ArticleType != null && pageModel.Result.ArticleType > 0)
+      {
+        whereArr.Add($@"
+{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ArticleType))} = {pageModel.Result.ArticleType}
+");
+      }
+
+      if (pageModel.Result.FilterType == 1)
+      {
+        whereArr.Add($@"
+{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {acceptParam.GetUserId()}
 ");
       }
 
@@ -49,7 +59,7 @@ namespace Api.Manage.CusInherit
 
       //采用工具类分页查询
       var pageList = await DapperTools.GetPageList<ArticleInfo>(pageModel.PageNo, pageModel.PageSize, dbConnection,
-        whereBuilder.ToString());
+        whereArr);
 
       //返回结果集
       return ResultModel.GetSuccessModel(string.Empty, pageList);

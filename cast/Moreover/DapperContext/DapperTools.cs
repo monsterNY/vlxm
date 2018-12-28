@@ -15,6 +15,30 @@ namespace DapperContext
 {
   public class DapperTools
   {
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="pageNo"></param>
+    /// <param name="pageSize"></param>
+    /// <param name="conn"></param>
+    /// <param name="whereArr"></param>
+    /// <param name="loadNow"></param>
+    /// <returns></returns>
+    public static async Task<PageModel<IEnumerable<T>>> GetPageList<T>(int pageNo, int pageSize, IDbConnection conn,
+      List<string> whereArr, bool loadNow = true) where T : BaseModel
+    {
+      var whereSql = string.Empty;
+      if (whereArr != null && whereArr.Count > 0)
+      {
+        whereSql = $"{SqlCharConst.WHERE} {string.Join(SqlCharConst.AND, whereArr)}";
+      }
+
+      return await GetPageList<T>(pageNo, pageSize, conn, whereSql, loadNow);
+
+    }
+
     /// <summary>
     /// 
     /// </summary>

@@ -8,7 +8,7 @@ namespace Api.Manage.Assist.UploadInfo
   /// <summary>
   /// 缩略图
   /// </summary>
-  public class SmallUpload : SuperUpload
+  public class SmallUpload : BaseUpload
   {
     protected override string Run(IFormFile imgFile, string saveUrl)
     {

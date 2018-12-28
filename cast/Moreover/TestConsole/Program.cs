@@ -12,6 +12,19 @@ namespace TestConsole
     static void Main(string[] args)
     {
 
+      var arr = new []{"123", "a==3"};
+
+      Console.WriteLine(string.Join("\nAND",arr));
+
+      var temp = new Temp()
+      {
+        Description = Guid.NewGuid().ToString(),
+        Id = 3,
+        Name = "---",
+      };
+
+
+
       Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
 
       var fileName = "xxx.jpg";
@@ -37,5 +50,14 @@ namespace TestConsole
     public string Name { get; set; }
 
     public string Description;
+
+    public int Id { get; set; }
+
+    public bool Is
+    {
+      get => Id > 0;
+      set { }
+    }
+
   }
 }

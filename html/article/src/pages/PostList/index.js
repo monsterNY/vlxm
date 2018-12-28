@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostCategory from './components/PostCategory';
+import Waterfall from './components/Waterfall';
 
 export default class PostList extends Component {
   static displayName = 'PostList';
@@ -10,6 +10,6 @@ export default class PostList extends Component {
   }
 
   render() {
-    return <PostCategory />;
+    return <Waterfall />;
   }
 }

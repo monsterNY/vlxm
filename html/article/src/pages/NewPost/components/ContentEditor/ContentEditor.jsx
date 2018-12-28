@@ -143,6 +143,7 @@ export default class ContentEditor extends Component {
 
       values.content = this.editor.content;
       values.faceImg = this.faceImg;
+      values.userId = global.APIConfig.userInfo.id;
 
       this.changeProcessStyle(true);
 

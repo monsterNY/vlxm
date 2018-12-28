@@ -14,6 +14,9 @@ global.CusStyle = {
 
 // 全局注册 Api 配置信息
 global.APIConfig = {
+  userInfo: {// 用户信息
+    id: 2018,
+  },
   baseUrl: 'http://api.moreover.manage/api/home',
   imgBaseUrl: 'http://api.moreover.manage/',
   uploadUrl: 'http://api.moreover.manage/api/util/UploadSingleImage',

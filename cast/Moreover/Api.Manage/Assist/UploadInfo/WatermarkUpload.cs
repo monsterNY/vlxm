@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Api.Manage.Assist.UploadInfo
 {
-    public class WatermarkUpload : SuperUpload
+    public class WatermarkUpload : BaseUpload
     {
 
         /// <summary>

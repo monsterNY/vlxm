@@ -12,5 +12,7 @@ namespace Model.Vlxm.Entity
 
     public string TypeName { get; set; }
 
+    public string Icon { get; set; }
+
   }
 }
