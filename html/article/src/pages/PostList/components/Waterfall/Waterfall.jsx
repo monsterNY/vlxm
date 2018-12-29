@@ -31,6 +31,7 @@ export default class Waterfall extends Component {
       },
     };
     this.contentRef = React.createRef();
+    this.diffWidth = 400;
   }
 
   // 加载文章类型
@@ -84,7 +85,7 @@ export default class Waterfall extends Component {
           'resize',
           () => {
             this.setState({
-              containerWidth: this.contentRef.clientWidth,
+              containerWidth: (this.contentRef.clientWidth - this.diffWidth),
             });
           },
           false
@@ -101,7 +102,7 @@ export default class Waterfall extends Component {
   getAutoResponsiveProps = () => {
     return {
       itemMargin: 10,
-      containerWidth: this.state.containerWidth || document.body.clientWidth,
+      containerWidth: (this.state.containerWidth || document.body.clientWidth) - this.diffWidth,
       itemClassName: 'item',
       gridWidth: 100,
       transitionDuration: '.5',
@@ -128,7 +129,10 @@ export default class Waterfall extends Component {
         </div>
         <Tab
           onChange={this.handleTabChange}
-          navStyle={{ backgroundColor: '#fff' }}
+          navStyle={{
+            backgroundColor: '#fff',
+            paddingTop: '20px',
+          }}
           contentStyle={{
             backgroundColor: '#fff',
             marginTop: '20px',
@@ -156,17 +160,19 @@ export default class Waterfall extends Component {
           })}
         </Tab>
         <IceContainer>
-          <div className="waterfall-panel">
+          <div className="waterfall-panel" style={styles.content}>
             <AutoResponsive ref={this.contentRef} {...this.getAutoResponsiveProps()}>
               {this.state.articleInfoArr.map((item, index) => {
                 const style = {
+                  // width: item.status === 0 ? 190 : 390,
+                  // height: item.status === 0 ? 240 : 490,
                   width: 190,
                   height: 240,
                 };
                 return (
                   <a
                     key={index}
-                    href="#"
+                    href={`/#/article/detail/${item.id}`}
                     className={`${item.status === 0 ? 'w1' : 'w1'} album item`}
                     style={style}
                   >
@@ -201,4 +207,7 @@ export default class Waterfall extends Component {
   }
 }
 
-const styles = {};
+const styles = {
+  content: {
+  },
+};

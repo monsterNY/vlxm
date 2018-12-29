@@ -64,6 +64,14 @@ const asideMenuConfig = [
       },
     ],
   },
+  {
+    name: '登录',
+    path: '/user/login',
+  },
+  {
+    name: '注册',
+    path: '/user/register',
+  },
 ];
 
 export { headerMenuConfig, asideMenuConfig };

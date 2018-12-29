@@ -22,14 +22,14 @@ namespace Api.Manage.CusInherit.Create
 
       if (createArticleDto == null)
       {
-        return await Task.Run(() => ResultModel.GetNullErrorModel(string.Empty));
+        return ResultModel.GetNullErrorModel(string.Empty);
       }
 
       string msg;
 
       if ((msg = createArticleDto.ValidInfo()) != string.Empty)
       {
-        return await Task.Run(() => ResultModel.GetNullErrorModel(string.Empty, msg));
+        return ResultModel.GetNullErrorModel(string.Empty, msg);
       }
 
       var createArticleParam = (CreateArticleParam) createArticleDto;

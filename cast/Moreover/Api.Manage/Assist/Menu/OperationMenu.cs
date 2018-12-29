@@ -43,5 +43,18 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [Deal(typeof(CreateArticleService), "添加文章")]
     InsertArticle = 20001,
+    /// <summary>
+    /// 用户注册
+    /// </summary>
+    [Deal(typeof(CreateUserInfoService), "用户注册")]
+    CreateUserInfo = 20002,
+
+
+    /// <summary>
+    /// 获取文章详情
+    /// </summary>
+    [Deal(typeof(GetArticleDetailService), "获取文章详情")]
+    GetArticleDetail = 30001,
+
   }
 }

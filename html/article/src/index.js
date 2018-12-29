@@ -14,12 +14,13 @@ global.CusStyle = {
 
 // 全局注册 Api 配置信息
 global.APIConfig = {
-  userInfo: {// 用户信息
+  userInfo: { // 用户信息
     id: 2018,
   },
   baseUrl: 'http://api.moreover.manage/api/home',
   imgBaseUrl: 'http://api.moreover.manage/',
   uploadUrl: 'http://api.moreover.manage/api/util/UploadSingleImage',
+  uploadBase64Url: 'http://api.moreover.manage/api/util/UploadBase64Image',
   resultCodeMap: {
     success: 0,
   },
@@ -28,6 +29,7 @@ global.APIConfig = {
     InsertArticle: 'InsertArticle',
     GetArticleTypePageList: 'GetArticleTypePageList',
     GetArticleTagPageList: 'GetArticleTagPageList',
+    GetArticleDetail: 'GetArticleDetail',
   },
   ValidFlagArr: [
     '无效',
@@ -36,13 +38,9 @@ global.APIConfig = {
   getSignFunc: (paramObj) => {
     return `no sign ${paramObj}`;
   },
-  sendAjax: (paramObj, optFlag, callBack, errorFunc) => {
-    paramObj = global.APIConfig.getParamFunc(optFlag, paramObj);
-
-    console.log(paramObj);
-
+  baseSendAjax: (url, paramObj, callBack, errorFunc) => {
     axios
-      .post(global.APIConfig.baseUrl, paramObj)
+      .post(url, paramObj)
       .then((response) => {
         console.log(response.data);
         if (response.data.errorCode === global.APIConfig.resultCodeMap.success) {
@@ -57,6 +55,13 @@ global.APIConfig = {
           errorFunc(); // 异常回调
         }
       });
+  },
+  sendAjax: (paramObj, optFlag, callBack, errorFunc) => {
+    paramObj = global.APIConfig.getParamFunc(optFlag, paramObj);
+
+    console.log(paramObj);
+
+    global.APIConfig.baseSendAjax(global.APIConfig.baseUrl, paramObj, callBack, errorFunc);
   },
   getParamFunc: (optFlag, paramObj) => {
     return {

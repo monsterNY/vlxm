@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Api.Manage.Assist.Dto;
 using Api.Manage.Assist.Entity;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
@@ -78,6 +79,73 @@ namespace Api.Manage.Controllers
       using (var stream = new FileStream(webRootPath + floderPath + fileName, FileMode.Create))
       {
         file.CopyTo(stream);
+      }
+
+      return ResultModel.GetSuccessModel(title, floderPath + fileName);
+
+    }
+
+    /// <summary>
+    /// 上传图片 base64
+    /// </summary>
+    /// <returns></returns>
+    [Route(nameof(UploadBase64Image))]
+    [HttpPost]
+    public object UploadBase64Image([FromBody] KeyDto<string> req)
+    {
+
+      var title = "图片上传base64";
+
+      var file = req.Key;
+
+      if (string.IsNullOrWhiteSpace(file))
+      {
+        return ResultModel.GetNullErrorModel(title);
+      }
+
+      var dataURI = file.Split(',');
+      string fileData = dataURI[1];//文件数据
+      string contentType = dataURI[0].Replace("data:", "").Replace(";base64", "");//content-type
+
+      //获取项目地址
+      string webRootPath = hostingEnvironment.WebRootPath;
+
+      //允许的图片类型
+      var allowFileType = new Dictionary<string, string>
+      {
+        {"image/jpeg","jpg" },
+        {"image/jpg","jpg" },
+        {"image/gif","jpg" },
+        {"image/png","jpg" },
+        {"image/bmp","jpg" },
+      };
+
+      if (!allowFileType.ContainsKey(contentType))
+      {
+        return ResultModel.GetParamErrorModel(title, $"不支持的文件格式：{contentType}");
+      }
+
+      var maxSize = 5;//文件上传的最大大小 (mb)
+      if (file.Length > maxSize * 1024 * 1024)
+      {
+        return ResultModel.GetParamErrorModel(title, $"文件最大支持：{maxSize}MB,当前文件大小：{file.Length}字节");
+      }
+
+      var fileName = $"{Guid.NewGuid().ToString().Replace("-", "")}.{allowFileType[contentType]}";
+
+      var floderPath = $"/upload/image/{DateTime.Now:yyyy-MM-dd}/";
+
+      //检测是否存在此文件夹
+      if (!Directory.Exists(webRootPath + floderPath))
+      {
+        Directory.CreateDirectory(webRootPath + floderPath);
+      }
+
+      var bytes = Convert.FromBase64String(fileData);
+
+      using (var stream = new FileStream(webRootPath + floderPath + fileName, FileMode.Create))
+      {
+        stream.Write(bytes);
       }
 
       return ResultModel.GetSuccessModel(title, floderPath + fileName);

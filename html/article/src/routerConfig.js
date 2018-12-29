@@ -9,6 +9,8 @@ import HotPost from './pages/HotPost';
 import Status from './pages/Status';
 import Settings from './pages/Settings';
 import UserLogin from './pages/UserLogin';
+import Article from './pages/Article';
+import BasicLayout from './layouts/BasicLayout';
 import UserRegister from './pages/UserRegister';
 
 const routerConfig = [
@@ -43,6 +45,11 @@ const routerConfig = [
   {
     path: '/account/settings',
     component: Settings,
+  },
+  {
+    path: '/article/detail/:id',
+    layout: BasicLayout,
+    component: Article,
   },
 ];
 

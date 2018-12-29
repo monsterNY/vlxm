@@ -23,8 +23,6 @@ namespace TestConsole
         Name = "---",
       };
 
-
-
       Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
 
       var fileName = "xxx.jpg";

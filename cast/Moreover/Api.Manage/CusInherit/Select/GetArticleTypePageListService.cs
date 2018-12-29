@@ -26,7 +26,7 @@ namespace Api.Manage.CusInherit.Select
 
       if (pageModel == null)
       {
-        return await Task.Run(() => ResultModel.GetNullErrorModel(string.Empty));
+        return ResultModel.GetNullErrorModel(string.Empty);
       }
 
       //动态sql

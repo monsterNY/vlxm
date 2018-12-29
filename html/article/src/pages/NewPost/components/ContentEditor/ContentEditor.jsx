@@ -8,7 +8,7 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 
-import RichEditor from './RichEditor';
+import BraftEditor from '../BraftEditor';
 
 const { Row, Col } = Grid;
 const FormItem = Form.Item;
@@ -130,6 +130,7 @@ export default class ContentEditor extends Component {
   }
 
   handleSubmit = () => {
+    // console.log(this.editor.content);
     this.postForm.validateAll((errors, values) => {
       console.log('errors', errors, 'values', values);
       if (errors) {
@@ -279,7 +280,7 @@ export default class ContentEditor extends Component {
               </FormItem>
               <FormItem label="正文" required>
                 <IceFormBinder name="body">
-                  <RichEditor bindRef={this.handleEditorRef} />
+                  <BraftEditor bindRef={this.handleEditorRef} />
                 </IceFormBinder>
               </FormItem>
               <Row>
