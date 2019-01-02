@@ -12,8 +12,8 @@ using IdentityServer4.Services;
 using IdentityServer4.Test;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Model.Article.Entity;
 using Model.Common.ConfigModels;
+using Model.Vlxm.Entity;
 using MySql.Data.MySqlClient;
 
 namespace Monster.AuthServer.CusInherit

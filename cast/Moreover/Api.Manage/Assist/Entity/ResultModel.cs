@@ -103,6 +103,20 @@ namespace Api.Manage.Assist.Entity
     /// </summary>
     /// <param name="title">标题</param>
     /// <returns></returns>
+    public static ResultModel GetNullErrorModel(string message = "信息填写不完整！")
+    {
+      return new ResultModel()
+      {
+        ErrorCode = (int) ErrorCodeMenu.ERROR_NULL,
+        Message = message,
+      };
+    }
+
+    /// <summary>
+    /// 获取空异常结果集
+    /// </summary>
+    /// <param name="title">标题</param>
+    /// <returns></returns>
     public static ResultModel GetNullErrorModel(string title, string message = "信息填写不完整！")
     {
       return new ResultModel()
@@ -110,6 +124,21 @@ namespace Api.Manage.Assist.Entity
         ErrorCode = (int) ErrorCodeMenu.ERROR_NULL,
         Message = message,
         Title = title
+      };
+    }
+
+    /// <summary>
+    /// 获取参数异常结果集
+    /// </summary>
+    /// <param name="title">标题</param>
+    /// <param name="result">错误提示</param>
+    /// <returns></returns>
+    public static ResultModel GetParamErrorModel(string message)
+    {
+      return new ResultModel()
+      {
+        ErrorCode = (int)ErrorCodeMenu.ERROR_PARAM,
+        Message = message,
       };
     }
 

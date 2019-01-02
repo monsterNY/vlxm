@@ -3,15 +3,15 @@ using System.Collections.Concurrent;
 
 namespace Model.Common.Cache
 {
-
   /// <summary>
   /// 简单的内存缓存
   /// 应用情景：临时缓存、部分全局缓存但可能存在频繁修改
   /// </summary>
   public class MemoryCache
   {
-
-    private MemoryCache() { }
+    private MemoryCache()
+    {
+    }
 
     /// <summary>
     /// 实例对象
@@ -44,7 +44,6 @@ namespace Model.Common.Cache
     /// <returns></returns>
     public static MemoryCache GetInstance()
     {
-
       #region 简单单例
 
       //            _instance = _instance ?? new MemoryCache();
@@ -69,15 +68,13 @@ namespace Model.Common.Cache
 
       if (_instance == null)
       {
-
         lock (_lockObj)
         {
           _instance = Activator.CreateInstance(typeof(MemoryCache), true) as MemoryCache;
         }
-
       }
-      return _instance;
 
+      return _instance;
     }
 
     /// <summary>
@@ -88,7 +85,6 @@ namespace Model.Common.Cache
     /// <returns></returns>
     public bool TryWrite(string key, object obj)
     {
-
       cacheMap[key] = obj;
 
       #region 考虑线程安全
@@ -107,7 +103,39 @@ namespace Model.Common.Cache
       //                    new Lazy<object>((() => obj))));//修改处理
 
       #endregion
+
       return true;
+    }
+
+    /// <summary>
+    /// 读取
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="defaultInfo"></param>
+    /// <returns></returns>
+    public T TryGet<T>(string key, T defaultInfo = default(T)) where T : class
+    {
+      object result;
+
+      if (!cacheMap.TryGetValue(key, out result))
+      {
+        result = defaultInfo;
+      }
+
+      return result as T;
+
+      #region 考虑线程安全
+
+      //            var valueFound = cacheMap.GetOrAdd(key,
+      //                x => new Lazy<object>(
+      //                    () =>
+      //                    {
+      //                        return defaultInfo;
+      //                    }));
+      //
+      //            return valueFound.Value;
+
+      #endregion
     }
 
     /// <summary>
@@ -118,7 +146,6 @@ namespace Model.Common.Cache
     /// <returns></returns>
     public object TryGet(string key, object defaultInfo = null)
     {
-
       object result;
 
       if (!cacheMap.TryGetValue(key, out result))
@@ -140,8 +167,6 @@ namespace Model.Common.Cache
       //            return valueFound.Value;
 
       #endregion
-
     }
-
   }
 }

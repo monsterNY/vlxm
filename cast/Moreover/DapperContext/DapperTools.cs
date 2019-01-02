@@ -41,17 +41,19 @@ namespace DapperContext
     public static async Task<bool> IsExists(IDbConnection conn, string tableName,
       List<string> whereArr, object param = null)
     {
-
       var whereSql = GetWhereSql(whereArr);
 
-      var isExists = await conn.QueryFirstAsync<bool>($@"{SqlCharConst.SELECT} {SqlCharConst.EXISTS} (
+      var sql = $@"{SqlCharConst.SELECT} {SqlCharConst.EXISTS} (
 {SqlCharConst.SELECT} 0 
 {SqlCharConst.FROM} {tableName}
 {whereSql}
-)");
+)";
+
+      Logger.Debug($"{nameof(GetItem)}:{sql}");
+
+      var isExists = (await conn.ExecuteScalarAsync<bool>(sql, param));
 
       return isExists;
-
     }
 
     /// <summary>

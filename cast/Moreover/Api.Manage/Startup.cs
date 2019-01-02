@@ -1,4 +1,7 @@
-﻿using Api.Manage.Middleware;
+﻿using Api.Manage.Assist.Extension;
+using Api.Manage.Middleware;
+using Command.RedisHelper.CusInhert;
+using Command.RedisHelper.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +29,7 @@ namespace Api.Manage
     {
       services.AddMvc()
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-        .AddJsonOptions(options => { options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; });//处理时间格式
+        .AddJsonOptions(options => { options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; }); //处理时间格式
 
       //将配置信息进行DI注入
       services.Configure<AppSetting>(Configuration.GetSection(nameof(AppSetting)));
@@ -38,11 +41,20 @@ namespace Api.Manage
       //Cache.Add(requiredService.CurrentValue);//添加缓存
 
       //实时更新本地缓存
-      requiredService.OnChange(((setting, s) =>
+      requiredService.OnChange((setting, s) =>
       {
         //Cache.Refresh();
         MemoryCache.GetInstance().TryWrite(nameof(AppSetting), setting);
-      }));
+      });
+
+      //注入redis引用
+//      services.AddSingleton<CusRedisHelper>(
+//        new CusRedisHelper(requiredService.CurrentValue.GetRedisConn().ConnStr, "api", new NewtonsoftDeal(),
+//          71));
+
+      MemoryCache.GetInstance().TryWrite(requiredService.CurrentValue.GetRedisConn().FlagKey, new CusRedisHelper(requiredService.CurrentValue.GetRedisConn().ConnStr, "api", new NewtonsoftDeal(),
+        71));
+
 
       //配置跨域处理，允许所有来源：
       services.AddCors(options =>
@@ -55,7 +67,6 @@ namespace Api.Manage
               .AllowCredentials(); //指定处理cookie
           })
       );
-
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,18 +76,15 @@ namespace Api.Manage
 
       app.UseMiddleware<HttpModuleMiddleware>(); //添加管道中间件
 
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
+      if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
       app.UseStaticFiles();
 
       app.UseMvc(routes =>
       {
         routes.MapRoute(
-          name: "default",
-          template: "api/{controller=Home}/{action=Index}/{id?}");
+          "default",
+          "api/{controller=Home}/{action=Index}/{id?}");
       });
     }
   }

@@ -17,7 +17,7 @@ using Model.Vlxm.Tools;
 
 namespace Api.Manage.CusInherit.Create
 {
-  public class CreateUserInfoService:IDeal
+  public class CreateUserInfoService : IDeal
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
@@ -30,9 +30,12 @@ namespace Api.Manage.CusInherit.Create
         return ResultModel.GetNullErrorModel(string.Empty);
       }
 
+      //设置默认显示名为登录名
+      createUserInfoDto.DisplayName = createUserInfoDto.UserName;
+
       if ((msg = createUserInfoDto.ValidInfo()) != string.Empty)
       {
-        return ResultModel.GetParamErrorModel(string.Empty,msg);
+        return ResultModel.GetParamErrorModel(string.Empty, msg);
       }
 
       var conn = appSetting.GetMysqlConn(context);
@@ -42,12 +45,12 @@ namespace Api.Manage.CusInherit.Create
       //查看用户名是否已存在
       var isExists = await DapperTools.IsExists(conn, EntityTools.GetTableName<UserInfo>(), new List<string>()
       {
-        $"{userNameField} = @{ userNameField}"
-      });
+        $"{userNameField} = @{userNameField}"
+      }, new {createUserInfoDto.UserName});
 
       if (isExists)
       {
-        return ResultModel.GetParamErrorModel(string.Empty,"用户名已存在！");
+        return ResultModel.GetParamErrorModel(string.Empty, "用户名已存在！");
       }
 
 //      Predicates.Field<UserInfo>(u => u.Id > 0, Operator.Eq, true);
@@ -55,7 +58,7 @@ namespace Api.Manage.CusInherit.Create
 
       var result = await DapperTools.CreateItem(conn, EntityTools.GetTableName<UserInfo>(), createUserInfoDto);
 
-      return ResultModel.GetSuccessModel(string.Empty,result);
+      return ResultModel.GetSuccessModel(string.Empty, result);
     }
   }
 }

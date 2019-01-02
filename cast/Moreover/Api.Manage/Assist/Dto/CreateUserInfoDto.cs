@@ -32,9 +32,9 @@ namespace Api.Manage.Assist.Dto
         return "用户基本信息不完整！";
       }
 
-      if (LoginPwd.Length < 8 || LoginPwd.Length > 16)
+      if (LoginPwd.Length < 6 || LoginPwd.Length > 16)
       {
-        return $"密码长度为{8}至{16}位";
+        return $"密码长度为{6}至{16}位";
       }
 
       if (!string.IsNullOrWhiteSpace(Channel))

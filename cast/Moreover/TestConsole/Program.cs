@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using Command.RedisHelper.CusInhert;
+using Command.RedisHelper.Helper;
 using Dapper;
+using Newtonsoft.Json;
 
 namespace TestConsole
 {
@@ -11,6 +14,22 @@ namespace TestConsole
   {
     static void Main(string[] args)
     {
+
+
+      CusRedisHelper helper = new CusRedisHelper("localhost:6379","vlxm",new NewtonsoftDeal(),71);
+
+      var stringSet = helper.StringSet("monster", "I come back!");
+
+      if (stringSet)
+      {
+        Console.WriteLine("添加值成功！");
+      }
+
+      var stringGet = helper.StringGet("monster");
+
+      Console.WriteLine(stringGet);
+
+      Console.ReadKey(true);
 
       var arr = new []{"123", "a==3"};
 

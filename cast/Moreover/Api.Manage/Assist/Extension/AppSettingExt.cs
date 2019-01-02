@@ -16,11 +16,17 @@ namespace Api.Manage.Assist.Extension
       return appSetting.DbConnMap[ConfigConst.MysqlConn];
     }
 
+    public static ConnectionParam GetRedisConn(this AppSetting appSetting)
+    {
+      return appSetting.DbConnMap[ConfigConst.RedisConn];
+    }
+
     public static IDbConnection GetMysqlConn(this AppSetting appSetting,HttpContext context)
     {
       var connParam = appSetting.DbConnMap[ConfigConst.MysqlConn];
       return context.GetConnection(connParam.FlagKey, connParam.ConnStr);
     }
+    
 
   }
 }

@@ -12,8 +12,8 @@ using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Model.Article.Entity;
 using Model.Common.ConfigModels;
+using Model.Vlxm.Entity;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 

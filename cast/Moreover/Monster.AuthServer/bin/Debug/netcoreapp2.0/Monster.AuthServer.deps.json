@@ -29,8 +29,8 @@
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.EntityFrameworkCore": "2.0.3",
           "Microsoft.NETCore.App": "2.0.0",
-          "Model.Article": "1.0.0",
           "Model.Common": "1.0.0",
+          "Model.Vlxm": "1.0.0",
           "MySql.Data": "8.0.13",
           "NLog.Web.AspNetCore": "4.7.0"
         },
@@ -4958,20 +4958,20 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "Model.Article/1.0.0": {
-        "runtime": {
-          "Model.Article.dll": {}
-        },
-        "compile": {
-          "Model.Article.dll": {}
-        }
-      },
       "Model.Common/1.0.0": {
         "runtime": {
           "Model.Common.dll": {}
         },
         "compile": {
           "Model.Common.dll": {}
+        }
+      },
+      "Model.Vlxm/1.0.0": {
+        "runtime": {
+          "Model.Vlxm.dll": {}
+        },
+        "compile": {
+          "Model.Vlxm.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.0.0": {
@@ -7411,12 +7411,12 @@
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
     },
-    "Model.Article/1.0.0": {
+    "Model.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Model.Common/1.0.0": {
+    "Model.Vlxm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -34,8 +34,8 @@ class UserRegister extends Component {
   checkPasswd = (rule, values, callback) => {
     if (!values) {
       callback('请输入正确的密码');
-    } else if (values.length < 8) {
-      callback('密码必须大于8位');
+    } else if (values.length < 6) {
+      callback('密码必须大于6位');
     } else if (values.length > 16) {
       callback('密码必须小于16位');
     } else {
@@ -46,12 +46,22 @@ class UserRegister extends Component {
   checkPasswd2 = (rule, values, callback, stateValues) => {
     if (!values) {
       callback('请输入正确的密码');
-    } else if (values && values !== stateValues.passwd) {
+    } else if (values && values !== stateValues.loginPwd) {
       callback('两次输入密码不一致');
     } else {
       callback();
     }
   };
+
+  checkUserName = (rule, values, callback) => {
+    if (!(/\w+/.test(values))) {
+      callback('登录名不能出现中文');
+    } else if (values.length > 12) {
+      callback('登录名不能超过12位');
+    } else {
+      callback();
+    }
+  }
 
   formChange = (value) => {
     this.setState({
@@ -65,9 +75,14 @@ class UserRegister extends Component {
         console.log('errors', errors);
         return;
       }
-      console.log(values);
-      Feedback.toast.success('注册成功');
-      this.props.history.push('/user/login');
+      global.APIConfig.sendAjax(values, global.APIConfig.optMethod.CreateUserInfo, () => {
+        Feedback.toast.success('注册成功');
+        this.props.history.push('/user/login');
+      }, (msg) => {
+        if (msg) {
+          Feedback.toast.error(msg);
+        }
+      });
     });
   };
 
@@ -86,15 +101,16 @@ class UserRegister extends Component {
                 <Col className="formItemCol">
                   <IceIcon type="person" size="small" className="inputIcon" />
                   <IceFormBinder
-                    name="name"
+                    name="userName"
                     required
-                    message="请输入正确的用户名"
+                    // message="请输入正确的登录名"
+                    validator={this.checkUserName}
                   >
-                    <Input size="large" placeholder="用户名" />
+                    <Input size="large" placeholder="登录名" />
                   </IceFormBinder>
                 </Col>
                 <Col>
-                  <IceFormError name="name" />
+                  <IceFormError name="userName" />
                 </Col>
               </Row>
 
@@ -119,19 +135,19 @@ class UserRegister extends Component {
                 <Col className="formItemCol">
                   <IceIcon type="lock" size="small" className="inputIcon" />
                   <IceFormBinder
-                    name="passwd"
+                    name="loginPwd"
                     required
                     validator={this.checkPasswd}
                   >
                     <Input
                       htmlType="password"
                       size="large"
-                      placeholder="至少8位密码"
+                      placeholder="至少6位密码"
                     />
                   </IceFormBinder>
                 </Col>
                 <Col>
-                  <IceFormError name="passwd" />
+                  <IceFormError name="loginPwd" />
                 </Col>
               </Row>
 

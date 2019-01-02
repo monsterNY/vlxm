@@ -10,5 +10,7 @@ namespace Api.Manage.Assist.CusConst
 
     public const string MysqlConn = "Mysql";
 
+    public const string RedisConn = "Redis"; 
+
   }
 }

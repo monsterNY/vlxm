@@ -30,6 +30,7 @@ global.APIConfig = {
     GetArticleTypePageList: 'GetArticleTypePageList',
     GetArticleTagPageList: 'GetArticleTagPageList',
     GetArticleDetail: 'GetArticleDetail',
+    CreateUserInfo: 'CreateUserInfo',
   },
   ValidFlagArr: [
     '无效',
@@ -46,7 +47,7 @@ global.APIConfig = {
         if (response.data.errorCode === global.APIConfig.resultCodeMap.success) {
           callBack(response.data.result);
         } else if (errorFunc) {
-          errorFunc(); // 异常回调
+          errorFunc(response.data.message); // 异常回调
         }
       })
       .catch((error) => {

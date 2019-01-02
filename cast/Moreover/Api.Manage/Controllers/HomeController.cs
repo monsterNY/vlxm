@@ -74,7 +74,7 @@ namespace Api.Manage.Controllers
     /// </summary>
     /// <param name="acceptParam"></param>
     /// <param name="appSetting"></param>
-    /// <param name="func"></param>
+    /// <param name="dealAttribute"></param>
     /// <returns></returns>
     [NonAction]
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting,
