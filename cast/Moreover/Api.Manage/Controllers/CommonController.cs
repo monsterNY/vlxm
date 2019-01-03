@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Api.Manage.Assist.Utils;
 using Command.RedisHelper.CusInhert;
 using Command.RedisHelper.Helper;
-using Dapper;
-using DapperContext.Const;
-using Microsoft.AspNetCore.Http;
+using DapperContext;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Model.Common.ConfigModels;
 using Model.Vlxm.Entity;
 using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
 
 namespace Api.Manage.Controllers
 {
@@ -41,40 +40,68 @@ namespace Api.Manage.Controllers
     }
 
     /// <summary>
+    /// 测试授权
+    /// </summary>
+    /// <returns></returns>
+    [Route(nameof(TestAuth))]
+    [Authorize]
+    public object TestAuth()
+    {
+      return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+    }
+
+    /// <summary>
     /// 测试db
     /// </summary>
     /// <returns></returns>
     [Route(nameof(TestDb))]
-    public ActionResult<object> TestDb()
+    public async Task<object> TestDb()
     {
       using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
       {
-        try
+        var param = new UserInfo()
         {
-
-          var content =
-            "<p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">🤣</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">真逗呢</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">哈哈哈</span></span></p>";
-          var param = new {content};
-
-          var result = conn.Execute($@"INSERT INTO article_info
-        ( title, author, category, content,articleType)
-
-      VALUES( '', '', '', @content,0)",param);
-          return result;
-
-        }
-        catch (Exception e)
+          UserName = "monster",
+          LoginPwd = "monster"
+        };
+        
+        var whereList = new List<string>()
         {
-          return JsonConvert.SerializeObject(e);
-        }
+          $"{nameof(UserInfo.UserName)} = @{nameof(UserInfo.UserName)}",
+          $"{nameof(UserInfo.LoginPwd)} = @{nameof(UserInfo.LoginPwd)}"
+        };
+
+        //根据用户唯一标识查找用户信息
+        var clientUserInfo = await DapperTools.GetItem<UserInfo>(conn, EntityTools.GetTableName<UserInfo>(), whereList, param);
+
+        return clientUserInfo;
+
+        //        try
+        //        {
+        //
+        //          var content =
+        //            "<p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">🤣</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">真逗呢</span></span></p><p><span style=\"font-size:30px\"><span style=\"font-family:Impact, serif\">哈哈哈</span></span></p>";
+        //          var param = new {content};
+        //
+        //          var result = conn.Execute($@"INSERT INTO article_info
+        //        ( title, author, category, content,articleType)
+        //
+        //      VALUES( '', '', '', @content,0)",param);
+        //          return result;
+        //
+        //        }
+        //        catch (Exception e)
+        //        {
+        //          return JsonConvert.SerializeObject(e);
+        //        }
 
 
-//        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>(
-//          $@"
-//{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<ArticleInfo>())} 
-//{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
-//{SqlCharConst.WHERE} {SqlCharConst.DefaultWhere}
-//");
+        //        IEnumerable<ArticleInfo> articleInfos = conn.Query<ArticleInfo>(
+        //          $@"
+        //{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<ArticleInfo>())} 
+        //{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleInfo>()}
+        //{SqlCharConst.WHERE} {SqlCharConst.DefaultWhere}
+        //");
       }
     }
 

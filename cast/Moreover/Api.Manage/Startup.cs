@@ -27,7 +27,10 @@ namespace Api.Manage
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddMvc()
+      services.AddMvc(option =>
+        {
+//          option.Filters.Add(new TestAuthorizationFilter());
+        })
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
         .AddJsonOptions(options => { options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; }); //处理时间格式
 
@@ -52,21 +55,34 @@ namespace Api.Manage
 //        new CusRedisHelper(requiredService.CurrentValue.GetRedisConn().ConnStr, "api", new NewtonsoftDeal(),
 //          71));
 
-      MemoryCache.GetInstance().TryWrite(requiredService.CurrentValue.GetRedisConn().FlagKey, new CusRedisHelper(requiredService.CurrentValue.GetRedisConn().ConnStr, "api", new NewtonsoftDeal(),
-        71));
+//      MemoryCache.GetInstance().TryWrite(requiredService.CurrentValue.GetRedisConn().FlagKey, new CusRedisHelper(requiredService.CurrentValue.GetRedisConn().ConnStr, "api", new NewtonsoftDeal(),
+//        71));
 
 
       //配置跨域处理，允许所有来源：
       services.AddCors(options =>
-        options.AddPolicy("AllowCors",
-          builder =>
-          {
-            builder.AllowAnyOrigin() //允许任何来源的主机访问
-              .AllowAnyMethod()
-              .AllowAnyHeader()
-              .AllowCredentials(); //指定处理cookie
-          })
+        {
+          options.AddPolicy("AllowCors",
+            builder =>
+            {
+              builder.AllowAnyOrigin() //允许任何来源的主机访问
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials(); //指定处理cookie
+            });
+        }
       );
+
+      services
+        .AddAuthentication("Bearer")
+        .AddIdentityServerAuthentication(options =>
+        {
+          options.Authority = requiredService.CurrentValue.Authorize.Url;//令牌签发人的基本地址
+//          options.Authority = "http://localhost:5000/";//令牌签发人的基本地址
+          options.RequireHttpsMetadata = false;//是否使用https
+          options.ApiName = "user_api";//用于针对内省端点进行身份验证的API资源的名称
+        });
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +95,8 @@ namespace Api.Manage
       if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
       app.UseStaticFiles();
+
+      app.UseAuthentication();//...真气人
 
       app.UseMvc(routes =>
       {

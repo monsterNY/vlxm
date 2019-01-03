@@ -10,4 +10,8 @@
   &lt;Assembly Path="C:\Users\lxm\.nuget\packages\dapperextensions\1.6.3\lib\net45\DapperExtensions.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\lxm\.nuget\packages\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\lxm\.nuget\packages\stackexchange.redis\1.2.6\lib\netstandard1.5\StackExchange.Redis.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\lxm\.nuget\packages\mysql.data\8.0.13\lib\netcoreapp2.0\MySql.Data.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.authorization\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\lxm\.nuget\packages\identityserver4.aspnetidentity\2.1.0\lib\netstandard2.0\IdentityServer4.AspNetIdentity.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

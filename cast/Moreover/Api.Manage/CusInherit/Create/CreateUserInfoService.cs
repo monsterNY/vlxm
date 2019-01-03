@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Manage.Assist.Dto;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
-using Dapper;
 using DapperContext;
-using DapperContext.Const;
-using DapperExtensions;
 using Microsoft.AspNetCore.Http;
 using Model.Common.ConfigModels;
 using Model.Vlxm.Entity;

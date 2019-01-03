@@ -9,7 +9,20 @@ namespace Model.Common.ConfigModels
 //    /// </summary>
 //    public Dictionary<string,string> ConnectionString { get; set; }
 
+    /// <summary>
+    /// db 数据库连接
+    /// </summary>
     public Dictionary<string, ConnectionParam> DbConnMap { get; set; }
+
+//    /// <summary>
+//    /// 身份验证的地址
+//    /// </summary>
+//    public string AuthorizeUrl { get; set; }
+
+    /// <summary>
+    /// 身份验证
+    /// </summary>
+    public AuthorizeParam Authorize { get; set; }
 
     /// <summary>
     /// 公匙

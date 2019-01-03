@@ -20,11 +20,16 @@ namespace Api.Manage.CusInherit.User
 
   /// <summary>
   /// 用户登录
+  ///
+  /// new --> identityServer4
+  /// 
   /// </summary>
+  [Obsolete]
   public class LoginService:IDeal
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
+
       var dto = acceptParam.AnalyzeParam<UserLoginDto>();
 
       if (dto == null)

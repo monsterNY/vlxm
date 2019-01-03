@@ -39,57 +39,79 @@ namespace Monster.AuthServer.CusInherit
       AppSetting = optionsMonitor.CurrentValue;
     }
 
-    /// <summary>
-    /// 只要有关用户的身份信息单元被请求（例如在令牌创建期间或通过用户信息终点），就会调用此方法
-    /// </summary>
-    /// <param name="context">The context.</param>
-    /// <returns></returns>
-    public virtual Task GetProfileDataAsync(ProfileDataRequestContext context)
+
+    public async Task GetProfileDataAsync(ProfileDataRequestContext context)
     {
-      context.LogProfileRequest(Logger);
-
-      //判断是否有请求Claim信息
-      if (context.RequestedClaimTypes.Any())
+      try
       {
-        using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
-        {
-          //根据用户唯一标识查找用户信息
-          var user = conn.QueryFirst<UserInfo>(
-            $"select * from article_info WHERE {nameof(UserInfo.RoleCode)} = {context.Subject.GetSubjectId()}");
+        //depending on the scope accessing the user data.
+        var claims = context.Subject.Claims.ToList();
 
-          if (user != null)
-          {
-            //调用此方法以后内部会进行过滤，只将用户请求的Claim加入到 context.IssuedClaims 集合中 这样我们的请求方便能正常获取到所需Claim
-
-            context.AddRequestedClaims(new[]
-            {
-              new Claim(JwtClaimTypes.Name, user.DisplayName),
-            });
-          }
-        }
+        //set issued claims to return
+        context.IssuedClaims = claims.ToList();
       }
-
-      context.LogIssuedClaims(Logger);
-
-      return Task.CompletedTask;
+      catch (System.Exception ex)
+      {
+        //log your error
+      }
     }
 
-    /// <summary>
-    /// 验证用户是否有效 例如：token创建或者验证
-    /// </summary>
-    /// <param name="context">The context.</param>
-    /// <returns></returns>
-    public virtual Task IsActiveAsync(IsActiveContext context)
+    public async Task IsActiveAsync(IsActiveContext context)
     {
-      Logger.LogDebug("IsActive called from: {caller}", context.Caller);
-      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
-      {
-        var user = conn.QueryFirst<UserInfo>(
-          $"select * from article_info WHERE {nameof(UserInfo.RoleCode)} = {context.Subject.GetSubjectId()}");
-        context.IsActive = user.ValidFlag == 1;
-      }
-
-      return Task.CompletedTask;
+      context.IsActive = true;
     }
+
+//    /// <summary>
+//    /// 只要有关用户的身份信息单元被请求（例如在令牌创建期间或通过用户信息终点），就会调用此方法
+//    /// </summary>
+//    /// <param name="context">The context.</param>
+//    /// <returns></returns>
+//    public virtual Task GetProfileDataAsync(ProfileDataRequestContext context)
+//    {
+//      context.LogProfileRequest(Logger);
+//
+//      //判断是否有请求Claim信息
+//      if (context.RequestedClaimTypes.Any())
+//      {
+//        using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
+//        {
+//          //根据用户唯一标识查找用户信息
+//          var user = conn.QueryFirst<UserInfo>(
+//            $"select * from article_info WHERE {nameof(UserInfo.RoleCode)} = {context.Subject.GetSubjectId()}");
+//
+//          if (user != null)
+//          {
+//            //调用此方法以后内部会进行过滤，只将用户请求的Claim加入到 context.IssuedClaims 集合中 这样我们的请求方便能正常获取到所需Claim
+//
+//            context.AddRequestedClaims(new[]
+//            {
+//              new Claim(JwtClaimTypes.Name, user.DisplayName),
+//            });
+//          }
+//        }
+//      }
+//
+//      context.LogIssuedClaims(Logger);
+//
+//      return Task.CompletedTask;
+//    }
+//
+//    /// <summary>
+//    /// 验证用户是否有效 例如：token创建或者验证
+//    /// </summary>
+//    /// <param name="context">The context.</param>
+//    /// <returns></returns>
+//    public virtual Task IsActiveAsync(IsActiveContext context)
+//    {
+//      Logger.LogDebug("IsActive called from: {caller}", context.Caller);
+//      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
+//      {
+//        var user = conn.QueryFirst<UserInfo>(
+//          $"select * from article_info WHERE {nameof(UserInfo.Id)} = {context.Subject.GetSubjectId()}");
+//        context.IsActive = user.ValidFlag == 1;
+//      }
+//
+//      return Task.CompletedTask;
+//    }
   }
 }

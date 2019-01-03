@@ -17,13 +17,14 @@ namespace Monster.AuthServer.CusConfig
             var customProfile = new IdentityResource(
                 name: "custom.profile",//标识名 - 唯一
                 displayName: "Custom profile",//显示名
-                claimTypes: new[] { "role" });//to be continue
+                claimTypes: new[] { "role" }
+              );//to be continue
 
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                customProfile
+//                customProfile
             };
         }
 
@@ -33,9 +34,10 @@ namespace Monster.AuthServer.CusConfig
             return new[]
             {
                 new ApiResource(
-                    name: "api1", //同上...
+                    name: "user_api", //同上...
                     displayName: "User API"//同上...
-                    ,claimTypes: new List<string>() {JwtClaimTypes.Role})
+//                    ,claimTypes: new List<string>() {JwtClaimTypes.Role}
+                  )
             };
 
         }
@@ -56,7 +58,7 @@ namespace Monster.AuthServer.CusConfig
                     },
                     AllowedScopes =//指定允许客户端请求的api范围。如果为空，客户端不能访问任何范围
                     {
-                        "api1"
+                        "user_api"
                     }
                 }
             };

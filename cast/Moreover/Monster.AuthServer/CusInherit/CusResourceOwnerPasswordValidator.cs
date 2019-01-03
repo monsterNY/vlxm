@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Dapper;
+using DapperContext;
 using IdentityModel;
 using IdentityServer4.Models;
-using IdentityServer4.Test;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Model.Common.ConfigModels;
 using Model.Vlxm.Entity;
+using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Monster.AuthServer.CusInherit
 {
@@ -24,6 +23,8 @@ namespace Monster.AuthServer.CusInherit
     private readonly ISystemClock _clock;
     protected AppSetting AppSetting { get; set; }
 
+    public static ILogger Logger = LogManager.GetCurrentClassLogger();
+
     public CusResourceOwnerPasswordValidator(ISystemClock clock, IOptionsMonitor<AppSetting> optionsMonitor)
     {
       _clock = clock;
@@ -31,16 +32,37 @@ namespace Monster.AuthServer.CusInherit
       AppSetting = optionsMonitor.CurrentValue;
     }
 
-    public Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
+    public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
     {
+      if (true)
+      {
+        //验证失败
+        context.Result =
+          new GrantValidationResult(TokenRequestErrors.InvalidGrant, "invalid custom credential");
+      }
+
+      Logger.Debug(JsonConvert.SerializeObject(AppSetting));
+
       UserInfo clientUserInfo = null;
 
-      using (IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr))
+      IDbConnection conn = new MySqlConnection(AppSetting.DbConnMap["Mysql"].ConnStr);
+
+//        var param = new UserInfo()
+//        {
+//          UserName = context.UserName,
+//          LoginPwd = context.Password
+//        };
+
+      var whereList = new List<string>()
       {
-        //根据用户唯一标识查找用户信息
-        clientUserInfo = conn.QueryFirst<UserInfo>(
-          $"select * from article_info WHERE {nameof(UserInfo.UserName)} = {context.UserName} AND {nameof(UserInfo.LoginPwd)} = {context.Password}");
-      }
+        $"{nameof(UserInfo.UserName)} = '{context.UserName}'",
+        $"{nameof(UserInfo.LoginPwd)} = '{context.Password}'"
+      };
+
+      //根据用户唯一标识查找用户信息
+      clientUserInfo = await DapperTools.GetItem<UserInfo>(conn, EntityTools.GetTableName<UserInfo>(), whereList);
+//        clientUserInfo = conn.QueryFirst<UserInfo>(
+//          $"select * from article_info WHERE {nameof(UserInfo.UserName)} = {context.UserName} AND {nameof(UserInfo.LoginPwd)} = {context.Password}");
 
       //此处使用context.UserName, context.Password 用户名和密码来与数据库的数据做校验
       if (clientUserInfo != null)
@@ -72,7 +94,7 @@ namespace Monster.AuthServer.CusInherit
           new GrantValidationResult(TokenRequestErrors.InvalidGrant, "invalid custom credential");
       }
 
-      return Task.CompletedTask;
+      return;
     }
   }
 }

@@ -52,3 +52,5 @@ D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Mons
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Monster.AuthServer.pdb
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Vlxm.dll
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Vlxm.pdb
+D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.dll
+D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.pdb

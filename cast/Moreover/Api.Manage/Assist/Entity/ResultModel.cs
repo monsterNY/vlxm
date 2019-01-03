@@ -58,6 +58,23 @@ namespace Api.Manage.Assist.Entity
     /// <param name="result">结果集</param>
     /// <param name="totalRow">总行数</param>
     /// <returns></returns>
+    public static ResultModel GetSuccessModel(object result = null, int totalRow = 0)
+    {
+      return new ResultModel()
+      {
+        ErrorCode = (int)ErrorCodeMenu.ERROR_NONE,
+        Message = SUCCESS,
+        Result = result,
+        TotalRow = totalRow
+      };
+    }
+    /// <summary>
+    /// 获取处理成功的结果集
+    /// </summary>
+    /// <param name="title">标题</param>
+    /// <param name="result">结果集</param>
+    /// <param name="totalRow">总行数</param>
+    /// <returns></returns>
     public static ResultModel GetSuccessModel(string title = null, object result = null, int totalRow = 0)
     {
       return new ResultModel()
@@ -187,6 +204,20 @@ namespace Api.Manage.Assist.Entity
         ErrorCode = (int) ErrorCodeMenu.ERROR_DEAL,
         Message = confrim,
         Title = title
+      };
+    }
+
+    /// <summary>
+    /// 获取处理异常结果集
+    /// </summary>
+    /// <param name="confrim">异常提示信息</param>
+    /// <returns></returns>
+    public static ResultModel GetDealErrorModel( string confrim)
+    {
+      return new ResultModel()
+      {
+        ErrorCode = (int)ErrorCodeMenu.ERROR_DEAL,
+        Message = confrim,
       };
     }
 

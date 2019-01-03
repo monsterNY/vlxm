@@ -2,6 +2,7 @@
 using Api.Manage.CusInherit;
 using Api.Manage.CusInherit.Create;
 using Api.Manage.CusInherit.Select;
+using Api.Manage.CusInherit.User;
 using Model.Common.CusAttr;
 
 namespace Api.Manage.Assist.Menu
@@ -55,6 +56,12 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [Deal(typeof(GetArticleDetailService), "获取文章详情")]
     GetArticleDetail = 30001,
+
+    /// <summary>
+    /// 用户登录
+    /// </summary>
+    [Deal(typeof(AuthLoginService), "用户登录")]
+    UserLogin = 40001,
 
   }
 }

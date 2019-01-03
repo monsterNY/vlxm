@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
-using Castle.Core.Logging;
+﻿using IdentityServer4.AspNetIdentity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -15,6 +9,7 @@ using Model.Common.Cache;
 using Model.Common.ConfigModels;
 using Monster.AuthServer.CusConfig;
 using Monster.AuthServer.CusInherit;
+using NLog.Extensions.Logging;
 
 namespace Monster.AuthServer
 {
@@ -47,7 +42,7 @@ namespace Monster.AuthServer
         MemoryCache.GetInstance().TryWrite(nameof(AppSetting), optionsMonitor.CurrentValue);
       });
 
-// services.AddDbContext<MonsterEntities>(optionsBuilder => ConfigDbContext.GetInstance().Run(optionsBuilder, optionsMonitor.CurrentValue.ConnectionStrings.MainConnection));
+      // services.AddDbContext<MonsterEntities>(optionsBuilder => ConfigDbContext.GetInstance().Run(optionsBuilder, optionsMonitor.CurrentValue.ConnectionStrings.MainConnection));
 
       //            buildServiceProvider.GetService<MonsterEntities>();
 
@@ -69,22 +64,23 @@ namespace Monster.AuthServer
         //并添加其他Transient依赖
         .AddInMemoryClients(AuthConfig.GetClients()) //添加内存_客户端
 
-//                .AddTestUsers(Config.GetUsers())//添加测试用户
+        //.AddTestUsers(Config.GetUsers())//添加测试用户
         .AddProfileService<CusProfileService>() //添加概要服务
         .AddResourceOwnerValidator<CusResourceOwnerPasswordValidator>(); //添加资源验证对象
+      
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
+      loggerFactory.AddNLog(); //添加nLog
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
       }
 
       app.UseIdentityServer();
-
-      app.UseMvc();
     }
   }
 }
