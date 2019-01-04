@@ -71,7 +71,7 @@ export default class Waterfall extends Component {
 
   // 加载文章列表
   loadArticlePageList = (param) => {
-    global.APIConfig.sendAjax(param, global.APIConfig.optMethod.GetArticlePageList, (resultData) => {
+    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optMethod.GetArticlePageList, (resultData) => {
       if (resultData.result) {
         this.pageParm.pageNo = resultData.pageNo;
         this.pageParm.pageSize = resultData.pageSize;

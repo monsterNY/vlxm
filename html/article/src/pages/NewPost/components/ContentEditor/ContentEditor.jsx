@@ -70,7 +70,7 @@ export default class ContentEditor extends Component {
   };
 
   sendCreateArticleAjax = (param) => {
-    global.APIConfig.sendAjax(param, global.APIConfig.optMethod.InsertArticle, () => {
+    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optMethod.InsertArticle, () => {
       this.setState({ process: 100 });
       setTimeout(() => {
         Feedback.toast.success('提交成功');
@@ -170,7 +170,7 @@ export default class ContentEditor extends Component {
                   <FormItem label="封面图片" required>
                     <IceFormBinder>
                       <CropUpload
-                        action={global.APIConfig.uploadUrl} // 该接口仅作测试使用，业务请勿使用
+                        action={global.APIConfig.uploadUrl}
                         name="file"
                         preview
                         previewList={[80, 60, 40]}

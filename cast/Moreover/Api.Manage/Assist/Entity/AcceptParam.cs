@@ -63,6 +63,7 @@ namespace Api.Manage.Assist.Entity
       return ParamObj as T;
     }
 
+    [Obsolete]
     public long GetUserId()
     {
       return 2018;

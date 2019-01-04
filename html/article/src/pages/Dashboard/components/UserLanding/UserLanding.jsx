@@ -10,13 +10,24 @@ class UserLanding extends Component {
   state = {
     userLevel: ['L0', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6'],
     userCurrentLevel: 'L5',
+    userInfo: {},
   };
 
   handlePost = () => {
     this.props.history.push('/post/new');
   };
 
+  componentDidMount() {
+    global.APIConfig.sendAuthAjax(this, {}, global.APIConfig.optAuthMethod.GetUserDetail, (data) => {
+      this.setState({
+        userInfo: data,
+        userCurrentLevel: `L${data.levelId}`,
+      });
+    });
+  }
+
   render() {
+    const userInfo = this.state.userInfo;
     return (
       <Row wrap gutter="20">
         <Col l="18">
@@ -32,7 +43,8 @@ class UserLanding extends Component {
                 <Img
                   width={64}
                   height={64}
-                  src={require('./images/avatar.jpg')}
+                  src={userInfo.faceImg ? (global.APIConfig.imgBaseUrl + userInfo.faceImg) : global.APIConfig.defaultImgUrl}
+                  // src={require('./images/avatar.jpg')}
                   style={styles.avatar}
                 />
               </a>
@@ -45,12 +57,12 @@ class UserLanding extends Component {
             <div style={styles.userInfo}>
               <div style={styles.userDetail}>
                 <a href="#">
-                  <span style={styles.userName}>桥下小猫2</span>
+                  <span style={styles.userName}>{userInfo.displayName}</span>
                 </a>
                 <div style={styles.userLabel}>官方账号</div>
               </div>
-              <div style={styles.userOther}>绑定机构：阿里巴巴飞冰团队</div>
-              <div style={styles.userOther}>认证信息：hello 大家好！</div>
+              <div style={styles.userOther}>绑定机构：vlxm团队</div>
+              <div style={styles.userOther}>{userInfo.description}</div>
             </div>
             <div style={styles.userAttribute}>
               <div style={styles.userLevelWrapper}>

@@ -14,4 +14,6 @@
   &lt;Assembly Path="C:\Users\lxm\.nuget\packages\mysql.data\8.0.13\lib\netcoreapp2.0\MySql.Data.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.authorization\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\lxm\.nuget\packages\identityserver4.aspnetidentity\2.1.0\lib\netstandard2.0\IdentityServer4.AspNetIdentity.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1\System.Security.Claims.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\lxm\.nuget\packages\identitymodel\3.10.0\lib\netstandard2.0\IdentityModel.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

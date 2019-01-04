@@ -18,7 +18,7 @@ namespace Model.Common.Extension
       if (fieldInfo == null)
         return default(T);
 
-      var customAttribute = Attribute.GetCustomAttribute(fieldInfo, typeof(DealAttribute), false);
+      var customAttribute = Attribute.GetCustomAttribute(fieldInfo, typeof(T), false);
 
       Trace.WriteLine(customAttribute);
 

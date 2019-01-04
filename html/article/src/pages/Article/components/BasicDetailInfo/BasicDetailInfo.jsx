@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import { Grid, Button } from '@icedesign/base';
+import { Grid, Button, Dialog } from '@icedesign/base';
 import { withRouter } from 'react-router-dom';
 
 const { Row, Col } = Grid;
 
-/**
- * 渲染详情信息的数据
- */
-const dataSource = {
-  title: '集盒家居旗舰店双十一活动',
-  shopName: '集盒家居旗舰店',
-  amount: '1000.00',
-  bounty: '200.00',
-  orderTime: '2017-10-18 12:20:07',
-  deliveryTime: '2017-10-18 12:20:07',
-  phone: '15612111213',
-  address: '杭州市文一西路',
-  status: '进行中',
-  remark: '暂无',
-  pics: [
-    require('./images/clothes.png'),
-    require('./images/dress.png'),
-    require('./images/dryer.png'),
-    require('./images/quilt.png'),
-  ],
-};
+// /**
+//  * 渲染详情信息的数据
+//  */
+// const dataSource = {
+//   title: '集盒家居旗舰店双十一活动',
+//   shopName: '集盒家居旗舰店',
+//   amount: '1000.00',
+//   bounty: '200.00',
+//   orderTime: '2017-10-18 12:20:07',
+//   deliveryTime: '2017-10-18 12:20:07',
+//   phone: '15612111213',
+//   address: '杭州市文一西路',
+//   status: '进行中',
+//   remark: '暂无',
+//   pics: [
+//     require('./images/clothes.png'),
+//     require('./images/dress.png'),
+//     require('./images/dryer.png'),
+//     require('./images/quilt.png'),
+//   ],
+// };
 
 @withRouter
 export default class BasicDetailInfo extends Component {
@@ -39,6 +39,7 @@ export default class BasicDetailInfo extends Component {
     super(props);
     this.state = {
       articleData: {},
+      confirmVisible: false,
     };
     this.articleId = this.props.id;
     console.log(this.articleId);
@@ -56,8 +57,28 @@ export default class BasicDetailInfo extends Component {
     this.props.history.push('/post/list');
   }
 
+  editEvent = () => {
+    console.log('editEvent');
+  }
+
+  removeEvent = () => {
+    this.setState({
+      confirmVisible: true,
+    });
+  }
+
   attentionEvent = () => {
     this.props.history.push('/post/list');
+  }
+
+  hideConfirm = () => {
+    this.setState({
+      confirmVisible: false,
+    });
+  }
+
+  removeHandler = () => {
+    console.log('removeHandler');
   }
 
   componentDidMount() {
@@ -67,6 +88,13 @@ export default class BasicDetailInfo extends Component {
   render() {
     return (
       <IceContainer>
+        <Dialog
+          visible={this.state.confirmVisible}
+          onOk={this.removeHandler}
+          onClose={this.hideConfirm}
+          onCancel={this.hideConfirm}
+          title="是否确定删除此信息？"
+        />
         <h2 style={styles.basicDetailTitle}>文章详情</h2>
 
         <div style={styles.infoColumn}>
@@ -110,9 +138,19 @@ export default class BasicDetailInfo extends Component {
                 返回列表
               </Button>
             </Col>
-            <Col xxs="24" l="3" style={styles.infoItem}>
+            {/* <Col xxs="24" l="3" style={styles.infoItem}>
               <Button type="primary" onClick={this.attentionEvent}>
                 关注我
+              </Button>
+            </Col> */}
+            <Col xxs="24" l="3" style={styles.infoItem}>
+              <Button type="primary" onClick={this.editEvent}>
+                编辑文章
+              </Button>
+            </Col>
+            <Col xxs="24" l="3" style={styles.infoItem}>
+              <Button type="primary" onClick={this.removeEvent}>
+                删除文章
               </Button>
             </Col>
           </Row>

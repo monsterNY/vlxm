@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Balloon, Icon } from '@icedesign/base';
+import { Balloon, Icon, Button } from '@icedesign/base';
 import Menu, { SubMenu, Item as MenuItem } from '@icedesign/menu';
 import FoundationSymbol from 'foundation-symbol';
 import IceImg from '@icedesign/img';
@@ -10,6 +10,12 @@ import './index.scss';
 
 @withRouter
 export default class Header extends Component {
+
+  handleExit = () => {
+    global.APIConfig.setUserCache();
+    this.props.history.push('/user/login');
+  }
+
   render() {
     const { location = {} } = this.props;
     const { pathname } = location;
@@ -153,10 +159,14 @@ export default class Header extends Component {
                 </Link>
               </li>
               <li className="user-profile-menu-item">
-                <Link to="/user/login">
+                <Button onClick={this.handleExit} >
                   <FoundationSymbol type="compass" size="small" />
                   退出
-                </Link>
+                </Button>
+                {/* <Link to="/user/login">
+                  <FoundationSymbol type="compass" size="small" />
+                  退出
+                </Link> */}
               </li>
             </ul>
           </Balloon>

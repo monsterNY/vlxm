@@ -4,6 +4,7 @@ using Api.Manage.Assist.CusAttribute;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Menu;
 using Api.Manage.CusInterface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -26,7 +27,7 @@ namespace Api.Manage.Controllers
     {
       AppSetting = optionsMonitor.CurrentValue;
     }
-
+    
     /// <summary>
     /// 统一请求地址
     /// </summary>

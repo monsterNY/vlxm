@@ -1,7 +1,7 @@
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { Input, Button, Checkbox, Grid, Feedback } from '@icedesign/base';
+import { Input, Button, Grid, Feedback } from '@icedesign/base';
 import {
   FormBinderWrapper as IceFormBinderWrapper,
   FormBinder as IceFormBinder,
@@ -23,9 +23,9 @@ class UserLogin extends Component {
     super(props);
     this.state = {
       value: {
-        username: '',
-        password: '',
-        checkbox: false,
+        username: 'monster',
+        loginPwd: 'monster',
+        // checkbox: false,
       },
     };
   }
@@ -36,6 +36,13 @@ class UserLogin extends Component {
     });
   };
 
+  componentDidMount() {
+    if (global.APIConfig.getUserCache()) {
+      Feedback.toast.success('您已登录!');
+      this.props.history.push('/');
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.refs.form.validateAll((errors, values) => {
@@ -43,9 +50,23 @@ class UserLogin extends Component {
         console.log('errors', errors);
         return;
       }
-      console.log(values);
-      Feedback.toast.success('登录成功');
-      this.props.history.push('/');
+
+      global.APIConfig.sendAjax(values, global.APIConfig.optMethod.UserLogin, (data) => {
+        global.APIConfig.setUserCache(data);// 更新本地缓存
+        Feedback.toast.success('登录成功');
+        this.props.history.push('/');
+        // window.localStorage.userInfo = data;// localStorage以键值对保存 值类型都是string
+        // window.localStorage.userInfo = JSON.stringify(data);
+        // console.log(JSON.parse(window.localStorage.userInfo));
+      }, (msg) => {
+        if (msg) {
+          Feedback.toast.error(msg);
+        }
+      });
+
+      // console.log(values);
+      // Feedback.toast.success('登录成功');
+      // this.props.history.push('/');
     });
   };
 
@@ -74,22 +95,22 @@ class UserLogin extends Component {
             <Row className="formItem">
               <Col className="formItemCol">
                 <IceIcon type="lock" size="small" className="inputIcon" />
-                <IceFormBinder name="password" required message="必填">
+                <IceFormBinder name="loginPwd" required message="必填">
                   <Input size="large" htmlType="password" placeholder="密码" />
                 </IceFormBinder>
               </Col>
               <Col>
-                <IceFormError name="password" />
+                <IceFormError name="loginPwd" />
               </Col>
             </Row>
 
-            <Row className="formItem">
+            {/* <Row className="formItem">
               <Col>
                 <IceFormBinder name="checkbox">
                   <Checkbox className="checkbox">记住账号</Checkbox>
                 </IceFormBinder>
               </Col>
-            </Row>
+            </Row> */}
 
             <Row className="formItem">
               <Button
@@ -99,12 +120,12 @@ class UserLogin extends Component {
               >
                 登 录
               </Button>
-              <p className="account">
+              {/* <p className="account">
                 <span className="tips-text" style={{ marginRight: '20px' }}>
                   管理员登录：admin/admin
                 </span>
                 <span className="tips-text">学生登录：user/user</span>
-              </p>
+              </p> */}
             </Row>
 
             <Row className="tips">

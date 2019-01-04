@@ -30,6 +30,52 @@ namespace DapperContext
 
     #endregion
 
+    #region Update
+
+    /// <summary>
+    /// 修改
+    /// </summary>
+    /// <param name="conn"></param>
+    /// <param name="tableName"></param>
+    /// <param name="whereList"></param>
+    /// <param name="param"></param>
+    /// <returns></returns>
+    public static async Task<int> Edit(IDbConnection conn, string tableName,
+      IEnumerable<string> whereList, object param)
+    {
+      var whereSql = GetWhereSql(whereList);
+
+      return await Edit(conn, tableName, whereSql, param);
+
+    }
+
+    /// <summary>
+    /// 修改
+    /// </summary>
+    /// <param name="conn"></param>
+    /// <param name="tableName"></param>
+    /// <param name="whereSql"></param>
+    /// <param name="param"></param>
+    /// <returns></returns>
+    public static async Task<int> Edit(IDbConnection conn, string tableName,
+      string whereSql, object param)
+    {
+      var sql = $@"
+{SqlCharConst.UPDATE} tableName
+{SqlCharConst.SET} {string.Join(",", param.GetType().GetProperties().Select(u => $"{u.Name} = @{u.Name}"))}
+{whereSql}
+";
+
+      Logger.Debug(sql);
+
+      var result = await conn.ExecuteAsync(sql, param);
+
+      return result;
+
+    }
+
+    #endregion
+
     /// <summary>
     /// 
     /// </summary>
@@ -51,7 +97,7 @@ namespace DapperContext
 
       Logger.Debug($"{nameof(GetItem)}:{sql}");
 
-      var isExists = (await conn.ExecuteScalarAsync<bool>(sql, param));
+      var isExists = await conn.ExecuteScalarAsync<bool>(sql, param);
 
       return isExists;
     }
@@ -85,7 +131,7 @@ namespace DapperContext
     /// <param name="param"></param>
     /// <returns></returns>
     public static async Task<T> GetItem<T>(IDbConnection conn, string tableName,
-      string whereSql, object param) where T : BaseModel
+      string whereSql, object param = null) where T : BaseModel
     {
       var sql = $@"
 {SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<T>())}

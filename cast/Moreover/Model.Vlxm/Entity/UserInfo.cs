@@ -23,6 +23,8 @@ namespace Model.Vlxm.Entity
     public int LevelId { get; set; }
 
     public string Channel { get; set; }
+    public string Description { get; set; }
+    public string FaceImg { get; set; }
 
   }
 }

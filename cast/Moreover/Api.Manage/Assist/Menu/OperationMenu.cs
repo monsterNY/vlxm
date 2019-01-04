@@ -7,6 +7,11 @@ using Model.Common.CusAttr;
 
 namespace Api.Manage.Assist.Menu
 {
+
+  /// <summary>
+  /// 公用操作
+  /// <see cref="DealAttribute"/>
+  /// </summary>
   public enum OperationMenu
   {
     /// <summary>

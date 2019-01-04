@@ -13,6 +13,10 @@ namespace DapperContext.Const
 
     public const string INSERT = nameof(INSERT);
 
+    public const string SET = nameof(SET);
+
+    public const string UPDATE = nameof(UPDATE);
+
     public const string INTO = nameof(INTO);
 
     public const string VALUES = nameof(VALUES);

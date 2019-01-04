@@ -14,7 +14,7 @@ namespace Model.Common.CusAttr
       DealService = dealService;
       Description = description;
     }
-
+    
     /// <summary>
     /// 处理Service
     /// </summary>
