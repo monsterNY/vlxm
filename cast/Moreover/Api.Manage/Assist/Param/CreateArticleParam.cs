@@ -1,5 +1,5 @@
 ﻿using System;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Model.Vlxm.Menu;
 
 namespace Api.Manage.Assist.Param
@@ -25,7 +25,7 @@ namespace Api.Manage.Assist.Param
 
     public DateTime PublishTime { get; set; }
 
-    public static explicit operator CreateArticleParam(CreateArticleDto dto)
+    public static explicit operator CreateArticleParam(CreateArticleReq dto)
     {
       var param = new CreateArticleParam()
       {

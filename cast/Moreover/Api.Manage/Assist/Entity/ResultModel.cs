@@ -54,7 +54,6 @@ namespace Api.Manage.Assist.Entity
     /// <summary>
     /// 获取处理成功的结果集
     /// </summary>
-    /// <param name="title">标题</param>
     /// <param name="result">结果集</param>
     /// <param name="totalRow">总行数</param>
     /// <returns></returns>

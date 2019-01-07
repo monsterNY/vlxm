@@ -61,7 +61,7 @@ namespace DapperContext
       string whereSql, object param)
     {
       var sql = $@"
-{SqlCharConst.UPDATE} tableName
+{SqlCharConst.UPDATE} {tableName}
 {SqlCharConst.SET} {string.Join(",", param.GetType().GetProperties().Select(u => $"{u.Name} = @{u.Name}"))}
 {whereSql}
 ";
@@ -105,6 +105,32 @@ namespace DapperContext
     /// <summary>
     /// 
     /// </summary>
+    /// <param name="conn"></param>
+    /// <param name="tableName"></param>
+    /// <param name="whereArr"></param>
+    /// <param name="param"></param>
+    /// <returns></returns>
+    public static async Task<T> SelectSingle<T>(IDbConnection conn, string tableName,
+      List<string> whereArr,string fieldName, object param = null)
+    {
+      var whereSql = GetWhereSql(whereArr);
+
+      var sql = $@"
+{SqlCharConst.SELECT} {fieldName} 
+{SqlCharConst.FROM} {tableName}
+{whereSql}
+";
+
+      Logger.Debug($"{nameof(GetItem)}:{sql}");
+
+      var result = await conn.ExecuteScalarAsync<T>(sql, param);
+
+      return result;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="conn"></param>
     /// <param name="tableName"></param>
@@ -135,6 +161,31 @@ namespace DapperContext
     {
       var sql = $@"
 {SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<T>())}
+{SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
+{whereSql}";
+
+      Logger.Debug($"{nameof(GetItem)}:{sql}");
+
+      return await conn.QueryFirstOrDefaultAsync<T>(sql, param);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="conn"></param>
+    /// <param name="tableName"></param>
+    /// <param name="whereList"></param>
+    /// <param name="fieldList"></param>
+    /// <param name="param"></param>
+    /// <returns></returns>
+    public static async Task<T> GetItem<T>(IDbConnection conn, string tableName,
+      IEnumerable<string> whereList, IEnumerable<string> fieldList, object param = null) where T : BaseModel
+    {
+      var whereSql = GetWhereSql(whereList);
+
+      var sql = $@"
+{SqlCharConst.SELECT} {string.Join(",", fieldList)}
 {SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
 {whereSql}";
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
@@ -20,7 +20,7 @@ namespace Api.Manage.CusInherit.User
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context, long userId)
     {
-      var updateUserDto = acceptParam.AnalyzeParam<UpdateUserDto>();
+      var updateUserDto = acceptParam.AnalyzeParam<UpdateUserReq>();
 
       if (updateUserDto == null) return ResultModel.GetNullErrorModel();
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
@@ -19,7 +19,7 @@ namespace Api.Manage.CusInherit.Article
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context, long userId)
     {
       //解析参数
-      var pageModel = acceptParam.AnalyzeParam<PageModel<ArticlePageFilterDto>>();
+      var pageModel = acceptParam.AnalyzeParam<PageModel<ArticlePageFilterReq>>();
 
       if (pageModel == null)
       {
@@ -49,7 +49,7 @@ namespace Api.Manage.CusInherit.Article
       if (pageModel.Result.FilterType == 1)
       {
         whereArr.Add($@"
-{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {acceptParam.GetUserId()}
+{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId}
 ");
       }
 

@@ -11,9 +11,21 @@ import './index.scss';
 @withRouter
 export default class Header extends Component {
 
+  state = {
+    userInfo: {},
+  }
+
   handleExit = () => {
     global.APIConfig.setUserCache();
     this.props.history.push('/user/login');
+  }
+
+  componentDidMount() {
+    global.APIConfig.sendAuthAjax(this, {}, global.APIConfig.optAuthMethod.GetUserDetail, (data) => {
+      this.setState({
+        userInfo: data,
+      });
+    });
   }
 
   render() {
@@ -130,10 +142,10 @@ export default class Header extends Component {
                 />
                 <div className="user-profile">
                   <span className="user-name" style={{ fontSize: '13px' }}>
-                    淘小宝
+                    {this.state.userInfo.displayName}
                   </span>
                   <br />
-                  <span className="user-department">技术部</span>
+                  <span className="user-department">vlxm团队</span>
                 </div>
                 <Icon
                   type="arrow-down-filling"

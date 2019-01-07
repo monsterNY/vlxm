@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Grid, Button, Dialog } from '@icedesign/base';
 import { withRouter } from 'react-router-dom';
+import 'braft-editor/dist/braft.css';
 
 const { Row, Col } = Grid;
 
@@ -40,6 +41,7 @@ export default class BasicDetailInfo extends Component {
     this.state = {
       articleData: {},
       confirmVisible: false,
+      likeCount: 0,
     };
     this.articleId = this.props.id;
     console.log(this.articleId);
@@ -50,6 +52,29 @@ export default class BasicDetailInfo extends Component {
       key: this.articleId,
     }, global.APIConfig.optMethod.GetArticleDetail, (resultData) => {
       this.setState({ articleData: resultData });
+    });
+  }
+
+  getLikeCount = () => {
+    global.APIConfig.sendAuthAjax(this, {
+      articleId: this.articleId,
+      actionKey: 'like',
+    }, global.APIConfig.optAuthMethod.SelectAction, (resultData) => {
+      this.setState({ likeCount: resultData });
+    });
+  }
+
+  likeHandle = () => {
+    global.APIConfig.sendAuthAjax(this, {
+      articleId: this.articleId,
+      actionKey: 'like',
+    }, global.APIConfig.optAuthMethod.SingleAction, () => {
+      if (this.state.likeCount > 0) {
+        this.setState({ likeCount: 0 });
+      } else {
+        this.setState({ likeCount: 1 });
+      }
+      // this.setState({ likeCount: resultData });
     });
   }
 
@@ -83,6 +108,7 @@ export default class BasicDetailInfo extends Component {
 
   componentDidMount() {
     this.loadArticleDetail();
+    this.getLikeCount();
   }
 
   render() {
@@ -144,6 +170,11 @@ export default class BasicDetailInfo extends Component {
               </Button>
             </Col> */}
             <Col xxs="24" l="3" style={styles.infoItem}>
+              <Button type="primary" onClick={this.likeHandle}>
+                {this.state.likeCount > 0 ? '取消点赞' : '点赞'}
+              </Button>
+            </Col>
+            {/* <Col xxs="24" l="3" style={styles.infoItem}>
               <Button type="primary" onClick={this.editEvent}>
                 编辑文章
               </Button>
@@ -152,7 +183,8 @@ export default class BasicDetailInfo extends Component {
               <Button type="primary" onClick={this.removeEvent}>
                 删除文章
               </Button>
-            </Col>
+            </Col> */}
+
           </Row>
         </div>
       </IceContainer>

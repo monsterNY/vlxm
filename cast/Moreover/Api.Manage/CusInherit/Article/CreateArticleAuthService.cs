@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.Assist.Param;
@@ -16,7 +16,7 @@ namespace Api.Manage.CusInherit.Article
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context,long userId)
     {
-      var createArticleDto = acceptParam.AnalyzeParam<CreateArticleDto>();
+      var createArticleDto = acceptParam.AnalyzeParam<CreateArticleReq>();
 
       if (createArticleDto == null)
       {

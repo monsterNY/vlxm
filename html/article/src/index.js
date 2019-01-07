@@ -40,7 +40,7 @@ global.APIConfig = {
       window.localStorage[global.APIConfig.userInfoCacheKey] = null;
     }
   },
-  defaultImgUrl: 'https://img.alicdn.com/tps/TB19O79MVXXXXcZXVXXXXXXXXXX-1024-1024.jpg',
+  defaultImgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=228096746,165288188&fm=27&gp=0.jpg',
   resultCodeMap: {
     success: 0,
   },
@@ -56,6 +56,8 @@ global.APIConfig = {
   optAuthMethod: {
     GetUserDetail: 'GetUserDetail',
     UpdateUserInfo: 'UpdateUserInfo',
+    SelectAction: 'SelectAction',
+    SingleAction: 'SingleAction',
   },
   ValidFlagArr: [
     '无效',
@@ -107,6 +109,7 @@ global.APIConfig = {
       } else {
         localInstance.props.history.push('/user/login');
       }
+      return;
     }
 
     console.log(userCacheInfo);

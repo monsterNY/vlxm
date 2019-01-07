@@ -1,6 +1,7 @@
 ﻿using System;
 using Api.Manage.CusInherit;
 using Api.Manage.CusInherit.Article;
+using Api.Manage.CusInherit.Article.Action;
 using Api.Manage.CusInherit.Create;
 using Api.Manage.CusInherit.Select;
 using Api.Manage.CusInherit.User;
@@ -34,6 +35,12 @@ namespace Api.Manage.Assist.Menu
     GetUserDetail = 30001,
 
     /// <summary>
+    /// 查询文章已操作数量
+    /// </summary>
+    [AuthDeal(typeof(SelectActionAuthService), "查询文章已操作数量")]
+    SelectAction = 30002,
+
+    /// <summary>
     /// 删除文章
     /// </summary>
     [AuthDeal(typeof(RemoveArticleAuthService), "删除文章")]
@@ -44,5 +51,12 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [AuthDeal(typeof(UpdateUserInfoAuthService), "修改用户信息'")]
     UpdateUserInfo = 50001,
+
+    /// <summary>
+    /// 文章操作
+    /// </summary>
+    [AuthDeal(typeof(SingleActionAuthService), "文章操作")]
+    SingleAction = 60001,
+
   }
 }

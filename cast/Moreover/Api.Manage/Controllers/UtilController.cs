@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
@@ -91,7 +91,7 @@ namespace Api.Manage.Controllers
     /// <returns></returns>
     [Route(nameof(UploadBase64Image))]
     [HttpPost]
-    public object UploadBase64Image([FromBody] KeyDto<string> req)
+    public object UploadBase64Image([FromBody] KeyReq<string> req)
     {
 
       var title = "图片上传base64";

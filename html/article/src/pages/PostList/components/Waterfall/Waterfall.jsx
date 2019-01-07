@@ -71,7 +71,8 @@ export default class Waterfall extends Component {
 
   // 加载文章列表
   loadArticlePageList = (param) => {
-    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optMethod.GetArticlePageList, (resultData) => {
+    // global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optMethod.GetArticlePageList, (resultData) => {
+    global.APIConfig.sendAjax(param, global.APIConfig.optMethod.GetArticlePageList, (resultData) => {
       if (resultData.result) {
         this.pageParm.pageNo = resultData.pageNo;
         this.pageParm.pageSize = resultData.pageSize;
@@ -178,13 +179,13 @@ export default class Waterfall extends Component {
                   >
                     <img
                       className="a-cont"
-                      src="https://img.alicdn.com/tps/TB19O79MVXXXXcZXVXXXXXXXXXX-1024-1024.jpg"
+                      src={global.APIConfig.defaultImgUrl}
                       alt=""
                     />
                     <img className="a-cover" src={`${global.APIConfig.imgBaseUrl}${item.faceImg}`} alt={item.description} />
                     <p className="a-layer">
                       <span className="al-brand">{item.author}</span>
-                      <span className="al-title">{`《-${item.title}-》`}</span>
+                      <span className="al-title">{`${item.title}`}</span>
                       {/* <span className="al-count">{item.status === 0?}件商品</span> */}
                     </p>
                   </a>

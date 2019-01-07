@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
@@ -16,7 +16,7 @@ namespace Api.Manage.CusInherit.Create
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
-      var createUserInfoDto = acceptParam.AnalyzeParam<CreateUserInfoDto>();
+      var createUserInfoDto = acceptParam.AnalyzeParam<CreateUserInfoReq>();
 
       string msg;
 

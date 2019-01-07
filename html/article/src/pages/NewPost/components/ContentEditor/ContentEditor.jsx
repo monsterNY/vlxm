@@ -96,7 +96,7 @@ export default class ContentEditor extends Component {
         content: '',
         status: 0,
       },
-      faceImg: 'https://img.alicdn.com/tps/TB19O79MVXXXXcZXVXXXXXXXXXX-1024-1024.jpg',
+      faceImg: global.APIConfig.defaultImgUrl,
       articleTypeArr: [],
       articleTagArr: [],
       process: 0,

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
@@ -19,7 +19,7 @@ namespace Api.Manage.CusInherit.Select
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
-      var keyDto = acceptParam.AnalyzeParam<KeyDto<long>>();
+      var keyDto = acceptParam.AnalyzeParam<KeyReq<long>>();
 
       if (keyDto == null || keyDto.Key <= 0)
       {

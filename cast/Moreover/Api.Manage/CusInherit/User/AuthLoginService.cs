@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.CusInterface;
 using IdentityModel.Client;
@@ -26,7 +26,7 @@ namespace Api.Manage.CusInherit.User
 
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
-      var dto = acceptParam.AnalyzeParam<UserLoginDto>();
+      var dto = acceptParam.AnalyzeParam<UserLoginReq>();
 
       if (dto == null)
       {

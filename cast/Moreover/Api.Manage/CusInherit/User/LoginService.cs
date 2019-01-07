@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Manage.Assist.Dto;
+using Api.Manage.Assist.Req;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Extension;
 using Api.Manage.CusInterface;
@@ -30,7 +30,7 @@ namespace Api.Manage.CusInherit.User
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context)
     {
 
-      var dto = acceptParam.AnalyzeParam<UserLoginDto>();
+      var dto = acceptParam.AnalyzeParam<UserLoginReq>();
 
       if (dto == null)
       {
@@ -46,8 +46,8 @@ namespace Api.Manage.CusInherit.User
 
       var whereList = new List<string>()
       {
-        $"{nameof(UserLoginDto.UserName)} = @{nameof(UserLoginDto.UserName)}",
-        $"{nameof(UserLoginDto.LoginPwd)} = @{nameof(UserLoginDto.LoginPwd)}",
+        $"{nameof(UserLoginReq.UserName)} = @{nameof(UserLoginReq.UserName)}",
+        $"{nameof(UserLoginReq.LoginPwd)} = @{nameof(UserLoginReq.LoginPwd)}",
       };
 
       var userInfo = await DapperTools.GetItem<UserInfo>(appSetting.GetMysqlConn(context),EntityTools.GetTableName<UserInfo>(), whereList, dto);
