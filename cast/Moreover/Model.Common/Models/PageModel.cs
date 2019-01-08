@@ -6,8 +6,8 @@ namespace Model.Common.Models
 {
   public class PageModel<T>
   {
-    public int PageSize { get; set; }
-    public int PageNo { get; set; }
+    public int PageSize { get; set; } = 10;
+    public int PageNo { get; set; } = 1;
 
     /// <summary>
     /// 总数据行

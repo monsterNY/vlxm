@@ -29,9 +29,14 @@ namespace Api.Manage.Authorization
         (context.ActionDescriptor as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(true));
       attributeList.AddRange((context.ActionDescriptor as ControllerActionDescriptor).MethodInfo.DeclaringType
         .GetCustomAttributes(true));
+
       var authorizeAttributes = attributeList.OfType<TestAuthorizeAttribute>().ToList();
 
       var firstOrDefault = context.HttpContext.User.Claims.FirstOrDefault(u=>JwtClaimTypes.Id.Equals(u.Type));
+
+      //1.如何在401时返回其他
+
+      //2.如何在
 
 //      if (firstOrDefault == null)
 //      {

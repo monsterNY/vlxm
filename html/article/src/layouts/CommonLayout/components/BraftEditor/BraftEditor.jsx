@@ -30,10 +30,10 @@ export default class CustomBraftEditor extends Component {
       // editorState: BraftEditor.createEditorState(null),
     };
     this.content = '';
+    this.editorRef = React.createRef();// 可用此ref调用BraftEditor的方法
     if (this.props.bindRef) {
       this.props.bindRef(this);// 绑定子组件的引用
     }
-    this.editorRef = React.createRef();// 可用此ref调用BraftEditor的方法
   }
 
   handleRawChange = (content) => {

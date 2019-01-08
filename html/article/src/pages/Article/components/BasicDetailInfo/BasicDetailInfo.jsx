@@ -3,6 +3,10 @@ import IceContainer from '@icedesign/container';
 import { Grid, Button, Dialog } from '@icedesign/base';
 import { withRouter } from 'react-router-dom';
 import 'braft-editor/dist/braft.css';
+import Comment from '../Comment';
+// import './editor.css';
+
+// require('./editor.css');
 
 const { Row, Col } = Grid;
 
@@ -92,6 +96,14 @@ export default class BasicDetailInfo extends Component {
     });
   }
 
+  addPvEvent = () => {
+    global.APIConfig.sendAjax({
+      key: this.articleId,
+    }, global.APIConfig.optMethod.AddArticlePv, () => {
+      console.log('addPvEvent');
+    });
+  }
+
   attentionEvent = () => {
     this.props.history.push('/post/list');
   }
@@ -109,6 +121,7 @@ export default class BasicDetailInfo extends Component {
   componentDidMount() {
     this.loadArticleDetail();
     this.getLikeCount();
+    this.addPvEvent();
   }
 
   render() {
@@ -154,12 +167,18 @@ export default class BasicDetailInfo extends Component {
         </div>
         <div style={styles.infoColumn}>
           <h5 style={styles.infoColumnTitle}>正文</h5>
-          <div style={styles.infoItems} dangerouslySetInnerHTML={{ __html: this.state.articleData.content }} />
+          <div style={styles.infoItems} className="BraftEditor-container" id="editor" dangerouslySetInnerHTML={{ __html: this.state.articleData.content }} />
+        </div>
+        <div id="articleComment">
+          <Comment
+            id={this.props.match.params.id}
+            flag={global.APIConfig.optAuthMethod.InsertArticleComment}
+          />
         </div>
         <div style={styles.infoColumn}>
           <hr />
           <Row wrap style={styles.infoItems}>
-            <Col xxs="24" l="3" style={styles.infoItem}>
+            <Col xxs="24" l="2" style={styles.infoItem}>
               <Button type="primary" onClick={this.backToListEvent}>
                 返回列表
               </Button>
@@ -169,7 +188,7 @@ export default class BasicDetailInfo extends Component {
                 关注我
               </Button>
             </Col> */}
-            <Col xxs="24" l="3" style={styles.infoItem}>
+            <Col xxs="24" l="2" style={styles.infoItem}>
               <Button type="primary" onClick={this.likeHandle}>
                 {this.state.likeCount > 0 ? '取消点赞' : '点赞'}
               </Button>

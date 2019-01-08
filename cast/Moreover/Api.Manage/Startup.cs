@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Model.Common.Cache;
 using Model.Common.ConfigModels;
+using Newtonsoft.Json;
 using NLog.Extensions.Logging;
 
 namespace Api.Manage
@@ -32,7 +33,11 @@ namespace Api.Manage
 //          option.Filters.Add(new TestAuthorizationFilter());
         })
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-        .AddJsonOptions(options => { options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; }); //处理时间格式
+        .AddJsonOptions(options =>
+        {
+          options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; //处理时间格式
+          options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore; //过滤空值 异常时无效...
+        });
 
       //将配置信息进行DI注入
       services.Configure<AppSetting>(Configuration.GetSection(nameof(AppSetting)));
@@ -77,12 +82,11 @@ namespace Api.Manage
         .AddAuthentication("Bearer")
         .AddIdentityServerAuthentication(options =>
         {
-          options.Authority = requiredService.CurrentValue.Authorize.Url;//令牌签发人的基本地址
+          options.Authority = requiredService.CurrentValue.Authorize.Url; //令牌签发人的基本地址
 //          options.Authority = "http://localhost:5000/";//令牌签发人的基本地址
-          options.RequireHttpsMetadata = false;//是否使用https
-          options.ApiName = "user_api";//用于针对内省端点进行身份验证的API资源的名称
+          options.RequireHttpsMetadata = false; //是否使用https
+          options.ApiName = "user_api"; //用于针对内省端点进行身份验证的API资源的名称
         });
-
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,11 +96,13 @@ namespace Api.Manage
 
       app.UseMiddleware<HttpModuleMiddleware>(); //添加管道中间件
 
+      app.UseMiddleware<ErrorHandlingMiddleware>(); //添加异常中间件
+
       if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
       app.UseStaticFiles();
 
-      app.UseAuthentication();//...真气人
+      app.UseAuthentication(); //...真气人
 
       app.UseMvc(routes =>
       {

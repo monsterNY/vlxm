@@ -30,13 +30,15 @@ namespace Api.Manage.CusInherit.Select
       }
 
       //动态sql
-      StringBuilder whereBuilder = new StringBuilder();
+//      StringBuilder whereBuilder = new StringBuilder();
+      List<string> whereList = new List<string>();
 
       if (pageModel.Result.ValidFlag != null && pageModel.Result.ValidFlag >= 0)
       {
-        whereBuilder.Append($@"
-{SqlCharConst.WHERE} {EntityTools.GetField<ArticleType>(nameof(ArticleType.ValidFlag))} = {pageModel.Result.ValidFlag}
-");
+//        whereBuilder.Append($@"
+//{SqlCharConst.WHERE} {EntityTools.GetField<ArticleType>(nameof(ArticleType.ValidFlag))} = {pageModel.Result.ValidFlag}
+//");
+        whereList.Add($"{EntityTools.GetField<ArticleType>(nameof(ArticleType.ValidFlag))} = {pageModel.Result.ValidFlag}");
       }
 
       //获取连接
@@ -46,7 +48,7 @@ namespace Api.Manage.CusInherit.Select
 
       //采用工具类分页查询
       var pageList = await DapperTools.GetPageList<ArticleType>(pageModel.PageNo, pageModel.PageSize, dbConnection,
-        whereBuilder.ToString());
+        whereList);
 
       //返回结果集
       return ResultModel.GetSuccessModel(string.Empty, pageList);

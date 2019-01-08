@@ -17,11 +17,6 @@ namespace Api.Manage.Assist.Entity
     #endregion const_value
 
     /// <summary>
-    /// 总行数
-    /// </summary>
-    public int TotalRow { get; set; }
-
-    /// <summary>
     /// 标题
     /// </summary>
     public string Title { get; set; }
@@ -55,16 +50,14 @@ namespace Api.Manage.Assist.Entity
     /// 获取处理成功的结果集
     /// </summary>
     /// <param name="result">结果集</param>
-    /// <param name="totalRow">总行数</param>
     /// <returns></returns>
-    public static ResultModel GetSuccessModel(object result = null, int totalRow = 0)
+    public static ResultModel GetSuccessModel(object result = null)
     {
       return new ResultModel()
       {
         ErrorCode = (int)ErrorCodeMenu.ERROR_NONE,
         Message = SUCCESS,
         Result = result,
-        TotalRow = totalRow
       };
     }
     /// <summary>
@@ -72,9 +65,8 @@ namespace Api.Manage.Assist.Entity
     /// </summary>
     /// <param name="title">标题</param>
     /// <param name="result">结果集</param>
-    /// <param name="totalRow">总行数</param>
     /// <returns></returns>
-    public static ResultModel GetSuccessModel(string title = null, object result = null, int totalRow = 0)
+    public static ResultModel GetSuccessModel(string title = null, object result = null)
     {
       return new ResultModel()
       {
@@ -82,7 +74,6 @@ namespace Api.Manage.Assist.Entity
         Message = SUCCESS,
         Result = result,
         Title = title,
-        TotalRow = totalRow
       };
     }
 
@@ -90,6 +81,7 @@ namespace Api.Manage.Assist.Entity
     /// 获取处理成功的结果集
     /// </summary>
     /// <param name="msg">通知消息</param>
+    /// <param name="errorCode"></param>
     /// <returns></returns>
     public static ResultModel GetMessageModel(string msg, int errorCode)
     {
@@ -117,7 +109,7 @@ namespace Api.Manage.Assist.Entity
     /// <summary>
     /// 获取空异常结果集
     /// </summary>
-    /// <param name="title">标题</param>
+    /// <param name="message"></param>
     /// <returns></returns>
     public static ResultModel GetNullErrorModel(string message = "信息填写不完整！")
     {
@@ -132,6 +124,7 @@ namespace Api.Manage.Assist.Entity
     /// 获取空异常结果集
     /// </summary>
     /// <param name="title">标题</param>
+    /// <param name="message"></param>
     /// <returns></returns>
     public static ResultModel GetNullErrorModel(string title, string message = "信息填写不完整！")
     {
@@ -146,10 +139,9 @@ namespace Api.Manage.Assist.Entity
     /// <summary>
     /// 获取参数异常结果集
     /// </summary>
-    /// <param name="title">标题</param>
-    /// <param name="result">错误提示</param>
+    /// <param name="message">错误提示</param>
     /// <returns></returns>
-    public static ResultModel GetParamErrorModel(string message)
+    public static ResultModel GetParamErrorModel(string message="参数异常")
     {
       return new ResultModel()
       {
@@ -162,7 +154,7 @@ namespace Api.Manage.Assist.Entity
     /// 获取参数异常结果集
     /// </summary>
     /// <param name="title">标题</param>
-    /// <param name="result">错误提示</param>
+    /// <param name="message">错误提示</param>
     /// <returns></returns>
     public static ResultModel GetParamErrorModel(string title, string message)
     {

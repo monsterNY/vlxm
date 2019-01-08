@@ -24,5 +24,8 @@ namespace Model.Vlxm.Entity
     public int ArticleType { get; set; }
 
     public DateTime? PublishTime { get; set; }
+
+    public int PageView { get; set; }
+
   }
 }

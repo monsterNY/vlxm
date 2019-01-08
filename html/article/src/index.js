@@ -25,6 +25,7 @@ global.APIConfig = {
   imgBaseUrl: 'http://api.moreover.manage/',
   uploadUrl: 'http://api.moreover.manage/api/util/UploadSingleImage',
   uploadBase64Url: 'http://api.moreover.manage/api/util/UploadBase64Image',
+  defaultImgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=228096746,165288188&fm=27&gp=0.jpg',
   userInfoCacheKey: '_vlxm_user_cache_info_',
   getUserCache: () => {
     const value = window.localStorage[global.APIConfig.userInfoCacheKey];
@@ -40,7 +41,6 @@ global.APIConfig = {
       window.localStorage[global.APIConfig.userInfoCacheKey] = null;
     }
   },
-  defaultImgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=228096746,165288188&fm=27&gp=0.jpg',
   resultCodeMap: {
     success: 0,
   },
@@ -52,12 +52,15 @@ global.APIConfig = {
     GetArticleDetail: 'GetArticleDetail',
     CreateUserInfo: 'CreateUserInfo',
     UserLogin: 'UserLogin',
+    AddArticlePv: 'AddArticlePv',
+    GetArticleCommentPageList: 'GetArticleCommentPageList',
   },
   optAuthMethod: {
     GetUserDetail: 'GetUserDetail',
     UpdateUserInfo: 'UpdateUserInfo',
     SelectAction: 'SelectAction',
     SingleAction: 'SingleAction',
+    InsertArticleComment: 'InsertArticleComment',
   },
   ValidFlagArr: [
     '无效',
@@ -66,7 +69,7 @@ global.APIConfig = {
   getSignFunc: (paramObj) => {
     return `no sign ${paramObj}`;
   },
-  baseSendAjax: (url, paramObj, callBack, errorFunc, responseErrorFunc, token) => {
+  baseSendAjax: (url, paramObj, callBack, errorFunc, authErrorFunc, responseErrorFunc, token) => {
     axios
       .post(url, paramObj, {
         headers: {
@@ -77,6 +80,8 @@ global.APIConfig = {
         console.log(response.data);
         if (response.data.errorCode === global.APIConfig.resultCodeMap.success) {
           callBack(response.data.result);
+        } else if (response.data.errorCode === 401 && authErrorFunc) {
+          authErrorFunc();
         } else if (errorFunc) {
           errorFunc(response.data.message); // 异常回调
         }
@@ -118,16 +123,25 @@ global.APIConfig = {
 
     console.log(token);
 
-    global.APIConfig.baseSendAjax(global.APIConfig.baseAuthUrl, paramObj, callBack, errorFunc, (error) => {
-      if (error.response.status === 401) {
-        Feedback.toast.error('登录信息已失效！');
-        global.APIConfig.setUserCache();
-        if (backUrl) {
-          localInstance.props.history.push(backUrl);
-        } else {
-          localInstance.props.history.push('/user/login');
-        }
+    global.APIConfig.baseSendAjax(global.APIConfig.baseAuthUrl, paramObj, callBack, errorFunc, () => {
+      Feedback.toast.error('登录信息已失效！');
+      global.APIConfig.setUserCache();
+      if (backUrl) {
+        localInstance.props.history.push(backUrl);
+      } else {
+        localInstance.props.history.push('/user/login');
       }
+    }, (error) => {
+      console.log(error);
+      // if (error.response.status === 401) {
+      //   Feedback.toast.error('登录信息已失效！');
+      //   global.APIConfig.setUserCache();
+      //   if (backUrl) {
+      //     localInstance.props.history.push(backUrl);
+      //   } else {
+      //     localInstance.props.history.push('/user/login');
+      //   }
+      // }
     }, token);
   },
   getParamFunc: (optFlag, paramObj) => {

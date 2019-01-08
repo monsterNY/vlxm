@@ -1,5 +1,7 @@
 ﻿using System;
 using Api.Manage.CusInherit;
+using Api.Manage.CusInherit.Article;
+using Api.Manage.CusInherit.Comment;
 using Api.Manage.CusInherit.Create;
 using Api.Manage.CusInherit.Select;
 using Api.Manage.CusInherit.User;
@@ -45,6 +47,13 @@ namespace Api.Manage.Assist.Menu
     GetArticleTagPageList = 10003,
 
     /// <summary>
+    /// 分页获取文章评论列表
+    /// </summary>
+    [Deal(typeof(GetArticleCommentPageListService), "分页获取文章评论列表")]
+    GetArticleCommentPageList = 10004,
+    
+
+    /// <summary>
     /// 添加文章
     /// </summary>
     [Deal(typeof(CreateArticleService), "添加文章")]
@@ -67,6 +76,12 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [Deal(typeof(AuthLoginService), "用户登录")]
     UserLogin = 40001,
+
+    /// <summary>
+    /// 添加作品页面访问量
+    /// </summary>
+    [Deal(typeof(AddPageViewService), "添加作品页面访问量")]
+    AddArticlePv = 50001,
 
   }
 }

@@ -2,6 +2,7 @@
 using Api.Manage.CusInherit;
 using Api.Manage.CusInherit.Article;
 using Api.Manage.CusInherit.Article.Action;
+using Api.Manage.CusInherit.Comment;
 using Api.Manage.CusInherit.Create;
 using Api.Manage.CusInherit.Select;
 using Api.Manage.CusInherit.User;
@@ -27,6 +28,11 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [AuthDeal(typeof(CreateArticleAuthService), "添加文章")]
     InsertArticle = 20001,
+    /// <summary>
+    /// 添加文章评论
+    /// </summary>
+    [AuthDeal(typeof(CreateArticleCommentAuthService), "添加文章评论")]
+    InsertArticleComment = 20002,
 
     /// <summary>
     /// 获取用户详情信息
