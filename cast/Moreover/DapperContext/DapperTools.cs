@@ -46,7 +46,6 @@ namespace DapperContext
       var whereSql = GetWhereSql(whereList);
 
       return await Edit(conn, tableName, whereSql, param);
-
     }
 
     /// <summary>
@@ -71,7 +70,6 @@ namespace DapperContext
       var result = await conn.ExecuteAsync(sql, param);
 
       return result;
-
     }
 
     /// <summary>
@@ -84,7 +82,7 @@ namespace DapperContext
     /// <param name="whereEnumerable"></param>
     /// <returns></returns>
     public static async Task<int> Edit(IDbConnection conn, string tableName,
-      IEnumerable<string> whereEnumerable,IEnumerable<string> setEnumerable, object param = null)
+      IEnumerable<string> whereEnumerable, IEnumerable<string> setEnumerable, object param = null)
     {
       var whereSql = GetWhereSql(whereEnumerable);
 
@@ -99,7 +97,6 @@ namespace DapperContext
       var result = await conn.ExecuteAsync(sql, param);
 
       return result;
-
     }
 
     #endregion
@@ -113,7 +110,7 @@ namespace DapperContext
     /// <param name="param"></param>
     /// <returns></returns>
     public static async Task<bool> IsExists(IDbConnection conn, string tableName,
-      List<string> whereArr, object param = null)
+      IEnumerable<string> whereArr, object param = null)
     {
       var whereSql = GetWhereSql(whereArr);
 
@@ -139,7 +136,7 @@ namespace DapperContext
     /// <param name="param"></param>
     /// <returns></returns>
     public static async Task<T> SelectSingle<T>(IDbConnection conn, string tableName,
-      List<string> whereArr,string fieldName, object param = null)
+      List<string> whereArr, string fieldName, object param = null)
     {
       var whereSql = GetWhereSql(whereArr);
 
@@ -249,19 +246,44 @@ namespace DapperContext
     /// <param name="pageNo"></param>
     /// <param name="pageSize"></param>
     /// <param name="conn"></param>
-    /// <param name="whereSql"></param>
     /// <param name="whereEnumerable"></param>
     /// <param name="param"></param>
     /// <param name="loadNow"></param>
     /// <returns></returns>
+    public static Task<PageModel<IEnumerable<T>>> GetPageList<T>(int pageNo, int pageSize, IDbConnection conn,
+      IEnumerable<string> whereEnumerable, object param = null, bool loadNow = true) where T : BaseModel
+    {
+      return GetPageList<T>(pageNo, pageSize, conn, EntityTools.GetTableName<T>(), whereEnumerable,
+        EntityTools.GetFields<T>(), new[]
+        {
+          SqlCharConst.DefaultOrder
+        }, nameof(T), param, loadNow);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="pageNo"></param>
+    /// <param name="pageSize"></param>
+    /// <param name="conn"></param>
+    /// <param name="tableName"></param>
+    /// <param name="whereEnumerable"></param>
+    /// <param name="fieldEnumerable"></param>
+    /// <param name="alias"></param>
+    /// <param name="param"></param>
+    /// <param name="loadNow"></param>
+    /// <returns></returns>
     public static async Task<PageModel<IEnumerable<T>>> GetPageList<T>(int pageNo, int pageSize, IDbConnection conn,
-      IEnumerable<string> whereEnumerable,object param =null, bool loadNow = true) where T : BaseModel
+      string tableName, IEnumerable<string> whereEnumerable, IEnumerable<string> fieldEnumerable,
+      IEnumerable<string> orderEnumerable, string alias, object param = null,
+      bool loadNow = true) where T : BaseModel
     {
       var whereSql = GetWhereSql(whereEnumerable);
 
       var selectCountSql = $@"
 {SqlCharConst.SELECT} {SqlCharConst.COUNT}(1) 
-{SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
+{SqlCharConst.FROM} {tableName}
 {whereSql}
 ";
 
@@ -278,13 +300,12 @@ namespace DapperContext
 
       if ((pageNo - 1) * pageSize <= count)
       {
-
         var pageListSql = $@"
-{SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<T>())}
-{SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
+{SqlCharConst.SELECT} {string.Join(",", fieldEnumerable)}
+{SqlCharConst.FROM} {tableName} {SqlCharConst.AS} {alias}
 {whereSql}
 
-{SqlCharConst.ORDERBY} {EntityTools.GetField<T>(nameof(BaseModel.Id))} {SqlCharConst.DESC}
+{SqlCharConst.ORDERBY} {string.Join(",", orderEnumerable)}
 
 {SqlCharConst.LIMIT} {(pageNo - 1) * pageSize},{pageSize}
 
@@ -292,7 +313,7 @@ namespace DapperContext
 
         Logger.Debug($"{nameof(pageListSql)}:{pageListSql}");
 
-        var enumerable = await conn.QueryAsync<T>(pageListSql,param);
+        var enumerable = await conn.QueryAsync<T>(pageListSql, param);
 
         resultPage.Result = enumerable;
 

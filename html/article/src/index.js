@@ -54,6 +54,7 @@ global.APIConfig = {
     UserLogin: 'UserLogin',
     AddArticlePv: 'AddArticlePv',
     GetArticleCommentPageList: 'GetArticleCommentPageList',
+    GetReplyCommentPageList: 'GetReplyCommentPageList',
   },
   optAuthMethod: {
     GetUserDetail: 'GetUserDetail',
@@ -61,6 +62,11 @@ global.APIConfig = {
     SelectAction: 'SelectAction',
     SingleAction: 'SingleAction',
     InsertArticleComment: 'InsertArticleComment',
+    GetArticlePageList: 'GetArticlePageList',
+    RemoveArticle: 'RemoveArticle',
+    SearchIsExistsAttention: 'SearchIsExistsAttention',
+    AttentionUser: 'AttentionUser',
+    CancelAttentionUser: 'CancelAttentionUser',
   },
   ValidFlagArr: [
     '无效',
@@ -81,8 +87,10 @@ global.APIConfig = {
         if (response.data.errorCode === global.APIConfig.resultCodeMap.success) {
           callBack(response.data.result);
         } else if (response.data.errorCode === 401 && authErrorFunc) {
+          console.log('auth error');
           authErrorFunc();
         } else if (errorFunc) {
+          console.log('deal error');
           errorFunc(response.data.message); // 异常回调
         }
       })

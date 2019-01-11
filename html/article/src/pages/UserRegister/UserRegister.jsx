@@ -54,7 +54,9 @@ class UserRegister extends Component {
   };
 
   checkUserName = (rule, values, callback) => {
-    if (!(/\w+/.test(values))) {
+    if (!values) {
+      callback('请输入登录名');
+    } else if (!(/\w+/.test(values))) {
       callback('登录名不能出现中文');
     } else if (values.length > 12) {
       callback('登录名不能超过12位');

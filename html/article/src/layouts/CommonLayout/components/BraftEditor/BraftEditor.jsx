@@ -15,6 +15,10 @@ import BraftEditor from 'braft-editor';
 //   includeEditors: ['editor-with-code-highlighter'],
 // }));
 
+// 'undo', 'redo', 'split', 'font-size', 'font-family', 'line-height', 'letter-spacing',
+//   'indent','text-color', 'bold', 'italic', 'underline', 'strike-through',
+//   'superscript', 'subscript', 'remove-styles', 'emoji', 'text-align', 'split', 'headings', 'list_ul',
+//   'list_ol', 'blockquote', 'code', 'split', 'link', 'split', 'hr', 'split', 'media', 'clear'
 
 export default class CustomBraftEditor extends Component {
   static displayName = 'CustomBraftEditor';
@@ -31,6 +35,9 @@ export default class CustomBraftEditor extends Component {
     };
     this.content = '';
     this.editorRef = React.createRef();// 可用此ref调用BraftEditor的方法
+  }
+
+  componentDidMount() {
     if (this.props.bindRef) {
       this.props.bindRef(this);// 绑定子组件的引用
     }
@@ -143,6 +150,10 @@ export default class CustomBraftEditor extends Component {
         uploadFn: this.handleUpload,
       },
     };
+
+    if (this.props.controls) {
+      editorProps.controls = this.props.controls;
+    }
 
     return (
       <IceContainer>

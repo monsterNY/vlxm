@@ -2,6 +2,8 @@
 // headerMenuConfig：头部导航配置
 // asideMenuConfig：侧边导航配置
 
+// icon: foundationsymbol
+
 const headerMenuConfig = [
   {
     name: '首页',
@@ -47,11 +49,16 @@ const asideMenuConfig = [
         name: '发布作品',
         path: '/post/new',
       },
+      {
+        name: '我的文章',
+        path: '/article/userList',
+        icon: 'home',
+      },
     ],
   },
   {
     name: '账号',
-    icon: 'yonghu',
+    icon: 'person',
     path: '/account',
     children: [
       {
@@ -64,14 +71,21 @@ const asideMenuConfig = [
       },
     ],
   },
-  // {
-  //   name: '登录',
-  //   path: '/user/login',
-  // },
-  // {
-  //   name: '注册',
-  //   path: '/user/register',
-  // },
+  {
+    name: '收藏夹',
+    icon: 'link',
+    path: '/collect',
+    children: [
+      {
+        name: '我的收藏',
+        path: '/collect/article',
+      },
+      {
+        name: '我的关注',
+        path: '/collect/attention',
+      },
+    ],
+  },
 ];
 
 export { headerMenuConfig, asideMenuConfig };

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Model.Vlxm.Menu
 {
+  /// <summary>
+  /// 作品操作
+  /// </summary>
   public enum ArticleOptMenu
   {
 
@@ -12,5 +15,9 @@ namespace Model.Vlxm.Menu
     /// </summary>
     Like = 1,
 
+    /// <summary>
+    /// 收藏
+    /// </summary>
+    Collect = 2,
   }
 }

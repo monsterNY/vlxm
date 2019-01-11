@@ -43,6 +43,7 @@ namespace Api.Manage.CusInherit.Article.Action
           $"{EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.OptionType))} = {(int) opt}",
           $"{EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.RelationKey))} = {req.ArticleId}",
           $"{EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.ActionUser))} = {userId}",
+          $"{nameof(BaseModel.ValidFlag)}={(int)ValidFlagMenu.UseFul}"
         }, EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.Count)));
 
         count = count ?? 0;

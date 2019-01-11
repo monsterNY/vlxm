@@ -133,7 +133,7 @@ namespace Api.Manage.Controllers
 
       var fileName = $"{Guid.NewGuid().ToString().Replace("-", "")}.{allowFileType[contentType]}";
 
-      var floderPath = $"/upload/image/{DateTime.Now:yyyy-MM-dd}/";
+      var floderPath = $"upload/image/{DateTime.Now:yyyy-MM-dd}/";
 
       //检测是否存在此文件夹
       if (!Directory.Exists(webRootPath + floderPath))
@@ -143,7 +143,7 @@ namespace Api.Manage.Controllers
 
       var bytes = Convert.FromBase64String(fileData);
 
-      using (var stream = new FileStream(webRootPath + floderPath + fileName, FileMode.Create))
+      using (var stream = new FileStream(webRootPath + "/" + floderPath + fileName, FileMode.Create))
       {
         stream.Write(bytes);
       }
@@ -176,7 +176,7 @@ namespace Api.Manage.Controllers
             Directory.CreateDirectory(floderPath);
           }
 
-          var filePath = webRootPath + "/upload/" + newFileName;
+          var filePath = webRootPath + "/" + uploadUrl;
           using (var stream = new FileStream(filePath, FileMode.Create))
           {
             formFile.CopyTo(stream);

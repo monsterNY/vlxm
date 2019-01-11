@@ -21,14 +21,14 @@ export default class Footer extends PureComponent {
             <Logo style={{ color: '#666' }} />
           </div>
           <div className="copyright">
-            © 2018 Theme designed by{' '}
+            © 2019 Theme designed by{' '}
             <a
-              href="https://github.com/alibaba/ice"
+              href="https://github.com/monsterNY/szhw/tree/master/html/article"
               target="_blank"
               className="copyright-link"
               rel="noopener noreferrer"
             >
-              ICE
+              VLXM
             </a>
           </div>
         </div>

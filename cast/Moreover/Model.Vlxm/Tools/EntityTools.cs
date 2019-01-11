@@ -40,7 +40,7 @@ namespace Model.Vlxm.Tools
     {
       var type = typeof(T);
 
-      return type.GetCustomAttribute<TableNameAttribute>()?.TableName ?? type.Name;
+      return type.GetCustomAttribute<TableMapperAttribute>()?.TableName ?? type.Name;
     }
 
     #region empty

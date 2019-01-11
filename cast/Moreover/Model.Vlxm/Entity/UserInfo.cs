@@ -6,7 +6,7 @@ using Model.Vlxm.CusAttr;
 namespace Model.Vlxm.Entity
 {
 
-  [TableName("user_info")]
+  [TableMapper("user_info","t_ui")]
   public class UserInfo:BaseModel
   {
 

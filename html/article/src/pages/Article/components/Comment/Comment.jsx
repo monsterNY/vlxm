@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import { Rating, Pagination, Button, Progress, Feedback } from '@icedesign/base';
+import { Rating, Pagination, Button, Progress, Feedback, Grid } from '@icedesign/base';
 import BraftEditor from '../../../../layouts/CommonLayout/components/BraftEditor';
+
+const { Row, Col } = Grid;
+const ButtonGroup = Button.Group;
 
 export default class Comment extends Component {
   constructor(props) {
@@ -10,7 +13,7 @@ export default class Comment extends Component {
       grade: 5,
       process: 0,
       dataList: [],
-      replyUser: '',
+      replyItem: null,
     };
     this.flagId = this.props.id;
     this.actionFlag = this.props.flag;
@@ -23,7 +26,6 @@ export default class Comment extends Component {
     };
     this.btnStyle = { float: 'right' };
     this.processStyle = global.CusStyle.hideStyle;
-    this.ReplayId = 0;
   }
 
   componentDidMount() {
@@ -60,13 +62,18 @@ export default class Comment extends Component {
   createCommentEvent = (param) => {
     global.APIConfig.sendAuthAjax(this, param, this.actionFlag, () => {
       this.setState({ process: 100 });
+      if (this.state.replyItem) {
+        // this.state.replyItem.replyCount += 1;
+      } else {
+        this.pageParm.pageNo = 1;
+        this.loadArticleCommentPageList(this.pageParm);// 刷新评论
+      }
+      this.setState({ replyItem: null });
       setTimeout(() => {
         Feedback.toast.success('评论成功！');
         console.log(this.editor);
         this.editor.editorRef.current.clear();
         this.changeProcessStyle(false);
-        this.pageParm.pageNo = 1;
-        this.loadArticleCommentPageList(this.pageParm);// 刷新评论
       }, 1000);
     }, () => {
       this.changeProcessStyle(false);
@@ -84,8 +91,10 @@ export default class Comment extends Component {
       joinKey: this.flagId,
       grade: this.state.grade,
       contentType: 0,
-      ReplayId: this.ReplayId,
     };
+    if (this.state.replyItem) {
+      param.replyId = this.state.replyItem.id;
+    }
 
     this.changeProcessStyle(true);
     this.createCommentEvent(param);
@@ -105,11 +114,38 @@ export default class Comment extends Component {
     this.loadArticleCommentPageList(this.pageParm);
   }
 
+  getReplyEvent = (param) => {
+    global.APIConfig.sendAjax(param, global.APIConfig.optMethod.GetReplyCommentPageList, (resultData) => {
+      if (resultData.result) {
+        console.log(resultData.result);
+      }
+    });
+  }
+
   replayCommentHandle = (item) => {
-    console.log(item);
-    this.setState({ replyUser: `用户-${item.actionUser}` });
-    this.ReplayId = item.id;
+    console.log(item.id);
+    // console.log(item);
+    this.setState({ replyItem: item });
     this.editor.editorRef.current.focus();
+  }
+
+  renderReply = () => {
+    if (this.state.replyItem) {
+      return (
+        <div>
+          @{this.state.replyItem.nickName}
+          <Button
+            style={{ marginLeft: 10 }}
+            onClick={() => {
+              this.setState({ replyItem: null });
+            }}
+            shape="text"
+          >
+            取消
+          </Button>
+        </div>
+      );
+    }
   }
 
   renderItem = (item, idx) => {
@@ -117,8 +153,8 @@ export default class Comment extends Component {
       <div style={styles.item} key={idx}>
         <div style={styles.itemRow}>
           <span style={styles.title}>
-            <img src={global.APIConfig.defaultImgUrl} style={styles.avatar} alt="avatar" />
-            {item.actionUser}
+            <img src={item.faceImg ? (global.APIConfig.imgBaseUrl + item.faceImg) : global.APIConfig.defaultImgUrl} style={styles.avatar} alt="avatar" />
+            {item.nickName}
             <Rating
               defaultValue={item.grade}
               size="small"
@@ -128,12 +164,35 @@ export default class Comment extends Component {
           <span style={styles.status}>{item.createTime}</span>
         </div>
         <div style={styles.infoItems} className="BraftEditor-container" dangerouslySetInnerHTML={{ __html: item.content }} />
-        <Button type="primary" style={{ width: '12%', marginLeft: '86%' }} onClick={() => this.replayCommentHandle(item)}>
-          回复
-        </Button>
+        <Row wrap style={{ marginTop: 10, marginBottom: 10 }}>
+          <Col xxs="24" l="16" />
+          <Col xxs="24" l="6">
+            <ButtonGroup>
+              <Button type="primary" onClick={() => this.replayCommentHandle(item)}>
+                回复评论
+              </Button>
+              <Button type="primary"
+                onClick={() => {
+                  if (item.replyCount > 0) {
+                    this.getReplyEvent({
+                      PageSize: 10,
+                      pageIndex: 1,
+                      result: item.id,
+                    });
+                  } else {
+                    console.log('no reply');
+                  }
+                }}
+              >
+                查看回复({item.replyCount})
+              </Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
+
       </div>
     );
-  };
+  }
 
   render() {
     return (
@@ -157,13 +216,13 @@ export default class Comment extends Component {
 
         {/* <FormItem label="正文" required> */}
         {/* <IceFormBinder name="body"> */}
+        {this.renderReply()}
         <div id="commentContent">
-          <BraftEditor bindRef={this.handleEditorRef} />
+          <BraftEditor bindRef={this.handleEditorRef} controls={['italic', 'underline', 'separator', 'link', 'separator', 'emoji', 'hr', 'blockquote', 'code', 'split', 'link', 'clear']} />
           <div style={this.processStyle}>
             <Progress percent={this.state.process} />
           </div>
           <div style={this.btnStyle}>
-            {this.state.replyUser}
             <Rating
               defaultValue={this.state.grade}
               onChange={this.handleGradeChange}

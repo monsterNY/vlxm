@@ -11,7 +11,7 @@ namespace Model.Vlxm.Entity
   /// 文章操作表
   /// type <see cref="ArticleOptMenu"/>
   /// </summary>
-  [TableName("article_opt_info")]
+  [TableMapper("article_opt_info","t_aoi")]
   public class ArticleOptInfo:BaseModel
   {
 
@@ -31,7 +31,7 @@ namespace Model.Vlxm.Entity
     public long RelationKey { get; set; }
 
     /// <summary>
-    /// 操作熟练
+    /// 操作数量
     /// </summary>
     public int Count { get; set; }
 

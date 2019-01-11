@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Model.Vlxm.Entity;
 using Model.Vlxm.Menu;
+using Model.Vlxm.Tools;
 
 namespace DapperContext.Const
 {
   public class SqlCharConst
   {
+    public const string AS = nameof(AS);
+
     public const string ASC = nameof(ASC);
 
     public const string DESC = nameof(DESC);
@@ -40,5 +44,8 @@ namespace DapperContext.Const
     public const string ORDERBY = "ORDER BY";
 
     public static string DefaultWhere = $"ValidFlag = {(int) ValidFlagMenu.UseFul}";
+
+    public static string DefaultOrder = $"{nameof(BaseModel.Id)} {SqlCharConst.DESC}";
+
   }
 }

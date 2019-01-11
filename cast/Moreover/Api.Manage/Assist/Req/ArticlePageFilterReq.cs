@@ -11,7 +11,7 @@ namespace Api.Manage.Assist.Req
     public int? ArticleType { get; set; }
 
     /// <summary>
-    /// 筛选类型 0 -- 全部  1 -- 仅自己 
+    /// 筛选类型 0 -- 全部  1 -- 仅自己  2--
     /// </summary>
     public int FilterType { get; set; }
 

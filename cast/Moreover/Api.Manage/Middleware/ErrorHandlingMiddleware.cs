@@ -5,14 +5,19 @@ using System.Threading.Tasks;
 using Api.Manage.Assist.Entity;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using NLog;
 
 namespace Api.Manage.Middleware
 {
   public class ErrorHandlingMiddleware
   {
-
     protected ILogger logger = LogManager.GetCurrentClassLogger();
+
+    protected JsonSerializerSettings jsonSetting = new JsonSerializerSettings()
+    {
+      ContractResolver = new CamelCasePropertyNamesContractResolver()
+    };
 
     private readonly RequestDelegate next;
 
@@ -35,6 +40,7 @@ namespace Api.Manage.Middleware
         {
           statusCode = 200;
         }
+
         await HandleExceptionAsync(context, statusCode, ex.Message);
       }
       finally
@@ -57,14 +63,15 @@ namespace Api.Manage.Middleware
         {
           msg = "未知错误";
         }
-        if (!string.IsNullOrWhiteSpace(msg))
+        //304 允许资源缓存
+        if (statusCode != 304 && !string.IsNullOrWhiteSpace(msg))
         {
           await HandleExceptionAsync(context, statusCode, msg);
         }
       }
     }
 
-    private static Task HandleExceptionAsync(HttpContext context, int statusCode, string msg)
+    private Task HandleExceptionAsync(HttpContext context, int statusCode, string msg)
     {
 //      var data = new { code = statusCode.ToString(), is_success = false, msg = msg };
 
@@ -73,10 +80,11 @@ namespace Api.Manage.Middleware
         ErrorCode = statusCode,
         Message = msg,
       };
-      var result = JsonConvert.SerializeObject(data);
+
+      var result = JsonConvert.SerializeObject(data, jsonSetting);
       context.Response.ContentType = "application/json;charset=utf-8";
+      context.Response.StatusCode = 200;
       return context.Response.WriteAsync(result);
     }
-
   }
 }

@@ -14,7 +14,7 @@ namespace Api.Manage.Assist.Param
     public CommentTypeMenu CommentType { get; set; }
     public int ContentType { get; set; }
     public int JoinKey { get; set; }
-    public long ReplayId { get; set; }
+    public long ReplyId { get; set; }
     public long ActionUser { get; set; }
     public int Grade { get; set; }
 
@@ -24,7 +24,7 @@ namespace Api.Manage.Assist.Param
       return new CreateCommentParam()
       {
         Content = req.Content,
-        ReplayId = req.ReplayId,
+        ReplyId = req.ReplyId,
         CommentType = CommentTypeMenu.Article,
         Grade = req.Grade,
         JoinKey = req.JoinKey,

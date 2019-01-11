@@ -6,7 +6,7 @@ namespace Model.Vlxm.Entity
   /// <summary>
   /// 文章信息
   /// </summary>
-  [TableName("article_info")]
+  [TableMapper("article_info","t_ai",nameof(ArticleInfo))]
   public class ArticleInfo : BaseModel
   {
     public string Title { get; set; }

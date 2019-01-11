@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Model.Common.ConfigModels;
 using Model.Common.CusAttr;
 using Model.Common.Extension;
+using NLog;
 
 namespace Api.Manage.Controllers
 {
@@ -22,6 +23,8 @@ namespace Api.Manage.Controllers
   public class HomeController : ControllerBase
   {
     protected AppSetting AppSetting { get; set; }
+
+    protected ILogger Logger = LogManager.GetCurrentClassLogger();
 
     public HomeController(IOptionsMonitor<AppSetting> optionsMonitor)
     {
@@ -82,6 +85,7 @@ namespace Api.Manage.Controllers
       DealAttribute dealAttribute)
     {
       var instance = Activator.CreateInstance(dealAttribute.DealService) as IDeal;
+      Logger.Info($"调用:{dealAttribute.DealService.Name}");
 
       return await instance.Run(acceptParam, appSetting, HttpContext);
     }

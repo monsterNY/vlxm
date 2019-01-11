@@ -2,6 +2,7 @@
 using Api.Manage.CusInherit;
 using Api.Manage.CusInherit.Article;
 using Api.Manage.CusInherit.Article.Action;
+using Api.Manage.CusInherit.Attention;
 using Api.Manage.CusInherit.Comment;
 using Api.Manage.CusInherit.Create;
 using Api.Manage.CusInherit.Select;
@@ -63,6 +64,26 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [AuthDeal(typeof(SingleActionAuthService), "文章操作")]
     SingleAction = 60001,
+
+    /// <summary>
+    /// 关注用户
+    /// </summary>
+    [AuthDeal(typeof(AttentionUserAuthService), "关注用户")]
+    AttentionUser = 60002,
+
+    /// <summary>
+    /// 取消关注用户
+    /// </summary>
+    [AuthDeal(typeof(CancelAttentionUserAuthService), "取消关注用户")]
+    CancelAttentionUser = 60003,
+
+    /// <summary>
+    /// 查看是否已关注
+    /// </summary>
+    [AuthDeal(typeof(SearchIsExistsAttentionAuthService), "查看是否已关注")]
+    SearchIsExistsAttention = 60004,
+
+
 
   }
 }

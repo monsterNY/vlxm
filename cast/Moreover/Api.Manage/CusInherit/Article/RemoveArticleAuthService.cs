@@ -25,17 +25,30 @@ namespace Api.Manage.CusInherit.Article
 
       if (req == null || req.Key <= 0)
       {
-        return ResultModel.GetParamErrorModel("参数异常");
+        return ResultModel.GetParamErrorModel();
       }
 
       var dbConnection = appSetting.GetMysqlConn(context);
 
-      var result = await dbConnection.ExecuteAsync($@"
-{SqlCharConst.UPDATE} {EntityTools.GetTableName<ArticleInfo>()}
-{SqlCharConst.SET} {EntityTools.GetField<BaseModel>(nameof(BaseModel.ValidFlag))} = {((int) ValidFlagMenu.UseFul)}
-{SqlCharConst.WHERE} {EntityTools.GetField<BaseModel>(nameof(BaseModel.Id))} = {req.Key} 
-{SqlCharConst.AND} {EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId} 
-");
+      var result = await DapperTools.Edit(dbConnection, EntityTools.GetTableName<ArticleInfo>(), new[]
+      {
+        $"{EntityTools.GetField<BaseModel>(nameof(BaseModel.Id))} = {req.Key} ",
+        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId}",
+      }, new[]
+      {
+        $"{nameof(BaseModel.ValidFlag)} = {((int) ValidFlagMenu.UnUseFul)}",
+        $"{nameof(BaseModel.UpdateTime)} = @{nameof(BaseModel.UpdateTime)}"
+      }, new
+      {
+        UpdateTime= DateTime.Now
+      });
+
+//      var result = await dbConnection.ExecuteAsync($@"
+//{SqlCharConst.UPDATE} {EntityTools.GetTableName<ArticleInfo>()}
+//{SqlCharConst.SET} {EntityTools.GetField<BaseModel>(nameof(BaseModel.ValidFlag))} = {((int) ValidFlagMenu.UseFul)}
+//{SqlCharConst.WHERE} {EntityTools.GetField<BaseModel>(nameof(BaseModel.Id))} = {req.Key} 
+//{SqlCharConst.AND} {EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId} 
+//");
 
       return ResultModel.GetSuccessModel(result);
 

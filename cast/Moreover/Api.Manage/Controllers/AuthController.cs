@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Model.Common.ConfigModels;
 using Model.Common.CusAttr;
 using Model.Common.Extension;
+using NLog;
 
 namespace Api.Manage.Controllers
 {
@@ -24,6 +25,8 @@ namespace Api.Manage.Controllers
   public class AuthController : ControllerBase
   {
     protected AppSetting AppSetting { get; set; }
+
+    protected ILogger Logger = LogManager.GetCurrentClassLogger();
 
     public AuthController(IOptionsMonitor<AppSetting> optionsMonitor)
     {
@@ -97,6 +100,7 @@ namespace Api.Manage.Controllers
     {
 
       var instance = Activator.CreateInstance(dealAttribute.DealService) as IAuthDeal;
+      Logger.Info($"调用:{dealAttribute.DealService.Name}");
 
       return await instance.Run(acceptParam, appSetting, HttpContext,userId);
     }

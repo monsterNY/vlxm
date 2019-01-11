@@ -11,6 +11,9 @@ import Settings from './pages/Settings';
 import UserLogin from './pages/UserLogin';
 import Article from './pages/Article';
 import BasicLayout from './layouts/BasicLayout';
+
+import UserArticleList from './pages/UserArticleList';
+import ArticleCollect from './pages/ArticleCollect';
 import UserRegister from './pages/UserRegister';
 
 const routerConfig = [
@@ -50,6 +53,16 @@ const routerConfig = [
     path: '/article/detail/:id',
     layout: BasicLayout,
     component: Article,
+  },
+  {
+    path: '/article/userList',
+    layout: BasicLayout,
+    component: UserArticleList,
+  },
+  {
+    path: '/collect/article',
+    layout: BasicLayout,
+    component: ArticleCollect,
   },
 ];
 

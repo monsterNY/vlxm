@@ -5,7 +5,7 @@ using Model.Vlxm.CusAttr;
 
 namespace Model.Vlxm.Entity
 {
-  [TableName("comment_info")]
+  [TableMapper("comment_info","t_ci",nameof(CommentInfo))]
   public class CommentInfo:BaseModel
   {
 
@@ -13,7 +13,7 @@ namespace Model.Vlxm.Entity
     public int CommentType { get; set; }
     public int ContentType { get; set; }
     public int JoinKey { get; set; }
-    public long ReplayId { get; set; }
+    public long ReplyId { get; set; }
     public long ActionUser { get; set; }
     public int Grade { get; set; }
 

@@ -34,7 +34,7 @@ namespace Api.Manage.Authorization
 
       var firstOrDefault = context.HttpContext.User.Claims.FirstOrDefault(u=>JwtClaimTypes.Id.Equals(u.Type));
 
-      //1.如何在401时返回其他
+      //1.如何在401时返回其他 已处理。
 
       //2.如何在
 

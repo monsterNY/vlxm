@@ -6,7 +6,7 @@ using Model.Vlxm.CusAttr;
 namespace Model.Vlxm.Entity
 {
 
-  [TableName("article_type")]
+  [TableMapper("article_type","t_at")]
   public class ArticleType:BaseModel
   {
 

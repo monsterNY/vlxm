@@ -10,7 +10,7 @@ namespace Api.Manage.Assist.Req
     public string Content { get; set; }
     public int ContentType { get; set; }
     public int JoinKey { get; set; }
-    public long ReplayId { get; set; }
+    public long ReplyId { get; set; }
     public int Grade { get; set; }
 
     public string ValidInfo()

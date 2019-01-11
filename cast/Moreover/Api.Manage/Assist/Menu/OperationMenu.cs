@@ -51,7 +51,12 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [Deal(typeof(GetArticleCommentPageListService), "分页获取文章评论列表")]
     GetArticleCommentPageList = 10004,
-    
+
+    /// <summary>
+    /// 分页获取文章评论回复列表
+    /// </summary>
+    [Deal(typeof(GetReplyCommentPageListService), "分页获取文章评论回复列表")]
+    GetReplyCommentPageList = 10005,
 
     /// <summary>
     /// 添加文章

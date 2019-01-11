@@ -7,12 +7,12 @@ namespace Model.Vlxm.Menu
   public enum ValidFlagMenu
   {
     /// <summary>
-    /// 有效
+    /// 无效
     /// </summary>
     UnUseFul = 0,
 
     /// <summary>
-    /// 无效
+    /// 有效
     /// </summary>
     UseFul = 1,
   }
