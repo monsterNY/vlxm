@@ -34,7 +34,7 @@ namespace Api.Manage.CusInherit.Article
       //动态sql
       var whereArr = new List<string>()
       {
-        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {(int)ValidFlagMenu.UseFul}"
+        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {(int) ValidFlagMenu.UseFul}"
       };
 
       var tableMapper = typeof(ArticleInfo).GetCustomAttribute<TableMapperAttribute>();
@@ -45,21 +45,21 @@ namespace Api.Manage.CusInherit.Article
 (
   {SqlCharConst.SELECT} {SqlCharConst.COUNT}(0)
 	{SqlCharConst.FROM} {EntityTools.GetTableName<CommentInfo>()}
-	{SqlCharConst.WHERE} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.CommentType))} = {(int)CommentTypeMenu.Article}
+	{SqlCharConst.WHERE} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.CommentType))} = {(int) CommentTypeMenu.Article}
 	{SqlCharConst.AND} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.JoinKey))} = {tableMapper.Alias}.{nameof(BaseModel.Id)}
-  {SqlCharConst.AND} {nameof(BaseModel.ValidFlag)} = {(int)ValidFlagMenu.UseFul}
+  {SqlCharConst.AND} {nameof(BaseModel.ValidFlag)} = {(int) ValidFlagMenu.UseFul}
 ) {SqlCharConst.AS} {EntityTools.GetField<ArticleInfoDto>(nameof(ArticleInfoDto.CommentCount))}
-");//评论数量
+"); //评论数量
 
       fields.Add($@"
 (
   {SqlCharConst.SELECT} {SqlCharConst.COUNT}(0)
 	{SqlCharConst.FROM} {EntityTools.GetTableName<ArticleOptInfo>()}
-	{SqlCharConst.WHERE} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.OptionType))} = {(int)ArticleOptMenu.Like}
+	{SqlCharConst.WHERE} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.OptionType))} = {(int) ArticleOptMenu.Like}
 	{SqlCharConst.AND} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.RelationKey))} = {tableMapper.Alias}.{nameof(BaseModel.Id)}
-  {SqlCharConst.AND} {nameof(BaseModel.ValidFlag)} = {(int)ValidFlagMenu.UseFul}
+  {SqlCharConst.AND} {nameof(BaseModel.ValidFlag)} = {(int) ValidFlagMenu.UseFul}
 ) {SqlCharConst.AS} {EntityTools.GetField<ArticleInfoDto>(nameof(ArticleInfoDto.LikeCount))}
-");//点赞数量
+"); //点赞数量
 
       if (pageModel.Result != null && pageModel.Result.ArticleType > 0)
       {
@@ -73,13 +73,13 @@ namespace Api.Manage.CusInherit.Article
         if (pageModel.Result.FilterType == 1)
         {
           whereArr.Add($@"
-EXISTS (
+{SqlCharConst.EXISTS} (
 
-	SELECT * FROM {EntityTools.GetTableName<ArticleOptInfo>()}
-	WHERE optionType = {(int)ArticleOptMenu.Collect}
-	AND validFlag = {(int)ValidFlagMenu.UseFul}
-	AND actionUser = {userId}
-	AND relationKey = {tableMapper.Alias}.{nameof(BaseModel.Id)}
+	{SqlCharConst.SELECT} * {SqlCharConst.FROM} {EntityTools.GetTableName<ArticleOptInfo>()}
+	{SqlCharConst.WHERE} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.OptionType))} = {(int) ArticleOptMenu.Collect}
+	{SqlCharConst.AND} {nameof(BaseModel.ValidFlag)} = {(int) ValidFlagMenu.UseFul}
+	{SqlCharConst.AND} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.ActionUser))} = {userId}
+	{SqlCharConst.AND} {EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.RelationKey))} = {tableMapper.Alias}.{nameof(BaseModel.Id)}
 	
 )
 ");
@@ -88,10 +88,8 @@ EXISTS (
         {
           whereArr.Add($"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId}");
         }
-
       }
 
-      
 
       //获取连接
       var mysqlConn = appSetting.GetMysqlConn();
@@ -99,11 +97,12 @@ EXISTS (
       var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
 
       //采用工具类分页查询
-       var pageList = await DapperTools.GetPageList<ArticleInfoDto>(pageModel.PageNo, pageModel.PageSize, dbConnection, tableMapper.TableName,
-        whereArr, fields, new []
-         {
-           SqlCharConst.DefaultOrder
-         }, tableMapper.Alias, pageModel.Result);
+      var pageList = await DapperTools.GetPageList<ArticleInfoDto>(pageModel.PageNo, pageModel.PageSize, dbConnection,
+        tableMapper.TableName,
+        whereArr, fields, new[]
+        {
+          SqlCharConst.DefaultOrder
+        }, tableMapper.Alias, pageModel.Result);
 
       //返回结果集
       return ResultModel.GetSuccessModel(string.Empty, pageList);

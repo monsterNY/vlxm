@@ -25,6 +25,13 @@ namespace Api.Manage.Assist.Menu
     GetArticlePageList = 10001,
 
     /// <summary>
+    /// 分页获取关注列表
+    /// </summary>
+    [AuthDeal(typeof(GetAttentionPageListAuthService), "分页获取关注列表")]
+    GetAttentionPageList = 10002,
+    
+
+    /// <summary>
     /// 添加文章
     /// </summary>
     [AuthDeal(typeof(CreateArticleAuthService), "添加文章")]
@@ -82,8 +89,6 @@ namespace Api.Manage.Assist.Menu
     /// </summary>
     [AuthDeal(typeof(SearchIsExistsAttentionAuthService), "查看是否已关注")]
     SearchIsExistsAttention = 60004,
-
-
 
   }
 }

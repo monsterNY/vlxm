@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Api.Manage.Assist.CusAttribute;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Menu;
 using Api.Manage.CusInterface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -15,7 +13,6 @@ using NLog;
 
 namespace Api.Manage.Controllers
 {
-
   [EnableCors("AllowCors")]
   [ApiController]
   [Route("api/[controller]")]
@@ -30,7 +27,7 @@ namespace Api.Manage.Controllers
     {
       AppSetting = optionsMonitor.CurrentValue;
     }
-    
+
     /// <summary>
     /// 统一请求地址
     /// </summary>
@@ -58,14 +55,12 @@ namespace Api.Manage.Controllers
           resultModel.Title = dealAttribute.Description;
 
           return resultModel;
-
         }
         else
         {
         }
 
         return acceptParam;
-
       }
       catch (Exception e)
       {
