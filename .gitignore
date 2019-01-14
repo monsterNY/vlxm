@@ -311,3 +311,7 @@ __pycache__/
 # GoodSync back-up
 *._gs
 *.gsl
+cast/Moreover/Api.Manage/wwwroot/upload/image/*
+cast/Moreover/Api.Manage/wwwroot/upload/image/*/*
+cast/Moreover/Api.Manage/wwwroot/upload/*/*/*
+cast/Moreover/Api.Manage/wwwroot/upload/*
