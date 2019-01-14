@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Grid, Button, Dialog, Form, Input } from '@icedesign/base';
 import { withRouter } from 'react-router-dom';
-import 'braft-editor/dist/braft.css';
+import '../../../../components/edit_web.css';
 import Comment from '../Comment';
 import {
   FormBinderWrapper,
@@ -10,7 +10,6 @@ import {
   FormError,
 } from '@icedesign/form-binder';
 
-const FormItem = Form.Item;
 // import './editor.css';
 
 // require('./editor.css');
@@ -261,7 +260,7 @@ export default class BasicDetailInfo extends Component {
         </div>
         <div style={styles.infoColumn}>
           <h5 style={styles.infoColumnTitle}>正文</h5>
-          <div style={styles.infoItems} className="BraftEditor-container" id="editor" dangerouslySetInnerHTML={{ __html: this.state.articleData.content }} />
+          <div style={styles.infoItems} className="edit_web" id="editor" dangerouslySetInnerHTML={{ __html: this.state.articleData.content }} />
         </div>
         <div id="articleComment">
           <Comment

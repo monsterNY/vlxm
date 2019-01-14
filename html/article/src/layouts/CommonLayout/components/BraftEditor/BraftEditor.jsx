@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import BraftEditor from 'braft-editor';
-// import 'braft-editor/dist/braft.css';
+import 'braft-editor/dist/braft.css';
 
 // 需添加依赖：draft-js-prism
 // import 'braft-extensions/dist/code-highlighter.css';
@@ -53,19 +53,19 @@ export default class CustomBraftEditor extends Component {
 
   handleChange = (rawContent) => {
     console.log(rawContent);
-    // this.content = rawContent;
-    if (!this.editorDom) {
-      this.editorDom = document.getElementsByClassName('DraftEditor-editorContainer')[0];
-    }
+    this.content = rawContent;
+    // if (!this.editorDom) {
+    //   this.editorDom = document.getElementsByClassName('DraftEditor-editorContainer')[0];
+    // }
 
-    if (this.editorDom) {
-      this.content = this.editorDom.innerHTML;
-      // console.log('---');
-    } else {
-      this.content = rawContent;
-      // console.log(this.editorDom);
-    }
-    console.log(this.content);
+    // if (this.editorDom) {
+    //   this.content = this.editorDom.innerHTML;
+    //   // console.log('---');
+    // } else {
+    //   this.content = rawContent;
+    //   // console.log(this.editorDom);
+    // }
+    // console.log(this.content);
 
     // console.log(this.editorDom);
 

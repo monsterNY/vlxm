@@ -26,7 +26,7 @@ namespace Api.Manage.CusInherit.Attention
       {
         return ResultModel.GetParamErrorModel();
       }
-
+      
       var conn = appSetting.GetMysqlConn(context);
 
       var whereList = new List<string>()

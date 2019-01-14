@@ -8,7 +8,7 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 
-import BraftEditor from '../BraftEditor';
+import BraftEditor from '../../../../layouts/CommonLayout/components/BraftEditor';
 
 const { Row, Col } = Grid;
 const FormItem = Form.Item;
