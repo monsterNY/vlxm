@@ -62,12 +62,12 @@ export default class Comment extends Component {
   createCommentEvent = (param) => {
     global.APIConfig.sendAuthAjax(this, param, this.actionFlag, () => {
       this.setState({ process: 100 });
-      if (this.state.replyItem) {
-        // this.state.replyItem.replyCount += 1;
-      } else {
-        this.pageParm.pageNo = 1;
-        this.loadArticleCommentPageList(this.pageParm);// 刷新评论
-      }
+      // if (this.state.replyItem) {
+      //   // this.state.replyItem.replyCount += 1;
+      // } else {
+      //   this.pageParm.pageNo = 1;
+      this.loadArticleCommentPageList(this.pageParm);// 刷新评论
+      // }
       this.setState({ replyItem: null });
       setTimeout(() => {
         Feedback.toast.success('评论成功！');
@@ -153,7 +153,8 @@ export default class Comment extends Component {
       <div style={styles.item} key={idx}>
         <div style={styles.itemRow}>
           <span style={styles.title}>
-            <img src={item.faceImg ? (global.APIConfig.imgBaseUrl + item.faceImg) : global.APIConfig.defaultImgUrl} style={styles.avatar} alt="avatar" />
+            {item.replyId > 0 ? `@${item.replyUserName}     -` : ''}
+            <img src={global.APIConfig.getImgSrc(item.faceImg)} style={styles.avatar} alt="avatar" />
             {item.nickName}
             <Rating
               defaultValue={item.grade}
@@ -171,7 +172,7 @@ export default class Comment extends Component {
               <Button type="primary" onClick={() => this.replayCommentHandle(item)}>
                 回复评论
               </Button>
-              <Button type="primary"
+              {/* <Button type="primary"
                 onClick={() => {
                   if (item.replyCount > 0) {
                     this.getReplyEvent({
@@ -185,7 +186,7 @@ export default class Comment extends Component {
                 }}
               >
                 查看回复({item.replyCount})
-              </Button>
+              </Button> */}
             </ButtonGroup>
           </Col>
         </Row>

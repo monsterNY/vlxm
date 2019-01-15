@@ -11,7 +11,7 @@ namespace Model.Vlxm.Entity
   /// 文章操作表
   /// type <see cref="ArticleOptMenu"/>
   /// </summary>
-  [TableMapper("article_opt_info","t_aoi")]
+  [TableMapper("article_opt_info","t_aoi",nameof(ArticleOptInfo))]
   public class ArticleOptInfo:BaseModel
   {
 

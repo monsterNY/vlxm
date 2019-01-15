@@ -27,6 +27,9 @@ global.APIConfig = {
   uploadBase64Url: 'http://api.moreover.manage/api/util/UploadBase64Image',
   defaultImgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=228096746,165288188&fm=27&gp=0.jpg',
   userInfoCacheKey: '_vlxm_user_cache_info_',
+  getImgSrc: (src) => {
+    return src ? (global.APIConfig.imgBaseUrl + src) : global.APIConfig.defaultImgUrl;
+  },
   getUserCache: () => {
     const value = window.localStorage[global.APIConfig.userInfoCacheKey];
     if (value) {
@@ -67,6 +70,7 @@ global.APIConfig = {
     SearchIsExistsAttention: 'SearchIsExistsAttention',
     AttentionUser: 'AttentionUser',
     CancelAttentionUser: 'CancelAttentionUser',
+    GetAttentionPageList: 'GetAttentionPageList',
   },
   ValidFlagArr: [
     '无效',

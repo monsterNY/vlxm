@@ -15,6 +15,7 @@ import BasicLayout from './layouts/BasicLayout';
 import UserArticleList from './pages/UserArticleList';
 import ArticleCollect from './pages/ArticleCollect';
 import UserRegister from './pages/UserRegister';
+import UserAttention from './pages/UserAttention';
 
 const routerConfig = [
   {
@@ -63,6 +64,11 @@ const routerConfig = [
     path: '/collect/article',
     layout: BasicLayout,
     component: ArticleCollect,
+  },
+  {
+    path: '/collect/attention',
+    layout: BasicLayout,
+    component: UserAttention,
   },
 ];
 

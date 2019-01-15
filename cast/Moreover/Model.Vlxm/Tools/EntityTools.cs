@@ -15,15 +15,22 @@ namespace Model.Vlxm.Tools
     /// <typeparam name="T"></typeparam>
     /// <param name="prefix">前缀</param>
     /// <param name="suffix">后缀</param>
+    /// <param name="filterFunc"></param>
     /// <returns></returns>
-    public static IEnumerable<string> GetFields<T>(string prefix = null, string suffix = null)
+    public static IEnumerable<string> GetFields<T>(string prefix = null, string suffix = null,Func<PropertyInfo,bool> filterFunc = null)
     {
-      return typeof(T).GetProperties()
-        .Select(u => prefix + (u.GetCustomAttribute<FieldAttribute>()?.Name ?? u.Name) + suffix);
+      IEnumerable<PropertyInfo> propertyInfos = typeof(T).GetProperties();
+
+      if (filterFunc != null)
+      {
+        propertyInfos = propertyInfos.Where(filterFunc);
+      }
+
+      return propertyInfos.Select(u => prefix + (u.GetCustomAttribute<FieldAttribute>()?.Name ?? u.Name) + suffix);
     }
 
     /// <summary>
-    /// 获取所有字段
+    /// 获取单个字段
     /// </summary>
     /// <returns></returns>
     public static string GetField<T>(string filedName)

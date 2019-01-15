@@ -20,7 +20,7 @@ namespace DapperContext
 
     #region common method
 
-    protected static string GetWhereSql(IEnumerable<string> whereEnumerable)
+    public static string GetWhereSql(IEnumerable<string> whereEnumerable)
     {
       var whereSql = string.Empty;
       if (whereEnumerable != null && whereEnumerable.Any())

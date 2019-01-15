@@ -37,7 +37,7 @@ namespace Api.Manage.CusInherit.Comment
       {
         $"{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.JoinKey))} = {param.Result}",
         $"{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.CommentType))} = {(int)CommentTypeMenu.Article}",
-        $"{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ReplyId))} = {0}",//只查评论 不差回复评论
+//        $"{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ReplyId))} = {0}",//只查评论 不差回复评论
         $"{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ValidFlag))} = {(int)ValidFlagMenu.UseFul}",
       };
     }
@@ -47,15 +47,25 @@ namespace Api.Manage.CusInherit.Comment
 
       var list = EntityTools.GetFields<CommentInfo>().ToList();
 
+//      list.Add($@"
+//(
+//  {SqlCharConst.SELECT} {SqlCharConst.COUNT}(0)
+//  {SqlCharConst.FROM} {EntityTools.GetTableName<CommentInfo>()}
+//  {SqlCharConst.WHERE} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ReplyId))} = {tableMapper.Alias}.{nameof(BaseModel.Id)}
+//  {SqlCharConst.AND} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ValidFlag))} = {(int)ValidFlagMenu.UseFul}
+//  {SqlCharConst.AND} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.CommentType))} = {(int)CommentTypeMenu.Article}
+//)
+// AS {EntityTools.GetField<CommentDto>(nameof(CommentDto.ReplyCount))}
+//");
+
       list.Add($@"
 (
-  {SqlCharConst.SELECT} {SqlCharConst.COUNT}(0)
-  {SqlCharConst.FROM} {EntityTools.GetTableName<CommentInfo>()}
-  {SqlCharConst.WHERE} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ReplyId))} = {tableMapper.Alias}.{nameof(BaseModel.Id)}
-  {SqlCharConst.AND} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ValidFlag))} = {(int)ValidFlagMenu.UseFul}
-  {SqlCharConst.AND} {EntityTools.GetField<CommentInfo>(nameof(CommentInfo.CommentType))} = {(int)CommentTypeMenu.Article}
-)
- AS {EntityTools.GetField<CommentDto>(nameof(CommentDto.ReplyCount))}
+  SELECT displayName FROM user_info
+  WHERE id = (
+	  SELECT actionUser FROM comment_info
+	  WHERE id = {tableMapper.Alias}.replyId
+  )
+) AS {nameof(CommentDto.ReplyUserName)}
 ");
 
       return list;

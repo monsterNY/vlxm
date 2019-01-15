@@ -15,13 +15,7 @@ namespace Model.Vlxm.CusAttr
     public string Prefix { get; set; }
 
     public string Alias { get; set; }
-
-    public TableMapperAttribute(string tableName, string prefix)
-    {
-      TableName = tableName;
-      Prefix = prefix;
-    }
-
+    
     public TableMapperAttribute(string tableName, string prefix, string @alias)
     {
       TableName = tableName;

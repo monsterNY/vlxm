@@ -286,9 +286,17 @@ export default class ContentEditor extends Component {
               <Row>
                 <Col span="11">
                   <FormItem label="发布时间" required>
-                    <IceFormBinder name="publishTime">
+                    <IceFormBinder name="publishTime_real">
+                      {/* 存在时区问题。。。转换时会减少时区数 */}
                       <DatePicker
-                        name="publishTime"
+                        onChange={(val, str) => {
+                          // fix bug
+                          console.log(val, str);
+                          const value = this.state.value;
+                          value.publishTime = str;
+                          this.setState(value);
+                        }}
+                        name="publishTime_real"
                         size="large"
                         style={{ width: '400px' }}
                       />

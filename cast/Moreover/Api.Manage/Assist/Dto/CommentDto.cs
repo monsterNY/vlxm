@@ -14,7 +14,8 @@ namespace Api.Manage.Assist.Dto
 
     public string FaceImg { get; set; }
 
-    public string ReplyCount { get; set; }
+//    public int ReplyCount { get; set; }
+    public string ReplyUserName { get; set; }
 
   }
 }

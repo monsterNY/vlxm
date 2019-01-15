@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Api.Manage.Assist.Req;
@@ -28,8 +29,13 @@ namespace Api.Manage.CusInherit.Select
         return ResultModel.GetNullErrorModel(string.Empty);
       }
 
+      var publishTimeFieldName = EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.PublishTime));
+
       //动态sql
-      var whereArr = new List<string>();
+      var whereArr = new List<string>()
+      {
+        $"{publishTimeFieldName} <= @{publishTimeFieldName}"
+      };//只返回已发布的文章
 
       if (pageModel.Result.ValidFlag != null && pageModel.Result.ValidFlag >= 0)
       {
@@ -57,9 +63,14 @@ namespace Api.Manage.CusInherit.Select
 
       var dbConnection = context.GetConnection(mysqlConn.FlagKey, mysqlConn.ConnStr);
 
+      var param = new ArticleInfo()
+      {
+        PublishTime = DateTime.Now
+      };
+
       //采用工具类分页查询
       var pageList = await DapperTools.GetPageList<ArticleInfo>(pageModel.PageNo, pageModel.PageSize, dbConnection,
-        whereArr);
+        whereArr, param);
 
       //返回结果集
       return ResultModel.GetSuccessModel(string.Empty, pageList);

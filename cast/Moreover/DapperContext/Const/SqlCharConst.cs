@@ -40,7 +40,13 @@ namespace DapperContext.Const
     public const string LIKE = nameof(LIKE);
 
     public const string LIMIT = nameof(LIMIT);
-    
+
+    public const string JOIN = nameof(JOIN);
+
+    public const string INNER = nameof(INNER);
+
+    public const string ON = nameof(ON);
+
     public const string ORDERBY = "ORDER BY";
 
     public static string DefaultWhere = $"ValidFlag = {(int) ValidFlagMenu.UseFul}";
