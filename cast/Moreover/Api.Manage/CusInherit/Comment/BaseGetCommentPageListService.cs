@@ -46,7 +46,7 @@ namespace Api.Manage.CusInherit.Comment
 
       fieldList.Add($@"
 (
-  {SqlCharConst.SELECT} {EntityTools.GetField<UserInfo>(nameof(UserInfo.UserName))}
+  {SqlCharConst.SELECT} {EntityTools.GetField<UserInfo>(nameof(UserInfo.DisplayName))}
   {SqlCharConst.FROM} {EntityTools.GetTableName<UserInfo>()}
   {SqlCharConst.WHERE} {nameof(BaseModel.Id)} = {tableMapper.Alias}.{EntityTools.GetField<CommentInfo>(nameof(CommentInfo.ActionUser))}
 )

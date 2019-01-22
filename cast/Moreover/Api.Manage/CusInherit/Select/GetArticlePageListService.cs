@@ -51,12 +51,12 @@ namespace Api.Manage.CusInherit.Select
 ");
       }
 
-      if (pageModel.Result.FilterType == 1)
-      {
-        whereArr.Add($@"
-{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {acceptParam.GetUserId()}
-");
-      }
+//      if (pageModel.Result.FilterType == 1)
+//      {
+//        whereArr.Add($@"
+//{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {acceptParam.GetUserId()}
+//");
+//      }
 
       //获取连接
       var mysqlConn = appSetting.GetMysqlConn();

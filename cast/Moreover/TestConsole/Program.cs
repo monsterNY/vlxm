@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,102 @@ using Model.Vlxm.Entity;
 using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using TestConsole.Entities;
 
 namespace TestConsole
 {
   class Program
   {
 
+    public static Dictionary<string, object> MergeDictionary(string prevKey, object value, Dictionary<string, object> target)
+    {
+      var dotIndex = prevKey.IndexOf('.');
+
+      if (dotIndex >= 0)
+      {
+        // 当前key
+        var key = prevKey.Substring(0, dotIndex);
+
+        // 下层key
+        var nextKey = prevKey.Substring(dotIndex + 1);
+        // 下层目标
+        var nextTarget = new Dictionary<string, object>();
+
+        if (target.ContainsKey(key))
+        {
+          if (target[key] is Dictionary<string, object>)
+          {
+            nextTarget = target[key] as Dictionary<string, object>;
+          }
+        }
+
+        var result = MergeDictionary(nextKey, value, nextTarget);
+        target[key] = result;
+      }
+      else
+      {
+        target[prevKey] = value;
+      }
+
+      return target;
+    }
+
     static void Main(string[] args)
     {
+
+      var user = new User()
+      {
+        LoginPwd = "54656465",
+        UserName = "                  "
+      };
+
+      var context = new ValidationContext(user, null, null);
+//      var results = new List<ValidationResult>();
+//      var attributes = typeof(User)
+//        .GetProperties()
+//        .GetCustomAttributes(false)
+//        .OfType<ValidationAttribute>()
+//        .ToArray();
+
+      ICollection<ValidationResult> failure = new List<ValidationResult>();
+
+      var validSuccess = Validator.TryValidateObject(user, context, failure,true);
+
+      if (!validSuccess)
+      {
+        foreach (var item in failure)
+        {
+          Console.WriteLine(item.ErrorMessage);
+        }
+      }
+      else
+      {
+        Console.WriteLine("valid success");
+      }
+
+//      if (!Validator.TryValidateValue(user, context, results, attributes))
+//      {
+//        foreach (var result in results)
+//        {
+//          Console.WriteLine(result.ErrorMessage);
+//        }
+//      }
+//      else
+//      {
+//        Console.WriteLine("{0} is valid", user);
+//      }
+
+      //      var map = new Dictionary<string,object>();
+      //
+      //      var data = JsonConvert.DeserializeObject("[{\"id\":123}]");
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(map));
+
+      //      IDbConnection conn = new MySqlConnection("Server=localhost;Database=vlxm; User=root;Password=root;charset=utf8mb4;");
+      //
+      //      var list = conn.Query<UserInfo>("SELECT * FROM user_info");
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(list));
 
       //      CusRedisHelper helper = new CusRedisHelper("localhost:6379","vlxm",new NewtonsoftDeal(),71);
       //
