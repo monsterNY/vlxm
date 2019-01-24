@@ -6,7 +6,7 @@ using Model.Vlxm.Entity;
 
 namespace Api.Manage.Assist.Dto
 {
-  public class ArticleInfoDto:ArticleInfo
+  public class ArticleInfoDto : ArticleInfo
   {
 
     /// <summary>

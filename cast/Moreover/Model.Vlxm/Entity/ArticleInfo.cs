@@ -11,7 +11,7 @@ namespace Model.Vlxm.Entity
   {
     public string Title { get; set; }
 
-    public long UserId { get; set; }
+    public long? UserId { get; set; }
 
     public string Author { get; set; }
     public string Category { get; set; }
@@ -19,13 +19,13 @@ namespace Model.Vlxm.Entity
     public string Content { get; set; }
     public string FaceImg { get; set; }
 
-    public int Status { get; set; }
+    public int? Status { get; set; }
 
-    public int ArticleType { get; set; }
+    public int? ArticleType { get; set; }
 
     public DateTime? PublishTime { get; set; }
 
-    public int PageView { get; set; }
+    public int? PageView { get; set; }
 
   }
 }

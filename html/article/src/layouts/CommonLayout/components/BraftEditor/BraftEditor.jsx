@@ -41,6 +41,9 @@ export default class CustomBraftEditor extends Component {
     if (this.props.bindRef) {
       this.props.bindRef(this);// 绑定子组件的引用
     }
+    // success
+    // console.log(this.editorRef);
+    // this.editorRef.current.insertHTML('<ul><li>数据库锁机制</li><li>socket通讯机制</li><li>异步机制及优势</li></ul>');
   }
 
   handleRawChange = (content) => {

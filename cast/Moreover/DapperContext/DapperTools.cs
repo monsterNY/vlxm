@@ -16,6 +16,7 @@ namespace DapperContext
 {
   public class DapperTools
   {
+
     public static ILogger Logger = LogManager.GetCurrentClassLogger();
 
     #region common method
@@ -46,6 +47,42 @@ namespace DapperContext
       var whereSql = GetWhereSql(whereList);
 
       return await Edit(conn, tableName, whereSql, param);
+    }
+
+    /// <summary>
+    /// 单表修改
+    /// </summary>
+    /// <param name="conn"></param>
+    /// <param name="whereEnumerable"></param>
+    /// <param name="param"></param>
+    /// <returns></returns>
+    public static async Task<int> SingleEdit<T>(IDbConnection conn,
+      IEnumerable<string> whereEnumerable, T param) where T:BaseModel
+    {
+
+      param.UpdateTime = new DateTime();
+
+      var whereSql = GetWhereSql(whereEnumerable);
+
+      var tableName = EntityTools.GetTableName<T>();
+
+      var validProperties = typeof(T).GetProperties().Where(u =>
+      {
+        var itemValue = u.GetValue(param);
+        return itemValue != null;
+      });//仅修改值不为null的值
+
+      var sql = $@"
+{SqlCharConst.UPDATE} {tableName}
+{SqlCharConst.SET} {string.Join(",", validProperties.Select(u => $"{u.Name} = @{u.Name}"))}
+{whereSql}
+";
+
+      Logger.Debug(sql);
+
+      var result = await conn.ExecuteAsync(sql, param);
+
+      return result;
     }
 
     /// <summary>
@@ -133,6 +170,7 @@ namespace DapperContext
     /// <param name="conn"></param>
     /// <param name="tableName"></param>
     /// <param name="whereArr"></param>
+    /// <param name="fieldName"></param>
     /// <param name="param"></param>
     /// <returns></returns>
     public static async Task<T> SelectSingle<T>(IDbConnection conn, string tableName,
@@ -159,34 +197,18 @@ namespace DapperContext
     /// <typeparam name="T"></typeparam>
     /// <param name="conn"></param>
     /// <param name="tableName"></param>
-    /// <param name="whereArr"></param>
+    /// <param name="whereEnumerable"></param>
     /// <param name="param"></param>
     /// <returns></returns>
     public static async Task<T> GetItem<T>(IDbConnection conn, string tableName,
-      List<string> whereArr, object param = null) where T : BaseModel
+      IEnumerable<string> whereEnumerable, object param = null)
     {
-      var whereSql = string.Empty;
-      if (whereArr != null && whereArr.Count > 0)
-        whereSql = $"{SqlCharConst.WHERE} {string.Join($"\n{SqlCharConst.AND} ", whereArr)}";
 
-      return await GetItem<T>(conn, tableName, whereSql, param);
-    }
+      var whereSql = GetWhereSql(whereEnumerable);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="conn"></param>
-    /// <param name="tableName"></param>
-    /// <param name="whereSql"></param>
-    /// <param name="param"></param>
-    /// <returns></returns>
-    public static async Task<T> GetItem<T>(IDbConnection conn, string tableName,
-      string whereSql, object param = null) where T : BaseModel
-    {
       var sql = $@"
 {SqlCharConst.SELECT} {string.Join(",", EntityTools.GetFields<T>())}
-{SqlCharConst.FROM} {EntityTools.GetTableName<T>()}
+{SqlCharConst.FROM} {tableName}
 {whereSql}";
 
       Logger.Debug($"{nameof(GetItem)}:{sql}");
@@ -270,6 +292,7 @@ namespace DapperContext
     /// <param name="tableName"></param>
     /// <param name="whereEnumerable"></param>
     /// <param name="fieldEnumerable"></param>
+    /// <param name="orderEnumerable"></param>
     /// <param name="alias"></param>
     /// <param name="param"></param>
     /// <param name="loadNow"></param>

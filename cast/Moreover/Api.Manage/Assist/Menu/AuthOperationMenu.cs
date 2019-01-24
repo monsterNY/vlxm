@@ -67,6 +67,12 @@ namespace Api.Manage.Assist.Menu
     UpdateUserInfo = 50001,
 
     /// <summary>
+    /// 修改文章信息
+    /// </summary>
+    [AuthDeal(typeof(EditArticleAuthService), "修改文章信息'")]
+    EditArticleInfo = 50002,
+
+    /// <summary>
     /// 文章操作
     /// </summary>
     [AuthDeal(typeof(SingleActionAuthService), "文章操作")]

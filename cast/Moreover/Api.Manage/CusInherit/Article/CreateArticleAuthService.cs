@@ -16,21 +16,21 @@ namespace Api.Manage.CusInherit.Article
   {
     public async Task<ResultModel> Run(AcceptParam acceptParam, AppSetting appSetting, HttpContext context,long userId)
     {
-      var createArticleDto = acceptParam.AnalyzeParam<CreateArticleReq>();
+      var req = acceptParam.AnalyzeParam<CreateArticleReq>();
 
-      if (createArticleDto == null)
+      if (req == null)
       {
         return ResultModel.GetNullErrorModel(string.Empty);
       }
 
       string msg;
 
-      if ((msg = createArticleDto.ValidInfo()) != string.Empty)
+      if ((msg = req.ValidInfo()) != string.Empty)
       {
         return ResultModel.GetNullErrorModel(string.Empty, msg);
       }
 
-      var createArticleParam = (CreateArticleParam) createArticleDto;
+      var createArticleParam = (CreateArticleParam)req;
 
       createArticleParam.UserId = userId;
 

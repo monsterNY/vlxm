@@ -49,7 +49,6 @@ global.APIConfig = {
   },
   optMethod: {
     GetArticlePageList: 'GetArticlePageList',
-    InsertArticle: 'InsertArticle',
     GetArticleTypePageList: 'GetArticleTypePageList',
     GetArticleTagPageList: 'GetArticleTagPageList',
     GetArticleDetail: 'GetArticleDetail',
@@ -58,12 +57,14 @@ global.APIConfig = {
     AddArticlePv: 'AddArticlePv',
     GetArticleCommentPageList: 'GetArticleCommentPageList',
     GetReplyCommentPageList: 'GetReplyCommentPageList',
+    GetArticleSingle: 'GetArticleSingle',
   },
   optAuthMethod: {
     GetUserDetail: 'GetUserDetail',
     UpdateUserInfo: 'UpdateUserInfo',
     SelectAction: 'SelectAction',
     SingleAction: 'SingleAction',
+    InsertArticle: 'InsertArticle',
     InsertArticleComment: 'InsertArticleComment',
     GetArticlePageList: 'GetArticlePageList',
     RemoveArticle: 'RemoveArticle',
@@ -71,6 +72,7 @@ global.APIConfig = {
     AttentionUser: 'AttentionUser',
     CancelAttentionUser: 'CancelAttentionUser',
     GetAttentionPageList: 'GetAttentionPageList',
+    EditArticleInfo: 'EditArticleInfo',
   },
   ValidFlagArr: [
     '无效',

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import IceContainer from '@icedesign/container';
-import { Grid } from '@icedesign/base';
+import { Grid, Pagination } from '@icedesign/base';
 import Masonry from 'react-masonry-component';
 import { Link } from 'react-router-dom';
 
@@ -49,10 +48,6 @@ const dataSource = [
 export default class CustomMasonry extends Component {
   static displayName = 'CustomMasonry';
 
-  static propTypes = {
-    dataSource: PropTypes.Array,
-  };
-
   static defaultProps = {
     dataSource,
   };
@@ -73,6 +68,11 @@ export default class CustomMasonry extends Component {
   }
 
   componentDidMount() {
+    this.loadArticlePageList(this.pageParm);
+  }
+
+  handlePagination = (currnet) => {
+    this.pageParm.pageNo = currnet;
     this.loadArticlePageList(this.pageParm);
   }
 
@@ -116,6 +116,13 @@ export default class CustomMasonry extends Component {
             {childElements}
           </Masonry>
         </Row>
+        <Pagination
+          style={styles.pagination}
+          current={this.pageParm.pageNo}
+          onChange={this.handlePagination}
+          total={this.pageParm.total}
+          pageSize={this.pageParm.pageSize}
+        />
       </IceContainer>
     );
   }
@@ -139,5 +146,9 @@ const styles = {
     padding: '10px 0 0',
     fontSize: '15px',
     textTransform: 'uppercase',
+  },
+  pagination: {
+    marginTop: '20px',
+    textAlign: 'right',
   },
 };

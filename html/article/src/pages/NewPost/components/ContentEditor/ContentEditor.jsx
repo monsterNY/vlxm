@@ -70,7 +70,7 @@ export default class ContentEditor extends Component {
   };
 
   sendCreateArticleAjax = (param) => {
-    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optMethod.InsertArticle, () => {
+    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optAuthMethod.InsertArticle, () => {
       this.setState({ process: 100 });
       setTimeout(() => {
         Feedback.toast.success('提交成功');
@@ -81,9 +81,35 @@ export default class ContentEditor extends Component {
     });
   }
 
+  sendEditArticleAjax = (param) => {
+    global.APIConfig.sendAuthAjax(this, param, global.APIConfig.optAuthMethod.EditArticleInfo, () => {
+      this.setState({ process: 100 });
+      setTimeout(() => {
+        Feedback.toast.success('提交成功');
+        this.props.history.push('/post/list');
+      }, 1000);
+    }, () => {
+      this.changeProcessStyle(false);
+    });
+  }
+
+  sendGetArticleSingleAjax = (param) => {
+    global.APIConfig.sendAjax(param, global.APIConfig.optMethod.GetArticleSingle, (data) => {
+      this.faceImg = data.faceImg;
+      this.setState({
+        value: data,
+        faceImg: (global.APIConfig.imgBaseUrl + data.faceImg),
+      });
+      this.editor.editorRef.current.insertHTML(data.content);
+    });
+  }
+
   componentDidMount() {
     this.loadArticleTagList();
     this.loadArticleTypeList();
+    if (this.articleId) {
+      this.sendGetArticleSingleAjax({ key: this.articleId });
+    }
   }
 
   constructor(props) {
@@ -103,6 +129,9 @@ export default class ContentEditor extends Component {
     };
     this.btnStyle = {};
     this.processStyle = global.CusStyle.hideStyle;
+    this.articleId = this.props.id;
+    // console.log(this.props);
+    // console.log(this.articleId);
   }
 
   changeProcessStyle = (isShow) => {
@@ -148,7 +177,12 @@ export default class ContentEditor extends Component {
 
       this.changeProcessStyle(true);
 
-      this.sendCreateArticleAjax(values);
+      if (this.articleId) {
+        values.id = this.articleId;
+        this.sendEditArticleAjax(values);
+      } else {
+        this.sendCreateArticleAjax(values);
+      }
       // ajax values
     });
   };
@@ -296,6 +330,8 @@ export default class ContentEditor extends Component {
                           value.publishTime = str;
                           this.setState(value);
                         }}
+                        // defaultValue="2019-01-24 00:00:00"
+                        showTime
                         name="publishTime_real"
                         size="large"
                         style={{ width: '400px' }}
@@ -320,6 +356,7 @@ export default class ContentEditor extends Component {
                             label: '收费',
                           },
                         ]}
+                        defaultValue={this.state.value.status}
                       />
                     </IceFormBinder>
                   </FormItem>
@@ -332,7 +369,7 @@ export default class ContentEditor extends Component {
               </Row>
               <FormItem label=" " style={this.btnStyle}>
                 <Button type="primary" onClick={this.handleSubmit}>
-                  发布文章
+                  保存
                 </Button>
               </FormItem>
             </Form>

@@ -164,10 +164,10 @@ export default class Comment extends Component {
           </span>
           <span style={styles.status}>{item.createTime}</span>
         </div>
-        <div style={styles.infoItems} className="BraftEditor-container" dangerouslySetInnerHTML={{ __html: item.content }} />
+        <div style={styles.infoItems} className="edit_web" dangerouslySetInnerHTML={{ __html: item.content }} />
         <Row wrap style={{ marginTop: 10, marginBottom: 10 }}>
-          <Col xxs="24" l="16" />
-          <Col xxs="24" l="6">
+          <Col xxs="24" l="18" />
+          <Col xxs="24" l="4">
             <ButtonGroup>
               <Button type="primary" onClick={() => this.replayCommentHandle(item)}>
                 回复评论
@@ -245,6 +245,9 @@ export default class Comment extends Component {
 }
 
 const styles = {
+  infoItems: {
+    margin: 10,
+  },
   pagination: {
     textAlign: 'center',
     marginTop: 10,

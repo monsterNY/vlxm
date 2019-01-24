@@ -14,6 +14,8 @@ using Model.Vlxm.Tools;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using TestConsole.Entities;
+using TestConsole.Lock;
+using TestConsole.TransactionOperation;
 
 namespace TestConsole
 {
@@ -56,35 +58,51 @@ namespace TestConsole
     static void Main(string[] args)
     {
 
-      var user = new User()
+      for (int i = 0; i < 10; i++)
       {
-        LoginPwd = "54656465",
-        UserName = "                  "
-      };
+        new OperationA().Run();
 
-      var context = new ValidationContext(user, null, null);
-//      var results = new List<ValidationResult>();
-//      var attributes = typeof(User)
-//        .GetProperties()
-//        .GetCustomAttributes(false)
-//        .OfType<ValidationAttribute>()
-//        .ToArray();
+        new OperationB().Run();
 
-      ICollection<ValidationResult> failure = new List<ValidationResult>();
+        Console.WriteLine("---------------------------------------");
 
-      var validSuccess = Validator.TryValidateObject(user, context, failure,true);
-
-      if (!validSuccess)
-      {
-        foreach (var item in failure)
-        {
-          Console.WriteLine(item.ErrorMessage);
-        }
       }
-      else
-      {
-        Console.WriteLine("valid success");
-      }
+
+//      new Demo().Test();
+
+//      var str = Convert.ToString(null);
+//
+//      Console.WriteLine(Convert.ToString(null));
+
+//      var user = new User()
+//      {
+//        LoginPwd = "54656465",
+//        UserName = "                  "
+//      };
+//
+//      var context = new ValidationContext(user, null, null);
+////      var results = new List<ValidationResult>();
+////      var attributes = typeof(User)
+////        .GetProperties()
+////        .GetCustomAttributes(false)
+////        .OfType<ValidationAttribute>()
+////        .ToArray();
+//
+//      ICollection<ValidationResult> failure = new List<ValidationResult>();
+//
+//      var validSuccess = Validator.TryValidateObject(user, context, failure,true);
+//
+//      if (!validSuccess)
+//      {
+//        foreach (var item in failure)
+//        {
+//          Console.WriteLine(item.ErrorMessage);
+//        }
+//      }
+//      else
+//      {
+//        Console.WriteLine("valid success");
+//      }
 
 //      if (!Validator.TryValidateValue(user, context, results, attributes))
 //      {

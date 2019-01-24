@@ -56,6 +56,10 @@ const routerConfig = [
     component: Article,
   },
   {
+    path: '/article/edit/:id',
+    component: NewPost,
+  },
+  {
     path: '/article/userList',
     layout: BasicLayout,
     component: UserArticleList,

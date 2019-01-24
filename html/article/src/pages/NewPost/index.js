@@ -10,6 +10,6 @@ export default class NewPost extends Component {
   }
 
   render() {
-    return <ContentEditor />;
+    return <ContentEditor id={this.props.match.params.id} />;
   }
 }

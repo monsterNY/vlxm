@@ -77,6 +77,12 @@ namespace Api.Manage.Assist.Menu
     GetArticleDetail = 30001,
 
     /// <summary>
+    /// 获取文章信息
+    /// </summary>
+    [Deal(typeof(GetArticleSingleService), "获取文章信息")]
+    GetArticleSingle = 30002,
+
+    /// <summary>
     /// 用户登录
     /// </summary>
     [Deal(typeof(AuthLoginService), "用户登录")]

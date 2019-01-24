@@ -88,10 +88,10 @@ export default class Lists extends Component {
     });
   }
 
-  handleEditEvent = (key) => {
-    Feedback.toast.error('尚未开放此功能！');
-    console.log(`handleEditEvent:${key}`);
-  }
+  // handleEditEvent = (key) => {
+  //   Feedback.toast.error('尚未开放此功能！');
+  //   console.log(`handleEditEvent:${key}`);
+  // }
 
   handleRemoveEvent = (key) => {
     if (this.state.optKey > 0) {
@@ -210,9 +210,14 @@ export default class Lists extends Component {
                   </Col>
                   <Col l="4">
                     <div style={styles.operWrap}>
-                      <div style={styles.oper} onClick={() => { this.handleEditEvent(item.id); }}>
+                      <div
+                        style={styles.oper}
+                        // onClick={() => { this.handleEditEvent(item.id); }}
+                      >
                         <Icon size="xs" type="edit" style={styles.operIcon} />
-                        <span style={styles.operText}>编辑</span>
+                        <Link target="_blank" style={{ marginLeft: 20 }} to={`/article/edit/${item.id}`}>
+                          <span style={styles.operText}>编辑</span>
+                        </Link>
                       </div>
                       <div style={styles.oper} onClick={() => { this.handleRemoveEvent(item.id); }}>
                         <Icon size="xs" type="ashbin" style={styles.operIcon} />
