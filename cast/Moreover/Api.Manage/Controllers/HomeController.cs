@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Api.Manage.Assist.CusAttribute;
 using Api.Manage.Assist.Entity;
 using Api.Manage.Assist.Menu;
 using Api.Manage.CusInterface;
@@ -16,7 +17,7 @@ namespace Api.Manage.Controllers
   [EnableCors("AllowCors")]
   [ApiController]
   [Route("api/[controller]")]
-//  [NotFoundActionFilter]//
+  [NotFoundActionFilter]
   public class HomeController : ControllerBase
   {
     protected AppSetting AppSetting { get; set; }

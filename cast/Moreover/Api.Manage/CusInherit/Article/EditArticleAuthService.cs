@@ -35,7 +35,7 @@ namespace Api.Manage.CusInherit.Article
 
       var conn = appSetting.GetMysqlConn(context);
 
-      var result = await DapperTools.SingleEdit(conn, new[]
+      var result = await DapperTools.SelectiveEdit(conn, new[]
       {
         $"{nameof(BaseModel.Id)} = {req.Id}",
         $"{nameof(BaseModel.ValidFlag)} = {(int) ValidFlagMenu.UseFul}",

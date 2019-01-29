@@ -34,7 +34,8 @@ namespace Api.Manage.CusInherit.Article
       //动态sql
       var whereArr = new List<string>()
       {
-        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {(int) ValidFlagMenu.UseFul}"
+        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.ValidFlag))} = {(int) ValidFlagMenu.UseFul}",
+        $"{EntityTools.GetField<ArticleInfo>(nameof(ArticleInfo.UserId))} = {userId}"
       };
 
       var tableMapper = typeof(ArticleInfo).GetCustomAttribute<TableMapperAttribute>();

@@ -82,7 +82,8 @@ namespace Api.Manage.CusInherit.Article.Action
           {
             $"{nameof(BaseModel.Id)} = {info.Id}",
             $"{EntityTools.GetField<ArticleOptInfo>(nameof(ArticleOptInfo.ActionUser))} = {userId}",
-          }, param);
+          }, null,param);
+
 
           return ResultModel.GetSuccessModel(null,$"修改成功-{result}");
 

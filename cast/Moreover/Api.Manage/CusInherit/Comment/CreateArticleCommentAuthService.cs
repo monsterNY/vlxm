@@ -36,6 +36,17 @@ namespace Api.Manage.CusInherit.Comment
 
       var result = await DapperTools.CreateItem(conn, EntityTools.GetTableName<CommentInfo>(), param);
 
+      if (result > 0)
+      {
+//        var task = new BaseSendMsgDeal().Run(new SendMsgReq()
+//        {
+//          Content = "收到一条评论信息，请赶快查看吧~",
+//          MsgType = MsgTypeMenu.Comment,
+//          Receiver = req.JoinKey,
+//          Sender = userId
+//        }, appSetting, context);
+      }
+
       return ResultModel.GetSuccessModel(result);
     }
   }

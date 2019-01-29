@@ -33,7 +33,7 @@ namespace Api.Manage.CusInherit.User
       var result = await DapperTools.Edit(dbConnection, EntityTools.GetTableName<UserInfo>(), new List<string>()
       {
         $"{nameof(BaseModel.Id)} = {userId}"
-      }, updateUserDto);
+      },null, updateUserDto);
 
 //      var result = await dbConnection.ExecuteAsync($@"
 //{SqlCharConst.UPDATE} {EntityTools.GetTableName<UserInfo>()}

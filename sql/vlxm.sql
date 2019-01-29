@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80013
 File Encoding         : 65001
 
-Date: 2019-01-22 17:52:21
+Date: 2019-01-25 17:00:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,7 +36,7 @@ CREATE TABLE `article_info` (
   `publishTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '发布时间',
   `validFlag` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章信息';
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章信息';
 
 -- ----------------------------
 -- Records of article_info
@@ -69,6 +69,10 @@ INSERT INTO `article_info` VALUES ('65', 'testa', '3', 'test', '3', '5', '11', '
 INSERT INTO `article_info` VALUES ('66', '调试样式', '3', 'monster', '22', '4', '5', 'test la', '<p>?</p><p></p><p style=\"text-align:left;\">41564564</p><p></p><p></p><p style=\"text-align:center;\">456456</p><p></p><p style=\"text-align:right;\">456456456</p><p></p><p style=\"text-align:justify;\">4564564654</p><p></p><p></p><pre>sal.dfjlksafdas<br/><br/><br/></pre><blockquote>123123</blockquote><hr/><p></p><hr/><p><u>123123</u></p><p><em>incline</em></p><p><em><strong>strong</strong></em></p><p><em><strong><span style=\"color:#f39c12\">font</span></strong></em></p><p></p><p><em><strong><span style=\"color:#f39c12\"><span style=\"padding-left:14px;padding-right:14px\">sa5f45adsfsadfasdf</span></span></strong></em></p><p><em><strong><span style=\"color:#f39c12\"><span style=\"padding-left:14px;padding-right:14px\"><sub>over</sub></span></span></strong></em></p><p></p><p><em><strong><span style=\"color:#f39c12\"><span style=\"padding-left:14px;padding-right:14px\"><sup>over</sup></span></span></strong></em></p><p></p><p><em><strong><span style=\"color:#f39c12\"><span style=\"padding-left:14px;padding-right:14px\"><sup>yeap</sup></span></span></strong></em></p>', '/upload/image/2019-01-14/a350caff1fe94b44bc6f51b356cb9a5f.jpg', '0', '2019-01-14 17:20:43', null, '2019-01-15 10:20:41', '1');
 INSERT INTO `article_info` VALUES ('69', 't', '3', 't', '1', '1', '11', 't', '', '/upload/image/2019-01-15/2711def228f746faad8ab472885f577e.jpg', '0', '2019-01-15 17:11:38', null, '2019-01-26 00:00:00', '1');
 INSERT INTO `article_info` VALUES ('70', 'what is pdb file?', '3', 'monster', '6', '4', '6', '生成的文件pdb是什么', '<p><a href=\"https://www.wintellect.com/pdb-files-what-every-developer-must-know\" target=\"_blank\">office explain</a> </p><p></p><h2 style=\"text-align:left;\">一 什么是PDB文件</h2><p style=\"text-align:left;\">大部分的开发人员应该都知道PDB文件是用来帮助软件的调试的。但是他究竟是如何工作的呢，我们可能并不熟悉。本文描述了PDB文件的存储和内容。同时还描 述了debugger如何找到binay相应的PDB文件，以及debugger如何找到与binay对应的源代码文件。本文适用于所有的Native和 Managed的开发人员。 <br/><br/>在开始前，我们先定义2个术语：private build， 用来表示在开发人员自己机器上生成的build；public build，表示在公用的build机器上生成的build。private build相对来说比较简单，因为PDB和binay在相同的地方，通常地我们遇到的问题都是关于public build。  <br/> <br/>所有的的开发人员需要知道的最重要的事情是”PDB文件跟源代码同样的重要“， 没有PDB文件，你甚至不能debugging。对于public build，需要symbol server存储所有的PDB，然后当用户报告错误的时候，debugger才可以自动地找到binay相应的PDB文件， visual studio 和 windbg都知道如何访问symbol server。在将PDB和binay存储到symbol server前，还需要对PDB运行进行source indexing， source indexing的作用是将PDB和source关联起来。  <br/> <br/>接下来的部分假设有已经设置好了symbol server和source server indexing。TFS2010中可以很简单地完成对一个新的build的source indexing 和 symbol server copying。<br/> <br/></p><h2 style=\"text-align:left;\">二 PDB文件的内容</h2><p style=\"text-align:left;\">正式开始PDB的内容，PDB不是公开的文件格式，但是Microsoft提供了API来帮助从PDB中获取数据。<br/> <br/>Native C++ PDB包含了如下的信息：<br/> * public，private 和static函数地址；<br/> * 全局变量的名字和地址；<br/> * 参数和局部变量的名字和在堆栈的偏移量；<br/> * class，structure 和数据的类型定义；<br/> * Frame Pointer Omission 数据，用来在x86上的native堆栈的遍历；<br/> * 源代码文件的名字和行数；<br/> <br/>.NET PDB只包含了2部分信息:<br/> * 源代码文件名字和行数；<br/> * 和局部变量的名字；<br/> * 所有的其他的数据都已经包含在了.NET Metadata中了；  <br/> <br/></p><h2 style=\"text-align:left;\">三 PDB如何工作</h2><p style=\"text-align:left;\">当你加载一个模块到进程的地址空间的时候，debugger用2中信息来找到相应的PDB文件。第一个毫无疑问就是文件的名字，如果加载 zzz.dll,debugger则查找zzz.pdb文件。在文件名字相同的情况下debugger还通过嵌入到PDB和binay的GUID来确保 PDB和binay的真正的匹配。 所以即使没有任何的代码修改，昨天的binay和今天的PDB是不能匹配的。可以使用dempbin.exe来查看binary的GUID。 <br/> <br/>在VisualStudio中的modules窗口的symbol file列可以查看PDB的load顺序。第一个搜索的路径是binary所在的路径，如果不在binary所在的路径，则查找binary中hardcode记录的build目录，例如obj\\debug\\*.pdb, 如果以上两个路径都没有找到PDB，则根据symbol server的设置，在本地的symbol server的cache中查找，如果在本地的symbol server的cache中没有对应的PDB，则最后才到远程的symbol server中查找。通过上面的查找顺序我们可以看出为什么public build和private build的PDB查找不会冲突。 <br/> <br/>对于private build有时我们需要在别人的机器上debug的情况，需要将相应的PDB与binary一起拷贝，对于加入GAC的.NET的binary，需要将PDB文件拷贝到C:\\Windows\\assembly\\GAC_MSIL\\Example\\1.0.0.0__682bc775ff82796a类似的binary所在的目录。另一个变通的方法是定义环境变量DEVPATH，从而代替使用命令GACUTIL将binary放入GAC中。在定义DEVPATH后，只需要将binary和PDB放到DEVPATH的路径，在DEVPATH下的binary相当于在GAC下。使用DEVPATH，首先需要创建目录且对当前build用户有写权限，然后创建环境变量DEVPATH且值为刚才创建的目录，然后在web.config，app.config或machine.config中开启development模式，启动对DEVPATH的使用 <br/>&lt;configuration&gt; <br/>   &lt;runtime&gt; <br/>      &lt;developmentMode developerInstallation=&quot;true&quot;/&gt; <br/>   &lt;/runtime&gt; <br/>&lt;/configuration&gt; <br/><br/>在你打开了development模式后，如果DEVPATH没有定义或路径不存在的话会导致程序启动时异常&quot;Invalid value for registry&quot;。而且如果在machine.config中开启DEVPATH的使用会影响其他的所有的程序，所以要慎重使用machine.config。 <br/> <br/>最后开发人员需要知道的是源代码信息是如何存储在PDB文件中的。对于public builds，在运行source indexing tool后，版本控制工具将代码存储到你设置的代码cache中。对于private builds，只是存储了PDB文件的全路径，例如在c:\\foo下的源文件mycode.cpp，在pdb文件中存储的路径为c:\\foo\\mycode.cpp。对于private builds可以使用虚拟盘来增加PDB对绝对路径的依赖，例如可以使用subst.exe将源代码路径挂载为V:，在别人的机器上debug的时候也挂载V：。</p><p style=\"text-align:left;\"> </p><p style=\"text-align:left;\">完！ </p><p></p><p><a href=\"http://www.cnblogs.com/itech/archive/2011/08/15/2136522.html\" target=\"_blank\">博文搬运</a> ?</p>', '/upload/image/2019-01-22/ae29158843254184bed3e0ef46967023.jpg', '0', '2019-01-22 17:37:14', null, '2019-01-22 00:00:00', '1');
+INSERT INTO `article_info` VALUES ('71', 'mztkn', '3', 'funny', '1', '1', '11', '贝克街的亡灵  迷宫的十字路口 ', '<p> 贝克街的亡灵   </p><pre>vr相关 90年代开膛手杰克、福尔摩斯</pre><p></p><p></p><p>迷宫的十字路口  </p><pre>恢复身体.</pre>', '/upload/image/2019-01-23/59ec68114dc346bebc6d79a1a2d2a587.jpg', '0', '2019-01-23 16:07:43', null, '2019-01-23 00:00:00', '1');
+INSERT INTO `article_info` VALUES ('72', 'work final plan', '3', 'monster', '16', '5', '5', 'review plan', '<ul><li><a href=\"https://www.cnblogs.com/jackson0714/p/TSQLFundamentals_08.html\" target=\"_blank\">数据库锁机制 </a> </li><li><a href=\"https://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html\" target=\"_blank\">socket通讯机制 </a> </li><li><a href=\"https://www.cnblogs.com/wisdomqq/archive/2012/03/29/2417723.html\" target=\"_blank\">异步机制及优势</a> </li></ul><p></p>', '/upload/image/2019-01-24/fe721e85e19c485dac7a59218ffd7294.jpg', '0', '2019-01-24 09:40:10', '0001-01-01 00:00:00', '2019-01-24 13:49:34', '1');
+INSERT INTO `article_info` VALUES ('73', 'work final plan', '3', 'monster', '2', '5', '5', 'review plan', '<p>?edit</p>', '/upload/image/2019-01-24/fe721e85e19c485dac7a59218ffd7294.jpg', '0', '2019-01-24 11:16:53', '2019-01-24 13:54:14', '2019-01-24 13:54:00', '0');
+INSERT INTO `article_info` VALUES ('74', 'markDown功能', '3', 'monster', '4', '3', '7', 'Markdown表格语法', '<pre><span style=\"color:#1a1a1a\"><span style=\"font-size:14px\"><span style=\"background-color:#ffffff\">环境准备： Tools &gt;&gt; Options &gt;&gt; Markdown &gt;&gt; Markdown Processor，改成</span></span></span><strong>Markdown(Extra)</strong><span style=\"color:#1a1a1a\"><span style=\"font-size:14px\"><span style=\"background-color:#ffffff\">。</span></span></span></pre><hr/><p></p><pre>示例：<br/><code>| Tables        | Are           | Cool  |<br/>| ------------- |:-------------:| -----:|<br/>| col 3 is      | right-aligned |  foo  |<br/>| col 2 is      | centered      |  bar  |<br/>| col 1 is      | default       |  baz  |</code></pre>', '/upload/image/2019-01-25/e3ee9d55047e41149ea538e649cc4434.jpg', '0', '2019-01-25 09:43:03', null, '2019-01-25 09:43:02', '1');
 
 -- ----------------------------
 -- Table structure for article_opt_info
@@ -85,7 +89,7 @@ CREATE TABLE `article_opt_info` (
   `validFlag` int(11) NOT NULL DEFAULT '1',
   `actionUser` bigint(20) NOT NULL COMMENT '触发人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章操作表';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章操作表';
 
 -- ----------------------------
 -- Records of article_opt_info
@@ -106,6 +110,8 @@ INSERT INTO `article_opt_info` VALUES ('15', 'Collect', '2', '46', '1', '2019-01
 INSERT INTO `article_opt_info` VALUES ('16', 'Collect', '2', '29', '1', '2019-01-11 11:06:28', null, '1', '3');
 INSERT INTO `article_opt_info` VALUES ('17', 'Like', '1', '66', '1', '2019-01-14 17:55:48', null, '1', '3');
 INSERT INTO `article_opt_info` VALUES ('18', 'Collect', '2', '66', '1', '2019-01-14 17:55:48', null, '1', '3');
+INSERT INTO `article_opt_info` VALUES ('19', 'Like', '1', '72', '1', '2019-01-24 13:57:55', null, '1', '3');
+INSERT INTO `article_opt_info` VALUES ('20', 'Collect', '2', '72', '1', '2019-01-24 13:57:56', '2019-01-24 13:57:58', '1', '3');
 
 -- ----------------------------
 -- Table structure for article_tag
@@ -146,7 +152,7 @@ CREATE TABLE `article_type` (
   `validFlag` int(11) NOT NULL DEFAULT '1',
   `icon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章类型';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章类型';
 
 -- ----------------------------
 -- Records of article_type
@@ -213,7 +219,7 @@ CREATE TABLE `comment_info` (
   `updateTime` datetime DEFAULT NULL,
   `validFlag` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='评论表';
 
 -- ----------------------------
 -- Records of comment_info
@@ -260,6 +266,31 @@ INSERT INTO `comment_info` VALUES ('40', '<p>thank so much!</p>', '1', '0', '66'
 INSERT INTO `comment_info` VALUES ('41', '<p>oh ,It&#x27;s my fault </p>', '1', '0', '66', '38', '3', '5', '2019-01-15 16:51:47', null, '1');
 INSERT INTO `comment_info` VALUES ('42', '<p>mark 了解一下?</p>', '1', '0', '70', '0', '3', '5', '2019-01-22 17:41:39', null, '1');
 INSERT INTO `comment_info` VALUES ('43', '<p>?</p>', '1', '0', '70', '42', '3', '5', '2019-01-22 17:41:55', null, '1');
+INSERT INTO `comment_info` VALUES ('44', '<pre>?</pre><hr/><p><u>21312</u></p>', '1', '0', '72', '0', '3', '5', '2019-01-24 14:20:53', null, '1');
+INSERT INTO `comment_info` VALUES ('45', '<pre>123123123<br/>12<br/>3<br/>213<br/>12<br/>3<br/>12<br/>3<br/>12<br/>3<br/>123<br/>21<br/>3<br/></pre>', '1', '0', '72', '0', '3', '5', '2019-01-24 14:21:05', null, '1');
+INSERT INTO `comment_info` VALUES ('46', '<p>over~</p>', '1', '0', '74', '0', '3', '5', '2019-01-25 15:33:27', null, '1');
+INSERT INTO `comment_info` VALUES ('47', '<p>twice~</p>', '1', '0', '74', '0', '3', '5', '2019-01-25 15:42:00', null, '1');
+
+-- ----------------------------
+-- Table structure for msg_info
+-- ----------------------------
+DROP TABLE IF EXISTS `msg_info`;
+CREATE TABLE `msg_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `msgNo` varchar(255) DEFAULT '0' COMMENT '消息号',
+  `content` varchar(255) DEFAULT '0' COMMENT '消息内容',
+  `typeId` int(11) DEFAULT '0' COMMENT '消息类别',
+  `sender` bigint(20) DEFAULT '0' COMMENT '发送者',
+  `receiver` bigint(20) DEFAULT '0' COMMENT '接收者',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT NULL,
+  `validFlag` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='消息表';
+
+-- ----------------------------
+-- Records of msg_info
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user_info

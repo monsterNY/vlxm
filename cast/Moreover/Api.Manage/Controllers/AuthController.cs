@@ -18,6 +18,9 @@ using NLog;
 namespace Api.Manage.Controllers
 {
 
+  /// <summary>
+  /// 需要身份验证的功能入口
+  /// </summary>
   [EnableCors("AllowCors")]
   [ApiController]
   [Route("api/[controller]")]
@@ -44,7 +47,7 @@ namespace Api.Manage.Controllers
     public async Task<object> AuthIndex([FromBody] AcceptParam acceptParam)
     {
 
-      var acceptUserId = User.Claims.FirstOrDefault(u => u.Type == JwtClaimTypes.Id)?.Value;
+      var acceptUserId = User.Claims.FirstOrDefault(u => u.Type == JwtClaimTypes.Id)?.Value;//获取用户id
 
       if (acceptUserId == null)
       {
@@ -55,19 +58,23 @@ namespace Api.Manage.Controllers
 
       try
       {
-        if (Enum.TryParse(acceptParam.OperationFlag, true, out AuthOperationMenu operationMenu))
+        if (Enum.TryParse(acceptParam.OperationFlag, true, out AuthOperationMenu operationMenu))//通过操作符找到处理对象
         {
-          var dealAttribute = operationMenu.GetAttribute<AuthDealAttribute>();
+          var dealAttribute = operationMenu.GetAttribute<AuthDealAttribute>();//获取相关特性信息
 
+          //处理对象验证
           if (dealAttribute == null)
             return operationMenu.ToString();
 
+          //验签处理
           if (dealAttribute.NeedValidSign)
             if (acceptParam.Param != null || !ValidSign(acceptParam))
               return "验签失败！";
 
+          //执行操作
           var resultModel = await Run(acceptParam, AppSetting, dealAttribute,userId);
 
+          //结果集标识
           resultModel.Title = dealAttribute.Description;
 
           return resultModel;

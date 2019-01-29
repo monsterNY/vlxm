@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -14,7 +13,6 @@ using Model.Common.ConfigModels;
 using Model.Common.Models;
 using Model.Vlxm.CusAttr;
 using Model.Vlxm.Entity;
-using Model.Vlxm.Menu;
 using Model.Vlxm.Tools;
 
 namespace Api.Manage.CusInherit.Comment
@@ -69,5 +67,6 @@ namespace Api.Manage.CusInherit.Comment
 
       return ResultModel.GetSuccessModel(pageList);
     }
+
   }
 }

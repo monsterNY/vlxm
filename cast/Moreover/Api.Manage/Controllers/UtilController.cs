@@ -158,9 +158,9 @@ namespace Api.Manage.Controllers
     {
       var files = Request.Form.Files;
 
-      long size = files.Sum(f => f.Length);
+//      long size = files.Sum(f => f.Length);
       string webRootPath = hostingEnvironment.WebRootPath;
-      string contentRootPath = hostingEnvironment.ContentRootPath;
+//      string contentRootPath = hostingEnvironment.ContentRootPath;
       var uploadUrl = string.Empty;
       foreach (var formFile in files)
       {
@@ -168,7 +168,7 @@ namespace Api.Manage.Controllers
         {
           string fileExt = GetFileExt(formFile.FileName); //文件扩展名，不含“.”
           long fileSize = formFile.Length; //获得文件大小，以字节为单位
-          string newFileName = System.Guid.NewGuid().ToString() + "." + fileExt; //随机生成新的文件名
+          string newFileName = System.Guid.NewGuid() + "." + fileExt; //随机生成新的文件名
           var floderPath = webRootPath + "/upload/";
           uploadUrl = "upload/" + newFileName;
           if (!Directory.Exists(floderPath))

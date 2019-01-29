@@ -16,6 +16,7 @@ namespace TestConsole.TransactionOperation
   {
     public void Run()
     {
+      
       var flag = $"事务A - {Thread.CurrentThread.ManagedThreadId} : ";
 
       var optKey = 5;
@@ -67,6 +68,7 @@ namespace TestConsole.TransactionOperation
         #endregion
 
         #endregion
+
       }
       catch (Exception e)
       {
@@ -75,7 +77,7 @@ namespace TestConsole.TransactionOperation
       finally
       {
         Console.WriteLine($"{flag} is over");
-//        conn.Close();
+//        conn.Close();  
       }
 
       ThreadPool.QueueUserWorkItem(obj =>

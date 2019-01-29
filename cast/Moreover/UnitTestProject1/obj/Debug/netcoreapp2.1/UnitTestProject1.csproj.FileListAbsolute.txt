@@ -27,7 +27,6 @@ D:\git\szhw\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Model.Vl
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\config\nlog.config
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.deps.json
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.json
 D:\work_y\git\szhw\cast\Moreover\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.dev.json

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import '@icedesign/base/reset.scss';
 import router from './router';
 import {
-  Feedback
+  Feedback,
 } from '@icedesign/base';
 
 const ICE_CONTAINER = document.getElementById('ice-container');
@@ -17,19 +17,28 @@ global.CusStyle = {
 
 // 全局注册 Api 配置信息
 global.APIConfig = {
-  userInfo: { // 用户信息
+  userInfo: { // 用户信息【unUseFul】
     id: 2018,
   },
+  // 无需授权功能api入口
   baseUrl: 'http://api.moreover.manage/api/home',
+  // 需授权验证功能api入口
   baseAuthUrl: 'http://api.moreover.manage/api/auth',
+  // 图片资源
   imgBaseUrl: 'http://api.moreover.manage/',
+  // 单图片上传入口
   uploadUrl: 'http://api.moreover.manage/api/util/UploadSingleImage',
+  // base64上传入口
   uploadBase64Url: 'http://api.moreover.manage/api/util/UploadBase64Image',
+  // 默认图
   defaultImgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=228096746,165288188&fm=27&gp=0.jpg',
+  // 缓存标识符
   userInfoCacheKey: '_vlxm_user_cache_info_',
+  // 获取图片资源地址
   getImgSrc: (src) => {
     return src ? (global.APIConfig.imgBaseUrl + src) : global.APIConfig.defaultImgUrl;
   },
+  // 获取本地用户缓存
   getUserCache: () => {
     const value = window.localStorage[global.APIConfig.userInfoCacheKey];
     if (value) {
@@ -37,6 +46,7 @@ global.APIConfig = {
       return userCacheInfo;
     }
   },
+  // 更新本地用户缓存
   setUserCache: (userInfo) => {
     if (userInfo) {
       window.localStorage[global.APIConfig.userInfoCacheKey] = JSON.stringify(userInfo);
@@ -44,9 +54,11 @@ global.APIConfig = {
       window.localStorage[global.APIConfig.userInfoCacheKey] = null;
     }
   },
+  // 结果码映射
   resultCodeMap: {
     success: 0,
   },
+  // 操作标识符
   optMethod: {
     GetArticlePageList: 'GetArticlePageList',
     GetArticleTypePageList: 'GetArticleTypePageList',
@@ -59,6 +71,7 @@ global.APIConfig = {
     GetReplyCommentPageList: 'GetReplyCommentPageList',
     GetArticleSingle: 'GetArticleSingle',
   },
+  // 操作标识符
   optAuthMethod: {
     GetUserDetail: 'GetUserDetail',
     UpdateUserInfo: 'UpdateUserInfo',
@@ -78,9 +91,11 @@ global.APIConfig = {
     '无效',
     '有效',
   ],
+  // 参数签名[no sign]
   getSignFunc: (paramObj) => {
     return `no sign ${paramObj}`;
   },
+  // 发送ajax请求
   baseSendAjax: (url, paramObj, callBack, errorFunc, authErrorFunc, responseErrorFunc, token) => {
     axios
       .post(url, paramObj, {
@@ -107,6 +122,7 @@ global.APIConfig = {
         }
       });
   },
+  // 发送ajax[无授权]
   sendAjax: (paramObj, optFlag, callBack, errorFunc) => {
     paramObj = global.APIConfig.getParamFunc(optFlag, paramObj);
 
@@ -114,6 +130,7 @@ global.APIConfig = {
 
     global.APIConfig.baseSendAjax(global.APIConfig.baseUrl, paramObj, callBack, errorFunc);
   },
+  // 发送ajax[带授权]
   sendAuthAjax: (localInstance, paramObj, optFlag, callBack, errorFunc, backUrl) => {
     paramObj = global.APIConfig.getParamFunc(optFlag, paramObj);
 
@@ -158,6 +175,7 @@ global.APIConfig = {
       // }
     }, token);
   },
+  // 获取统一参数
   getParamFunc: (optFlag, paramObj) => {
     return {
       version: 1.0,

@@ -87,7 +87,7 @@ namespace Api.Manage.CusInherit.Attention
         var result = await DapperTools.Edit(conn, EntityTools.GetTableName<AttentionInfo>(), new[]
         {
           $"{nameof(BaseModel.Id)}={oldInfo.Id}"
-        }, editParam);
+        }, null,editParam);
 
         return ResultModel.GetSuccessModel(result);
       }
