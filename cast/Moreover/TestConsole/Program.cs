@@ -22,6 +22,12 @@ namespace TestConsole
   class Program
   {
 
+
+    public void GetValue(ref int i)
+    {
+      i = 999;
+    }
+    
     public static Dictionary<string, object> MergeDictionary(string prevKey, object value, Dictionary<string, object> target)
     {
       var dotIndex = prevKey.IndexOf('.');
@@ -58,15 +64,19 @@ namespace TestConsole
     static void Main(string[] args)
     {
 
-      for (int i = 0; i < 10; i++)
-      {
-        new OperationA().Run();
+      var instance = new Program();
 
-        new OperationB().Run();
 
-        Console.WriteLine("---------------------------------------");
-
-      }
+//
+//      for (int i = 0; i < 10; i++)
+//      {
+//        new OperationA().Run();
+//
+//        new OperationB().Run();
+//
+//        Console.WriteLine("---------------------------------------");
+//
+//      }
 
 //      new Demo().Test();
 
