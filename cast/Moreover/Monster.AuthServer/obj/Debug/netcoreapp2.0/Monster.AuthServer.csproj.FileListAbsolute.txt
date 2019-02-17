@@ -33,8 +33,6 @@ D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Monste
 D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Common.dll
 D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Common.pdb
 D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Monster.AuthServer.csproj.CopyComplete
-D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Article.dll
-D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Article.pdb
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Monster.AuthServer.csprojAssemblyReference.cache
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Monster.AuthServer.csproj.CoreCompileInputs.cache
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\obj\Debug\netcoreapp2.0\Monster.AuthServer.AssemblyInfoInputs.cache
@@ -54,3 +52,7 @@ D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Mode
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Vlxm.pdb
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.dll
 D:\work_y\git\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.pdb
+D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.dll
+D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Vlxm.dll
+D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\DapperContext.pdb
+D:\git\szhw\szhw\cast\Moreover\Monster.AuthServer\bin\Debug\netcoreapp2.0\Model.Vlxm.pdb
