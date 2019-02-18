@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Vlxm", "Model.Vlxm\Model.Vlxm.csproj", "{339B13D8-FF3F-4213-8A1F-0E7B54C4234F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSafe", "NoSafe\NoSafe.csproj", "{BBE5BB2A-1D01-4C95-9082-0D3D786BA6C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSafe", "NoSafe\NoSafe.csproj", "{BBE5BB2A-1D01-4C95-9082-0D3D786BA6C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

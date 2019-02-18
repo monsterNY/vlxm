@@ -9,13 +9,38 @@ namespace NoSafe
     static void Main(string[] args)
     {
 
-      //      ReadMe();
+      //span<T> .net core 2.1,2.2 support
+
+      //ReadMe();
 
       UseSpan();
 
+      //span的作用：
+      //高性能，避免不必要的内存分配和复制。
+      //高效率，它可以为任何具有无复制语义的连续内存块提供安全和可编辑的视图，极大地简化了内存操作，即不用为每一种内存类型操作写一个重载方法。
+      //内存安全，span内部会自动执行边界检查来确保安全地读写内存，但它并不管理如何释放内存，而且也管理不了，因为所有权不属于它，希望大家要明白这一点
+
+      string contentLength = "Content-Length: 132";
+      var length = GetContentLength(contentLength.ToCharArray());
+      Console.WriteLine($"Content length: {length}");
+
       Console.WriteLine("Have a nice day!");
 
+      Console.WriteLine($"{SubString("Hello",1,4)}");
+
       Console.ReadKey();
+    }
+
+    private static string SubString(ReadOnlySpan<char> span,int startIndex,int length)
+    {
+      var slice = span.Slice(startIndex,length);//类似于substring
+      return slice.ToString();
+    }
+
+    private static int GetContentLength(ReadOnlySpan<char> span)
+    {
+      var slice = span.Slice(16);//类似于substring
+      return Int32.Parse(slice);
     }
 
     static unsafe void UseSpan()
@@ -41,6 +66,13 @@ namespace NoSafe
       //3.本机内存（native memory ）
       var nativeMemory = Marshal.AllocHGlobal(100);
       var nativeSpan = new Span<byte>(nativeMemory.ToPointer(), 100);
+
+      //span就像黑洞一样，能够吸收来自于内存任意区域的数据，实际上，现在，在.Net的世界里，Span就是所有类型内存的抽象化身，
+      //表示一段连续的内存，它的API设计和性能就像数组一样，所以我们完全可以像使用数组一样地操作各种内存，真的是太方便了。
+
+      //Span<T> 是一种ref-like type类似引用的结构体；从应用的场景上看，它是高性能的sliceable type可切片类型；
+      //综上所诉，Span是一种类似于数组的结构体，但具有创建数组一部分视图，而无需在堆上分配新对象或复制数据的超能力。
+
     }
 
     static void ReadMe()
@@ -69,7 +101,6 @@ namespace NoSafe
       unsafe
       {
         var stackMemory = stackalloc byte[100];
-        stackMemory = stackMemory + 5;
       }
 
       /**
