@@ -14,4 +14,3 @@ D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Com
 D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.AssemblyInfo.cs
 D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.dll
 D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.pdb
-D:\work_y\git\szhw\cast\Moreover\Model.Common\obj\Debug\netstandard2.0\Model.Common.csprojAssemblyReference.cache

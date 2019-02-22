@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
+using Newtonsoft.Json;
 using NoSafe.Entities;
+using NoSafe.Tool;
 
 namespace NoSafe
 {
@@ -8,39 +12,86 @@ namespace NoSafe
   {
     static void Main(string[] args)
     {
+      TestNormalVsLinqEach();
 
       //span<T> .net core 2.1,2.2 support
 
       //ReadMe();
 
-      UseSpan();
-
-      //span的作用：
-      //高性能，避免不必要的内存分配和复制。
-      //高效率，它可以为任何具有无复制语义的连续内存块提供安全和可编辑的视图，极大地简化了内存操作，即不用为每一种内存类型操作写一个重载方法。
-      //内存安全，span内部会自动执行边界检查来确保安全地读写内存，但它并不管理如何释放内存，而且也管理不了，因为所有权不属于它，希望大家要明白这一点
-
-      string contentLength = "Content-Length: 132";
-      var length = GetContentLength(contentLength.ToCharArray());
-      Console.WriteLine($"Content length: {length}");
-
-      Console.WriteLine("Have a nice day!");
-
-      Console.WriteLine($"{SubString("Hello",1,4)}");
+      //      UseSpan();
+      //
+      //      //span的作用：
+      //      //高性能，避免不必要的内存分配和复制。
+      //      //高效率，它可以为任何具有无复制语义的连续内存块提供安全和可编辑的视图，极大地简化了内存操作，即不用为每一种内存类型操作写一个重载方法。
+      //      //内存安全，span内部会自动执行边界检查来确保安全地读写内存，但它并不管理如何释放内存，而且也管理不了，因为所有权不属于它，希望大家要明白这一点
+      //
+      //      string contentLength = "Content-Length: 132";
+      //      var length = GetContentLength(contentLength.ToCharArray());
+      //      Console.WriteLine($"Content length: {length}");
+      //
+      //      Console.WriteLine("Have a nice day!");
+      //
+      //      Console.WriteLine($"{SubString("Hello", 1, 4)}");
 
       Console.ReadKey();
     }
 
-    private static string SubString(ReadOnlySpan<char> span,int startIndex,int length)
+    private static void TestNormalVsLinqEach()
     {
-      var slice = span.Slice(startIndex,length);//类似于substring
+      var json = @"[]";
+
+      var info = JsonConvert.DeserializeObject<List<dynamic>>(json);
+
+      Action normalAction = () =>
+      {
+        foreach (var item in info)
+        {
+          var user = item.user;
+
+          if (user != null)
+          {
+            user.name = "encode";
+          }
+        }
+      };
+
+      //相差不大且耗时
+      Action linqAction = () =>
+      {
+        info = info.Select(u =>
+        {
+          var user = u.user;
+
+          if (user != null)
+          {
+            user.name = "decode";
+          }
+
+          return u;
+        }).ToList();
+      };
+
+      for (int i = 0; i < 100; i++)
+      {
+        Console.WriteLine($"--------------{i + 1}-----------------");
+
+        StopWatchTools.ShowCountTime(normalAction, nameof(normalAction));
+
+        StopWatchTools.ShowCountTime(linqAction, nameof(linqAction));
+      }
+
+    }
+    
+    private static string SubString(ReadOnlySpan<char> span, int startIndex, int length)
+    {
+      var slice = span.Slice(startIndex, length); //类似于substring
       return slice.ToString();
     }
 
     private static int GetContentLength(ReadOnlySpan<char> span)
     {
-      var slice = span.Slice(16);//类似于substring
-      return Int32.Parse(slice);
+      var slice = span.Slice(16); //类似于substring
+      return int.Parse(slice);
     }
 
     static unsafe void UseSpan()
@@ -72,7 +123,6 @@ namespace NoSafe
 
       //Span<T> 是一种ref-like type类似引用的结构体；从应用的场景上看，它是高性能的sliceable type可切片类型；
       //综上所诉，Span是一种类似于数组的结构体，但具有创建数组一部分视图，而无需在堆上分配新对象或复制数据的超能力。
-
     }
 
     static void ReadMe()
@@ -121,8 +171,6 @@ namespace NoSafe
         Marshal.FreeHGlobal(nativeMemory0);
         Marshal.FreeCoTaskMem(nativeMemory1);
       }
-
     }
-
   }
 }
