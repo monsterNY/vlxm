@@ -1,0 +1,131 @@
+
+
+源代码框架lind.ddd（后台管理系统，电商系统，API，SSO，xamarin，ko，各组件单元测试）
++lindCore源碼+LindAgility（敏捷框架） （60元）
+第一讲:说说架构师
+第二讲:基础篇
+第三讲:仓储模式	第四讲:缓存篇
+第五讲:日志与异常处理及Dispose模式	
+第六讲:分布式的Pub/Sub和消息队列
+第七讲:领域对象，事件总线和领域事件	
+第八讲:Redis集群与客户端使用
+第九讲:MongoDB集群与客户端使用	
+第十讲:Cat集群与使用
+第十一讲:分布式文件存储和文件上传的设计
+第十二讲:消息组件和第三方支付的统一
+第十三讲:数据包和网络通讯	
+第十四讲:ORM和分布式事务
+第十五讲:MVVM和KnockoutJS的介绍
+第十六讲:任务调度Quartz
+第十七讲:多并程与并行	
+第十八讲：IOC原理 和统一的IOC容器
+第十九讲：API安全与校验
+第二十讲：领域驱动的设计模式
+第二十一讲：Bootstrap和后台管理系统	
+第二十二讲：使用xamarin进行移动开发
+第二十三讲：Node.js与Sails框架	
+第二十四讲：跨语言开发Thrift框架
+第二十五讲：什么样的代码需要重构	
+第二十六讲：基础篇续～接口与抽象类，集合与数组，树与链表
+第二十七讲：框架中用到的设计模式	
+第二十八讲：单点统一登陆SSO的设计
+
+第二十九讲：Session共享与WEB集群	
+第三十讲：数据库集群_数据同步_大叔Lind框架设计初衷
+第三十一讲：Redis两种集群模式的对比及高可用集群的实现	
+第三十二讲：EF核心技术剖析
+第三十三讲：MVC核心技术剖析	
+第三十四讲：CQRS/ES在模式的实现
+第三十五讲：Lind.DDD.Plugsin插件模式的实现	
+第三十六讲：Lind.DDD.LindMQ消息对象的实现
+第三十七讲：大话权限_URL权限_按钮权限和数据集权限	
+第三十八讲： Lind.DDD.Authorization授权机制与Http请求的授权
+第三十九讲：Lind.DDD中租户＿审核者＿编辑者＿软删除的集成	第四十讲：分布式消息树的介绍
+当前dotNet架构师应该掌握的
+DDD领域驱动
+微服务
+分布式事务
+Jenkins自动化构建，部署
+Docker容器
+分布式日志收集kibana
+模块化与插件化
+大数据
+关系型数据库与NoSql
+高并发
+分布式
+缓存技术
+仓储技术
+Lind.DDD各层介绍
+Lind.DDD.ConfigConstants统一管理系统配置
+Lind.DDD~实体属性变更追踪器的实现
+Lind.DDD.Repositories.EF层介绍
+Lind.DDD.Repositories.Mongo层介绍
+Lind.DDD.Repositories.Redis层介绍
+Lind.DDD.UoW工作单元的实现
+Lind.DDD.Domain领域模型介绍
+Lind.DDD.ExpressionExtensions动态构建表达式树，实现对数据集的权限控制
+Lind.DDD.Events领域事件介绍
+Lind.DDD.Authorization用户授权介绍
+Lind.DDD.Caching分布式数据集缓存介绍
+Lind.DDD.Messaging框架通讯组件介绍
+Lind.DDD.IoC依赖注入与面向方面的实现
+Lind.DDD.Paging分页模块介绍
+Lind.DDD.Specification规约模式的介绍
+Lind.DDD.Events事件总线～自动化注册
+Lind.DDD.ILogicDeleteBehavor～逻辑删除的实现
+Lind.DDD.UoW~方法回调完成原子化操作
+Lind.DDD.Manager里菜单权限的设计
+Lind.DDD.IoC(大叔推荐)~在服务定位器中引入IoC容器～容器的适配器
+Lind.DDD.Manage项目核心技术分享
+Lind.DDD.API核心技术分享
+Lind.DDD.Api客户端的使用与知识分享
+Lind.DDD.Utils.HttpHelper里静态对象引出的Http超时问题
+Lind.DDD.Manager里的3,7,15,31,63,127,255,511,1023,2047
+Lind.DDD.Utils.HttpHelper关于对HttpClient的正确使用
+Lind.DDD.Domain.ISortBehavor～上移与下移
+Lind.DDD.Domain.IOwnerBehavor对实体的意义
+Lind.DDD.RedisClient~对StackExchange.Redis调用者的封装及多路复用技术
+Lind.DDD.Plugins~插件模式的集成
+Lind.DDD.SSO单点登陆组件的使用(原创)
+Lind.DDD.LindMQ的一些想法
+Lind.DDD.LindMQ~关于持久化到Redis的消息格式
+Lind.DDD.Aspects通过Plugins实现方法的动态拦截~Lind里的AOP
+Lind.DDD.LindAspects方法拦截的介绍
+LindAgile.SchedulingTask~设计一个不错的任务调度组件
+
+北风网的单套20 全部100
+1:Div+CSS仿皮皮淘网站开发全程培训
+2:DIV+CSS仿中国联通网站开发全程培训
+1:ASP.net系列入门到精通课程(基础+控件+三层架构+LinQ+WebService+Ajax) 
+2:基于ASP.NET三层架构技术的HR人力资源管理系统项目 
+3:基于ASP.NET多层架构下的企业级进销存软件全程培训(涉及ASP.NET控件+jquery实现) 
+4:基于ASP.NET之B2C商场项目实战开发 
+5:net版本文章管理系统(CMS)2.0版本全面实战 
+6:30天玩转Silverlight 3系列课程(附项目案例) 
+7:基于ASP.NET技术下多用户博客系统全程实战开发(NNblog) 
+8:对日外包项目work flow通用工作流程系统(项目管理系列) 
+9:基于ASP.net MVC、AJAX智能表单的通用业务流程管理系统(WorkFlow)的全程开发与实现
+10:基于Winform下的迅风下载软件全程开发(C#应用版) 
+11:基于winform下的C#版本北风网音乐播放器全程开发(仿千千静听)
+12:基于ASP.NET MVC+Linq等技术下的企业级通用OA系统全程开发 
+13:上海某房产中介管理系统全程开发(基于Winform) 
+14:基础+项目实战打造CS高手(C#系列培训)
+15:C#版数据结构与算法高级教程(深入探讨)--附各种算法实例
+16:深入剖析AJAX在ASP.NET开发中的应用(结合基于ASP.NET和AJAX的博客系统实战)
+1:Flex4.0+.NET、SOA+Web Service+Nunit..构建企业级应用电子商务交易平台(国内首部)
+2:国讯教育通用智能OA办公系统(ASP.NET七层架构+抽象工厂+反射+Extjs3.2..)
+3:JavaScript/JQuery系列全程精通+图书馆管理系统实战
+4:中国电信集团CRM客户关系管理系统(基于ASP.NET三层架构)
+5: 企业级Oracle10g数据库管理备份、恢复、安全、性能优化课程-DBA系列
+浪曦net
+浪曦商城系统 实战篇+高级篇 
+浪曦图库系统(高级篇)V1.0+2.0 
+浪曦HR人力资源管理系统 
+ExtJS3.0从入门到进阶 
+浪曦传书 
+.NET设计模式 
+浪曦个人博客商业版 
+C#网络编程 
+浪曦ASP.NET简易技术论坛 
+浪曦ASP.NET论坛系统 
+17:财务数据审计分析系统e
