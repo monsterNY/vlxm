@@ -14,5 +14,22 @@ namespace TestConsole.Entities
     [Required(ErrorMessage = "登录密码不能为空")]
     public string LoginPwd { get; set; }
 
+    public override bool Equals(object obj)
+    {
+
+      if (obj == null)
+      {
+        return false;
+      }
+      else if (ReferenceEquals(this,obj))
+      {
+        return true;
+      }
+      else
+      {
+        return true;
+      }
+
+    }
   }
 }

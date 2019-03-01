@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Command.RedisHelper.CusInhert;
 using Command.RedisHelper.Helper;
@@ -21,14 +22,15 @@ namespace TestConsole
 {
   class Program
   {
-
+    #region empty
 
     public void GetValue(ref int i)
     {
       i = 999;
     }
-    
-    public static Dictionary<string, object> MergeDictionary(string prevKey, object value, Dictionary<string, object> target)
+
+    public static Dictionary<string, object> MergeDictionary(string prevKey, object value,
+      Dictionary<string, object> target)
     {
       var dotIndex = prevKey.IndexOf('.');
 
@@ -61,70 +63,126 @@ namespace TestConsole
       return target;
     }
 
+    public static void Sort(IList<int> arr)
+    {
+      int temp;
+      bool swapped;
+
+
+      for (int i = 0; i < arr.Count; i++)
+      {
+        swapped = false;
+        for (int j = 1; j < arr.Count - i; j++)
+        {
+          if (arr[j - 1] > arr[j])
+          {
+            temp = arr[j];
+            arr[j - 1] = arr[j];
+            arr[j] = temp;
+            if (!swapped)
+              swapped = true;
+          }
+        }
+
+        if (!swapped) return;
+      }
+    }
+
+    #endregion
+
     static void Main(string[] args)
     {
+      var user = new User()
+      {
+        LoginPwd = Guid.NewGuid().ToString(),
+        UserName = "xxx"
+      };
 
-      var instance = new Program();
+      //var arr = new List<int>() {1, 2, 3, 4, 5, 6};
 
+      //var list = arr.SelectMany((i => { return new[] {i - 1, i, i + 1, i * i}; }));
 
-//
-//      for (int i = 0; i < 10; i++)
-//      {
-//        new OperationA().Run();
-//
-//        new OperationB().Run();
-//
-//        Console.WriteLine("---------------------------------------");
-//
-//      }
+      //Console.WriteLine(JsonConvert.SerializeObject(list));
 
-//      new Demo().Test();
+      //      var instance = new Program();
+      //
+      //      var rand = new Random();
+      //
+      //      var flag = true;
+      //
+      //      ThreadPool.QueueUserWorkItem(u =>
+      //      {
+      //        while (flag)
+      //        {
+      //          Console.WriteLine(rand.Next(9999));
+      //        }
+      //      });
+      //
+      ////      Console.BackgroundColor;
+      //      Console.WriteLine("按任意键关闭....");
+      //      Console.ReadKey(true);
+      //      flag = false;
+      //
+      //      Console.WriteLine("close");
 
-//      var str = Convert.ToString(null);
-//
-//      Console.WriteLine(Convert.ToString(null));
+      //
+      //      for (int i = 0; i < 10; i++)
+      //      {
+      //        new OperationA().Run();
+      //
+      //        new OperationB().Run();
+      //
+      //        Console.WriteLine("---------------------------------------");
+      //
+      //      }
 
-//      var user = new User()
-//      {
-//        LoginPwd = "54656465",
-//        UserName = "                  "
-//      };
-//
-//      var context = new ValidationContext(user, null, null);
-////      var results = new List<ValidationResult>();
-////      var attributes = typeof(User)
-////        .GetProperties()
-////        .GetCustomAttributes(false)
-////        .OfType<ValidationAttribute>()
-////        .ToArray();
-//
-//      ICollection<ValidationResult> failure = new List<ValidationResult>();
-//
-//      var validSuccess = Validator.TryValidateObject(user, context, failure,true);
-//
-//      if (!validSuccess)
-//      {
-//        foreach (var item in failure)
-//        {
-//          Console.WriteLine(item.ErrorMessage);
-//        }
-//      }
-//      else
-//      {
-//        Console.WriteLine("valid success");
-//      }
+      //      new Demo().Test();
 
-//      if (!Validator.TryValidateValue(user, context, results, attributes))
-//      {
-//        foreach (var result in results)
-//        {
-//          Console.WriteLine(result.ErrorMessage);
-//        }
-//      }
-//      else
-//      {
-//        Console.WriteLine("{0} is valid", user);
-//      }
+      //      var str = Convert.ToString(null);
+      //
+      //      Console.WriteLine(Convert.ToString(null));
+
+      //      var user = new User()
+      //      {
+      //        LoginPwd = "54656465",
+      //        UserName = "                  "
+      //      };
+      //
+      //      var context = new ValidationContext(user, null, null);
+      ////      var results = new List<ValidationResult>();
+      ////      var attributes = typeof(User)
+      ////        .GetProperties()
+      ////        .GetCustomAttributes(false)
+      ////        .OfType<ValidationAttribute>()
+      ////        .ToArray();
+      //
+      //      ICollection<ValidationResult> failure = new List<ValidationResult>();
+      //
+      //      var validSuccess = Validator.TryValidateObject(user, context, failure,true);
+      //
+      //      if (!validSuccess)
+      //      {
+      //        foreach (var item in failure)
+      //        {
+      //          Console.WriteLine(item.ErrorMessage);
+      //        }
+      //      }
+      //      else
+      //      {
+      //        Console.WriteLine("valid success");
+      //      }
+
+      //      if (!Validator.TryValidateValue(user, context, results, attributes))
+      //      {
+      //        foreach (var result in results)
+      //        {
+      //          Console.WriteLine(result.ErrorMessage);
+      //        }
+      //      }
+      //      else
+      //      {
+      //        Console.WriteLine("{0} is valid", user);
+      //      }
 
       //      var map = new Dictionary<string,object>();
       //
@@ -178,9 +236,9 @@ namespace TestConsole
       //
       //      Console.WriteLine(null + "test");
 
-      Console.ReadKey(true);
-
       Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
     }
   }
 
