@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using ConsoleTest.Entity;
+using ConsoleTest.LeetCode;
 using Tools.RefTools;
 
 namespace ConsoleTest
@@ -35,21 +36,138 @@ namespace ConsoleTest
     static void Main(string[] args)
     {
 
-      var stu = new Student()
+      CodeTimer timer = new CodeTimer();
+
+      ConvertANumberToHexadecimal instance = new ConvertANumberToHexadecimal();
+
+      Console.WriteLine(instance.ToHex(26));
+
+      Console.WriteLine(instance.ToHex(-1));
+
+      var rand = new Random();
+
+      var successCount = 0;
+
+      for (int i = 0; i < 1000; i++)
       {
-        Age = 18,
-        ClassId = 1,
-        Name = "xxx"
-      };
+        var num = rand.Next(int.MaxValue);
 
-      var result = Build(stu, new[] {nameof(Student.Age), nameof(Student.Name)});
+        num *= rand.Next(2) == 0 ? 1 : -1;
 
-      Console.WriteLine(result.Age);
-      Console.WriteLine(result.Name);
+        Console.WriteLine($"\n\n传入num:{num}");
+
+        var result = timer.Time(1, (() =>
+        {
+
+          Console.WriteLine(instance.ToHex(num));
+
+        }));
+
+        Console.WriteLine($"耗费时间：{result}");
+
+        var result2 = timer.Time(1, (() =>
+        {
+
+          Console.WriteLine($"正确答案：{Convert.ToString(num, 16)}");
+
+        }));
+
+        Console.WriteLine($"帮助类-耗费时间：{result}");
+
+        if (result.TimeElapsed <= result2.TimeElapsed)
+        {
+          successCount++;
+        }
+
+      }
+
+      Console.WriteLine($"成功次数：{successCount}");
+
+//      Console.WriteLine(0xffff);
+//      Console.WriteLine(int.MaxValue);
+//
+//      Console.WriteLine(Convert.ToString(0, 16));
+//      Console.WriteLine(Convert.ToString(1, 16));
+//      Console.WriteLine(Convert.ToString(-1, 16));
+//      Console.WriteLine(Convert.ToString(-2, 16));
+//      Console.WriteLine(Convert.ToString(-3, 16));
+//      Console.WriteLine(Convert.ToString(0xffffffff, 16));
+
+      //      var stu = new Student()
+      //      {
+      //        Age = 18,
+      //        ClassId = 1,
+      //        Name = "xxx"
+      //      };
+      //
+      //      var result = Build(stu, new[] {nameof(Student.Age), nameof(Student.Name)});
+      //
+      //      Console.WriteLine(result.Age);
+      //      Console.WriteLine(result.Name);
 
       Console.WriteLine("Hello World!");
 
       Console.ReadKey(true);
+    }
+
+    private static void RomanToIntegerTest(CodeTimer timer)
+    {
+      var instance = new RomanToInteger();
+
+      //success
+      //      Console.WriteLine(instance.RomanToInt("III"));
+      //      Console.WriteLine(instance.RomanToInt("IV"));
+      //      Console.WriteLine(instance.RomanToInt("IX"));
+      //      Console.WriteLine(instance.RomanToInt("LVIII"));
+      //      Console.WriteLine(instance.RomanToInt("MCMXCIV"));
+      //
+      //      Console.WriteLine(instance.RomanToInt("CXCXL"));
+      //
+      //      Console.ReadKey(true);
+
+      var rand = new Random();
+      var charArr = new[]
+      {
+        'I',
+        'V',
+        'X',
+        'L',
+        'C',
+        'D',
+        'M'
+      };
+
+      var randCount = 10;
+      var fixCount = 4;
+      for (int i = 0; i < 10; i++)
+      {
+
+        var len = rand.Next(randCount) + fixCount;
+
+        var arr = new char[len];
+
+        for (int j = 0; j < len; j++)
+        {
+          arr[j] = charArr[rand.Next(charArr.Length)];
+        }
+
+        var str = new string(arr);
+
+        Console.WriteLine($"\n随机生成字符串：{str}\n");
+
+        var result = timer.Time(1, (() => { Console.WriteLine($"[RomanToInt]计算结果：{instance.RomanToInt(str)}"); }));
+
+        Console.WriteLine(result);
+
+        Console.WriteLine("--------------------------");
+
+        result = timer.Time(1, (() => { Console.WriteLine($"[Optimize]计算结果：{instance.Optimize(str)}"); }));
+
+        Console.WriteLine(result);
+
+        Console.WriteLine("--------------------------");
+
+      }
     }
 
     private static void GroupCount()

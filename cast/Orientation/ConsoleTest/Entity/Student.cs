@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace ConsoleTest.Entity
@@ -12,6 +13,7 @@ namespace ConsoleTest.Entity
     public string Name { get; set; }
 
     public int ClassId { get; set; }
+
 
   }
 }
