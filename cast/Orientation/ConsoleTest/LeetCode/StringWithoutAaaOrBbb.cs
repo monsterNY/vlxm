@@ -43,5 +43,39 @@ namespace ConsoleTest.LeetCode
 
       return new string(charArr);
     }
+
+    /**
+     *
+     * whhhh...
+     *
+     * perfect~
+     * Runtime: 80 ms, faster than 100.00% of C# online submissions for String Without AAA or BBB.
+     * Memory Usage: 20.6 MB, less than 25.00% of C# online submissions for String Without AAA or BBB.
+     *
+     */
+    public string Optimize(int A, int B)
+    {
+      var charArr = new char[A + B];
+      char addChar;
+
+      for (var i = 0; i < charArr.Length; i++)
+      {
+        if (i > 1 && charArr[i - 1] == charArr[i - 2]) addChar = charArr[i - 1] == CharA ? CharB : CharA;
+        else if (A > B)
+          addChar = CharA;
+        else
+          addChar = CharB;
+
+        if (addChar == CharA)
+          A--;
+        else
+          B--;
+
+        charArr[i] = addChar;
+      }
+
+      return new string(charArr);
+    }
+
   }
 }
