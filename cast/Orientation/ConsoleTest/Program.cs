@@ -12,6 +12,8 @@ namespace ConsoleTest
 {
   class Program
   {
+    #region empty
+
     public static dynamic Build<T>(T instance, string[] properties)
     {
       dynamic obj = new System.Dynamic.ExpandoObject();
@@ -31,30 +33,152 @@ namespace ConsoleTest
       return obj;
     }
 
+    #endregion
+
     static void Main(string[] args)
     {
+      var rand = new Random();
       CodeTimer timer = new CodeTimer();
+      timer.Initialize();
 
-      StringWithoutAaaOrBbb instance = new StringWithoutAaaOrBbb();
+      var instance = new HasGroupsSizeX();
 
-      Console.WriteLine(instance.StrWithout3a3b(1, 2));
-      Console.WriteLine(instance.StrWithout3a3b(4, 1));
+//      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 4, 3, 2, 1}));
+//      Console.WriteLine(instance.Solution(new[] {1, 1, 1, 2, 2, 2, 3, 3}));
+//      Console.WriteLine(instance.Solution(new[] {1}));
+//      Console.WriteLine(instance.Solution(new[] {1, 1}));
+//      Console.WriteLine(instance.Solution(new[] {1, 1, 2, 2, 2, 2}));
 
-      //      var stu = new Student()
-      //      {
-      //        Age = 18,
-      //        ClassId = 1,
-      //        Name = "xxx"
-      //      };
-      //
-      //      var result = Build(stu, new[] {nameof(Student.Age), nameof(Student.Name)});
-      //
-      //      Console.WriteLine(result.Age);
-      //      Console.WriteLine(result.Name);
+      Console.WriteLine(instance.Solution(new []{1, 1, 1, 1, 2, 2, 2, 2, 2, 2}));
+
+      Console.ReadKey(true);
+
+      for (int i = 0; i < 100; i++)
+      {
+        var arrLen = rand.Next(10) + 2;
+
+        var arr = new int[arrLen];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+
+          arr[j] = rand.Next(4) + 2;
+
+        }
+
+        bool result = false;
+
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(arr); }));
+
+        Console.WriteLine("\n------------S---------------");
+        Console.WriteLine($"arr:{JsonConvert.SerializeObject(arr)}");
+        Console.WriteLine($"result:{result}");
+        Console.WriteLine($"time:{codeTimerResult}");
+        Console.WriteLine("\n------------E---------------");
+
+      }
 
       Console.WriteLine("Hello World!");
 
       Console.ReadKey(true);
+    }
+
+    private static void ValidMountainArrayTest()
+    {
+      ValidMountainArray instance = new ValidMountainArray();
+
+      Console.WriteLine(instance.Solution(new[] {2, 1}));
+      Console.WriteLine(instance.Solution(new[] {3, 5, 5}));
+      Console.WriteLine(instance.Solution(new[] {0, 3, 2, 1}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        14, 82, 89, 84, 79, 70, 70, 68, 67, 66, 63, 60, 58, 54, 44, 43, 32, 28, 26, 25, 22, 15, 13, 12, 10, 8, 7, 5, 4,
+        3
+      }));
+    }
+
+    private static void EmptyTest()
+    {
+      var stu = new Student()
+      {
+        Age = 18,
+        ClassId = 1,
+        Name = "xxx"
+      };
+
+      var result = Build(stu, new[] {nameof(Student.Age), nameof(Student.Name)});
+
+      Console.WriteLine(result.Age);
+      Console.WriteLine(result.Name);
+    }
+
+    private static void AddToArrayFormOfIntegerTest(CodeTimer timer)
+    {
+      AddToArrayFormOfInteger instance = new AddToArrayFormOfInteger();
+
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.SimpleDeal(new[] {3, 0, 6, 7, 6, 1, 0, 5, 7, 6}, 6525)));
+      //
+      //      Console.ReadKey(true);
+
+      //basic test -- success
+      //      var result = instance.AddToArrayForm(new[] {1, 2, 0, 0}, 34);
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(result));
+      //
+      //      result = instance.AddToArrayForm(new[] { 2, 7, 4 }, 181);
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(result));
+      //
+      //      result = instance.AddToArrayForm(new[] { 2, 1, 5 }, 806);
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(result));
+      //
+      //      result = instance.AddToArrayForm(new[] { 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 }, 1);
+      //
+      //      Console.WriteLine(JsonConvert.SerializeObject(result));
+
+      var rand = new Random();
+
+      for (int i = 0; i < 100; i++)
+      {
+        var arrLen = rand.Next(10) + 1;
+        var arr = new int[arrLen];
+        IList<int> result = null;
+        var randNum = rand.Next(10000);
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(10);
+        }
+
+        var codeTimerResult = timer.Time(1, () => { result = instance.AddToArrayForm(arr, randNum); });
+
+        Console.WriteLine("------------S-------------------");
+
+        Console.WriteLine($@"
+arr:{JsonConvert.SerializeObject(arr)}
+randNum:{randNum}
+result:{JsonConvert.SerializeObject(result)}
+time:{codeTimerResult}
+");
+
+        //        IList<int> realResult = null;
+        //        var realCodeTimerResult = timer.Time(1, () => { realResult = instance.SimpleDeal(arr, randNum); });
+        //
+        //        Console.WriteLine($@"
+        //realResult:{JsonConvert.SerializeObject(realResult)}
+        //realCodeTimerResult:{realCodeTimerResult}
+        //");
+
+        Console.WriteLine("------------E-------------------");
+      }
+    }
+
+    private static void StringWithoutAaaOrBbbTest()
+    {
+      StringWithoutAaaOrBbb instance = new StringWithoutAaaOrBbb();
+
+      Console.WriteLine(instance.StrWithout3a3b(1, 2));
+      Console.WriteLine(instance.StrWithout3a3b(4, 1));
     }
 
     private static void FindTheTownJudgeTest()

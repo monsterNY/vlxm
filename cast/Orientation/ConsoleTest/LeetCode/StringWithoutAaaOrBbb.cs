@@ -76,6 +76,5 @@ namespace ConsoleTest.LeetCode
 
       return new string(charArr);
     }
-
   }
 }
