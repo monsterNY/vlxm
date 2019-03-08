@@ -41,46 +41,126 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      var instance = new HasGroupsSizeX();
+      var instance = new ReachNumber();
 
-//      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 4, 3, 2, 1}));
-//      Console.WriteLine(instance.Solution(new[] {1, 1, 1, 2, 2, 2, 3, 3}));
-//      Console.WriteLine(instance.Solution(new[] {1}));
-//      Console.WriteLine(instance.Solution(new[] {1, 1}));
-//      Console.WriteLine(instance.Solution(new[] {1, 1, 2, 2, 2, 2}));
-
-      Console.WriteLine(instance.Solution(new []{1, 1, 1, 1, 2, 2, 2, 2, 2, 2}));
-
+      Console.WriteLine(instance.Solution(-3));
       Console.ReadKey(true);
 
-      for (int i = 0; i < 100; i++)
+      for (int i = 1; i < 10; i++)
       {
-        var arrLen = rand.Next(10) + 2;
+        var result = instance.Solution(i);
 
-        var arr = new int[arrLen];
-
-        for (int j = 0; j < arr.Length; j++)
+        ShowConsole(new Dictionary<string, object>()
         {
-
-          arr[j] = rand.Next(4) + 2;
-
-        }
-
-        bool result = false;
-
-        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(arr); }));
-
-        Console.WriteLine("\n------------S---------------");
-        Console.WriteLine($"arr:{JsonConvert.SerializeObject(arr)}");
-        Console.WriteLine($"result:{result}");
-        Console.WriteLine($"time:{codeTimerResult}");
-        Console.WriteLine("\n------------E---------------");
-
+          {nameof(i), i},
+          {nameof(result), result}
+        });
       }
 
       Console.WriteLine("Hello World!");
 
       Console.ReadKey(true);
+    }
+
+    private static void ShowConsole(Dictionary<string, object> dictionary)
+    {
+      Console.WriteLine($"\n-----------------S---------------------");
+
+      foreach (var item in dictionary)
+      {
+        Console.WriteLine($"{item.Key}:{item.Value}");
+      }
+
+      Console.WriteLine($"-----------------E---------------------\n");
+    }
+
+    private static void NumMagicSquaresInsideTest()
+    {
+      var instance = new NumMagicSquaresInside();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new int[] {5, 5, 5},
+        new int[] {5, 5, 5},
+        new int[] {5, 5, 5},
+      }));
+    }
+
+    private static void PowerfulIntegersTest(Random rand, CodeTimer timer)
+    {
+      PowerfulIntegers instance = new PowerfulIntegers();
+
+      //basic success
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(2, 3, 10)));
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(3, 5, 15)));
+
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(6,8,67)));
+      //
+      //      Console.ReadKey(true);
+
+      for (int i = 0; i < 1000; i++)
+      {
+        Console.WriteLine("\n-----------------S------------------");
+        var x = rand.Next(10) + 1;
+        var y = rand.Next(10) + 1;
+        var bound = rand.Next(100) + 10;
+
+        Console.WriteLine($"x:{x}");
+        Console.WriteLine($"y:{y}");
+        Console.WriteLine($"bound:{bound}");
+
+        IList<int> result = null;
+
+        var codeTimerResult = timer.Time(100, (() => { result = instance.Solution(x, y, bound); }));
+
+        Console.WriteLine($"result:{JsonConvert.SerializeObject(result)}");
+
+        Console.WriteLine($"codeTimerResult:{codeTimerResult}");
+
+        Console.WriteLine("-----------------E------------------\n");
+      }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="rand"></param>
+    /// <param name="timer"></param>
+    private static void HasGroupsSizeXTest(Random rand, CodeTimer timer)
+    {
+      var instance = new HasGroupsSizeX();
+
+      //      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 4, 3, 2, 1}));
+      //      Console.WriteLine(instance.Solution(new[] {1, 1, 1, 2, 2, 2, 3, 3}));
+      //      Console.WriteLine(instance.Solution(new[] {1}));
+      //      Console.WriteLine(instance.Solution(new[] {1, 1}));
+      //      Console.WriteLine(instance.Solution(new[] {1, 1, 2, 2, 2, 2}));
+
+      //      Console.WriteLine(instance.Solution(new []{1, 1, 1, 1, 2, 2, 2, 2, 2, 2}));
+
+      //      Console.ReadKey(true);
+
+      for (int i = 0; i < 100; i++)
+      {
+        var arrLen = rand.Next(10000) + 1;
+
+        var arr = new int[arrLen];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(2) + 1;
+        }
+
+        bool result = false;
+
+        Console.WriteLine("\n------------S---------------");
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(arr); }));
+
+        //        Console.WriteLine($"arr:{JsonConvert.SerializeObject(arr)}");
+        Console.WriteLine($"result:{result}");
+        Console.WriteLine($"time:{codeTimerResult}");
+        Console.WriteLine("\n------------E---------------");
+      }
     }
 
     private static void ValidMountainArrayTest()

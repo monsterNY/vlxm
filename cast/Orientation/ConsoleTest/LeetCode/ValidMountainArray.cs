@@ -37,5 +37,6 @@ namespace ConsoleTest.LeetCode
 
       return count == 1 && A[A.Length - 1] <= A[A.Length - 2];
     }
+
   }
 }
