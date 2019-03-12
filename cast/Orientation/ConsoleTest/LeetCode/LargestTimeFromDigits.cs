@@ -29,11 +29,9 @@ namespace ConsoleTest.LeetCode
 
       for (int i = 0; i < arr.Count; i++)
       {
-        Console.WriteLine($"sum:{sum},arr:{arr.Count}");
-        sum = (sum * 10) + arr[i];
         var temp = new List<int>(arr);
         temp.RemoveAt(i);
-        Combox(temp, sum);
+        Combox(temp, (sum * 10) + arr[i]);
       }
     }
   }
