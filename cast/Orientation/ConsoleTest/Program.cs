@@ -41,6 +41,51 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      var instance = new LargestTimeFromDigits();
+
+      instance.Combox(new List<int>(){1,2,3,4}, 0);
+
+      Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
+    }
+
+    private static void LargestSumAfterKNegationsTest(Random rand, CodeTimer timer)
+    {
+      LargestSumAfterKNegations instacne = new LargestSumAfterKNegations();
+
+      //basic success
+      Console.WriteLine(instacne.Solution(new[] { 4, 2, 3 }, 1));
+      Console.WriteLine(instacne.Solution(new[] { 3, -1, 0, 2 }, 3));
+      Console.WriteLine(instacne.Solution(new[] { 2, -3, -1, 5, -4 }, 2));
+
+      for (int i = 0; i < 100; i++)
+      {
+        var arrLen = rand.Next(10000) + 1;
+        var k = rand.Next(10000) + 1;
+        var arr = new int[arrLen];
+
+        for (int j = 0; j < arrLen; j++)
+        {
+          arr[j] = rand.Next(201) - 100;
+        }
+
+        int result = 0;
+
+        var codeTimerResult = timer.Time(10, () => { result = instacne.Solution(arr, k); });
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {"arr", JsonConvert.SerializeObject(arr)},
+          {"k", k},
+          {"result", result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
+    }
+
+    private static void ReachNumberTest()
+    {
       var instance = new ReachNumber();
 
       Console.WriteLine(instance.Solution(-3));
@@ -56,10 +101,6 @@ namespace ConsoleTest
           {nameof(result), result}
         });
       }
-
-      Console.WriteLine("Hello World!");
-
-      Console.ReadKey(true);
     }
 
     private static void ShowConsole(Dictionary<string, object> dictionary)

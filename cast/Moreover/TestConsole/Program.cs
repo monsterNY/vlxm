@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Command.RedisHelper.CusInhert;
-using Command.RedisHelper.Helper;
+using System.Data.SqlClient;
+using System.Globalization;
+using System.Reflection;
+using AutoMapper;
 using Dapper;
-using DapperContext;
-using Model.Vlxm.Entity;
-using Model.Vlxm.Tools;
-using MySql.Data.MySqlClient;
+using DapperContext.Middleware;
 using Newtonsoft.Json;
+using TestConsole.Dto;
 using TestConsole.Entities;
-using TestConsole.Lock;
-using TestConsole.TransactionOperation;
+using TestConsole.Extension;
+using TestConsole.Model;
+using TestConsole.Tools;
 
 namespace TestConsole
 {
@@ -90,13 +85,75 @@ namespace TestConsole
 
     #endregion
 
+
+    static Program()
+    {
+      Mapper.Initialize((config => { config.CreateMap<TenderModel, TenderDto>(); }));
+    }
+
+    private static DateTime Time { get; set; }
+
     static void Main(string[] args)
     {
+      try
+      {
+        var maps = Mapper.Configuration.GetAllTypeMaps();
+        Mapper.Initialize(config =>
+        {
+//          var typeMapper = typeof(Mapper).GetTypeInfo();
+//          var configuration = typeMapper.GetDeclaredField("_configuration");
+//          configuration.SetValue(null, null, BindingFlags.Static, null, CultureInfo.CurrentCulture);
+        });
+      }
+      catch (InvalidOperationException e)
+      {
+        Console.WriteLine(e);
+      }
+
       var user = new User()
       {
         LoginPwd = Guid.NewGuid().ToString(),
         UserName = "xxx"
       };
+
+      Console.WriteLine(Time);
+
+      Console.WriteLine(Time == default(DateTime));
+
+      SimpleFactory<string> instance = SimpleFactory<string>.GetInstance();
+      var objectInstance = SimpleFactory<object>.GetInstance();
+
+      dynamic info = SimpleFactory<string>.GetInstance();
+
+      Dapper.SqlMapper.SetTypeMap(typeof(TenderModel), new TableAttributeTypeMapper<TenderModel>());
+
+      using (var conn =
+        new SqlConnection("Data Source=192.168.1.13;Initial Catalog=amao100_DB;User ID=yj;Password=123?abc"))
+      {
+        var list = conn.Query<TenderModel>("SELECT * FROM TenderTable");
+
+        Console.WriteLine(JsonConvert.SerializeObject(list));
+
+        var dtoList = list.MapToList<TenderDto>();
+
+        var mapToList = list.MapToList<object>();
+
+        Console.WriteLine("dto:");
+        Console.WriteLine(JsonConvert.SerializeObject(dtoList));
+
+        //        var result = conn.Insert<TenderModel>(new TenderModel()
+        //        {
+        //          Amount = 88,
+        //          CaseIntro = "test",
+        //          CompanyId = 1,
+        //          TenderIntro = "test",
+        //          FinishTime = 10,
+        //          ValuationId = 1
+        //        });
+        //
+        //        Console.WriteLine($"添加结果：{result}");
+      }
+
 
       //var arr = new List<int>() {1, 2, 3, 4, 5, 6};
 
