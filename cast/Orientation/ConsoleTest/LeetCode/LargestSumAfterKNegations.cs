@@ -66,17 +66,14 @@ namespace ConsoleTest.LeetCode
      */
     public int Optimize(int[] A, int K)
     {
-//      var positiveArr = new List<int>();
-
       var negativeArr = new List<int>();
 
-      int min = int.MaxValue, value, sum = 0;
+      int min = int.MaxValue, sum = 0;
 
       foreach (var item in A)
       {
         if (item >= 0)
         {
-//          positiveArr.Add(item);
           if (item < min)
             min = item;
         }
@@ -91,14 +88,13 @@ namespace ConsoleTest.LeetCode
 
       for (int i = 0; i < negativeArr.Count && i < K; i++)
       {
-        value = -negativeArr[i];
-        sum += 2 * value;
-        if (value < min)
-          min = value;
+        sum += 2 * (-negativeArr[i]);
       }
 
       if (min > 0 && K > negativeArr.Count && (K - negativeArr.Count) % 2 == 1)
-        sum -= 2 * min;
+        sum -= 2 * ((negativeArr.Count == 0 || min < -negativeArr[negativeArr.Count - 1])
+                 ? min
+                 : -negativeArr[negativeArr.Count - 1]);
 
       return sum;
     }

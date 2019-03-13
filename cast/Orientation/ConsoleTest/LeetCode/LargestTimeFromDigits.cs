@@ -13,27 +13,58 @@ namespace ConsoleTest.LeetCode
   /// </summary>
   public class LargestTimeFromDigits
   {
+
+    /**
+     * Runtime: 112 ms, faster than 94.44% of C# online submissions for Largest Time for Given Digits.
+     * Memory Usage: 23.5 MB, less than 50.00% of C# online submissions for Largest Time for Given Digits.
+     *
+     * 这个有点坑... 懒得优化了
+     *
+     */
     public string Solution(int[] A)
     {
-      int hour, minutes;
+      List<int> result = new List<int>();
 
-      var num = 0;
+      Combination(new List<int>(A), 0, result);
 
-      return null;
+      int hour, minutes, maxHour = 0, maxMinutes = 0;
+      bool hasResult = false;
+
+      foreach (var item in result)
+      {
+        minutes = item % 100;
+        hour = item / 100;
+        if (hour > 23 || minutes > 59)
+          continue;
+        if (!hasResult) hasResult = true;
+        if (hour > maxHour)
+        {
+          maxHour = hour;
+          maxMinutes = minutes;
+        }
+        else if (hour == maxHour && minutes > maxMinutes)
+        {
+          maxMinutes = minutes;
+        }
+      }
+
+      if (!hasResult)
+        return string.Empty;
+
+      return $"{(maxHour < 10 ? "0" : "")}{maxHour}:{(maxMinutes < 10 ? "0" : "")}{maxMinutes}";
     }
 
-    public void Combox(List<int> arr, int sum)
+    public void Combination(List<int> arr, int sum, List<int> resultList)
     {
       if (arr.Count == 0)
-        Console.WriteLine("------------" + sum);
+        resultList.Add(sum);
 
       for (int i = 0; i < arr.Count; i++)
       {
-        Console.WriteLine($"sum:{sum},arr:{arr.Count}");
-        sum = (sum * 10) + arr[i];
+//        Console.WriteLine($"sum:{sum},arr:{arr.Count}");
         var temp = new List<int>(arr);
         temp.RemoveAt(i);
-        Combox(temp, sum);
+        Combination(temp, (sum * 10) + arr[i], resultList);
       }
     }
   }

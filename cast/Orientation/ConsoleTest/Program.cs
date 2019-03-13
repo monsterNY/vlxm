@@ -41,13 +41,144 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      var instance = new LargestTimeFromDigits();
+      FindUnsortedSubarray instance = new FindUnsortedSubarray();
 
-      instance.Combox(new List<int>(){1,2,3,4}, 0);
+      Console.WriteLine(instance.Solution(new[] {1, 4, 6, 9, 15, 16, 17, 17}));
+
+      Console.ReadKey(true);
+//
+//      Console.WriteLine(instance.Solution(new[] {2, 6, 4, 8, 10, 9, 15}));
+//      Console.WriteLine(instance.Solution(new[] { 18, 14, 5, 2, 20, 4, 18, 12 }));
+
+      for (int i = 0; i < 10000; i++)
+      {
+        var len = 8;
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(20) + 1;
+        }
+
+        int result = 0;
+
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution((int[]) arr.Clone()); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(result), result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
 
       Console.WriteLine("Hello World!");
 
       Console.ReadKey(true);
+    }
+
+    private static void CheckPossibilityTest(Random rand, CodeTimer timer)
+    {
+      CheckPossibility instance = new CheckPossibility();
+
+      Console.WriteLine(instance.Solution(new[] {4, 8, 4, 8}));
+      Console.WriteLine(instance.Solution(new[] {4, 2, 3}));
+      //
+      //      Console.ReadKey(true);
+
+      //      Console.WriteLine(instance.Solution(new int[] {4, 2, 3}));
+      //      Console.WriteLine(instance.Solution(new int[] {4, 2, 1}));
+
+      for (int i = 0; i < 10000; i++)
+      {
+        var len = 6;
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(10) + 1;
+        }
+
+        bool result = false;
+
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution((int[]) arr.Clone()); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(result), result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
+    }
+
+    private static void MyLinkedListTest(CodeTimer timer)
+    {
+      MyLinkedList instance = new MyLinkedList();
+      instance.AddAtIndex(1, 2);
+      instance.AddAtIndex(0, 1);
+
+      //      instance.AddAtHead(1);//1
+      //      instance.AddAtTail(3);//3
+      //      instance.AddAtIndex(1,2);//123
+      //      instance.Get(1);//2
+      //      instance.DeleteAtIndex(1);//13
+      //      instance.Get(1);//3
+      instance.Show();
+
+      //        ["MyLinkedList","addAtHead","addAtTail","addAtIndex","get","deleteAtIndex","get"]
+      //        [[],[1],[3],[1,2],[1],[1],[1]]
+
+      Console.ReadKey(true);
+
+      var codeTimerResult = timer.Time(10, (() =>
+      {
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.AddAtHead(1);
+        linkedList.Show();
+        linkedList.AddAtTail(3);
+        linkedList.Show();
+        linkedList.AddAtIndex(1, 2); // linked list becomes 1->2->3
+        linkedList.Show();
+        var result = linkedList.Get(1);
+        Console.WriteLine($"get : {result}");
+        linkedList.Show();
+        linkedList.DeleteAtIndex(1); // now the linked list is 1->3
+        linkedList.Show();
+        result = linkedList.Get(1); // returns 3
+        Console.WriteLine($"get : {result}");
+        linkedList.Show();
+      }));
+      Console.WriteLine(codeTimerResult);
+    }
+
+    private static void LargestTimeFromDigitsTest(Random rand, CodeTimer timer)
+    {
+      var instance = new LargestTimeFromDigits();
+
+      //      instance.Combination(new List<int>(){1,2,3,4}, 0);
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4}));
+      Console.WriteLine(instance.Solution(new[] {5, 5, 5, 5}));
+
+      for (int i = 0; i < 100; i++)
+      {
+        var arr = new int[4];
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(10);
+        }
+
+        string result = null;
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(arr); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(result), result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
     }
 
     private static void LargestSumAfterKNegationsTest(Random rand, CodeTimer timer)
@@ -55,9 +186,9 @@ namespace ConsoleTest
       LargestSumAfterKNegations instacne = new LargestSumAfterKNegations();
 
       //basic success
-      Console.WriteLine(instacne.Solution(new[] { 4, 2, 3 }, 1));
-      Console.WriteLine(instacne.Solution(new[] { 3, -1, 0, 2 }, 3));
-      Console.WriteLine(instacne.Solution(new[] { 2, -3, -1, 5, -4 }, 2));
+      Console.WriteLine(instacne.Solution(new[] {4, 2, 3}, 1));
+      Console.WriteLine(instacne.Solution(new[] {3, -1, 0, 2}, 3));
+      Console.WriteLine(instacne.Solution(new[] {2, -3, -1, 5, -4}, 2));
 
       for (int i = 0; i < 100; i++)
       {
