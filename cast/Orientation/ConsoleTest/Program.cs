@@ -41,14 +41,167 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      IsPerfectSquare instance = new IsPerfectSquare();
+
+      Console.WriteLine(instance.Solution(16641));
+
+      Console.WriteLine(Math.Sqrt(16641));
+      Console.WriteLine(Math.Sqrt(16641) % 1 == 0);
+
+      Console.ReadKey(true);
+
+//      var codeTimerResult = timer.Time(1, (() => { instance.Solution(2147483647); }));
+//
+//      Console.WriteLine(codeTimerResult);
+//
+//      Console.ReadKey(true);
+
+      for (int i = 2; i < 1000000; i++)
+      {
+        var num = Math.Sqrt(i);
+        if (instance.Solution(i))
+        {
+          Console.WriteLine(i);
+
+          if (num % 1 != 0)
+          {
+            throw new Exception("error");
+          }
+        }
+        else
+        {
+          if (num % 1 == 0)
+          {
+            throw new Exception("error");
+          }
+        }
+      }
+
+      Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
+    }
+
+    private static void FindPairsTest()
+    {
+      FindPairs instance = new FindPairs();
+
+      Console.WriteLine(instance.Solution(new int[] {3, 1, 4, 1, 5}, 2));
+    }
+
+    private static void CheckPerfectNumberTest()
+    {
+      CheckPerfectNumber instance = new CheckPerfectNumber();
+
+      Console.WriteLine(instance.Solution(28));
+
+      for (int i = 26111368; i < int.MaxValue; i++)
+      {
+        if (instance.OtherSolution(i))
+        {
+          Console.WriteLine(i);
+        }
+      }
+    }
+
+    private static void CountSegmentsTest()
+    {
+      CountSegments instance = new CountSegments();
+
+      Console.WriteLine(instance.Solution("Hello, my name is John"));
+
+      Console.WriteLine(instance.Solution("a, b, c"));
+    }
+
+    private static void RepeatedSubstringPatternTest(Random rand, CodeTimer timer)
+    {
+      RepeatedSubstringPattern instance = new RepeatedSubstringPattern();
+
+      Console.WriteLine(instance.Optimize("debdeb"));
+      Console.ReadKey(true);
+
+      Console.WriteLine(instance.Solution("abacababacab"));
+      Console.WriteLine(instance.Solution("eeabaeabac"));
+      Console.ReadKey(true);
+
+      Console.WriteLine(instance.Solution("abab"));
+      Console.WriteLine(instance.Solution("aba"));
+      Console.WriteLine(instance.Solution("abcabcabcabc"));
+      Console.ReadKey(true);
+
+      for (int i = 0;; i++)
+      {
+        var len = rand.Next(5) + 5;
+        var arr = new char[len];
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = (char) (rand.Next(5) + 'a');
+        }
+
+        var str = new string(arr);
+
+        var optimize = instance.Optimize(str);
+        var otherSolution = instance.OtherSolution(str);
+
+        if (optimize != otherSolution)
+          throw new Exception(str);
+
+        bool result = false;
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(str); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(result), result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
+    }
+
+    private static void ThirdMaxTest(Random rand, CodeTimer timer)
+    {
+      ThirdMax instance = new ThirdMax();
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 2, 5, 3, 5}));
+      //    Console.WriteLine(instance.Solution(new[] { 2, 5, 4, 3, 0, 5, 2, 7 }));
+      Console.ReadKey(true);
+
+      Console.WriteLine(instance.Solution(new[] {3, 2, 1}));
+      Console.WriteLine(instance.Solution(new[] {1, 2}));
+      Console.WriteLine(instance.Solution(new[] {2, 2, 3, 1}));
+
+      for (int i = 0; i < 10000; i++)
+      {
+        var len = 8;
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(10);
+        }
+
+        int result = 0;
+        var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(arr); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(result), result},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
+    }
+
+    private static void FindUnsortedSubarrayTest(Random rand, CodeTimer timer)
+    {
       FindUnsortedSubarray instance = new FindUnsortedSubarray();
 
       Console.WriteLine(instance.Solution(new[] {1, 4, 6, 9, 15, 16, 17, 17}));
 
       Console.ReadKey(true);
-//
-//      Console.WriteLine(instance.Solution(new[] {2, 6, 4, 8, 10, 9, 15}));
-//      Console.WriteLine(instance.Solution(new[] { 18, 14, 5, 2, 20, 4, 18, 12 }));
+      //
+      //      Console.WriteLine(instance.Solution(new[] {2, 6, 4, 8, 10, 9, 15}));
+      //      Console.WriteLine(instance.Solution(new[] { 18, 14, 5, 2, 20, 4, 18, 12 }));
 
       for (int i = 0; i < 10000; i++)
       {
@@ -71,10 +224,6 @@ namespace ConsoleTest
           {nameof(codeTimerResult), codeTimerResult}
         });
       }
-
-      Console.WriteLine("Hello World!");
-
-      Console.ReadKey(true);
     }
 
     private static void CheckPossibilityTest(Random rand, CodeTimer timer)

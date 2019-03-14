@@ -63,6 +63,9 @@ namespace ConsoleTest.LeetCode
      *
      * what??? 还好没想复杂
      *
+     * Runtime: 92 ms, faster than 100.00% of C# online submissions for Maximize Sum Of Array After K Negations.
+     * Memory Usage: 22.7 MB, less than 100.00% of C# online submissions for Maximize Sum Of Array After K Negations.
+     *
      */
     public int Optimize(int[] A, int K)
     {
