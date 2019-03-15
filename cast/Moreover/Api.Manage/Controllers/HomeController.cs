@@ -29,6 +29,13 @@ namespace Api.Manage.Controllers
       AppSetting = optionsMonitor.CurrentValue;
     }
 
+    [HttpGet, Route("")]
+    public object PageList(int page = 1, int size = 6, int? status = null,
+      int showStatus = 1, string productName = null)
+    {
+      return "Hello World";
+    }
+
     /// <summary>
     /// 统一请求地址
     /// </summary>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using ConsoleTest.Entity;
 using ConsoleTest.LeetCode;
@@ -41,6 +40,149 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      MergeSortedArr instance = new MergeSortedArr();
+
+      var arr = new[] {1, 2, 3, 0, 0, 0};
+      var arrB = new[] {2, 5, 6};
+
+      instance.Merge(arr, 3, arrB, 3);
+
+      Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
+    }
+
+    private static void MySqrtTest(CodeTimer timer)
+    {
+      MySqrt instance = new MySqrt();
+
+      var solution1 = instance.Solution(2147395599);
+      var optimize1 = instance.Optimize(2147395599);
+
+      Console.ReadKey(true);
+
+      var arr = new bool[100000];
+
+      var parallelQuery = arr.AsParallel().Select(((b, i) =>
+      {
+        if (i < 3)
+          return 0;
+
+        var solution = 0;
+
+        var optimize = 0;
+
+        var codeTimerResult = timer.Time(100, () => { solution = instance.Solution(i); });
+
+        var optimizeTimerResult = timer.Time(100, (() => { optimize = instance.Optimize(i); }));
+
+        if (solution != optimize)
+        {
+          throw new Exception("error");
+        }
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(i), i},
+          {nameof(solution), solution},
+          {nameof(codeTimerResult), codeTimerResult},
+          {nameof(optimize), optimize},
+          {nameof(optimizeTimerResult), optimizeTimerResult},
+        });
+
+        return 0;
+      })).ToList();
+
+      Console.WriteLine((int) '0');
+    }
+
+    private static void LengthOfLastWordTest()
+    {
+      LengthOfLastWord instance = new LengthOfLastWord();
+
+      Console.WriteLine(instance.Solution("Hello World"));
+      Console.WriteLine(instance.Solution("b   a    "));
+    }
+
+    private static void StrIndexOfTest(CodeTimer timer)
+    {
+      StrIndexOf instance = new StrIndexOf();
+
+      Console.WriteLine(instance.StrStr("hello", "ll"));
+
+      var codeTimerResult = timer.Time(1000, () => { instance.StrStr("hello", "ll"); });
+
+
+      var result = timer.Time(1000, () => { "hello".IndexOf("ll"); });
+
+      Console.WriteLine($"use span : {codeTimerResult}");
+
+      Console.WriteLine($"indexOf : {result}");
+    }
+
+    private static void RemoveDuplicatesTest()
+    {
+      RemoveDuplicates instance = new RemoveDuplicates();
+
+      Console.WriteLine(instance.Solution(new[] {1, 1, 2}));
+      Console.WriteLine(instance.Solution(new[] {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
+    }
+
+    private static void LongestCommonPrefixTest()
+    {
+      LongestCommonPrefix instance = new LongestCommonPrefix();
+
+      Console.WriteLine(instance.Solution(new string[] {"flower", "flow", "flight"}));
+      Console.WriteLine(instance.Solution(new string[] {"dog", "racecar", "car"}));
+
+      Console.WriteLine("" == string.Empty);
+    }
+
+    private static void IsIsomorphicTest()
+    {
+      IsIsomorphic instance = new IsIsomorphic();
+
+      Console.WriteLine(instance.Solution("egg", "add"));
+      Console.WriteLine(instance.Solution("foo", "bar"));
+      Console.WriteLine(instance.Solution("paper", "title"));
+    }
+
+    private static void CountPrimesTest()
+    {
+      CountPrimes instance = new CountPrimes();
+
+      var result = instance.OtherSolution(100);
+
+      Console.WriteLine(result);
+    }
+
+    private static void IsPalindromeTest()
+    {
+      IsPalindrome instance = new IsPalindrome();
+
+      Console.WriteLine(instance.Solution(new ListNode(1)));
+    }
+
+    private static void FirstBadVersionTest()
+    {
+      FirstBadVersion instance = new FirstBadVersion();
+
+      Console.WriteLine(instance.Solution(5, 1));
+      //      instance.CheckResult(5, 1);
+
+      for (int i = 5; i < 100000; i++)
+      {
+        Console.WriteLine("-------Solution----------");
+        var result = instance.Solution(i);
+        Console.WriteLine("--------Optimize---------");
+        result = instance.Optimize(i);
+
+        instance.CheckResult(i, result);
+      }
+    }
+
+    private static void IsPerfectSquareTest()
+    {
       IsPerfectSquare instance = new IsPerfectSquare();
 
       Console.WriteLine(instance.Solution(16641));
@@ -50,11 +192,11 @@ namespace ConsoleTest
 
       Console.ReadKey(true);
 
-//      var codeTimerResult = timer.Time(1, (() => { instance.Solution(2147483647); }));
-//
-//      Console.WriteLine(codeTimerResult);
-//
-//      Console.ReadKey(true);
+      //      var codeTimerResult = timer.Time(1, (() => { instance.Solution(2147483647); }));
+      //
+      //      Console.WriteLine(codeTimerResult);
+      //
+      //      Console.ReadKey(true);
 
       for (int i = 2; i < 1000000; i++)
       {
@@ -76,10 +218,6 @@ namespace ConsoleTest
           }
         }
       }
-
-      Console.WriteLine("Hello World!");
-
-      Console.ReadKey(true);
     }
 
     private static void FindPairsTest()
