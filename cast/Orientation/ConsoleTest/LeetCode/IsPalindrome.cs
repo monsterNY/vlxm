@@ -25,10 +25,10 @@ namespace ConsoleTest.LeetCode
       if (head == null)
         return false;
 
-      List<int> list = new List<int>(){head.val};
+      List<int> list = new List<int>() { head.val };
 
       while ((head = head.next) != null) list.Add(head.val);
-      
+
       for (var i = 0; i < list.Count / 2; i++)
       {
         if (list[i] != list[list.Count - 1 - i])
@@ -44,6 +44,12 @@ namespace ConsoleTest.LeetCode
   {
     public int val;
     public ListNode next;
+
+    public ListNode(int val, ListNode next)
+    {
+      this.val = val;
+      this.next = next;
+    }
 
     public ListNode(int x)
     {

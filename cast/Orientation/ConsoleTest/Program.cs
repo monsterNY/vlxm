@@ -13,6 +13,41 @@ namespace ConsoleTest
   {
     #region empty
 
+    public void Empty()
+    {
+      //先进后出
+      Stack<int> stack = new Stack<int>();
+      stack.Push(1);
+      stack.Push(2);
+      stack.Push(3);
+      stack.Push(4);
+
+      //返回最后一个 不删除
+      Console.WriteLine(stack.Peek());
+      Console.WriteLine(stack.Peek());
+      //返回最后一个 删除
+      Console.WriteLine(stack.Pop());
+      Console.WriteLine(stack.Pop());
+
+      //先进先出
+      Queue<int> queue = new Queue<int>();
+      queue.Enqueue(1);
+      queue.Enqueue(2);
+      queue.Enqueue(3);
+      queue.Enqueue(4);
+
+      Console.WriteLine(queue.Dequeue());
+      Console.WriteLine(queue.Dequeue());
+
+      Console.WriteLine(queue.Peek());
+      Console.WriteLine(queue.Peek());
+
+      Console.WriteLine("Bitwise result: {0}", Convert.ToString(0xF8, 2));
+      Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 ^ 0xF8, 2));
+      Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 & 0xF8, 2));
+      Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 | 0xF8, 2));
+    }
+
     public static dynamic Build<T>(T instance, string[] properties)
     {
       dynamic obj = new System.Dynamic.ExpandoObject();
@@ -40,16 +75,212 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      NumPairsDivisibleBy60 instance = new NumPairsDivisibleBy60();
+
+      for (int i = 0; i < 1000; i++)
+      {
+        var len = rand.Next(10);
+        var arr = new int[len];
+        for (int j = 0; j < len; j++)
+        {
+          arr[j] = (rand.Next(6) + 1) * 10;
+        }
+
+        int solution = 0, optimize = 0;
+
+        var solutionTime = timer.Time(100, (() => { solution = instance.Solution(arr); }));
+        var optimizeTime = timer.Time(100, (() => { optimize = instance.Optimize(arr); }));
+
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(solutionTime), solutionTime},
+          {nameof(optimizeTime), optimizeTime},
+          {"result", optimize}
+        });
+
+        if (solution != optimize)
+          throw new Exception();
+      }
+
+      Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
+    }
+
+    private static void RemoveElementsTest()
+    {
+      RemoveElements instance = new RemoveElements();
+
+      var listNode = instance.Solution(new ListNode(1,
+        new ListNode(2, new ListNode(2, new ListNode(1)))
+      ), 2);
+    }
+
+    private static void ReverseBitsTest()
+    {
+      var num = 100;
+
+      StringBuilder builder = new StringBuilder();
+
+      while (num > 0)
+      {
+        builder.Append(num % 2);
+        num /= 2;
+      }
+
+      ReverseBits instance = new ReverseBits();
+      Console.WriteLine(instance.Solution(43261596));
+
+      for (uint i = 100; i < 1000; i++)
+      {
+        var solution = instance.Solution(i);
+
+        instance.Check(i, solution);
+      }
+    }
+
+    private static void TrailingZeroesTest()
+    {
+      TrailingZeroes instance = new TrailingZeroes();
+
+      Console.WriteLine(instance.Solution(300));
+      Console.WriteLine(instance.Solution(15));
+      Console.WriteLine(instance.GetSum(30));
+    }
+
+    private static void ConvertToTitleTest()
+    {
+      ConvertToTitle instance = new ConvertToTitle();
+
+      for (int i = 1; i < 1000; i++)
+      {
+        Console.WriteLine($"{i}-------------------{instance.Solution(i)}");
+      }
+    }
+
+    private static void GetIntersectionNodeTest()
+    {
+      GetIntersectionNode instance = new GetIntersectionNode();
+
+      var commandNode = new ListNode(8,
+        new ListNode(4, new ListNode(5))
+      );
+
+      instance.OtherSolution(
+        new ListNode(
+          4, new ListNode(1, commandNode)
+        ), new ListNode(
+          5, new ListNode(0, new ListNode(1, commandNode))
+        ));
+    }
+
+    private static void StrIsPalindromeTest()
+    {
+      Console.WriteLine((int) '0');
+      Console.WriteLine((int) 'a');
+      Console.WriteLine((int) 'A');
+      Console.WriteLine((int) 'P');
+
+      StrIsPalindrome instance = new StrIsPalindrome();
+      Console.WriteLine(instance.IsPalindrome("A man, a plan, a canal: Panama"));
+      Console.WriteLine(instance.IsPalindrome("race a car"));
+      Console.WriteLine(instance.IsPalindrome(".,"));
+      Console.WriteLine(instance.IsPalindrome("0P"));
+    }
+
+    private static void HasPathSumTest()
+    {
+      HasPathSum instance = new HasPathSum();
+
+      Console.WriteLine(instance.Solution(new TreeNode(5,
+        new TreeNode(4,
+          new TreeNode(11, new TreeNode(7), new TreeNode(2)), null),
+        new TreeNode(8,
+          new TreeNode(13), new TreeNode(4,
+            new TreeNode(1), null))
+      ), 10));
+    }
+
+    private static void MinDepthTest()
+    {
+      MinDepth instance = new MinDepth();
+
+      var tree = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+
+      Console.WriteLine(instance.Solution(tree));
+
+      Console.WriteLine(instance.Solution(new TreeNode(1, new TreeNode(2), null)));
+      Console.WriteLine(instance.Solution(new TreeNode(1, new TreeNode(2, new TreeNode(4), null),
+        new TreeNode(3, null, new TreeNode(5)))));
+    }
+
+    private static void MergeSortedArrTest(Random rand, CodeTimer timer)
+    {
       MergeSortedArr instance = new MergeSortedArr();
+
+      instance.Optimize(new[] {5, 8, 9, 10, 0, 0, 0, 0, 0, 0}, 4, new int[] {7, 7, 9, 10, 10, 11}, 6);
+
+      Console.ReadKey(true);
 
       var arr = new[] {1, 2, 3, 0, 0, 0};
       var arrB = new[] {2, 5, 6};
 
       instance.Merge(arr, 3, arrB, 3);
 
-      Console.WriteLine("Hello World!");
+      for (int i = 0; i < 1000; i++)
+      {
+        var lenA = rand.Next(6) + 4;
+        var lenB = rand.Next(3) + 4;
 
-      Console.ReadKey(true);
+        var nums = new int[lenA + lenB];
+        var nums2 = new int[lenB];
+        var sortArr = new int[lenA + lenB];
+
+        for (int j = 0; j < lenA; j++)
+        {
+          if (j > 0)
+          {
+            nums[j] = nums[j - 1] + rand.Next(4);
+          }
+          else
+            nums[j] = rand.Next(8) + 2;
+        }
+
+        for (int j = 0; j < lenB; j++)
+        {
+          if (j > 0)
+          {
+            nums2[j] = nums2[j - 1] + rand.Next(4);
+          }
+          else
+            nums2[j] = rand.Next(8) + 2;
+        }
+
+        Array.Copy(nums, sortArr, lenA);
+
+        var codeTimerResult = timer.Time(1, (() => instance.Optimize(sortArr, lenA, nums2, lenB)));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(lenA), lenA},
+          {nameof(lenB), lenB},
+          {
+            nameof(nums), JsonConvert.SerializeObject(nums)
+          },
+          {
+            nameof(nums2), JsonConvert.SerializeObject(nums2)
+          },
+          {
+            nameof(sortArr), JsonConvert.SerializeObject(sortArr)
+          },
+          {
+            nameof(codeTimerResult), codeTimerResult
+          }
+        });
+        instance.CheckResult(sortArr, nums, nums2);
+      }
     }
 
     private static void MySqrtTest(CodeTimer timer)
