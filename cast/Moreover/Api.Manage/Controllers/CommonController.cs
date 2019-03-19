@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using Api.Manage.Assist.Utils;
 using Command.RedisHelper.CusInhert;
@@ -47,7 +48,7 @@ namespace Api.Manage.Controllers
     [Authorize]
     public object TestAuth()
     {
-      return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+      return new JsonResult(from c in User.Claims select new {c.Type, c.Value});
     }
 
     /// <summary>
@@ -64,7 +65,7 @@ namespace Api.Manage.Controllers
           UserName = "monster",
           LoginPwd = "monster"
         };
-        
+
         var whereList = new List<string>()
         {
           $"{nameof(UserInfo.UserName)} = @{nameof(UserInfo.UserName)}",
@@ -72,7 +73,8 @@ namespace Api.Manage.Controllers
         };
 
         //根据用户唯一标识查找用户信息
-        var clientUserInfo = await DapperTools.GetItem<UserInfo>(conn, EntityTools.GetTableName<UserInfo>(), whereList, param);
+        var clientUserInfo =
+          await DapperTools.GetItem<UserInfo>(conn, EntityTools.GetTableName<UserInfo>(), whereList, param);
 
         return clientUserInfo;
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using ConsoleTest.Entity;
 using ConsoleTest.LeetCode;
@@ -69,12 +71,71 @@ namespace ConsoleTest
 
     #endregion
 
+
+    enum Types
+    {
+      [Description("正常")]
+      Normal = 0,
+      Special = 1,
+    }
+
+    public static string Command(string str) //首字母大写 去除下划线
+    {
+      List<char> list = new List<char>();
+
+      bool isUpper = true;
+
+      for (int i = 0; i < str.Length; i++)
+      {
+        var item = str[i];
+
+        if ((item >= 65 && item < 91) || (item >= 97 && item < 123))
+        {
+          if (isUpper && item >= 97)
+            list.Add((char)(item - 32));
+          else
+            list.Add(item);
+
+          if (isUpper) isUpper = false;
+        }else if (!isUpper)
+          isUpper = true;
+      }
+
+      return new string(list.ToArray());
+    }
+
     static void Main(string[] args)
     {
+
+      Console.WriteLine(Command("Monster"));
+
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Console.WriteLine((int)'a');
+      Console.WriteLine((int)'A');
+
+      Console.WriteLine($"{{rand}}");
+
+      var type = typeof(Types);
+
+      var propertyInfos = type.GetProperties();
+      var fieldInfos = type.GetFields(BindingFlags.Static | BindingFlags.Public);
+
+      var descriptionAttribute = fieldInfos[1].GetCustomAttribute<DescriptionAttribute>();
+
+      var strings = Enum.GetNames(type);
+
+      var values = Enum.GetValues(type);
+
+      Console.WriteLine("Hello World!");
+
+      Console.ReadKey(true);
+    }
+    
+    private static void NumPairsDivisibleBy60Test(Random rand, CodeTimer timer)
+    {
       NumPairsDivisibleBy60 instance = new NumPairsDivisibleBy60();
 
       for (int i = 0; i < 1000; i++)
@@ -103,10 +164,6 @@ namespace ConsoleTest
         if (solution != optimize)
           throw new Exception();
       }
-
-      Console.WriteLine("Hello World!");
-
-      Console.ReadKey(true);
     }
 
     private static void RemoveElementsTest()

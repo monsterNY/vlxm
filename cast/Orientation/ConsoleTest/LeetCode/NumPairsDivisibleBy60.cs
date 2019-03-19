@@ -59,5 +59,25 @@ namespace ConsoleTest.LeetCode
 
       return sum;
     }
+
+    /**
+     * Runtime: 136 ms, faster than 48.98% of C# online submissions for Pairs of Songs With Total Durations Divisible by 60.
+     * Memory Usage: 30.2 MB, less than 100.00% of C# online submissions for Pairs of Songs With Total Durations Divisible by 60.
+     *
+     * nice! 
+     *
+     */
+    public int OtherSolution(int[] time)
+    {
+      int[] c = new int[60];
+      int res = 0;
+      foreach (int t in time)
+      {
+        res += c[(60 - t % 60) % 60];
+        c[t % 60] += 1;
+      }
+
+      return res;
+    }
   }
 }
