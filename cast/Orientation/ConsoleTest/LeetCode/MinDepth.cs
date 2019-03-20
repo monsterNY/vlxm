@@ -12,7 +12,6 @@ namespace ConsoleTest.LeetCode
   /// </summary>
   public class MinDepth
   {
-
     /**
      * Runtime: 96 ms, faster than 99.40% of C# online submissions for Minimum Depth of Binary Tree.
      * Memory Usage: 24.1 MB, less than 55.56% of C# online submissions for Minimum Depth of Binary Tree.
@@ -45,6 +44,11 @@ namespace ConsoleTest.LeetCode
     public TreeNode(int x)
     {
       val = x;
+    }
+
+    public static implicit operator TreeNode(int num)
+    {
+      return new TreeNode(num);
     }
 
     public TreeNode(int val, TreeNode left, TreeNode right)

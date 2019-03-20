@@ -68,22 +68,18 @@ namespace ConsoleTest.LeetCode
 
     public void CheckResult(int[] arr, int[] oldArr, int[] sortArr)
     {
-      int[] validArr = new int[arr.Length];
+      var validArr = new int[arr.Length];
 
       Array.Copy(oldArr, validArr, oldArr.Length);
       Array.Copy(sortArr, 0, validArr, validArr.Length - sortArr.Length, sortArr.Length);
       Array.Sort(validArr);
 
-      for (int i = 0; i < validArr.Length; i++)
-      {
+      for (var i = 0; i < validArr.Length; i++)
         if (validArr[i] != arr[i])
-        {
           throw new Exception($@"{nameof(oldArr)}:{JsonConvert.SerializeObject(oldArr)}
 {nameof(sortArr)}:{JsonConvert.SerializeObject(sortArr)}
 {nameof(arr)}:{JsonConvert.SerializeObject(arr)}
 ");
-        }
-      }
     }
 
     /**
@@ -113,6 +109,37 @@ namespace ConsoleTest.LeetCode
       }
 
       for (; i < n;) nums1[m++] = nums2[i++];
+    }
+
+    /**
+     * Runtime: 244 ms, faster than 99.60% of C# online submissions for Merge Sorted Array.
+     * Memory Usage: 28.4 MB, less than 98.36% of C# online submissions for Merge Sorted Array.
+     */
+    public void Optimize2(int[] nums1, int m, int[] nums2, int n)
+    {
+      var j = 0;
+
+      for (int i = 0, moveLen = 0; i < m; i++)
+      {
+        for (; j < n; j++)
+          if (nums1[i] >= nums2[j])
+            moveLen++;
+          else
+            break;
+
+        if (moveLen > 0)
+        {
+          for (var k = (m += moveLen) - 1; k >= i + moveLen; k--)
+            nums1[k] = nums1[k - moveLen];
+
+          for (var k = 1; k <= moveLen; k++)
+            nums1[i + moveLen - k] = nums2[j - k];
+
+          moveLen = 0;
+        }
+      }
+
+      for (; j < n;) nums1[m++] = nums2[j++];
     }
   }
 }
