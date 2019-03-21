@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ConsoleTest.Domain.StructModel;
 using ConsoleTest.Entity;
 using ConsoleTest.LeetCode;
 using Newtonsoft.Json;
@@ -653,7 +654,17 @@ namespace ConsoleTest.Test
         });
       }
     }
+    public static void ShowConsole(Dictionary<string, object> dictionary)
+    {
+      Console.WriteLine($"\n-----------------S---------------------");
 
+      foreach (var item in dictionary)
+      {
+        Console.WriteLine($"{item.Key}:{item.Value}");
+      }
+
+      Console.WriteLine($"-----------------E---------------------\n");
+    }
     private static void LargestSumAfterKNegationsTest(Random rand, CodeTimer timer)
     {
       LargestSumAfterKNegations instacne = new LargestSumAfterKNegations();
@@ -705,18 +716,6 @@ namespace ConsoleTest.Test
           {nameof(result), result}
         });
       }
-    }
-
-    private static void ShowConsole(Dictionary<string, object> dictionary)
-    {
-      Console.WriteLine($"\n-----------------S---------------------");
-
-      foreach (var item in dictionary)
-      {
-        Console.WriteLine($"{item.Key}:{item.Value}");
-      }
-
-      Console.WriteLine($"-----------------E---------------------\n");
     }
 
     private static void NumMagicSquaresInsideTest()

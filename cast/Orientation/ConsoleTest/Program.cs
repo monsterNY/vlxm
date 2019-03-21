@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using ConsoleTest.Domain.StructModel;
 using ConsoleTest.Entity;
 using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
@@ -14,15 +15,67 @@ namespace ConsoleTest
 {
   class Program
   {
+    #region Command
+
+    public static void ShowConsole(Dictionary<string, object> dictionary)
+    {
+      Console.WriteLine($"\n-----------------S---------------------");
+
+      foreach (var item in dictionary)
+      {
+        Console.WriteLine($"{item.Key}:{item.Value}");
+      }
+
+      Console.WriteLine($"-----------------E---------------------\n");
+    }
+
+    #endregion
+
+
     static void Main(string[] args)
     {
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      Console.WriteLine("Hello World!");
+      FindAndReplacePattern instance = new FindAndReplacePattern();
+
+      var solution = instance.Solution(new[]
+      {
+        "abc", "deq", "mee", "aqq", "dkd", "ccc"
+      }, "abb");
+
+      Console.WriteLine(JsonConvert.SerializeObject(solution));
 
       Console.ReadKey(true);
+    }
+
+    private static void TestDeckRevealedIncreasing(CodeTimer timer)
+    {
+      DeckRevealedIncreasing instance = new DeckRevealedIncreasing();
+
+      instance.Solution(new[] {1, 2, 3, 4, 5, 6, 7});
+
+      Console.ReadKey(true);
+
+      List<int> list = new List<int>();
+      for (int i = 1; i < 20; i++)
+      {
+        list.Add(i);
+
+        int[] arr = null;
+
+        var codeTimerResult = timer.Time(1, action: (() => { arr = instance.Simple(list.ToArray()); }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(list), JsonConvert.SerializeObject(list)},
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+
+        instance.Check(arr);
+      }
     }
 
     [Obsolete]

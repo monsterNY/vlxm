@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ConsoleTest.Domain.StructModel;
 using ConsoleTest.LeetCode;
 
 namespace ConsoleTest.MiddleQuestion

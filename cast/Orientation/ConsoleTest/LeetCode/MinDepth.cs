@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ConsoleTest.Domain.StructModel;
 
 namespace ConsoleTest.LeetCode
 {
@@ -35,27 +36,5 @@ namespace ConsoleTest.LeetCode
     }
   }
 
-  public class TreeNode
-  {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-
-    public TreeNode(int x)
-    {
-      val = x;
-    }
-
-    public static implicit operator TreeNode(int num)
-    {
-      return new TreeNode(num);
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right)
-    {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
+  
 }
