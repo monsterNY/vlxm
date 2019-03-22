@@ -38,6 +38,120 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Console.WriteLine(1 >> 2);
+      Console.WriteLine(1 << 2);
+
+      CountBits instance = new CountBits();
+
+      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(2)));
+
+      var flag = 2;
+
+      for (int i = 0; i < 100; i++)
+      {
+        if (i == flag * 2)
+        {
+          flag *= 2;
+          Console.WriteLine("++++++++++++++++++");
+        }
+
+        var count = instance.Count(i);
+        Console.WriteLine($"{i}------------{count}------------|{i - flag}");
+        
+      }
+
+      Console.ReadKey(true);
+    }
+
+    private static void TestComplexNumberMultiply()
+    {
+      ComplexNumberMultiply instance = new ComplexNumberMultiply();
+
+      Console.WriteLine(instance.Solution("1+-1i", "1+-1i"));
+    }
+
+    private static void TestCountBattleships()
+    {
+      //[,]是二维数组 [][]是交叉数组 what???
+      var array = new int[,] {{1, 2}, {2, 3}, {2, 3}, {2, 3}};
+
+      array[0, 0] = 8;
+
+      Console.WriteLine("数组的长度为{0}", array.Length);
+      /*
+      Console.WriteLine(array.GetLength(0));
+      Console.WriteLine(array.GetLength(1));
+      */
+      for (int i = 0; i < array.GetLength(0); i++)
+      {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+          Console.WriteLine(array[i, j]);
+        }
+      }
+
+      Console.WriteLine("---------");
+
+      CountBattleships instance = new CountBattleships();
+
+      Console.WriteLine(
+        instance.Solution(new char[,] {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}}));
+    }
+
+    private static void DistributeCoinsTest()
+    {
+      DistributeCoins instance = new DistributeCoins();
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(4, null,
+          new TreeNode(0, new TreeNode(0, null, new TreeNode(0, null, 2)), 0
+          ))
+      )); //6
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(0, new TreeNode(1, 3, 0), null)
+      )); //4
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(1, new TreeNode(0, null, 3), 0)
+      )); //4
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(4,
+          new TreeNode(0, null,
+            new TreeNode(0, null, 0)), null)
+      )); //6
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(0,
+          new TreeNode(1, 3, 0), null)
+      )); //4
+
+      Console.ReadKey(true);
+
+      Console.WriteLine(instance.Solution(
+        new TreeNode(3, 0, 0)
+      ));
+      Console.WriteLine(instance.Solution(
+        new TreeNode(0, 3, 0)
+      ));
+      Console.WriteLine(instance.Solution(
+        new TreeNode(1, 0, 2)
+      ));
+      Console.WriteLine(instance.Solution(
+        new TreeNode(1, new TreeNode(0, null, 3), 0)
+      ));
+    }
+
+    private static void TestMinAddToMakeValid()
+    {
+      MinAddToMakeValid instance = new MinAddToMakeValid();
+
+      Console.WriteLine(instance.Solution("((())"));
+    }
+
+    private static void FindAndReplacePatternTest()
+    {
       FindAndReplacePattern instance = new FindAndReplacePattern();
 
       var solution = instance.Solution(new[]
@@ -46,8 +160,6 @@ namespace ConsoleTest
       }, "abb");
 
       Console.WriteLine(JsonConvert.SerializeObject(solution));
-
-      Console.ReadKey(true);
     }
 
     private static void TestDeckRevealedIncreasing(CodeTimer timer)

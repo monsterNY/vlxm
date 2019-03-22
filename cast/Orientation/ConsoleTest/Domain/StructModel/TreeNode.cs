@@ -32,5 +32,16 @@ namespace ConsoleTest.Domain.StructModel
       this.left = left;
       this.right = right;
     }
+
+    public void ShowNode(TreeNode node, string prefix = "root")
+    {
+      if (node == null) return;
+
+      Console.WriteLine($"{prefix} -- {node.val}");
+
+      ShowNode(node.left, "left");
+
+      ShowNode(node.right, "right");
+    }
   }
 }
