@@ -8,6 +8,7 @@ using ConsoleTest.Domain.StructModel;
 using ConsoleTest.Entity;
 using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
+using ConsoleTest.WeekTest;
 using Newtonsoft.Json;
 using Tools.RefTools;
 
@@ -38,6 +39,84 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      SmallestRepunitDivByK instance = new SmallestRepunitDivByK();
+
+      var num = 1;
+
+      while (num <= 111111111)
+      {
+        instance.Test(num);
+        num = num * 10 + 1;
+      }
+
+      Console.WriteLine(JsonConvert.SerializeObject(instance.list.OrderBy(u => u)));
+
+      for (int i = 1; i < 1000; i++)
+      {
+        Console.WriteLine($"{i}---- result: {instance.Solution(i)}");
+      }
+
+      Console.ReadKey(true);
+    }
+
+    private static void TestCanThreePartsEqualSum()
+    {
+      CanThreePartsEqualSum instance = new CanThreePartsEqualSum();
+
+      Console.WriteLine(instance.Solution(new[] {0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1}));
+
+      Console.WriteLine(instance.Solution(new[] {18, 12, -18, 18, -19, -1, 10, 10}));
+      Console.WriteLine(instance.Solution(new[] {18, 12, -18, 18, -19, -1, 10, 10}));
+
+      Console.WriteLine(instance.Solution(new[] {3, 3, 6, 5, -2, 2, 5, 1, -9, 4}));
+
+      Console.WriteLine(instance.Solution(new[] {0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1}));
+    }
+
+    private static void TestReconstructQueue()
+    {
+      var arr = new[]
+      {
+        new[] {7, 0}, new[] {4, 4}, new[] {7, 1}, new[] {5, 0}, new[] {6, 1}, new[] {5, 2}
+      };
+
+      Array.Sort(arr, ((ints, ints1) => ints[0] - ints1[0]));
+
+      Console.WriteLine(arr);
+
+      ReconstructQueue instance = new ReconstructQueue();
+
+      var solution = instance.Solution(new[]
+      {
+        new[] {7, 0}, new[] {4, 4}, new[] {7, 1}, new[] {5, 0}, new[] {6, 1}, new[] {5, 2}
+      });
+
+      Console.WriteLine(JsonConvert.SerializeObject(solution));
+      solution = instance.Solution(new[]
+      {
+        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3}, new[] {2, 5},
+        new[] {1, 1}, new[] {8, 0}
+      });
+
+      Console.WriteLine(JsonConvert.SerializeObject(solution));
+
+      var simple = instance.Simple(new[]
+      {
+        new[] {7, 0}, new[] {4, 4}, new[] {7, 1}, new[] {5, 0}, new[] {6, 1}, new[] {5, 2}
+      });
+
+      Console.WriteLine(JsonConvert.SerializeObject(simple));
+      simple = instance.Simple(new[]
+      {
+        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3}, new[] {2, 5},
+        new[] {1, 1}, new[] {8, 0}
+      });
+
+      Console.WriteLine(JsonConvert.SerializeObject(simple));
+    }
+
+    private static void TestCountBits()
+    {
       Console.WriteLine(1 >> 2);
       Console.WriteLine(1 << 2);
 
@@ -57,10 +136,7 @@ namespace ConsoleTest
 
         var count = instance.Count(i);
         Console.WriteLine($"{i}------------{count}------------|{i - flag}");
-        
       }
-
-      Console.ReadKey(true);
     }
 
     private static void TestComplexNumberMultiply()

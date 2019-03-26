@@ -21,6 +21,37 @@ namespace DapperTest
 
       var connStr = "Data Source=192.168.1.13;Initial Catalog=amao100_DB;User ID=yj;Password=123?abc";
 
+      var requestData = "{'OrderCode': 'SF201608081055208281'," +
+                        "'ShipperCode':'SF'," +
+                        "'LogisticCode':'3100707578976'," +
+                        "'PayType':1," +
+                        "'ExpType':1," +
+                        "'CustomerName':''," +
+                        "'CustomerPwd':''," +
+                        "'MonthCode':''," +
+                        "'IsNotice':0," +
+                        "'Cost':1.0," +
+                        "'OtherCost':1.0," +
+                        "'Sender':" +
+                        "{" +
+                        "'Company':'LV','Name':'Taylor','Mobile':'15018442396','ProvinceName':'上海','CityName':'上海','ExpAreaName':'青浦区','Address':'明珠路73号'}," +
+                        "'Receiver':" +
+                        "{" +
+                        "'Company':'GCCUI','Name':'Yann','Mobile':'15018442396','ProvinceName':'北京','CityName':'北京','ExpAreaName':'朝阳区','Address':'三里屯街道雅秀大厦'}," +
+                        "'Commodity':" +
+                        "[{" +
+                        "'GoodsName':'鞋子','Goodsquantity':1,'GoodsWeight':1.0}]," +
+                        "'Weight':1.0," +
+                        "'Quantity':1," +
+                        "'Volume':0.0," +
+                        "'Remark':'小心轻放'}";
+      var deserializeObject = JsonConvert.DeserializeObject<dynamic>(requestData);
+      Console.WriteLine(deserializeObject);
+
+      Console.WriteLine(JsonConvert.SerializeObject(deserializeObject));
+
+      Console.ReadKey(true);
+
       using (var conn =
         new SqlConnection(connStr))
       {
@@ -76,6 +107,9 @@ namespace DapperTest
         }
       }
 
+      
+
+      Console.WriteLine(requestData);
 
       Console.WriteLine("-------------");
 
