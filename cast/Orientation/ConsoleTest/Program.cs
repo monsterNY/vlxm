@@ -31,13 +31,55 @@ namespace ConsoleTest
 
     #endregion
 
-
     static void Main(string[] args)
     {
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      StoneGame instance = new StoneGame();
+
+      Console.WriteLine(instance.Solution(new[] {5, 3, 4, 5}));
+
+      Console.WriteLine("Hello World!");
+
+      Console.WriteLine("What's up");
+
+      Console.ReadKey(true);
+    }
+
+    private static void TestIntervalIntersection()
+    {
+      IntervalIntersection instance = new IntervalIntersection();
+
+      var intervals = instance.Solution(new[]
+      {
+        new Interval(0, 2),
+        new Interval(5, 10),
+        new Interval(13, 23),
+        new Interval(24, 25),
+      }, new[]
+      {
+        new Interval(1, 5),
+        new Interval(8, 12),
+        new Interval(15, 24),
+        new Interval(25, 26),
+      });
+
+      Console.WriteLine(JsonConvert.SerializeObject(intervals));
+    }
+
+    private static void InsertIntoMaxTreeTest()
+    {
+      InsertIntoMaxTree instance = new InsertIntoMaxTree();
+
+      var treeNode = instance.Solution(new TreeNode(5, new TreeNode(2, null, 1), 4), 3);
+
+      Console.WriteLine(treeNode);
+    }
+
+    private static void CountBitsTest()
+    {
       Console.WriteLine(1 >> 2);
       Console.WriteLine(1 << 2);
 
@@ -57,10 +99,7 @@ namespace ConsoleTest
 
         var count = instance.Count(i);
         Console.WriteLine($"{i}------------{count}------------|{i - flag}");
-        
       }
-
-      Console.ReadKey(true);
     }
 
     private static void TestComplexNumberMultiply()
