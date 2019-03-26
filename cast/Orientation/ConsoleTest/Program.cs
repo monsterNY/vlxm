@@ -37,32 +37,37 @@ namespace ConsoleTest
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
-
-      StoneGame instance = new StoneGame();
-
-      Console.WriteLine(instance.Solution(new[] {5, 3, 4, 5}));
-
-      Console.WriteLine("Hello World!");
-
-      Console.WriteLine("What's up");
       SmallestRepunitDivByK instance = new SmallestRepunitDivByK();
 
-      var num = 1;
+      //long num = 1;
 
-      while (num <= 111111111)
-      {
-        instance.Test(num);
-        num = num * 10 + 1;
-      }
+      //while (num>0)
+      //{
+      //  instance.Test(num);
+      //  num = num * 10 + 1;
+      //}
 
-      Console.WriteLine(JsonConvert.SerializeObject(instance.list.OrderBy(u => u)));
+      //Console.WriteLine(JsonConvert.SerializeObject(instance.list.Distinct().OrderBy(u => u)));
+
+      //Console.WriteLine(JsonConvert.SerializeObject(instance.Dictionary.OrderBy(u => u.Key)));
+
+      //Console.ReadKey(true);
 
       for (int i = 1; i < 1000; i++)
       {
         Console.WriteLine($"{i}---- result: {instance.Solution(i)}");
       }
 
+
       Console.ReadKey(true);
+    }
+
+    private static StoneGame TestStoneGame()
+    {
+      StoneGame instance = new StoneGame();
+
+      Console.WriteLine(instance.Solution(new[] {5, 3, 4, 5}));
+      return instance;
     }
 
     private static void TestIntervalIntersection()
@@ -438,3 +443,4 @@ namespace ConsoleTest
 
     #endregion
   }
+}

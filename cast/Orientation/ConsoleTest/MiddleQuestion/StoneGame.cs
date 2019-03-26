@@ -12,6 +12,14 @@ namespace ConsoleTest.MiddleQuestion
   /// </summary>
   public class StoneGame
   {
+
+    /**
+     * Runtime: 88 ms, faster than 100.00% of C# online submissions for Stone Game.
+     * Memory Usage: 21.8 MB, less than 100.00% of C# online submissions for Stone Game.
+     *
+     * nice 
+     *
+     */
     public bool Solution(int[] piles)
     {
       return IsWin(0, 0, piles, 0, piles.Length - 1);
