@@ -38,11 +38,114 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      SingleNumber instance = new SingleNumber();
-
-      Console.WriteLine(instance.Solution(new[] { 1, 2, 1, 3, 2, 5 }));
+      FindDuplicate instance = new FindDuplicate();
+      instance.Solution(new[]
+        {"root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"});
 
       Console.ReadKey(true);
+    }
+
+    private static void TestEscapeGhosts()
+    {
+      EscapeGhosts instance = new EscapeGhosts();
+
+      Console.WriteLine(instance.Solution(new int[][]
+      {
+        new[]
+        {
+          1, 9
+        },
+        new[]
+        {
+          2, -5
+        },
+        new[]
+        {
+          3, 8
+        },
+        new[]
+        {
+          9, 8
+        },
+        new[]
+        {
+          -1, 3
+        }
+      }, new[]
+      {
+        8, -10
+      }));
+    }
+
+    private static void TestOptimalDivision(Random rand)
+    {
+      OptimalDivision instance = new OptimalDivision();
+
+      Console.WriteLine(instance.Solution(new[] {1000, 100, 10, 2}));
+
+      for (int i = 0; i < 10; i++)
+      {
+        var len = rand.Next(5) + 3;
+
+        var arr = new int[len];
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(8) * 10 + 20;
+        }
+
+        var solution = instance.Solution(arr);
+        var result = instance.Try(arr);
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(solution), solution},
+          {nameof(result), result}
+        });
+      }
+    }
+
+    private static void TestScoreOfParentheses()
+    {
+      ScoreOfParentheses instance = new ScoreOfParentheses();
+
+      Console.WriteLine(instance.Solution("((()()))"));
+
+      Console.WriteLine(instance.Solution("()"));
+      Console.WriteLine(instance.Solution("(())"));
+      Console.WriteLine(instance.Solution("()()"));
+      Console.WriteLine(instance.Solution("(()(()))"));
+    }
+
+    private static void TestFrequencySort()
+    {
+      Console.WriteLine((int) 'a');
+      Console.WriteLine((int) 'A');
+
+      FrequencySort instance = new FrequencySort();
+
+      Console.WriteLine((instance.Solution("tree")));
+    }
+
+    private static void TestCountSubstrings(CodeTimer timer)
+    {
+      CountSubstrings instance = new CountSubstrings();
+
+
+      var codeTimerResult = timer.Time(1, (() => { Console.WriteLine(instance.Solution("abc")); }));
+
+      Console.WriteLine(codeTimerResult);
+
+      //      codeTimerResult = timer.Time(1, (() => { Console.WriteLine(instance.Optimize("abc")); }));
+      //
+      //      Console.WriteLine(codeTimerResult);
+    }
+
+    private static void TestSingleNumber()
+    {
+      SingleNumber instance = new SingleNumber();
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 1, 3, 2, 5}));
     }
 
     private static void TestMincostTickets()

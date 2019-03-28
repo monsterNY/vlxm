@@ -73,6 +73,9 @@ namespace ConsoleTest.MiddleQuestion
     /**
      * Runtime: 252 ms, faster than 90.68% of C# online submissions for Single Number III.
      * Memory Usage: 29.4 MB, less than 57.14% of C# online submissions for Single Number III.
+     *
+     * I can't understand...,
+     *
      */
     public int[] OtherSolution(int[] nums)
     {
