@@ -38,11 +38,125 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      FindCircleNum instance = new FindCircleNum();
+
+      instance.Solution(new[]
+      {
+        new[] {1,0,0,1},
+        new[] {0,1,1,0},
+        new[] {0,1,1,1},
+        new[] {1,0,1,1},
+      });
+
+      instance.Solution(new[]
+      {
+        new[] {1,1,1,1,1},
+        new[] {1,1,1,1,1},
+        new[] {1,1,1,1,1},
+        new[] {1,1,1,1,1},
+        new[] {1,1,1,1,1},
+      });
+
+      instance.Solution(new[]
+      {
+        new[] {1, 1, 0},
+        new[] {1, 1, 0},
+        new[] {0, 0, 1},
+      });
+
+      Console.WriteLine("Hello World");
+
+      Console.ReadKey(true);
+    }
+
+    private static void TestMinimumDeleteSum()
+    {
+      MinimumDeleteSum instance = new MinimumDeleteSum();
+
+
+      Console.WriteLine(instance.Solution("vsmfbgotim", "xibcpmzyikel")); //1965
+
+      Console.WriteLine(instance.Solution("vwojt", "saqhgdrarwntji")); //1613
+
+      Console.WriteLine(instance.Solution("ccaccjp", "fwosarcwge")); //1399
+
+      Console.WriteLine(instance.Solution("delete", "leet")); //403
+
+      Console.WriteLine(instance.Solution("sea", "eat")); //231
+    }
+
+    private static void TestGenerateParenthesis()
+    {
+      GenerateParenthesis instance = new GenerateParenthesis();
+
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(3).Distinct()));
+
+      for (int i = 0; i < 7; i++)
+      {
+        Console.WriteLine(i + "" + JsonConvert.SerializeObject(instance.Solution(i)));
+      }
+    }
+
+    private static void TestPermute()
+    {
+      Permute instance = new Permute();
+
+      instance.Solution(new[] {1, 2, 3});
+    }
+
+    private static void TestFindFrequentTreeSum()
+    {
+      FindFrequentTreeSum instance = new FindFrequentTreeSum();
+
+      instance.Solution(new TreeNode(5, 2, -3));
+      instance.Solution(new TreeNode(5, 2, -5));
+
+
+      instance.Solution2(new TreeNode(5, 2, -3));
+      instance.Solution2(new TreeNode(5, 2, -5));
+    }
+
+    private static void TestProductExceptSelf(Random rand)
+    {
+      ProductExceptSelf instance = new ProductExceptSelf();
+
+      //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(new[] {9, 0, -2})));
+      //
+      //      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4}));
+
+      for (int i = 0; i < 100; i++)
+      {
+        var len = 4;
+
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(20) - 10;
+        }
+
+        Console.WriteLine("--------<<Test>>----------");
+
+        Console.WriteLine($"source: {JsonConvert.SerializeObject(arr)}  ---------------- S");
+
+        instance.Check(arr);
+
+        Console.WriteLine($"source: {JsonConvert.SerializeObject(arr)}  ---------------- E");
+
+        Console.WriteLine("--------Solution------- S---");
+
+        Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(arr)));
+
+
+        Console.WriteLine("--------Solution------- E---");
+      }
+    }
+
+    private static void TestFindDuplicate()
+    {
       FindDuplicate instance = new FindDuplicate();
       instance.Solution(new[]
         {"root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"});
-
-      Console.ReadKey(true);
     }
 
     private static void TestEscapeGhosts()
