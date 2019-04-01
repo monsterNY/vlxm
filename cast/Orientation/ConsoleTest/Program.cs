@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.Entity;
+using ConsoleTest.Game;
 using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.WeekTest;
@@ -38,50 +39,202 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Subsets instance = new Subsets();
+
+      var result = instance.Solution(new[] {1, 2, 3});
+
+      Console.WriteLine(JsonConvert.SerializeObject(result));
+
+      result = instance.Solution(new[] { 1, 2, 3 ,4});
+
+      Console.WriteLine(JsonConvert.SerializeObject(result));
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestLongestOnes()
+    {
+      LongestOnes instance = new LongestOnes();
+
+
+      Console.WriteLine(instance.Solution(
+        new[]
+        {
+          1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0,
+          1, 0, 0, 1, 0, 0, 1, 1
+        }, 9));
+
+      Console.WriteLine(instance.Solution(new[] {0, 0, 0, 1}, 4));
+    }
+
+    private static void TestFindPoisonedDuration()
+    {
+      FindPoisonedDuration instance = new FindPoisonedDuration();
+
+      Console.WriteLine(instance.Solution(new[] {1, 4}, 2));
+      Console.WriteLine(instance.Solution(new[] {1, 2}, 2));
+    }
+
+    private static void TestSweepGame()
+    {
+      SweepGame instance = new SweepGame();
+
+      Console.WriteLine("<<<欢迎来到xxx扫雷游戏>>>");
+
+      Console.WriteLine("请输入炸弹个数:");
+
+      var num = Convert.ToInt32(Console.ReadLine());
+
+      var initBoard = instance.InitBoard(num);
+
+      Console.WriteLine("初始化棋盘：");
+
+      instance.ShowBoard(initBoard);
+
+      int y, x;
+
+      while (true)
+      {
+        //        Console.WriteLine(JsonConvert.SerializeObject(initBoard));
+
+        Console.WriteLine("请输入翻开的列数:");
+        x = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("请输入翻开的行数:");
+        y = Convert.ToInt32(Console.ReadLine());
+
+        if (y < 1 || y > initBoard.Length || x < 1 || x > initBoard[0].Length)
+        {
+          Console.WriteLine("输入位置不合理！");
+        }
+        else
+        {
+          initBoard = instance.GetStep(initBoard, y - 1, x - 1);
+
+          Console.WriteLine("翻开结果：");
+
+          instance.ShowBoard(initBoard);
+          if (instance.IsOver)
+          {
+            break;
+          }
+
+          if (instance.IsWin(initBoard))
+          {
+            Console.WriteLine("恭喜获胜！！！！");
+            break;
+          }
+        }
+      }
+    }
+
+    private static void TestUpdateBoard()
+    {
+      UpdateBoard instance = new UpdateBoard();
+
+      char[][] result = null;
+
+      result = instance.Solution(new[]
+      {
+        new[] {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'M'},
+        new[] {'E', 'E', 'M', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'M', 'E', 'E', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'M', 'M', 'E', 'E', 'E', 'E'},
+      }, new[] {0, 0});
+
+
+      Console.WriteLine(JsonConvert.SerializeObject(result));
+
+      var arr = instance.Solution(new[]
+      {
+        new[] {'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'M', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E'},
+        new[] {'E', 'E', 'E', 'E', 'E'},
+      }, new[] {3, 0});
+
+      Console.WriteLine(JsonConvert.SerializeObject(arr));
+    }
+
+    private static void TestNumEnclaves()
+    {
+      NumEnclaves instance = new NumEnclaves();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1},
+        new[] {1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0},
+        new[] {0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0},
+        new[] {1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1},
+        new[] {0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0},
+        new[] {1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1},
+        new[] {0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0},
+        new[] {0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0},
+        new[] {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+        new[] {1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1},
+      })); //7
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+        new[] {1, 1, 0, 0, 0, 1, 0, 1, 1, 1},
+        new[] {0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+        new[] {0, 1, 1, 0, 0, 0, 1, 0, 1, 0},
+        new[] {0, 1, 1, 1, 1, 1, 0, 0, 1, 0},
+        new[] {0, 0, 1, 0, 1, 1, 1, 1, 0, 1},
+        new[] {0, 1, 1, 0, 0, 0, 1, 1, 1, 1},
+        new[] {0, 0, 1, 0, 0, 1, 0, 1, 0, 1},
+        new[] {1, 0, 1, 0, 1, 1, 0, 0, 0, 0},
+        new[] {0, 0, 0, 0, 1, 1, 0, 0, 0, 1}
+      })); //3
+    }
+
+    private static void TestFindCircleNum()
+    {
       FindCircleNum instance = new FindCircleNum();
-
-      instance.Solution(new[]
+      Console.WriteLine(instance.Solution(new[]
       {
-        new[] {1,0,0,1},
-        new[] {0,1,1,0},
-        new[] {0,1,1,1},
-        new[] {1,0,1,1},
-      });
+        new[] {1, 0, 0, 1},
+        new[] {0, 1, 1, 0},
+        new[] {0, 1, 1, 1},
+        new[] {1, 0, 1, 1},
+      })); //1
 
-      instance.Solution(new[]
+      Console.WriteLine(instance.Solution(new[]
       {
-        new[] {1,1,1,1,1},
-        new[] {1,1,1,1,1},
-        new[] {1,1,1,1,1},
-        new[] {1,1,1,1,1},
-        new[] {1,1,1,1,1},
-      });
+        new[] {1, 1, 1, 1, 1},
+        new[] {1, 1, 1, 1, 1},
+        new[] {1, 1, 1, 1, 1},
+        new[] {1, 1, 1, 1, 1},
+        new[] {1, 1, 1, 1, 1},
+      })); //1
 
-      instance.Solution(new[]
+      Console.WriteLine(instance.Solution(new[]
       {
         new[] {1, 1, 0},
         new[] {1, 1, 0},
         new[] {0, 0, 1},
-      });
+      })); //2
 
-      Console.WriteLine("Hello World");
-
-      Console.ReadKey(true);
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 1, 0},
+        new[] {1, 1, 1},
+        new[] {0, 1, 1},
+      })); //1
     }
 
     private static void TestMinimumDeleteSum()
     {
       MinimumDeleteSum instance = new MinimumDeleteSum();
-
-
       Console.WriteLine(instance.Solution("vsmfbgotim", "xibcpmzyikel")); //1965
-
       Console.WriteLine(instance.Solution("vwojt", "saqhgdrarwntji")); //1613
-
       Console.WriteLine(instance.Solution("ccaccjp", "fwosarcwge")); //1399
-
       Console.WriteLine(instance.Solution("delete", "leet")); //403
-
       Console.WriteLine(instance.Solution("sea", "eat")); //231
     }
 
@@ -90,7 +243,6 @@ namespace ConsoleTest
       GenerateParenthesis instance = new GenerateParenthesis();
 
       //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(3).Distinct()));
-
       for (int i = 0; i < 7; i++)
       {
         Console.WriteLine(i + "" + JsonConvert.SerializeObject(instance.Solution(i)));
@@ -100,18 +252,17 @@ namespace ConsoleTest
     private static void TestPermute()
     {
       Permute instance = new Permute();
-
-      instance.Solution(new[] {1, 2, 3});
+      instance.Solution(new[]
+      {
+        1, 2, 3
+      });
     }
 
     private static void TestFindFrequentTreeSum()
     {
       FindFrequentTreeSum instance = new FindFrequentTreeSum();
-
       instance.Solution(new TreeNode(5, 2, -3));
       instance.Solution(new TreeNode(5, 2, -5));
-
-
       instance.Solution2(new TreeNode(5, 2, -3));
       instance.Solution2(new TreeNode(5, 2, -5));
     }
@@ -123,7 +274,6 @@ namespace ConsoleTest
       //      Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(new[] {9, 0, -2})));
       //
       //      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4}));
-
       for (int i = 0; i < 100; i++)
       {
         var len = 4;
@@ -156,13 +306,14 @@ namespace ConsoleTest
     {
       FindDuplicate instance = new FindDuplicate();
       instance.Solution(new[]
-        {"root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"});
+      {
+        "root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"
+      });
     }
 
     private static void TestEscapeGhosts()
     {
       EscapeGhosts instance = new EscapeGhosts();
-
       Console.WriteLine(instance.Solution(new int[][]
       {
         new[]
@@ -194,9 +345,10 @@ namespace ConsoleTest
     private static void TestOptimalDivision(Random rand)
     {
       OptimalDivision instance = new OptimalDivision();
-
-      Console.WriteLine(instance.Solution(new[] {1000, 100, 10, 2}));
-
+      Console.WriteLine(instance.Solution(new[]
+      {
+        1000, 100, 10, 2
+      }));
       for (int i = 0; i < 10; i++)
       {
         var len = rand.Next(5) + 3;
@@ -222,9 +374,7 @@ namespace ConsoleTest
     private static void TestScoreOfParentheses()
     {
       ScoreOfParentheses instance = new ScoreOfParentheses();
-
       Console.WriteLine(instance.Solution("((()()))"));
-
       Console.WriteLine(instance.Solution("()"));
       Console.WriteLine(instance.Solution("(())"));
       Console.WriteLine(instance.Solution("()()"));
@@ -235,19 +385,14 @@ namespace ConsoleTest
     {
       Console.WriteLine((int) 'a');
       Console.WriteLine((int) 'A');
-
       FrequencySort instance = new FrequencySort();
-
       Console.WriteLine((instance.Solution("tree")));
     }
 
     private static void TestCountSubstrings(CodeTimer timer)
     {
       CountSubstrings instance = new CountSubstrings();
-
-
       var codeTimerResult = timer.Time(1, (() => { Console.WriteLine(instance.Solution("abc")); }));
-
       Console.WriteLine(codeTimerResult);
 
       //      codeTimerResult = timer.Time(1, (() => { Console.WriteLine(instance.Optimize("abc")); }));
@@ -258,8 +403,10 @@ namespace ConsoleTest
     private static void TestSingleNumber()
     {
       SingleNumber instance = new SingleNumber();
-
-      Console.WriteLine(instance.Solution(new[] {1, 2, 1, 3, 2, 5}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        1, 2, 1, 3, 2, 5
+      }));
     }
 
     private static void TestMincostTickets()
@@ -280,9 +427,21 @@ namespace ConsoleTest
     private static void TestValidateStackSequences()
     {
       ValidateStackSequences instance = new ValidateStackSequences();
+      Console.WriteLine(instance.Solution(new[]
+      {
+        1, 2, 3, 4, 5
+      }, new[]
+      {
+        4, 5, 3, 2, 1
+      }));
 
-      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 5}, new[] {4, 5, 3, 2, 1}));
-      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 5}, new[] {4, 3, 5, 1, 2}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        1, 2, 3, 4, 5
+      }, new[]
+      {
+        4, 3, 5, 1, 2
+      }));
     }
 
     private static void TestMinFallingPathSum(CodeTimer timer)
@@ -317,7 +476,6 @@ namespace ConsoleTest
       }));
 
       Console.WriteLine(codeTimerResult);
-
       Console.WriteLine(instance.Solution(new[]
       {
         new int[] {-51, -35, 74},
@@ -350,10 +508,8 @@ namespace ConsoleTest
     private static void TestQueryString()
     {
       QueryString instance = new QueryString();
-
       Console.WriteLine(instance.Solution("0110", 3));
       Console.WriteLine(instance.Solution("0110", 4));
-
       Console.WriteLine(Convert.ToString(10, 2));
     }
 
@@ -369,20 +525,22 @@ namespace ConsoleTest
       var resultNum = 0;
       var testCount = 1;
       CodeTimerResult codeTimerResult;
+      Console.WriteLine(instance.Optimize2(new[]
+      {
+        1, 3, 5
+      }));
 
-      Console.WriteLine(instance.Optimize2(new[] {1, 3, 5}));
-      Console.WriteLine(instance.Optimize2(new[] {8, 1, 5, 2, 6}));
+      Console.WriteLine(instance.Optimize2(new[]
+      {
+        8, 1, 5, 2, 6
+      }));
 
       //      var codeTimerResult = timer.Time(testCount, (() => { resultNum = instance.Solution(arr); }));
       //
       //      Console.WriteLine($"resultNum:{resultNum},time:{codeTimerResult}");
-
       codeTimerResult = timer.Time(testCount, (() => { resultNum = instance.Optimize(arr); }));
-
       Console.WriteLine($"resultNum:{resultNum},time:{codeTimerResult}");
-
       codeTimerResult = timer.Time(testCount, (() => { resultNum = instance.Optimize2(arr); }));
-
       Console.WriteLine($"resultNum:{resultNum},time:{codeTimerResult}");
     }
 
@@ -405,7 +563,6 @@ namespace ConsoleTest
       //      instance.Solution(17);
       //
       //      Console.ReadKey(true);
-
       for (int i = 1; i < 1000; i++)
       {
         Console.WriteLine($"{i}---- result: {instance.Solution(i)}");
@@ -415,8 +572,10 @@ namespace ConsoleTest
     private static StoneGame TestStoneGame()
     {
       StoneGame instance = new StoneGame();
-
-      Console.WriteLine(instance.Solution(new[] {5, 3, 4, 5}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        5, 3, 4, 5
+      }));
       return instance;
     }
 
@@ -444,24 +603,37 @@ namespace ConsoleTest
     private static void InsertIntoMaxTreeTest()
     {
       InsertIntoMaxTree instance = new InsertIntoMaxTree();
-
       var treeNode = instance.Solution(new TreeNode(5, new TreeNode(2, null, 1), 4), 3);
-
       Console.WriteLine(treeNode);
     }
 
     private static void TestCanThreePartsEqualSum()
     {
       CanThreePartsEqualSum instance = new CanThreePartsEqualSum();
+      Console.WriteLine(instance.Solution(new[]
+      {
+        0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1
+      }));
 
-      Console.WriteLine(instance.Solution(new[] {0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        18, 12, -18, 18, -19, -1, 10, 10
+      }));
 
-      Console.WriteLine(instance.Solution(new[] {18, 12, -18, 18, -19, -1, 10, 10}));
-      Console.WriteLine(instance.Solution(new[] {18, 12, -18, 18, -19, -1, 10, 10}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        18, 12, -18, 18, -19, -1, 10, 10
+      }));
 
-      Console.WriteLine(instance.Solution(new[] {3, 3, 6, 5, -2, 2, 5, 1, -9, 4}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        3, 3, 6, 5, -2, 2, 5, 1, -9, 4
+      }));
 
-      Console.WriteLine(instance.Solution(new[] {0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1}));
+      Console.WriteLine(instance.Solution(new[]
+      {
+        0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1
+      }));
     }
 
     private static void TestReconstructQueue()
@@ -472,9 +644,7 @@ namespace ConsoleTest
       };
 
       Array.Sort(arr, ((ints, ints1) => ints[0] - ints1[0]));
-
       Console.WriteLine(arr);
-
       ReconstructQueue instance = new ReconstructQueue();
 
       var solution = instance.Solution(new[]
@@ -485,7 +655,8 @@ namespace ConsoleTest
       Console.WriteLine(JsonConvert.SerializeObject(solution));
       solution = instance.Solution(new[]
       {
-        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3}, new[] {2, 5},
+        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3},
+        new[] {2, 5},
         new[] {1, 1}, new[] {8, 0}
       });
 
@@ -499,7 +670,8 @@ namespace ConsoleTest
       Console.WriteLine(JsonConvert.SerializeObject(simple));
       simple = instance.Simple(new[]
       {
-        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3}, new[] {2, 5},
+        new[] {2, 4}, new[] {3, 4}, new[] {9, 0}, new[] {0, 6}, new[] {7, 1}, new[] {6, 0}, new[] {7, 3},
+        new[] {2, 5},
         new[] {1, 1}, new[] {8, 0}
       });
 
@@ -510,13 +682,10 @@ namespace ConsoleTest
     {
       Console.WriteLine(1 >> 2);
       Console.WriteLine(1 << 2);
-
       CountBits instance = new CountBits();
-
       Console.WriteLine(JsonConvert.SerializeObject(instance.Solution(2)));
 
       var flag = 2;
-
       for (int i = 0; i < 100; i++)
       {
         if (i == flag * 2)
@@ -533,23 +702,22 @@ namespace ConsoleTest
     private static void TestComplexNumberMultiply()
     {
       ComplexNumberMultiply instance = new ComplexNumberMultiply();
-
       Console.WriteLine(instance.Solution("1+-1i", "1+-1i"));
     }
 
     private static void TestCountBattleships()
     {
-      //[,]是二维数组 [][]是交叉数组 what???
+//[,]是二维数组 [][]是交叉数组 what???
       var array = new int[,] {{1, 2}, {2, 3}, {2, 3}, {2, 3}};
-
       array[0, 0] = 8;
-
       Console.WriteLine("数组的长度为{0}", array.Length);
-      /*
-      Console.WriteLine(array.GetLength(0));
-      Console.WriteLine(array.GetLength(1));
-      */
-      for (int i = 0; i < array.GetLength(0); i++)
+/*
+Console.WriteLine(array.GetLength(0));
+Console.WriteLine(array.GetLength(1));
+*/
+      for (int i = 0;
+        i < array.GetLength(0);
+        i++)
       {
         for (int j = 0; j < array.GetLength(1); j++)
         {
@@ -558,17 +726,25 @@ namespace ConsoleTest
       }
 
       Console.WriteLine("---------");
-
       CountBattleships instance = new CountBattleships();
-
       Console.WriteLine(
-        instance.Solution(new char[,] {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}}));
+        instance.Solution(new char[,]
+        {
+          {
+            'X', '.', '.', 'X'
+          },
+          {
+            '.', '.', '.', 'X'
+          },
+          {
+            '.', '.', '.', 'X'
+          }
+        }));
     }
 
     private static void DistributeCoinsTest()
     {
       DistributeCoins instance = new DistributeCoins();
-
       Console.WriteLine(instance.Solution(
         new TreeNode(4, null,
           new TreeNode(0, new TreeNode(0, null, new TreeNode(0, null, 2)), 0
@@ -595,16 +771,18 @@ namespace ConsoleTest
       )); //4
 
       Console.ReadKey(true);
-
       Console.WriteLine(instance.Solution(
         new TreeNode(3, 0, 0)
       ));
+
       Console.WriteLine(instance.Solution(
         new TreeNode(0, 3, 0)
       ));
+
       Console.WriteLine(instance.Solution(
         new TreeNode(1, 0, 2)
       ));
+
       Console.WriteLine(instance.Solution(
         new TreeNode(1, new TreeNode(0, null, 3), 0)
       ));
@@ -613,7 +791,6 @@ namespace ConsoleTest
     private static void TestMinAddToMakeValid()
     {
       MinAddToMakeValid instance = new MinAddToMakeValid();
-
       Console.WriteLine(instance.Solution("((())"));
     }
 
@@ -632,8 +809,10 @@ namespace ConsoleTest
     private static void TestDeckRevealedIncreasing(CodeTimer timer)
     {
       DeckRevealedIncreasing instance = new DeckRevealedIncreasing();
-
-      instance.Solution(new[] {1, 2, 3, 4, 5, 6, 7});
+      instance.Solution(new[]
+      {
+        1, 2, 3, 4, 5, 6, 7
+      });
 
       Console.ReadKey(true);
 
@@ -657,7 +836,8 @@ namespace ConsoleTest
       }
     }
 
-    [Obsolete]
+    [
+      Obsolete]
     private static void TestInsertIntoBST()
     {
       InsertIntoBST instance = new InsertIntoBST();
@@ -673,16 +853,13 @@ namespace ConsoleTest
     private static void ConstructMaximumBinaryTreeTest()
     {
       ConstructMaximumBinaryTree instance = new ConstructMaximumBinaryTree();
-
       var treeNode = instance.Solution(new[] {3, 2, 1, 6, 0, 5});
-
       Console.WriteLine(treeNode);
     }
 
     private static void RangeSumBSTTest()
     {
       RangeSumBST instance = new RangeSumBST();
-
       Console.WriteLine(instance.Solution(new TreeNode(10,
         new TreeNode(5,
           new TreeNode(3), new TreeNode(7)),
@@ -702,52 +879,43 @@ namespace ConsoleTest
 
     public void Empty()
     {
-      //先进后出
+//先进后出
       Stack<int> stack = new Stack<int>();
       stack.Push(1);
       stack.Push(2);
       stack.Push(3);
       stack.Push(4);
 
-      //返回最后一个 不删除
+//返回最后一个 不删除
       Console.WriteLine(stack.Peek());
       Console.WriteLine(stack.Peek());
-      //返回最后一个 删除
+
+//返回最后一个 删除
       Console.WriteLine(stack.Pop());
       Console.WriteLine(stack.Pop());
 
-      //先进先出
+//先进先出
       Queue<int> queue = new Queue<int>();
       queue.Enqueue(1);
       queue.Enqueue(2);
       queue.Enqueue(3);
       queue.Enqueue(4);
-
       Console.WriteLine(queue.Dequeue());
       Console.WriteLine(queue.Dequeue());
-
       Console.WriteLine(queue.Peek());
       Console.WriteLine(queue.Peek());
-
       Console.WriteLine("Bitwise result: {0}", Convert.ToString(0xF8, 2));
       Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 ^ 0xF8, 2));
       Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 & 0xF8, 2));
       Console.WriteLine("Bitwise result: {0}", Convert.ToString(0x0 | 0xF8, 2));
-
       Console.WriteLine((int) 'a');
       Console.WriteLine((int) 'A');
-
       Console.WriteLine($"{{rand}}");
-
       var type = typeof(Types);
-
       var propertyInfos = type.GetProperties();
       var fieldInfos = type.GetFields(BindingFlags.Static | BindingFlags.Public);
-
       var descriptionAttribute = fieldInfos[1].GetCustomAttribute<DescriptionAttribute>();
-
       var strings = Enum.GetNames(type);
-
       var values = Enum.GetValues(type);
     }
 
@@ -756,7 +924,6 @@ namespace ConsoleTest
       dynamic obj = new System.Dynamic.ExpandoObject();
 
       var type = typeof(T);
-
       foreach (var prop in properties)
       {
         var propertyInfo = type.GetProperty(prop);
@@ -770,7 +937,8 @@ namespace ConsoleTest
       return obj;
     }
 
-    enum Types
+    enum
+      Types
     {
       [Description("正常")] Normal = 0,
       Special = 1,
@@ -784,9 +952,7 @@ namespace ConsoleTest
         ClassId = 1,
         Name = "xxx"
       };
-
       var result = Build(stu, new[] {nameof(Student.Age), nameof(Student.Name)});
-
       Console.WriteLine(result.Age);
       Console.WriteLine(result.Name);
     }
