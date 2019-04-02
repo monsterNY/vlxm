@@ -7,6 +7,7 @@ using System.Text;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.Entity;
 using ConsoleTest.Game;
+using ConsoleTest.Helper;
 using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.WeekTest;
@@ -31,6 +32,25 @@ namespace ConsoleTest
       Console.WriteLine($"-----------------E---------------------\n");
     }
 
+    void EmptyT()
+    {
+      var str = "the cattle was rattled by the battery";
+
+      ReadOnlySpan<char> readOnlySpan = str.AsSpan(), itemSpan;
+
+      while (true)
+      {
+        var index = readOnlySpan.IndexOf(' ');
+        itemSpan = readOnlySpan.Slice(0, index == -1 ? readOnlySpan.Length : index);
+
+        Console.WriteLine(itemSpan.ToString());
+
+        if (index == -1) break;
+
+        readOnlySpan = readOnlySpan.Slice(index + 1, readOnlySpan.Length - 1 - index);
+      }
+    }
+
     #endregion
 
     static void Main(string[] args)
@@ -39,18 +59,102 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Console.WriteLine(1.1 % 1);
+
+      var num = 1;
+
+      while (num > 0)
+      {
+        Console.WriteLine(num);
+        num *= 2;
+      }
+
+      ReorderedPowerOf2 instance = new ReorderedPowerOf2();
+
+
+      Console.WriteLine(instance.OtherSolution(218));
+
+      Console.WriteLine(instance.Simple(218));
+
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestKthSmallest()
+    {
+      KthSmallest instance = new KthSmallest();
+
+      instance.kthSmallest(new TreeNode(3, new TreeNode(1, null, 2), 4), 1);
+    }
+
+    private static void TestNumRabbits(Random rand)
+    {
+      NumRabbits instance = new NumRabbits();
+
+      for (int i = 0; i < 100; i++)
+      {
+        var len = rand.Next(5) + 2;
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(10) + 1;
+        }
+
+        var solution = instance.Solution(arr);
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(solution), solution}
+        });
+      }
+    }
+
+    private static void TestPrintTree()
+    {
+      PrintTree instance = new PrintTree();
+
+      IList<IList<string>> result;
+
+      //      result = instance.Solution(new TreeNode(3, new TreeNode(1, 0, new TreeNode(2, new TreeNode(7, 8, 9), 3)),
+      //        new TreeNode(5, 4, 6)));
+      //
+      //      result.PrintList();
+
+      result = instance.Solution(new TreeNode(3, new TreeNode(1, 0, new TreeNode(2, null, 3)), new TreeNode(5, 4, 6)));
+
+      result.PrintList();
+
+      result = instance.Solution(new TreeNode(1, 2, null));
+
+      result.PrintList();
+
+      result = instance.Solution(new TreeNode(1, new TreeNode(2, null, 4), 3));
+
+      result.PrintList();
+
+      result = instance.Solution(new TreeNode(1, new TreeNode(2, new TreeNode(3, 4, null), null), 5));
+
+      result.PrintList();
+
+      result = instance.Solution(new TreeNode(1, new TreeNode(2, 3, 4), new TreeNode(5, 6, 7)));
+
+      result.PrintList();
+    }
+
+    private static void TestSubsets()
+    {
       Subsets instance = new Subsets();
 
       var result = instance.Solution(new[] {1, 2, 3});
 
       Console.WriteLine(JsonConvert.SerializeObject(result));
 
-      result = instance.Solution(new[] { 1, 2, 3 ,4});
+      result = instance.Solution(new[] {1, 2, 3, 4});
 
       Console.WriteLine(JsonConvert.SerializeObject(result));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestLongestOnes()
