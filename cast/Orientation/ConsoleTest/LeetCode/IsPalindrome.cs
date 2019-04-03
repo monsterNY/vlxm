@@ -51,6 +51,26 @@ namespace ConsoleTest.LeetCode
       this.next = next;
     }
 
+    public static implicit operator ListNode(int[] arr)
+    {
+
+      if (arr == null || arr.Length == 0) return null;
+
+      ListNode head = new ListNode(arr[0]);
+      ListNode node = head;
+
+      for (int i = 1; i < arr.Length; i++)
+      {
+        
+        node.next = new ListNode(arr[i]);
+        node = node.next;
+
+      }
+
+      return head;
+
+    }
+
     public ListNode(int x)
     {
       val = x;
