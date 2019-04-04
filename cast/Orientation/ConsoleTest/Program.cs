@@ -40,6 +40,46 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      
+
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestDecodeString()
+    {
+
+      //      s = "3[a]2[bc]", return "aaabcbc".
+      //        s = "3[a2[c]]", return "accaccacc".
+      //        s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
+
+
+      DecodeString instance = new DecodeString();
+
+      Console.WriteLine(instance.Solution("sd2[f2[e]g]i"));
+
+      Console.WriteLine(instance.Solution("3[a]2[bc]"));
+      Console.WriteLine(instance.Solution("3[a2[c]]"));
+      Console.WriteLine(instance.Solution("2[abc]3[cd]ef"));
+    }
+
+    private static void TestWordSubsets()
+    {
+      WordSubsets instance = new WordSubsets();
+
+      instance.Solution2(new[] { "amazon", "apple", "facebook", "google", "leetcode" }, new[] { "e", "o" });
+    }
+
+    private static void TestFindDuplicateSubtrees()
+    {
+      FindDuplicateSubtrees instance = new FindDuplicateSubtrees();
+
+      instance.Imitation(new TreeNode(1, new TreeNode(2, 4, null), new TreeNode(3, new TreeNode(2, 4, null), 4)));
+    }
+
+    private static void TestFindDiagonalOrder()
+    {
       FindDiagonalOrder instance = new FindDiagonalOrder();
 
       instance.Optimize(new[]
@@ -51,9 +91,6 @@ namespace ConsoleTest
       instance.Optimize(new[] {new[] {2, 3}});
 
       instance.Solution(new[] {new[] {2, 3}});
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestFindLength()
