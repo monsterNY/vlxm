@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using ConsoleTest.Domain.StructModel;
+using ConsoleTest.DP;
 using ConsoleTest.Entity;
 using ConsoleTest.Game;
 using ConsoleTest.Helper;
@@ -40,16 +41,83 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      
+      PushDominoes instance = new PushDominoes();
 
+      Console.WriteLine(instance.Solution(".L.R...LR..L.."));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
     }
 
+    private static void TestNumRescueBoats()
+    {
+      NumRescueBoats instance = new NumRescueBoats();
+
+      Console.WriteLine(instance.Solution(new[] { 3, 1, 7 }, 7));
+
+      Console.WriteLine(instance.Solution(
+        new[]
+        {
+          68, 88, 50, 92, 33, 50, 50, 68, 21, 61, 22, 35, 97, 90, 82, 4, 15, 26, 79, 85, 59, 72, 81, 7, 9, 87, 4, 23, 5,
+          2, 85, 34, 17, 15, 66, 97, 51, 91, 51, 58, 68, 81, 76, 100, 75, 91, 21, 54, 60, 83
+        }, 100));
+
+      instance.Solution(new[] { 4, 2 }, 5);
+    }
+
+    private static void TestLastRemaining()
+    {
+      LastRemaining instance = new LastRemaining();
+
+      for (int i = 1; i < 100; i++)
+      {
+        Console.WriteLine($"i:{i},result:{instance.Solution(i)}");
+      }
+    }
+
+    private static void TestMaxProfit()
+    {
+      MaxProfit instance = new MaxProfit();
+
+      Console.WriteLine(instance.Solution(new[] {3, 2, 6, 5, 0, 3}));
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 0, 2})); //3
+    }
+
+    private static void TestGuidedMissileSystem(Random rand, CodeTimer timer)
+    {
+      GuidedMissileSystem instance = new GuidedMissileSystem();
+
+      Console.WriteLine(instance.Solution(new[] {389, 207, 155, 300, 299, 170, 158, 65}));
+
+      Console.ReadKey(true);
+
+      for (int i = 0; i < 1000; i++)
+      {
+        var len = rand.Next(8) + 3;
+
+        var arr = new int[len];
+
+        for (int j = 0; j < arr.Length; j++)
+        {
+          arr[j] = rand.Next(500);
+        }
+
+        int solution = -1;
+
+        var codeTimerResult = timer.Time(10, () => { solution = instance.Solution(arr); });
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(arr), JsonConvert.SerializeObject(arr)},
+          {nameof(solution), solution},
+          {nameof(codeTimerResult), codeTimerResult}
+        });
+      }
+    }
+
     private static void TestDecodeString()
     {
-
       //      s = "3[a]2[bc]", return "aaabcbc".
       //        s = "3[a2[c]]", return "accaccacc".
       //        s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
@@ -68,7 +136,7 @@ namespace ConsoleTest
     {
       WordSubsets instance = new WordSubsets();
 
-      instance.Solution2(new[] { "amazon", "apple", "facebook", "google", "leetcode" }, new[] { "e", "o" });
+      instance.Solution2(new[] {"amazon", "apple", "facebook", "google", "leetcode"}, new[] {"e", "o"});
     }
 
     private static void TestFindDuplicateSubtrees()

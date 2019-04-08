@@ -15,7 +15,8 @@ namespace Tools.CusMenu
 
     Question,
     Skill,
-    Knowledge
+    Knowledge,
+    Fix
 
   }
 }
