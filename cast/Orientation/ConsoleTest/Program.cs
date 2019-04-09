@@ -41,19 +41,37 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      PushDominoes instance = new PushDominoes();
-
-      Console.WriteLine(instance.Solution(".L.R...LR..L.."));
+     
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestNumSubarrayBoundedMax()
+    {
+      NumSubarrayBoundedMax instance = new NumSubarrayBoundedMax();
+
+      //       [73,55,36,5,55,14,9,7,72,52]
+      //      32
+      //      69
+
+      Console.WriteLine(instance.Solution(new[] { 73, 55, 36, 5, 55, 14, 9, 7, 72, 52 }, 32, 69));
+
+      Console.WriteLine(instance.Solution(new[] { 2, 9, 2, 5, 6 }, 2, 8)); //7
+    }
+
+    private static void TestPushDominoes()
+    {
+      PushDominoes instance = new PushDominoes();
+
+      Console.WriteLine(instance.Solution(".L.R...LR..L.."));
     }
 
     private static void TestNumRescueBoats()
     {
       NumRescueBoats instance = new NumRescueBoats();
 
-      Console.WriteLine(instance.Solution(new[] { 3, 1, 7 }, 7));
+      Console.WriteLine(instance.Solution(new[] {3, 1, 7}, 7));
 
       Console.WriteLine(instance.Solution(
         new[]
@@ -62,7 +80,7 @@ namespace ConsoleTest
           2, 85, 34, 17, 15, 66, 97, 51, 91, 51, 58, 68, 81, 76, 100, 75, 91, 21, 54, 60, 83
         }, 100));
 
-      instance.Solution(new[] { 4, 2 }, 5);
+      instance.Solution(new[] {4, 2}, 5);
     }
 
     private static void TestLastRemaining()
