@@ -41,10 +41,19 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-     
+      MonotoneIncreasingDigits instance = new MonotoneIncreasingDigits();
+
+      Console.WriteLine(instance.Solution(10));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestSubarraySum()
+    {
+      SubarraySum instance = new SubarraySum();
+
+      Console.WriteLine(instance.Solution(new[] {1, 1, 1}, 2));
     }
 
     private static void TestNumSubarrayBoundedMax()
@@ -55,9 +64,9 @@ namespace ConsoleTest
       //      32
       //      69
 
-      Console.WriteLine(instance.Solution(new[] { 73, 55, 36, 5, 55, 14, 9, 7, 72, 52 }, 32, 69));
+      Console.WriteLine(instance.Solution(new[] {73, 55, 36, 5, 55, 14, 9, 7, 72, 52}, 32, 69));
 
-      Console.WriteLine(instance.Solution(new[] { 2, 9, 2, 5, 6 }, 2, 8)); //7
+      Console.WriteLine(instance.Solution(new[] {2, 9, 2, 5, 6}, 2, 8)); //7
     }
 
     private static void TestPushDominoes()
