@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
 using ConsoleTest.Entity;
@@ -11,6 +12,7 @@ using ConsoleTest.Game;
 using ConsoleTest.Helper;
 using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
+using ConsoleTest.MiddleQuestionTwo;
 using ConsoleTest.WeekTest;
 using Newtonsoft.Json;
 using Tools.RefTools;
@@ -41,12 +43,69 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      MonotoneIncreasingDigits instance = new MonotoneIncreasingDigits();
+      LetterCombinations instance = new LetterCombinations();
 
-      Console.WriteLine(instance.Solution(10));
+      Console.WriteLine(instance.Solution("23"));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestTwoFlatten()
+    {
+      TwoFlatten instance = new TwoFlatten();
+
+      var root = new Node(1);
+
+      var node = root;
+
+      for (int i = 2; i < 7; i++)
+      {
+        node.next = i;
+        node.next.prev = node;
+        node = node.next;
+      }
+
+      node = root.next.next;
+      node.child = 7;
+      node.child.prev = node;
+      node = node.child;
+
+      var flag = node;
+
+      for (int i = 8; i < 11; i++)
+      {
+        node.next = i;
+        node.next.prev = node;
+        node = node.next;
+      }
+
+      node = flag.next;
+
+      node.child = 11;
+      node.child.prev = node;
+      node = node.child;
+
+      node.next = 12;
+      node.next.prev = node;
+
+      instance.Solution(root);
+    }
+
+    private static void TetsReorganizeString()
+    {
+      ReorganizeString instance = new ReorganizeString();
+
+      Console.WriteLine(instance.Solution("vvvlo"));
+      Console.WriteLine(instance.Solution("aab"));
+      Console.WriteLine(instance.Solution("aaab"));
+    }
+
+    private static void TestMonotoneIncreasingDigits()
+    {
+      MonotoneIncreasingDigits instance = new MonotoneIncreasingDigits();
+
+      Console.WriteLine(instance.Solution(10));
     }
 
     private static void TestSubarraySum()
