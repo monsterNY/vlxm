@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
-using ConsoleTest.Entity;
-using ConsoleTest.Game;
-using ConsoleTest.Helper;
-using ConsoleTest.LeetCode;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionTwo;
-using ConsoleTest.WeekTest;
 using Newtonsoft.Json;
 using Tools.RefTools;
 
@@ -43,12 +34,73 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      AccountsMerge instance = new AccountsMerge();
+
+      instance.Solution(new List<IList<string>>()
+      {
+        new List<string>() { "Alex", "Alex5@m.co", "Alex4@m.co", "Alex0@m.co" },
+        new List<string>(){"Ethan","Ethan3@m.co","Ethan3@m.co","Ethan0@m.co"},
+        new List<string>(){"Kevin","Kevin4@m.co","Kevin2@m.co","Kevin2@m.co"},
+        new List<string>(){"Gabe","Gabe0@m.co","Gabe3@m.co","Gabe2@m.co"},
+        new List<string>(){"Gabe","Gabe3@m.co","Gabe4@m.co","Gabe2@m.co"},
+      });
+      
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestRemoveDuplicates()
+    {
+      RemoveDuplicates instance = new RemoveDuplicates();
+
+      Console.WriteLine(instance.Solution(new[] { 1, 1, 1, 1 }));
+    }
+
+    private static void TestPathSum()
+    {
+      PathSum instance = new PathSum();
+
+      Console.WriteLine(instance.Solution(new TreeNode(1, new TreeNode(2, 3, 5), 4), 6));
+    }
+
+    private static void TestShiftingLetters()
+    {
+      ShiftingLetters instance = new ShiftingLetters();
+
+      Console.WriteLine(instance.Solution("mkgfzkkuxownxvfvxasy",
+        new[]
+        {
+          505870226, 437526072, 266740649, 224336793, 532917782, 311122363, 567754492, 595798950, 81520022, 684110326,
+          137742843, 275267355, 856903962, 148291585, 919054234, 467541837, 622939912, 116899933, 983296461, 536563513
+        }));
+    }
+
+    private static void TestCanPartition()
+    {
+      CanPartition instance = new CanPartition();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100
+      }));
+
+      instance.Solution(new[] {3, 3, 3, 4, 5});
+    }
+
+    private static void TestLengthOfLIS()
+    {
+      LengthOfLIS instance = new LengthOfLIS();
+
+      Console.WriteLine(instance.Solution(new[] {1, 3, 6, 7, 9, 4, 10, 5, 6}));
+    }
+
+    private static void TestLetterCombinations()
+    {
       LetterCombinations instance = new LetterCombinations();
 
       Console.WriteLine(instance.Solution("23"));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestTwoFlatten()

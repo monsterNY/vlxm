@@ -10,9 +10,29 @@ namespace ConsoleTest.MiddleQuestionTwo
   /// @create : 2019/4/11 17:37:03 
   /// @source : https://leetcode.com/problems/search-a-2d-matrix-ii/
   /// </summary>
+  [Obsolete]
   public class SearchMatrix
   {
-    public bool Solution(int[,] matrix, int target)
+
+    //time limit
+    public bool Try3(int[,] matrix, int target)
+    {
+      int len = matrix.GetLength(0), colLen = matrix.GetLength(1);
+
+      for (int i = 0; i < len; i++)
+      {
+        for (int j = 0; j < colLen; j++)
+        {
+          if (matrix[i, j] == target) return true;
+          if (matrix[i, j] > target) break;
+        }
+      }
+
+      return false;
+    }
+
+    //bug move error
+    public bool Try2(int[,] matrix, int target)
     {
       int i = 0, len = matrix.GetLength(0), colLen = matrix.GetLength(1);
 

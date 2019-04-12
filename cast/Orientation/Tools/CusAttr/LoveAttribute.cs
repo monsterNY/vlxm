@@ -11,11 +11,11 @@ namespace Tools.CusAttr
   /// @create : 2019/3/29 11:02:17 
   /// @source : I love this
   /// </summary>
-  public class LoveAttribute:Attribute
+  public class LoveAttribute : Attribute
   {
-    public LoveTypes Type { get; set; }
+    public LoveTypes[] Type { get; set; }
 
-    public LoveAttribute(LoveTypes type)
+    public LoveAttribute(params LoveTypes[] type)
     {
       Type = type;
     }

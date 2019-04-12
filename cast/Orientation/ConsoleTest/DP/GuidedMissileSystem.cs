@@ -17,7 +17,8 @@ namespace ConsoleTest.DP
       int[] dp = new int[arr.Length];
 
       var count = 0;
-      dp[arr.Length - 1] = 1;
+      //dp[arr.Length - 1] = 1;//bug ... dp[i]最小为1
+      Array.Fill(dp,1);
 
       for (int i = arr.Length - 2; i >= 0; i--)
       {
