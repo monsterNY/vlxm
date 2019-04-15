@@ -10,6 +10,7 @@ namespace ConsoleTest.MiddleQuestionTwo
   /// @create : 2019/4/12 17:37:31 
   /// @source : https://leetcode.com/problems/accounts-merge/
   /// </summary>
+  [Obsolete]
   public class AccountsMerge
   {
 

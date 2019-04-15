@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
@@ -33,7 +35,14 @@ namespace ConsoleTest
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
+      
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+    
 
+    private static void TestAccountsMerge()
+    {
       AccountsMerge instance = new AccountsMerge();
 
       instance.Solution(new List<IList<string>>()
@@ -44,9 +53,6 @@ namespace ConsoleTest
         new List<string>(){"Gabe","Gabe0@m.co","Gabe3@m.co","Gabe2@m.co"},
         new List<string>(){"Gabe","Gabe3@m.co","Gabe4@m.co","Gabe2@m.co"},
       });
-      
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestRemoveDuplicates()
