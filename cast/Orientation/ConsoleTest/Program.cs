@@ -28,6 +28,15 @@ namespace ConsoleTest
       Console.WriteLine($"-----------------E---------------------\n");
     }
 
+    public static void ShowConsole(Action action)
+    {
+      Console.WriteLine($"\n-----------------S---------------------");
+
+      action.Invoke();
+
+      Console.WriteLine($"-----------------E---------------------\n");
+    }
+
     #endregion
 
     static void Main(string[] args)
@@ -35,11 +44,75 @@ namespace ConsoleTest
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
-      
+
+      AsteroidCollision instance = new AsteroidCollision();
+      Console.WriteLine(instance.Solution3(new[] {-2, 1, -2, -2}));
+      Console.WriteLine(instance.Solution3(new[] {5, 10, -5}));
+
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
     }
-    
+
+    private static void TestMinimumTotal()
+    {
+      MinimumTotal instance = new MinimumTotal();
+
+      Console.WriteLine(instance.Solution(new List<IList<int>>()
+      {
+        new List<int>() {2},
+        new List<int>() {3, 4},
+        new List<int>() {6, 5, 7},
+        new List<int>() {4, 1, 8, 3},
+      })); //-1
+
+      Console.WriteLine(instance.Solution(new List<IList<int>>()
+      {
+        new List<int>() {-1},
+        new List<int>() {2, 3},
+        new List<int>() {1, -1, -3},
+      })); //-1
+    }
+
+    private static void TestGetHint()
+    {
+      GetHint instance = new GetHint();
+
+      Console.WriteLine(instance.Solution("1122", "1222"));
+    }
+
+    private static void TestCarFleet()
+    {
+      CarFleet instance = new CarFleet();
+
+      Console.WriteLine(instance.Solution(10, new[] {6, 8}, new[] {3, 2})); //2
+      Console.WriteLine(instance.Solution(12, new[] {10, 8, 0, 5, 3}, new[] {2, 4, 1, 1, 3})); //3
+    }
+
+    private static void TestEquationsPossible()
+    {
+      EquationsPossible instance = new EquationsPossible();
+
+      Console.WriteLine(instance.Solution(new[] {"b!=f", "c!=e", "f==f", "d==f", "b==f", "a==f"}));
+
+      Console.WriteLine(instance.Solution(new[] {"a==b", "e==c", "b==c", "a!=e"})); //false
+
+      Console.WriteLine(instance.Solution(new[] {"b==b", "b==e", "e==c", "d!=e"})); //true
+
+      Console.WriteLine(instance.Solution(new[] {"a==b", "b==c", "a==c"})); //true
+    }
+
+    private static void TestBrokenCalc()
+    {
+      BrokenCalc instance = new BrokenCalc();
+
+      Console.WriteLine(instance.OtherSolution(1, 1000000000));
+      Console.WriteLine(instance.Solution(1, 119));
+      Console.WriteLine(instance.Solution(2, 3));
+
+      var num = 1;
+
+      var num2 = 1000000000;
+    }
 
     private static void TestAccountsMerge()
     {
@@ -47,11 +120,11 @@ namespace ConsoleTest
 
       instance.Solution(new List<IList<string>>()
       {
-        new List<string>() { "Alex", "Alex5@m.co", "Alex4@m.co", "Alex0@m.co" },
-        new List<string>(){"Ethan","Ethan3@m.co","Ethan3@m.co","Ethan0@m.co"},
-        new List<string>(){"Kevin","Kevin4@m.co","Kevin2@m.co","Kevin2@m.co"},
-        new List<string>(){"Gabe","Gabe0@m.co","Gabe3@m.co","Gabe2@m.co"},
-        new List<string>(){"Gabe","Gabe3@m.co","Gabe4@m.co","Gabe2@m.co"},
+        new List<string>() {"Alex", "Alex5@m.co", "Alex4@m.co", "Alex0@m.co"},
+        new List<string>() {"Ethan", "Ethan3@m.co", "Ethan3@m.co", "Ethan0@m.co"},
+        new List<string>() {"Kevin", "Kevin4@m.co", "Kevin2@m.co", "Kevin2@m.co"},
+        new List<string>() {"Gabe", "Gabe0@m.co", "Gabe3@m.co", "Gabe2@m.co"},
+        new List<string>() {"Gabe", "Gabe3@m.co", "Gabe4@m.co", "Gabe2@m.co"},
       });
     }
 
@@ -59,7 +132,7 @@ namespace ConsoleTest
     {
       RemoveDuplicates instance = new RemoveDuplicates();
 
-      Console.WriteLine(instance.Solution(new[] { 1, 1, 1, 1 }));
+      Console.WriteLine(instance.Solution(new[] {1, 1, 1, 1}));
     }
 
     private static void TestPathSum()

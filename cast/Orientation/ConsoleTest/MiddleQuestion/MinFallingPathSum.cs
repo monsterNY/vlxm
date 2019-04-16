@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Tools.CusAttr;
+using Tools.CusMenu;
 
 namespace ConsoleTest.MiddleQuestion
 {
@@ -12,6 +14,7 @@ namespace ConsoleTest.MiddleQuestion
   /// @source : https://leetcode.com/problems/minimum-falling-path-sum/
   /// </summary>
   [Obsolete("no solution,ha ha , is my technology limit~")]
+  [Love(LoveTypes.Fix,LoveTypes.Question)]
   public class MinFallingPathSum
   {
     /**
