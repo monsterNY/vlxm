@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 using System.Text.RegularExpressions;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
@@ -14,6 +15,7 @@ namespace ConsoleTest
 {
   class Program
   {
+
     #region Command
 
     public static void ShowConsole(Dictionary<string, object> dictionary)
@@ -45,12 +47,87 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      AsteroidCollision instance = new AsteroidCollision();
-      Console.WriteLine(instance.Solution3(new[] {-2, 1, -2, -2}));
-      Console.WriteLine(instance.Solution3(new[] {5, 10, -5}));
+      NumsSameConsecDiff instnace = new NumsSameConsecDiff();
+
+      Console.WriteLine(instnace.Solution(2, 1));
+      Console.WriteLine(instnace.Solution(3, 7));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestInsertionSortList()
+    {
+      InsertionSortList instance = new InsertionSortList();
+
+      Console.WriteLine(instance.Solution(new[] {3, 2, 4}));
+      Console.WriteLine(instance.Solution(new[] {4, 2, 1, 3}));
+    }
+
+    private static void TestPacificAtlantic()
+    {
+      PacificAtlantic instance = new PacificAtlantic();
+
+      //      Console.WriteLine(instance.Solution(new []
+      //      {
+      //        new []{1,1},
+      //        new []{1,1}
+      //      }));
+
+
+      //      Console.WriteLine(instance.Solution(new[]
+      //      {
+      //        new[] {1, 2, 3, 4, 5},
+      //        new[] {16, 17, 18, 19, 6},
+      //        new[] {15, 24, 25, 20, 7},
+      //        new[] {14, 23, 22, 21, 8},
+      //        new[] {13, 12, 11, 10, 9},
+      //      }));
+
+      //      Console.WriteLine(instance.Solution(new[]
+      //      {
+      //        new[] {3,3,3},
+      //        new[] {3,1,3},
+      //        new[] {0,2,4},
+      //      }));
+
+      //      Console.WriteLine(instance.Solution(new[]
+      //      {
+      //        new[] {1, 2, 3, 4},
+      //        new[] {12, 13, 14, 5},
+      //        new[] {11, 16, 15, 6},
+      //        new[] {10, 9, 8, 7},
+      //      }));
+
+      //      Console.WriteLine(instance.Solution(new[]
+      //      {
+      //        new[] {10, 10, 10},
+      //        new[] {10, 1, 10},
+      //        new[] {10, 10, 10},
+      //      }));
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 2, 2, 3, 5},
+        new[] {3, 2, 3, 4, 4},
+        new[] {2, 4, 5, 3, 1},
+        new[] {6, 7, 1, 4, 5},
+        new[] {5, 1, 1, 2, 4}
+      }));
+    }
+
+    private static void TestNumSubarraysWithSum()
+    {
+      NumSubarraysWithSum instance = new NumSubarraysWithSum();
+
+      Console.WriteLine(instance.Solution(new[] {1, 0, 1, 0, 1}, 2));
+    }
+
+    private static void TestAsteroidCollision()
+    {
+      AsteroidCollision instance = new AsteroidCollision();
+      Console.WriteLine(instance.Solution3(new[] {-2, 1, -2, -2}));
+      Console.WriteLine(instance.Solution3(new[] {5, 10, -5}));
     }
 
     private static void TestMinimumTotal()

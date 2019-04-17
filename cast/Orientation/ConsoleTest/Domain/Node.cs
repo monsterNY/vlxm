@@ -12,6 +12,8 @@ namespace ConsoleTest.Domain
   /// </summary>
   public class Node
   {
+    public Node left;
+    public Node right;
     public int val;
     public Node prev;
     public Node next;
