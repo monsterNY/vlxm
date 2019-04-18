@@ -15,7 +15,6 @@ namespace ConsoleTest
 {
   class Program
   {
-
     #region Command
 
     public static void ShowConsole(Dictionary<string, object> dictionary)
@@ -47,13 +46,25 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestNumSubarrayProductLessThanK()
+    {
+      NumSubarrayProductLessThanK instance = new NumSubarrayProductLessThanK();
+
+      Console.WriteLine(instance.Solution(new[] {10, 5, 2, 6}, 100));
+    }
+
+    private static void TestNumsSameConsecDiff()
+    {
       NumsSameConsecDiff instnace = new NumsSameConsecDiff();
 
       Console.WriteLine(instnace.Solution(2, 1));
       Console.WriteLine(instnace.Solution(3, 7));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestInsertionSortList()
