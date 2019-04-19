@@ -46,10 +46,106 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      
+
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestFindCheapestPrice()
+    {
+      FindCheapestPrice instance = new FindCheapestPrice();
+
+      Console.WriteLine(instance.Solution(10, new[]
+      {
+        new[] {3, 4, 4},
+        new[] {2, 5, 6},
+        new[] {4, 7, 10},
+        new[] {9, 6, 5},
+        new[] {7, 4, 4},
+        new[] {6, 2, 10},
+        new[] {6, 8, 6},
+        new[] {7, 9, 4},
+        new[] {1, 5, 4},
+        new[] {1, 0, 4},
+        new[] {9, 7, 3},
+        new[] {7, 0, 5},
+        new[] {6, 5, 8},
+        new[] {1, 7, 6},
+        new[] {4, 0, 9},
+        new[] {5, 9, 1},
+        new[] {8, 7, 3},
+        new[] {1, 2, 6},
+        new[] {4, 1, 5},
+        new[] {5, 2, 4},
+        new[] {1, 9, 1},
+        new[] {7, 8, 10},
+        new[] {0, 4, 2},
+        new[] {7, 2, 8},
+      }, 6, 0, 1));
+
+      Console.WriteLine(instance.Solution(3, new[]
+      {
+        new[] {0, 1, 100},
+        new[] {1, 2, 100},
+        new[] {0, 2, 500},
+      }, 0, 2, 1));
+
+      Console.WriteLine(instance.Solution(3, new[]
+      {
+        new[] {0, 1, 100},
+        new[] {1, 2, 100},
+        new[] {0, 2, 500},
+      }, 0, 2, 0));
+    }
+
+    private static void TestReverseBetween()
+    {
+      ReverseBetween instance = new ReverseBetween();
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 5}, 1, 4));
+      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4}, 1, 4));
+    }
+
+    private static void TestMinSubArrayLen()
+    {
+      MinSubArrayLen instance = new MinSubArrayLen();
+
+      Console.WriteLine(instance.Solution(7, new[] {2, 3, 1, 2, 4, 3}));
+    }
+
+    private static void TestLargestDivisibleSubset()
+    {
+      LargestDivisibleSubset instance = new LargestDivisibleSubset();
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 3,}));
+    }
+
+    private static void TestMaxRotateFunction()
+    {
+      MaxRotateFunction instance = new MaxRotateFunction();
+
+
+      //      Console.WriteLine(instance.Solution(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }));
+      //      Console.WriteLine(instance.Solution(new []{ 4, 3, 2, 6 }));
+
+      var list = new List<int>();
+
+      for (int i = 1; i < 11; i++)
+      {
+        list.Add(i);
+
+        ShowConsole(() =>
+        {
+          for (int j = 0; j < list.Count; j++)
+          {
+            Console.WriteLine(JsonConvert.SerializeObject(list));
+
+            list.Insert(0, list[list.Count - 1]);
+            list.RemoveAt(list.Count - 1);
+          }
+        });
+      }
     }
 
     private static void TestNumSubarrayProductLessThanK()

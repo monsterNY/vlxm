@@ -10,22 +10,24 @@ namespace ConsoleTest.MiddleQuestionTwo
   /// @create : 2019/4/18 17:52:19 
   /// @source : https://leetcode.com/problems/rotate-function/
   /// </summary>
+  [Obsolete]
   public class MaxRotateFunction
   {
-    public int Solution(int[] A)
+    
+    //bug get max
+    public int Try(int[] A)
     {
-      var num = 1;
-      for (int i = 0; i < A.Length; i++)
+      if (A.Length < 2) return 0;
+
+      int num = 1, sum = 0;
+
+      for (int i = 2; i < A.Length; i++)
       {
-        mutiple += i;
+        Console.WriteLine($"num:{num},a:{A[i]}");
+        sum += num++ * A[i];
       }
 
-      foreach (var item in A)
-      {
-        sum += item * mutiple;
-      }
-
-      return sum;
+      return sum + num * A[0];
     }
   }
 }

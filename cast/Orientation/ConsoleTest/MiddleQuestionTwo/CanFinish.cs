@@ -15,7 +15,6 @@ namespace ConsoleTest.MiddleQuestionTwo
   [Love(LoveTypes.Question)]
   public class CanFinish
   {
-
     //Time Limit
     public bool Solution(int numCourses, int[][] prerequisites)
     {
