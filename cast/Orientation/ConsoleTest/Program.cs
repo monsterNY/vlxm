@@ -7,6 +7,7 @@ using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
 using ConsoleTest.MiddleQuestion;
+using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
 using Newtonsoft.Json;
 using Tools.RefTools;
@@ -46,10 +47,38 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      KSmallestPairs instance = new KSmallestPairs();
 
+      Console.WriteLine(instance.Solution(new[] {1, 2, 4, 5, 6}, new[] {3, 5, 7, 9}, 20));
+
+      Console.WriteLine(instance.Solution(new[] {1, 2, 4, 5, 6}, new[] {3, 5, 7, 9}, 3));
+
+      Console.WriteLine(instance.Solution(new[] {1, 1, 2}, new[] {1, 2, 3}, 10));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestLongestMountain()
+    {
+      LongestMountain instance = new LongestMountain();
+
+      Console.WriteLine(instance.Solution(new[] {0, 0, 1, 0, 0, 1, 1, 1, 1, 1}));
+
+      Console.WriteLine(instance.Solution(new[] {0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0}));
+
+      Console.WriteLine(instance.Solution(new[] {2, 1, 4, 7, 3, 2, 5}));
+    }
+
+    private static void TestCanReorderDoubled()
+    {
+      CanReorderDoubled instance = new CanReorderDoubled();
+
+      Console.WriteLine(instance.Solution3(new[] {0, 0}));
+
+      Console.WriteLine(instance.Solution(new[] {-6, 2, -6, 4, -3, 8, 3, 2, -2, 6, 1, -3, -4, -4, -8, 4}));
+
+      Console.WriteLine(instance.Solution(new[] {4, -2, 2, -4}));
     }
 
     private static void TestFindCheapestPrice()
