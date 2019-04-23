@@ -15,9 +15,23 @@ namespace Tools.CusAttr
   {
     public LoveTypes[] Type { get; set; }
 
+
+    public QuestionTypes[] QuestionTypes { get; set; }
+
     public LoveAttribute(params LoveTypes[] type)
     {
       Type = type;
+    }
+
+    public LoveAttribute(params QuestionTypes[] questionTypes)
+    {
+      QuestionTypes = questionTypes;
+    }
+
+    public LoveAttribute(LoveTypes[] type, QuestionTypes[] questionTypes)
+    {
+      Type = type;
+      QuestionTypes = questionTypes;
     }
   }
 }

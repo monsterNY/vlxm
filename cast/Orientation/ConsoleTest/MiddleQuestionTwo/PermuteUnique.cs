@@ -16,6 +16,7 @@ namespace ConsoleTest.MiddleQuestionTwo
   [Love(LoveTypes.Question)]
   public class PermuteUnique
   {
+
     public List<List<int>> permuteUnique(int[] nums)
     {
       List<List<int>> res = new List<List<int>>();

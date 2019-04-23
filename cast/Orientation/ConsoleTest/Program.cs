@@ -47,6 +47,38 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Calculate instance = new Calculate();
+      
+      Console.WriteLine(instance.Clear(" 3+5 / 2 "));
+      Console.WriteLine(instance.Solution("3+2*2"));
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestCanTransform()
+    {
+      CanTransform instance = new CanTransform();
+
+      Console.WriteLine(instance.Solution("RL", "LR"));
+    }
+
+    private static void TestFindNumberOfLIS()
+    {
+      FindNumberOfLIS instance = new FindNumberOfLIS();
+
+      Console.WriteLine(instance.Solution(new[] { 1, 2, 4, 3, 5, 4, 7, 2 }));
+    }
+
+    private static void TestSearchRange()
+    {
+      SearchRange instance = new SearchRange();
+      Console.WriteLine(instance.Solution2(new[] { 5, 7, 7, 8, 8, 10 }, 8));
+      Console.WriteLine(instance.Solution2(new[] { 5, 7, 7, 8, 8, 10 }, 6));
+    }
+
+    private static void TestKSmallestPairs()
+    {
       KSmallestPairs instance = new KSmallestPairs();
 
       Console.WriteLine(instance.Solution(new[] {1, 2, 4, 5, 6}, new[] {3, 5, 7, 9}, 20));
@@ -54,9 +86,6 @@ namespace ConsoleTest
       Console.WriteLine(instance.Solution(new[] {1, 2, 4, 5, 6}, new[] {3, 5, 7, 9}, 3));
 
       Console.WriteLine(instance.Solution(new[] {1, 1, 2}, new[] {1, 2, 3}, 10));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestLongestMountain()
