@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
+using ConsoleTest.Funny;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
@@ -47,13 +48,27 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      Calculate instance = new Calculate();
-      
-      Console.WriteLine(instance.Clear(" 3+5 / 2 "));
-      Console.WriteLine(instance.Solution("3+2*2"));
+      MatrixGame game = new MatrixGame();
+
+      var arr = new int[3][];
+
+      for (int i = 0; i < arr.Length; i++)
+      {
+        arr[i] = new int[] {1, 2, 3};
+      }
+
+      game.Run(arr);
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestCalculate()
+    {
+      Calculate instance = new Calculate();
+
+      Console.WriteLine(instance.Clear(" 3+5 / 2 "));
+      Console.WriteLine(instance.Solution("3+2*2"));
     }
 
     private static void TestCanTransform()
@@ -67,14 +82,14 @@ namespace ConsoleTest
     {
       FindNumberOfLIS instance = new FindNumberOfLIS();
 
-      Console.WriteLine(instance.Solution(new[] { 1, 2, 4, 3, 5, 4, 7, 2 }));
+      Console.WriteLine(instance.Solution(new[] {1, 2, 4, 3, 5, 4, 7, 2}));
     }
 
     private static void TestSearchRange()
     {
       SearchRange instance = new SearchRange();
-      Console.WriteLine(instance.Solution2(new[] { 5, 7, 7, 8, 8, 10 }, 8));
-      Console.WriteLine(instance.Solution2(new[] { 5, 7, 7, 8, 8, 10 }, 6));
+      Console.WriteLine(instance.Solution2(new[] {5, 7, 7, 8, 8, 10}, 8));
+      Console.WriteLine(instance.Solution2(new[] {5, 7, 7, 8, 8, 10}, 6));
     }
 
     private static void TestKSmallestPairs()
