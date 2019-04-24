@@ -48,6 +48,83 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Deserialize instance = new Deserialize();
+
+      Console.WriteLine(instance.Solution("[123,[456,[789]]]"));
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestEvalRPN()
+    {
+      EvalRPN instance = new EvalRPN();
+
+      Console.WriteLine(instance.Solution2(new[] { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" }));
+    }
+
+    private static void TestVerticalTraversal()
+    {
+      var list = new List<int>();
+      list.Insert(0, 1);
+
+      VerticalTraversal instance = new VerticalTraversal();
+
+      Console.WriteLine(instance.Solution(new TreeNode(0,
+        new TreeNode(2, new TreeNode(3, new TreeNode(4, null, 7), new TreeNode(5, 6, null)), null),
+        1)));
+
+      Console.WriteLine(instance.Solution(new TreeNode(3, 9, new TreeNode(20, 15, 7))));
+    }
+
+    private static void TestCheckValidString(Random rand, CodeTimer timer)
+    {
+      CheckValidString instance = new CheckValidString();
+
+      for (int i = 0; i < 100; i++)
+      {
+        var len = rand.Next(8);
+
+        var build = new StringBuilder();
+
+        for (int j = 0; j < len; j++)
+        {
+          switch (rand.Next(3))
+          {
+            case 0:
+              build.Append('(');
+              break;
+            case 1:
+              build.Append('*');
+              break;
+            case 2:
+              build.Append(')');
+              break;
+          }
+
+          bool result = false;
+
+          var codeTimerResult = timer.Time(1, () => { result = instance.Solution(build.ToString()); });
+
+          ShowConsole(new Dictionary<string, object>()
+          {
+            {nameof(build), build},
+            {nameof(result), result},
+            {nameof(codeTimerResult), codeTimerResult}
+          });
+        }
+      }
+    }
+
+    private static void TestDeleteDuplicates()
+    {
+      DeleteDuplicates instance = new DeleteDuplicates();
+
+      Console.WriteLine(instance.Simple(new[] {1, 2, 3, 3, 4, 4, 5}));
+    }
+
+    private static void TestMatrixGame()
+    {
       MatrixGame game = new MatrixGame();
 
       var arr = new int[3][];
@@ -58,9 +135,6 @@ namespace ConsoleTest
       }
 
       game.Run(arr);
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestCalculate()

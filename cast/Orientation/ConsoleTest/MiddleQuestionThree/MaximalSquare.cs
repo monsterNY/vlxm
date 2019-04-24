@@ -1,76 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tools.CusAttr;
+using Tools.CusMenu;
 
 namespace ConsoleTest.MiddleQuestionThree
 {
   /// <summary>
   /// @desc : MaximalSquare  
-  /// @author :mons
+  /// @author : mons
   /// @create : 2019/4/23 17:46:28 
   /// @source : https://leetcode.com/problems/maximal-square/
   /// </summary>
   public class MaximalSquare
   {
+    [Obsolete]
+    [Love(QuestionTypes.Dp)]
     public int Solution(char[][] matrix)
     {
-      int lon = matrix.Length, wide = matrix.Length, start = 0;
+      int startI = 0, endI = matrix.Length, startJ = 0, endJ = matrix[0].Length, lon, wide;
 
-      for (int i = start; i < lon; i++)
+      while (!Check(startI, endI, startJ, endJ))
       {
-        if (matrix[i][0] == 0)
-        {
-          start++;
-          break;
-        }
+        lon = endI - startI;
+        wide = endJ - startJ;
+        Down(matrix, startI, endI, startJ, endJ);
 
-        if (matrix[i][wide - 1] == 0)
-        {
-          break;
-        }
+        startI++;
+        endI--;
+        startJ++;
+        endJ--;
       }
 
       return 1;
     }
 
-    public void Down(int i, int endI, int j, char[][] matrix)
+    public void Down(char[][] matrix, int startI, int endI, int startJ, int endJ)
     {
-      for (int k = i; k <= endI; k++)
+      if (Check(startI, endI, startJ, endJ)) return;
+      for (int k = startI; k < endI; k++)
       {
-        Console.WriteLine(matrix[k][j]);
+        if (matrix[k][startJ] == '0')
+        {
+          return;
+        }
       }
 
-      Left(endI, j + 1, matrix[0].Length - 1 - j, matrix);
+      startJ++;
+      Left(matrix, startI, endI, startJ, endJ);
     }
 
-    public void Top(int i, int endI, int j, char[][] matrix)
+    public void Top(char[][] matrix, int startI, int endI, int startJ, int endJ)
     {
-      for (int k = endI; k >= i; k--)
+      if (Check(startI, endI, startJ, endJ)) return;
+
+      for (int i = endI - 1; i >= startI; i--)
       {
-        Console.WriteLine(matrix[k][j]);
+        if (matrix[i][endJ - 1] == '0')
+        {
+          return;
+        }
       }
 
-      Right(i, matrix[0].Length - 1 - j, j, matrix);
+      endJ--;
+
+      Right(matrix, startI, endI, startJ, endJ);
     }
 
-    public void Left(int i, int j, int endJ, char[][] matrix)
+    public void Left(char[][] matrix, int startI, int endI, int startJ, int endJ)
     {
-      for (int k = j; k <= endJ; k++)
+      if (Check(startI, endI, startJ, endJ)) return;
+
+      for (int i = startJ; i < endJ; i++)
       {
-        Console.WriteLine(matrix[i][k]);
+        if (matrix[endI - 1][i] == '0')
+        {
+          return;
+        }
       }
 
-      Top(i - 1, matrix.Length - 1 - i, endJ, matrix);
+      endI--;
+
+      Top(matrix, startI, endI, startJ, endJ);
     }
 
-    public void Right(int i, int j, int endJ, char[][] matrix)
+    public void Right(char[][] matrix, int startI, int endI, int startJ, int endJ)
     {
-      for (int k = endJ; k >= j; k++)
+      if (Check(startI, endI, startJ, endJ)) return;
+      for (int i = endJ - 1; i >= startJ; i--)
       {
-        Console.WriteLine(matrix[i][k]);
+        return;
       }
 
-      Down(i + 1, matrix.Length - 1 - i, j, matrix);
+      startI++;
+
+      Down(matrix, startI, endI, startJ, endJ);
+    }
+
+    protected bool Check(int startI, int endI, int startJ, int endJ)
+    {
+      return startI >= endI && startJ >= endJ;
     }
   }
 }
