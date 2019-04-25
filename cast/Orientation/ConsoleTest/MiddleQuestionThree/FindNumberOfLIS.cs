@@ -12,7 +12,7 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @create : 2019/4/23 11:30:10 
   /// @source : 
   /// </summary>
-  [Love(QuestionTypes.Dp)]
+  [Question(QuestionTypes.Dp)]
   [Obsolete]
   public class FindNumberOfLIS
   {

@@ -48,19 +48,56 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      Deserialize instance = new Deserialize();
-
-      Console.WriteLine(instance.Solution("[123,[456,[789]]]"));
-
+      WordDictionary instance = new WordDictionary();
+      
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestSpiralOrder()
+    {
+      SpiralOrder instance = new SpiralOrder();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 2, 3, 4},
+        new[] {5, 6, 7, 8},
+        new[] {9, 10, 11, 12},
+      }));
+    }
+
+    private static void TestReorderList()
+    {
+      ReorderList instance = new ReorderList();
+
+      instance.Simple(new[] {1, 2, 3, 4});
+    }
+
+    private static void TestExist()
+    {
+      Exist instance = new Exist();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {'A', 'B', 'C', 'E'},
+        new[] {'S', 'F', 'C', 'S'},
+        new[] {'A', 'D', 'E', 'E'},
+      }, "ABCCED"));
+    }
+
+    private static void TestIntegerReplacement()
+    {
+      IntegerReplacement instance = new IntegerReplacement();
+
+      Console.WriteLine(instance.Solution(65535));
     }
 
     private static void TestEvalRPN()
     {
       EvalRPN instance = new EvalRPN();
 
-      Console.WriteLine(instance.Solution2(new[] { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" }));
+      Console.WriteLine(instance.Solution2(new[]
+        {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}));
     }
 
     private static void TestVerticalTraversal()

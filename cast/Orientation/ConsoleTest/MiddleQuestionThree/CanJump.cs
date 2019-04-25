@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tools.CusAttr;
+using Tools.CusMenu;
 
 namespace ConsoleTest.MiddleQuestionThree
 {
@@ -10,6 +12,7 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @create : 2019/4/24 17:42:40 
   /// @source : https://leetcode.com/problems/jump-game/
   /// </summary>
+  [Love(LoveTypes.Question, LoveTypes.Fix)]
   public class CanJump
   {
     /**
@@ -75,6 +78,18 @@ namespace ConsoleTest.MiddleQuestionThree
       flag[index] = true;
 
       return false;
+    }
+
+    public bool OtherSolution(int[] nums)
+    {
+      int n = nums.Length, reach = 0;
+
+      for (int i = 0; i < n && i <= reach; i++)
+      {
+        reach = Math.Max(reach, i + nums[i]);
+      }
+
+      return reach == n;
     }
   }
 }
