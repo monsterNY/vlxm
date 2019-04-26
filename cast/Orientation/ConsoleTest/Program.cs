@@ -48,10 +48,69 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      WordDictionary instance = new WordDictionary();
-      
+      var str1 =
+        "98909827968595339456944893859149094902689398937839883538183810810780707982784676057536747174237321720571007032685668066758674466986636554651163276306626562416221603859725909578457125682552954605422520849804812479847044453428339323905384638363699366436503636357535673516346233993298316330843021297028227452732697246523622362231322281216213206020001921763154815181495141713801147114310901048";
+
+      var str2 =
+        "98909827968595339456944893859149094902689398937839883538183810810780707982784676057536747174237321720571007032685668066758674466986636554651163276306626562416221603859725909578457125682552954605422520849804812479847044453428339323905384638363699366436503636357535673516346233993298316330843021297028227452732697246523622362231322812216213206020001921763154815181495141713801147114310901048";
+
+      Console.WriteLine(str1.Equals(str2));
+
+      bool flag = false;
+      for (int i = 0; i < str1.Length; i++)
+      {
+        if (str1[i] != str2[i])
+        {
+          Console.WriteLine(i);
+          flag = true;
+        }
+        if (flag) Console.WriteLine($"c:{str1[i]},c2:{str2[i]}");
+      }
+
+
+      LargestNumber instance = new LargestNumber();
+
+      Console.WriteLine(instance.Solution(new[] {121, 12}));
+
+//      Console.WriteLine(instance.Solution(new []{ 1, 20 }));
+//
+//      Console.WriteLine(instance.Solution(new[]
+//      {
+//        2331, 9511, 5618, 6542, 2387, 7224, 5955, 9267, 8454, 4178, 4399, 183, 3314, 6191, 3993, 9334, 5608, 5610, 5123,
+//        3649, 6003, 8321, 6744, 5974, 1849, 7250, 6533, 7960, 7968, 9034, 1568, 9209, 1358, 3920, 5422, 203, 468, 7441,
+//        435, 9277, 1984, 7326, 9044, 3398, 1501, 2139, 1991, 6612, 2039, 184, 2666, 4648, 7896, 5698, 352, 7319, 7546,
+//        5654, 440, 4755, 4365, 6702, 8568, 9949, 49, 5235, 7306, 1870, 4667, 6787, 9866, 6188, 9836, 1970, 8424, 473,
+//        1345, 275, 8634, 7553, 9971, 2085, 9910, 9602, 8960, 5917, 6795, 3822, 883, 224, 5012, 8353, 8529, 8423, 9679,
+//        6096, 5501, 6116, 1245, 3923
+//      }));
+//
+//      Console.WriteLine(instance.Solution(new[] {3, 30, 34, 5, 9}));
+
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestLongestPalindrome()
+    {
+      LongestPalindrome instance = new LongestPalindrome();
+
+      Console.WriteLine(instance.Solution("a"));
+    }
+
+    private static void TestFind132pattern()
+    {
+      Find132pattern instance = new Find132pattern();
+
+      Console.WriteLine(instance.Solution3(new[] {1, 2, 3, 4}));
+
+      Console.WriteLine(instance.Solution(new[] {3, 1, 4, 2}));
+    }
+
+    private static void TestWiggleSort()
+    {
+      WiggleSort instance = new WiggleSort();
+
+      instance.Solution(new[] {1, 5, 1, 1, 6, 4});
     }
 
     private static void TestSpiralOrder()
