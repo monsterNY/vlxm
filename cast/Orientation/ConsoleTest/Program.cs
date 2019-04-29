@@ -48,12 +48,101 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      SmallestRangeII instance = new SmallestRangeII();
+      FractionToDecimal instance = new FractionToDecimal();
 
-      Console.WriteLine(instance.Solution(new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 6));
+//      Console.WriteLine(instance.Solution(1, 17));
+//      Console.WriteLine(instance.Solution(22, 7));
+      Console.WriteLine(instance.Solution(4, 333));
+      Console.WriteLine(instance.Solution(100, 3));
+      Console.WriteLine(instance.Solution(1,2));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestNumDecodings()
+    {
+      NumDecodings instance = new NumDecodings();
+
+      Console.WriteLine(instance.Solution("1211221"));
+    }
+
+    private static void TestSolve()
+    {
+      Solve instance = new Solve();
+
+      instance.Solution(new[]
+      {
+
+        new []{'O','X','O','O','O','X'},
+        new []{'O','O','X','X','X','O'},
+        new []{'X','X','X','X','X','O'},
+        new []{'O','O','O','O','X','X'},
+        new []{'X','X','O','O','X','O'},
+        new []{'O','O','X','X','X','X'} ,
+      });
+
+      instance.Solution(new[]
+      {
+        new[] {'X', 'X', 'X', 'X'},
+        new[] {'X', 'O', 'O', 'X'},
+        new[] {'X', 'X', 'O', 'X'},
+        new[] {'X', 'O', 'X', 'X'}
+      });
+    }
+
+    private static void TestDecodeAtIndex()
+    {
+      DecodeAtIndex instance = new DecodeAtIndex();
+
+      //      var str = instance.ShowStr("cpmxv8ewnfk3xxcilcmm68d2ygc88daomywc3imncfjgtwj8nrxjtwhiem5nzqnicxzo248g52y72v3yujqpvqcssrofd99lkovg", 0);
+      //
+      //      Console.WriteLine(str);
+      //
+      //      Console.WriteLine(str[480551547 - 1]);
+
+      Console.WriteLine(instance.Optimize3("a23", 6));
+
+      Console.WriteLine(instance.Optimize3(
+        "gc8hoa2l4lyc7cx6grev7o2qgmolppnwwgexaur2v8paml69syh2tavusb4jthoqelszpmkq2l3jem2aezlhy5c8uaibvyowbjb2",
+        874960845)); //o
+
+      Console.WriteLine(instance.Optimize3(
+        "cpmxv8ewnfk3xxcilcmm68d2ygc88daomywc3imncfjgtwj8nrxjtwhiem5nzqnicxzo248g52y72v3yujqpvqcssrofd99lkovg",
+        480551547)); //x
+
+      Console.WriteLine(instance.Optimize3("vzpp636m8y", 2920)); //z
+
+      Console.WriteLine(instance.Optimize3("a2b3c4d5e6f7g8h9", 3)); //b
+
+      Console.WriteLine(instance.Optimize3("leet2code3", 10)); //o
+      Console.WriteLine(instance.Optimize3("ha22", 5)); //h
+      Console.WriteLine(instance.Optimize3("a2345678999999999999999", 1)); //a
+
+      Console.WriteLine("------------------------------");
+
+      Console.WriteLine(instance.Solution(
+        "gc8hoa2l4lyc7cx6grev7o2qgmolppnwwgexaur2v8paml69syh2tavusb4jthoqelszpmkq2l3jem2aezlhy5c8uaibvyowbjb2",
+        874960845)); //o
+
+      Console.WriteLine(instance.Solution(
+        "cpmxv8ewnfk3xxcilcmm68d2ygc88daomywc3imncfjgtwj8nrxjtwhiem5nzqnicxzo248g52y72v3yujqpvqcssrofd99lkovg",
+        480551547)); //x
+
+      Console.WriteLine(instance.Solution("vzpp636m8y", 2920)); //z
+
+      Console.WriteLine(instance.Solution("a2b3c4d5e6f7g8h9", 3)); //b
+
+      Console.WriteLine(instance.Solution("leet2code3", 10)); //o
+      Console.WriteLine(instance.Solution("ha22", 5)); //h
+      Console.WriteLine(instance.Solution("a2345678999999999999999", 1)); //a
+    }
+
+    private static void TestSmallestRangeII()
+    {
+      SmallestRangeII instance = new SmallestRangeII();
+
+      Console.WriteLine(instance.OtherSolution(new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1));
     }
 
     private static void TestLadderLength()

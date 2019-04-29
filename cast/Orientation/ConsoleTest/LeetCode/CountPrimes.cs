@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tools.CusAttr;
+using Tools.CusMenu;
 
 namespace ConsoleTest.LeetCode
 {
@@ -10,6 +12,8 @@ namespace ConsoleTest.LeetCode
   /// @create : 2019/3/15 11:18:00 
   /// @source : https://leetcode.com/problems/count-primes/
   /// </summary>
+  [Obsolete]
+  [Love(LoveTypes.Fix)]
   public class CountPrimes
   {
 

@@ -10,9 +10,30 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @author : mons
   /// @create : 2019/4/28 17:15:28 
   /// @source : https://leetcode.com/problems/smallest-range-ii/
-  /// </summary>
+  /// </summary>、
+  [Obsolete]
   public class SmallestRangeII
   {
+
+    public int OtherSolution(int[] A, int K)
+    {
+      int N = A.Length;
+      Array.Sort(A);
+      int ans = A[N - 1] - A[0];
+
+      for (int i = 0; i < A.Length - 1; ++i)
+      {
+        //太秀了。。。 genius
+        int a = A[i], b = A[i + 1];
+        int high = Math.Max(A[N - 1] - K, a + K);
+        int low = Math.Min(A[0] + K, b - K);
+        ans = Math.Min(ans, high - low);
+
+        Console.WriteLine($"i:{i},a:{a},b:{b},high:{high},low:{low},ans:{ans}");
+
+      }
+      return ans;
+    }
 
     /**
      *
