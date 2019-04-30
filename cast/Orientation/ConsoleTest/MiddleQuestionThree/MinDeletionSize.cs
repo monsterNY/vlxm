@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tools.CusAttr;
+using Tools.CusMenu;
 
 namespace ConsoleTest.MiddleQuestionThree
 {
@@ -11,10 +13,10 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @source : https://leetcode.com/problems/delete-columns-to-make-sorted-ii/
   /// </summary>
   [Obsolete]
+  [Question(QuestionTypes.Hard)]
   public class MinDeletionSize
   {
 
-    //理解有出入 
     public int OtherSolution(string[] A)
     {
       if (A.Length == 0) return 0;
@@ -44,5 +46,6 @@ namespace ConsoleTest.MiddleQuestionThree
 
       return count;
     }
+
   }
 }

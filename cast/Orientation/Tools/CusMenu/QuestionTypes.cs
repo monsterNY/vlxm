@@ -16,6 +16,7 @@ namespace Tools.CusMenu
     Dp = 0,
     DFS = 1,
     BFS = 2,
+    Hard = 3,
 
   }
 }

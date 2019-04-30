@@ -7,10 +7,12 @@ using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
 using ConsoleTest.Funny;
+using ConsoleTest.HardQuestion;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
 using Newtonsoft.Json;
+using Tools.CusTools;
 using Tools.RefTools;
 
 namespace ConsoleTest
@@ -48,16 +50,32 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      FractionToDecimal instance = new FractionToDecimal();
-
-//      Console.WriteLine(instance.Solution(1, 17));
-//      Console.WriteLine(instance.Solution(22, 7));
-      Console.WriteLine(instance.Solution(4, 333));
-      Console.WriteLine(instance.Solution(100, 3));
-      Console.WriteLine(instance.Solution(1,2));
+      for (int i = 0; i < 10; i++)
+      {
+        Console.WriteLine(Fibonacci.GetResult(i));
+      }
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestRecoverFromPreorder()
+    {
+      RecoverFromPreorder instance = new RecoverFromPreorder();
+
+      Console.WriteLine(instance.Solution("1-401--349---90--88"));//success
+      Console.WriteLine(instance.Solution("1-2--3--4-5--6--7"));//success
+    }
+
+    private static void TestFractionToDecimal()
+    {
+      FractionToDecimal instance = new FractionToDecimal();
+
+      //      Console.WriteLine(instance.Solution(1, 17));
+      //      Console.WriteLine(instance.Solution(22, 7));
+      Console.WriteLine(instance.Solution(4, 333));
+      Console.WriteLine(instance.Solution(100, 3));
+      Console.WriteLine(instance.Solution(1, 2));
     }
 
     private static void TestNumDecodings()
