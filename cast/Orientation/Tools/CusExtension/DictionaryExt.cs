@@ -13,7 +13,7 @@ namespace Tools.CusExtension
   public static class DictionaryExt
   {
 
-    public static void Add<TKey, TResult>(this Dictionary<TKey, TResult> dictionary, TKey key, TResult value)
+    public static void AddOrSet<TKey, TResult>(this Dictionary<TKey, TResult> dictionary, TKey key, TResult value)
     {
       if (dictionary.ContainsKey(key))
         dictionary[key] = value;

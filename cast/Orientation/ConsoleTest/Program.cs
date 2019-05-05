@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
+using ConsoleTest.Deep.UniquePaths;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
@@ -50,21 +51,45 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      MinSwapsCouples instance = new MinSwapsCouples();
+
+      Console.WriteLine(instance.Solution(new[] {5, 6, 4, 0, 2, 1, 9, 3, 8, 7, 11, 10}));
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestFreqStack()
+    {
+      FreqStack instance = new FreqStack();
+
+      instance.Push(5);
+      instance.Push(7);
+      instance.Push(5);
+      instance.Push(7);
+      instance.Push(4);
+      instance.Push(5);
+
+      Console.WriteLine(instance.Pop());
+      Console.WriteLine(instance.Pop());
+      Console.WriteLine(instance.Pop());
+      Console.WriteLine(instance.Pop());
+    }
+
+    private static void TestFibonacci()
+    {
       for (int i = 0; i < 10; i++)
       {
         Console.WriteLine(Fibonacci.GetResult(i));
       }
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestRecoverFromPreorder()
     {
       RecoverFromPreorder instance = new RecoverFromPreorder();
 
-      Console.WriteLine(instance.Solution("1-401--349---90--88"));//success
-      Console.WriteLine(instance.Solution("1-2--3--4-5--6--7"));//success
+      Console.WriteLine(instance.Solution("1-401--349---90--88")); //success
+      Console.WriteLine(instance.Solution("1-2--3--4-5--6--7")); //success
     }
 
     private static void TestFractionToDecimal()
@@ -91,13 +116,12 @@ namespace ConsoleTest
 
       instance.Solution(new[]
       {
-
-        new []{'O','X','O','O','O','X'},
-        new []{'O','O','X','X','X','O'},
-        new []{'X','X','X','X','X','O'},
-        new []{'O','O','O','O','X','X'},
-        new []{'X','X','O','O','X','O'},
-        new []{'O','O','X','X','X','X'} ,
+        new[] {'O', 'X', 'O', 'O', 'O', 'X'},
+        new[] {'O', 'O', 'X', 'X', 'X', 'O'},
+        new[] {'X', 'X', 'X', 'X', 'X', 'O'},
+        new[] {'O', 'O', 'O', 'O', 'X', 'X'},
+        new[] {'X', 'X', 'O', 'O', 'X', 'O'},
+        new[] {'O', 'O', 'X', 'X', 'X', 'X'},
       });
 
       instance.Solution(new[]

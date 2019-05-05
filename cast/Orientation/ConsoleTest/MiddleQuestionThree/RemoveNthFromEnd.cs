@@ -40,5 +40,71 @@ namespace ConsoleTest.MiddleQuestionThree
 
       return head;
     }
+
+    /**
+     * Runtime: 92 ms, faster than 98.45% of C# online submissions for Remove Nth Node From End of List.
+     * Memory Usage: 22.7 MB, less than 16.46% of C# online submissions for Remove Nth Node From End of List.
+     *
+     * Runtime: 92 ms, faster than 98.45% of C# online submissions for Remove Nth Node From End of List.
+     * Memory Usage: 22.6 MB, less than 22.79% of C# online submissions for Remove Nth Node From End of List.
+     *
+     */
+    public ListNode Solution2(ListNode head, int n)
+    {
+      int count = 0;
+
+      ListNode node = head, move = head;
+
+      while (node != null)
+      {
+        if (count++ > n)
+        {
+          move = move.next;
+        }
+
+        node = node.next;
+      }
+
+      if (count == n) return head.next;
+
+      move.next = move.next?.next;
+
+      return head;
+    }
+
+    /**
+     * Runtime: 92 ms, faster than 98.45% of C# online submissions for Remove Nth Node From End of List.
+     * Memory Usage: 22.5 MB, less than 72.15% of C# online submissions for Remove Nth Node From End of List.
+     */
+    public ListNode Solution3(ListNode head, int n)
+    {
+      int count = 0;
+
+      bool flag = false;
+
+      ListNode node = head, move = null;
+
+      while (node != null)
+      {
+        if (flag)
+        {
+          move = move.next;
+        }
+        else if (++count > n)
+        {
+          flag = true;
+          move = head;
+        }
+
+        node = node.next;
+      }
+
+      if (move == null) return head.next;
+
+      if (move.next != null)
+        move.next = move.next.next;
+
+      return head;
+    }
   }
 }
