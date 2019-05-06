@@ -21,10 +21,15 @@ namespace Tools.CusTools
 
       foreach (var item in fieldInfos)
       {
-        dictionary.Add(item.Name, (int) item.GetValue(null));
+        dictionary.Add(item.Name, (int)item.GetValue(null));
       }
 
       return dictionary;
+    }
+
+    public static T[] GetList<T>() where T : Enum //7.3 support。
+    {
+      return (T[])Enum.GetValues(typeof(T));
     }
 
     #region enumIL

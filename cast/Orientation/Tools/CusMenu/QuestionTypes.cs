@@ -13,7 +13,7 @@ namespace Tools.CusMenu
   public enum QuestionTypes
   {
 
-    Dp = 0,
+    DP = 0,
     DFS = 1,
     BFS = 2,
     Hard = 3,

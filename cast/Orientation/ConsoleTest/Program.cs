@@ -13,6 +13,8 @@ using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
 using Newtonsoft.Json;
+using Tools.CusAttr;
+using Tools.CusMenu;
 using Tools.CusTools;
 using Tools.RefTools;
 
@@ -51,12 +53,20 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      foreach (var item in MenuTools.GetList<QuestionTypes>())//遍历枚举
+      {
+        Console.WriteLine(item.ToString());
+      }
+      
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestMinSwapsCouples()
+    {
       MinSwapsCouples instance = new MinSwapsCouples();
 
       Console.WriteLine(instance.Solution(new[] {5, 6, 4, 0, 2, 1, 9, 3, 8, 7, 11, 10}));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestFreqStack()

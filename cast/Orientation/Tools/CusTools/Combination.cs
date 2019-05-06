@@ -10,9 +10,9 @@ namespace Tools.CusTools
   /// @create : 2019/3/28 9:55:12 
   /// @source : 
   /// </summary>
-  public class Combination
+  public static class Combination
   {
-    public void GetList<T, TResult>(List<T> arr, TResult build, List<TResult> result, Func<T, TResult> AppendFunc)
+    public static void GetList<T, TResult>(List<T> arr, TResult build, List<TResult> result, Func<T, TResult> appendFunc)
     {
       if (arr.Count == 0)
       {
@@ -23,7 +23,7 @@ namespace Tools.CusTools
       {
         var temp = new List<T>(arr);
         temp.RemoveAt(i);
-        GetList(temp, AppendFunc.Invoke(arr[i]), result, AppendFunc);
+        GetList(temp, appendFunc.Invoke(arr[i]), result, appendFunc);
       }
     }
   }

@@ -10,7 +10,7 @@ namespace Tools.CusTools
   /// @create : 2019/4/30 16:29:21 
   /// @source : 
   /// </summary>
-  public class Fibonacci
+  public static class Fibonacci
   {
     public static int GetResult(int number)
     {
