@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest", "DapperTest\DapperTest.csproj", "{8CE5A333-7A14-45E9-A31E-06A0618BE1EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceAnalysis", "SourceAnalySis\SourceAnalysis.csproj", "{62A5AC87-6B26-44D9-B98B-4A80ED09D7D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SourceAnalysis", "SourceAnalySis\SourceAnalysis.csproj", "{62A5AC87-6B26-44D9-B98B-4A80ED09D7D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advance", "Advance\Advance.csproj", "{2F0EBDD4-08EA-4903-A36D-B413CF3DAF40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{62A5AC87-6B26-44D9-B98B-4A80ED09D7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A5AC87-6B26-44D9-B98B-4A80ED09D7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62A5AC87-6B26-44D9-B98B-4A80ED09D7D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0EBDD4-08EA-4903-A36D-B413CF3DAF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0EBDD4-08EA-4903-A36D-B413CF3DAF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0EBDD4-08EA-4903-A36D-B413CF3DAF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0EBDD4-08EA-4903-A36D-B413CF3DAF40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
