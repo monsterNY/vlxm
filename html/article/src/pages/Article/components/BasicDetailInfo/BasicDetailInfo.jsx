@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import { Grid, Button, Dialog, Form, Input } from '@icedesign/base';
+import { Grid, Button, Dialog, Input } from '@icedesign/base';
 import { withRouter } from 'react-router-dom';
 import '../../../../components/edit_web.css';
 import Comment from '../Comment';
@@ -226,7 +226,7 @@ export default class BasicDetailInfo extends Component {
         <h2 style={styles.basicDetailTitle}>文章详情</h2>
 
         <div>
-          <img src={this.state.articleData.faceImg ? (global.APIConfig.imgBaseUrl + this.state.articleData.faceImg) : global.APIConfig.defaultImgUrl} alt="封面" />
+          <img style={styles.faceImg} src={this.state.articleData.faceImg ? (global.APIConfig.imgBaseUrl + this.state.articleData.faceImg) : global.APIConfig.defaultImgUrl} alt="封面" />
         </div>
 
         <div style={styles.infoColumn}>
@@ -249,8 +249,9 @@ export default class BasicDetailInfo extends Component {
               <span style={styles.infoItemValue}>{this.state.articleData.articleType}</span>
             </Col> */}
             <Col xxs="24" l="12" style={styles.infoItem}>
-              <span style={styles.infoItemLabel}>发布时间：</span>
-              <span style={styles.infoItemValue}>{this.state.articleData.publishTime}</span>
+              <span style={styles.infoItemLabel}>创作时间：</span>
+              {/* <span style={styles.infoItemValue}>{this.state.articleData.publishTime}</span> */}
+              <span style={styles.infoItemValue}>{this.state.articleData.createTime}</span>
             </Col>
             <Col xxs="24" l="24" style={styles.infoItem}>
               <span style={styles.infoItemLabel}>文章描述：</span>
@@ -352,6 +353,10 @@ export default class BasicDetailInfo extends Component {
 }
 
 const styles = {
+  faceImg: {
+    height: 128,
+    width: 128,
+  },
   basicDetailTitle: {
     margin: '10px 0',
     fontSize: '16px',
