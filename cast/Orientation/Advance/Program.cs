@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
+using Advance.RefDemo;
 using Tools.RefTools;
 
 namespace Advance
@@ -14,16 +18,26 @@ namespace Advance
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
+      
 
-      //SemaphoreSlim、ManualResetEventSlim、Monitor、ReadWriteLockSlim
 
+      Console.WriteLine("Hello World");
+
+      Console.ReadKey(true);
+    }
+    
+    private static void TestManualResetEventSlim()
+    {
       #region ManualResetEventSlim官方示例
 
       MRES_SetWaitReset();
       MRES_SpinCountWaitHandle();
 
       #endregion
+    }
 
+    private static void TestSemaphoreSlim()
+    {
       #region SemaphoreSlim官方示例
 
       // Create the semaphore.
@@ -68,7 +82,7 @@ namespace Advance
 
       // Restore the semaphore count to its maximum value.
       Console.Write("Main thread calls Release(3) --> ");
-//      semaphore.Release(3);
+      //      semaphore.Release(3);
       Console.WriteLine("{0} tasks can enter the semaphore.",
         semaphore.CurrentCount);
       // Main thread waits for the tasks to complete.
@@ -99,10 +113,6 @@ namespace Advance
         Main thread exits.*/
 
       #endregion
-      
-      Console.WriteLine("Hello World");
-
-      Console.ReadKey(true);
     }
 
 
@@ -116,12 +126,14 @@ namespace Advance
     //      ManualResetEventSlim.IsSet
     static void MRES_SetWaitReset()
     {
-      //initialState 初始状态
+      //initialState 初始状态 表示当前是否可执行
       //public ManualResetEventSlim(bool initialState);
-      //用一个指示是否将初始状态设置为终止的布尔值初始化 ManualResetEventSlim 类的新实例。
+      //x用一个指示是否将初始状态设置为终止的布尔值初始化 ManualResetEventSlim 类的新实例。
       ManualResetEventSlim mres1 = new ManualResetEventSlim(false); // initialize as unsignaled
       ManualResetEventSlim mres2 = new ManualResetEventSlim(false); // initialize as unsignaled
       ManualResetEventSlim mres3 = new ManualResetEventSlim(true);  // initialize as signaled
+
+      mres3.Wait();
 
       // Start an asynchronous Task that manipulates mres3 and mres2
       var observer = Task.Factory.StartNew(() =>
@@ -136,7 +148,9 @@ namespace Advance
 
       Console.WriteLine("main thread: mres3.IsSet = {0} (should be true)", mres3.IsSet);
       Console.WriteLine("main thread signalling mres1");
-      mres1.Set(); // This will "kick off" the observer Task
+
+      
+      mres1.Set(); // This will "kick off" the observer Task 这将“启动”观察者任务 
       mres2.Wait(); // This won't return until observer Task has finished resetting mres3
       Console.WriteLine("main thread sees signaled mres2!");
       Console.WriteLine("main thread: mres3.IsSet = {0} (should be false)", mres3.IsSet);
@@ -281,5 +295,6 @@ namespace Advance
       总生产数量: 97,总售出数量: 71,当前库存: 23,实际库存: 26
       */
     }
+
   }
 }
