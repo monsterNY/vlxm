@@ -7,3 +7,6 @@
 1. TimeoutHelper
 1. Thread
 2. signal-信号
+3. map _ 负载因子
+4. 关于开放寻址、线性探测等内容，可以参考网上资料或者TAOCP（《计算机程序设计艺术》）第三卷的6.4章节。
+5. Compare and Swap ( CAS )。 _https://www.cnblogs.com/qjjazry/p/6581568.html

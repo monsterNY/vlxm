@@ -18,8 +18,10 @@ namespace Advance
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
-      
 
+      SemaphoreDemo demo = new SemaphoreDemo();
+
+      demo.Run();
 
       Console.WriteLine("Hello World");
 
