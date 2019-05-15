@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
-using Advance.RefDemo;
+using Advance.Models;
 using Tools.RefTools;
 
 namespace Advance
@@ -19,15 +15,23 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      SemaphoreDemo demo = new SemaphoreDemo();
-
-      demo.Run();
+      try
+      {
+        using (var res = new ResModel())
+        {
+          throw new Exception("error");
+        }
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e);
+      }
 
       Console.WriteLine("Hello World");
 
       Console.ReadKey(true);
     }
-    
+
     private static void TestManualResetEventSlim()
     {
       #region ManualResetEventSlim官方示例
@@ -133,7 +137,7 @@ namespace Advance
       //x用一个指示是否将初始状态设置为终止的布尔值初始化 ManualResetEventSlim 类的新实例。
       ManualResetEventSlim mres1 = new ManualResetEventSlim(false); // initialize as unsignaled
       ManualResetEventSlim mres2 = new ManualResetEventSlim(false); // initialize as unsignaled
-      ManualResetEventSlim mres3 = new ManualResetEventSlim(true);  // initialize as signaled
+      ManualResetEventSlim mres3 = new ManualResetEventSlim(true); // initialize as signaled
 
       mres3.Wait();
 
@@ -151,7 +155,7 @@ namespace Advance
       Console.WriteLine("main thread: mres3.IsSet = {0} (should be true)", mres3.IsSet);
       Console.WriteLine("main thread signalling mres1");
 
-      
+
       mres1.Set(); // This will "kick off" the observer Task 这将“启动”观察者任务 
       mres2.Wait(); // This won't return until observer Task has finished resetting mres3
       Console.WriteLine("main thread sees signaled mres2!");
@@ -188,7 +192,7 @@ namespace Advance
       // A common use of MRES.WaitHandle is to use MRES as a participant in 
       // WaitHandle.WaitAll/WaitAny.  Note that accessing MRES.WaitHandle will
       // result in the unconditional inflation of the underlying ManualResetEvent.
-      WaitHandle.WaitAll(new WaitHandle[] { mres1.WaitHandle, mres2.WaitHandle });
+      WaitHandle.WaitAll(new WaitHandle[] {mres1.WaitHandle, mres2.WaitHandle});
       Console.WriteLine("WaitHandle.WaitAll(mres1.WaitHandle, mres2.WaitHandle) completed.");
 
       // Clean up
@@ -297,6 +301,5 @@ namespace Advance
       总生产数量: 97,总售出数量: 71,当前库存: 23,实际库存: 26
       */
     }
-
   }
 }

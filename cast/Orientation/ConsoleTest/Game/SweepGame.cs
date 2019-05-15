@@ -110,10 +110,10 @@ namespace ConsoleTest.Game
           {
             case RiskFlag:
             case EmptyFlag:
-              Console.Write($"{(j+1>9?" ":"")} ? ");
+              Console.Write($"{(j + 1 > 9 ? " " : "")} ? ");
               break;
             case SafeFlag:
-              Console.Write($"{(j+1>9?" ":"")}   ");
+              Console.Write($"{(j + 1 > 9 ? " " : "")}   ");
               break;
             default:
               Console.Write($"{(board[i][j] < 10 ? " " : "")}{board[i][j]} ");
