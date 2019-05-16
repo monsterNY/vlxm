@@ -19,7 +19,7 @@ namespace Advance
       {
         using (var res = new ResModel())
         {
-          throw new Exception("error");
+          throw new Exception("error");//异常依旧会释放res
         }
       }
       catch (Exception e)
