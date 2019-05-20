@@ -17,6 +17,7 @@ namespace Advance.Lock
 
     public void Run()
     {
+
       //Console.WriteLine(Monitor.IsEntered(_lock));//false
 
       //同步索引块是.NET中解决对象同步问题的基本机制

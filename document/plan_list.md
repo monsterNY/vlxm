@@ -10,3 +10,7 @@
 3. map _ 负载因子
 4. 关于开放寻址、线性探测等内容，可以参考网上资料或者TAOCP（《计算机程序设计艺术》）第三卷的6.4章节。
 5. Compare and Swap ( CAS )。 _https://www.cnblogs.com/qjjazry/p/6581568.html
+6. TypeHandle
+7. 引用类型，初始为NULL，4个字节，指向空地址；
+8. （附加成员：4字节TypeHandle地址，4字节同步索引块）
+9. LocalDataStoreSlot、ThreadStatic、ThreadLocal<T>、TLS、Lazy<T>

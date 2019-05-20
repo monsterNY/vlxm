@@ -22,10 +22,11 @@ next -> JIT_MonEnter
 
 > clr/src/vm/jithelpers.cpp
 
-	HCIMPL_MONHELPER (JIT_MonEnterWorker_Portable, Object* obj)
+	HCIMPL2(FC_BOOL_RET, JIT_MonTryEnter_Portable, Object* obj, INT32 timeOut)
 	{
-		.......
+	     .....
 	}
+	HCIMPLEND
 
 相关参数 ：
 

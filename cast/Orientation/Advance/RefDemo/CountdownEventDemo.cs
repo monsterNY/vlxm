@@ -13,7 +13,7 @@ namespace Advance.RefDemo
   /// </summary>
   public class CountdownEventDemo
   {
-    /*
+    /**
  * CountdownEvent - 线程、任务同步类。线程或任务一直阻塞到 CountdownEvent 的计数为 0 为止
  * 1、当有新的需要同步的线程或任务产生时，就调用 AddCount 增加 CountdownEvent 的计数
  * 2、当有线程或任务到达同步点时，就调用 Signal 函数减小 CountdownEvent 的计数

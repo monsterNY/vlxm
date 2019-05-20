@@ -3,6 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
 using Advance.Models;
+using Advance.RefDemo;
+using Advance.Study;
+using Advance.TryHelper;
 using Tools.RefTools;
 
 namespace Advance
@@ -11,21 +14,14 @@ namespace Advance
   {
     static void Main(string[] args)
     {
+      
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      try
-      {
-        using (var res = new ResModel())
-        {
-          throw new Exception("error");//异常依旧会释放res
-        }
-      }
-      catch (Exception e)
-      {
-        Console.WriteLine(e);
-      }
+      ThreadLocalDemo instance = new ThreadLocalDemo();
+
+      instance.Run();
 
       Console.WriteLine("Hello World");
 
