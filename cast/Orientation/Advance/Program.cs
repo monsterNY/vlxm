@@ -19,9 +19,11 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+
       ThreadLocalDemo instance = new ThreadLocalDemo();
 
-      instance.Run();
+      instance.Use();
+
 
       Console.WriteLine("Hello World");
 
