@@ -2,10 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
-using Advance.Models;
 using Advance.RefDemo;
-using Advance.Study;
-using Advance.TryHelper;
 using Tools.RefTools;
 
 namespace Advance
@@ -14,14 +11,13 @@ namespace Advance
   {
     static void Main(string[] args)
     {
-      
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      CollectionsStudy instance = new CollectionsStudy();
+      LazyDemo demo = new LazyDemo();
 
-      instance.Run();
+      demo.Office();
 
       Console.WriteLine("Hello World");
 

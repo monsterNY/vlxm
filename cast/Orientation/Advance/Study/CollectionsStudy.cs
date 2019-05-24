@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Advance.Study
 {
@@ -47,6 +48,8 @@ namespace Advance.Study
           list.Add(3);
 
           Console.WriteLine(list.IsSynchronized);
+
+//          Console.WriteLine(JsonConvert.SerializeObject(list));
 
           var enumerator = list.GetEnumerator();
 
