@@ -199,7 +199,9 @@
 
 > result = new Lazy<T>.Boxed((T)((object)Activator.CreateInstance(typeof(T))));
 
-即直接调用无参构造获取，当构造异常时，直接抛出异常(LazyThreadSafetyMode.LazyThreadSafetyMode.PublicationOnly会保存异常信息)
+即直接调用无参构造获取，
+
+当构造异常时，直接抛出异常(LazyThreadSafetyMode.LazyThreadSafetyMode.PublicationOnly会保存异常信息)
 
 当存在初始化方法时：
 
@@ -219,7 +221,13 @@
 
 		无法触发第二次构造。
 		
-其中catch同上。
+其中catch同上(直接抛出异常(LazyThreadSafetyMode.LazyThreadSafetyMode.PublicationOnly会保存异常信息))
+
+看到这里，None 和 PublicationOnly应该就差不多了
+
+ExecutionAndPublication 中使用  Monitor来确保线程安全
+
+over
 
 ----------
 since:5/24/2019 5:22:49 PM 

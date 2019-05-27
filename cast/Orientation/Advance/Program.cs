@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
@@ -15,13 +16,40 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      LazyDemo demo = new LazyDemo();
-
-      demo.Office();
+      new TypeHandleDemo().Run();
 
       Console.WriteLine("Hello World");
 
       Console.ReadKey(true);
+    }
+
+    public static void Test(ref bool flag)
+    {
+      while (!flag)
+      {
+        Thread.Yield();
+      }
+
+      Console.WriteLine("over~");
+    }
+
+    public class MyClass
+    {
+      public string Name { get; set; }
+    }
+
+    public struct MyStruct
+    {
+      public CancellationTokenSource m_source { get; }
+
+      private int money { get; }
+
+      private string name { get; }
+
+      public MyStruct(int money)
+      {
+        this = default(MyStruct);
+      }
     }
 
     private static void TestManualResetEventSlim()

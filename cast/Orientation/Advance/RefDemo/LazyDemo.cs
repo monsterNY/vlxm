@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Advance.Models;
 
 namespace Advance.RefDemo
@@ -14,6 +15,33 @@ namespace Advance.RefDemo
   /// </summary>
   public class LazyDemo
   {
+    public void Run()
+    {
+      var lazy = new Lazy<string>((() =>
+      {
+
+        Thread.Sleep(100);
+
+        Console.WriteLine($"线程-{Thread.CurrentThread.ManagedThreadId} 调用初始化");
+
+        return $"线程-{Thread.CurrentThread.ManagedThreadId} over";
+      }), LazyThreadSafetyMode.PublicationOnly);
+
+      Console.WriteLine(lazy);
+
+      Action action = () =>
+      {
+        Console.WriteLine(lazy.Value);
+      };
+
+      for (int i = 0; i < 10; i++)
+      {
+        Task.Run(action);
+      }
+
+      Console.WriteLine(lazy);
+
+    }
 
     static Lazy<LargeObject> lazyLargeObject = null;
 
@@ -26,16 +54,15 @@ namespace Advance.RefDemo
 
     public void Office()
     {
-
       // The lazy initializer is created here. LargeObject is not created until the 
       // ThreadProc method executes.
       lazyLargeObject = new Lazy<LargeObject>(InitLargeObject);
 
       // The following lines show how to use other constructors to achieve exactly the
       // same result as the previous line: 
-      //lazyLargeObject = new Lazy<LargeObject>(InitLargeObject, true);
-      //lazyLargeObject = new Lazy<LargeObject>(InitLargeObject, 
-      //                               LazyThreadSafetyMode.ExecutionAndPublication);
+      // lazyLargeObject = new Lazy<LargeObject>(InitLargeObject, true);
+      // lazyLargeObject = new Lazy<LargeObject>(InitLargeObject, 
+      // LazyThreadSafetyMode.ExecutionAndPublication);
 
 
       Console.WriteLine(
@@ -61,6 +88,7 @@ namespace Advance.RefDemo
 
       Console.WriteLine("\r\nPress Enter to end the program");
       Console.ReadLine();
+
     }
 
 
@@ -77,8 +105,6 @@ namespace Advance.RefDemo
         Console.WriteLine("Initialized by thread {0}; last used by thread {1}.",
           large.InitializedBy, large.Data[0]);
       }
-
     }
-
   }
 }
