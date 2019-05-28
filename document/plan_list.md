@@ -67,4 +67,10 @@
 
 	已查阅，仅了解其效果
 
-13. SparselyPopulatedArray<CancellationCallbackInfo> - source:CancellationToken
+13. SparselyPopulatedArray<CancellationCallbackInfo> - source:CancellationTokenSource
+
+
+14. SOA - 面向服务的体系结构（英语：service-oriented architecture）
+
+
+15. 读写分离
