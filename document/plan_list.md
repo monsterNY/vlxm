@@ -74,3 +74,8 @@
 
 
 15. 读写分离
+
+
+16. 位运算
+	
+	[https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html "原码, 反码, 补码 详解")

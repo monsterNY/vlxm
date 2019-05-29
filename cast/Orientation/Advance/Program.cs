@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
@@ -10,17 +13,40 @@ namespace Advance
 {
   class Program
   {
+
     static void Main(string[] args)
     {
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      new TypeHandleDemo().Run();
+      
+      var instance = new Program();
+
+      instance.Value = 666;
+
+      instance.Test(out _);
+
+      StringBuilder
+
+      Console.WriteLine(instance.Value);
 
       Console.WriteLine("Hello World");
 
       Console.ReadKey(true);
+    }
+
+    private int Value;
+
+    public void Test(out Program info)
+    {
+
+      info = this;
+
+      info = new Program();
+
+      info.Value = 888;
+
     }
 
     public static void Test(ref bool flag)
