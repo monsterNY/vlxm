@@ -15,7 +15,7 @@ namespace ConsoleTest.MiddleQuestionThree
   public class MaximalSquare
   {
     [Obsolete]
-    [Question(QuestionTypes.Dp)]
+    [Question(QuestionTypes.DP)]
     public int Solution(char[][] matrix)
     {
       int startI = 0, endI = matrix.Length, startJ = 0, endJ = matrix[0].Length, lon, wide;

@@ -16,7 +16,7 @@ namespace ConsoleTest.Deep.UniquePaths
   /// 已参考
   /// 
   /// </summary>
-  [Question(QuestionTypes.Dp)]
+  [Question(QuestionTypes.DP)]
   public class UniquePaths
   {
 

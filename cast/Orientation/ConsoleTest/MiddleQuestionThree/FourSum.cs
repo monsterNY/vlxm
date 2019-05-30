@@ -12,7 +12,7 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @create : 2019/4/25 14:24:21 
   /// @source : https://leetcode.com/problems/4sum/
   /// </summary>
-  [Question(QuestionTypes.Dp)]
+  [Question(QuestionTypes.DP)]
   [Obsolete]
   public class FourSum
   {

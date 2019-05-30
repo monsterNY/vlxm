@@ -53,13 +53,34 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      foreach (var item in MenuTools.GetList<QuestionTypes>())//遍历枚举
-      {
-        Console.WriteLine(item.ToString());
-      }
-      
+      long mod = 1000000007;
+
+      long value = 1000000000;
+
+      Console.WriteLine(long.MaxValue);
+
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestMaxChunksToSorted()
+    {
+      MaxChunksToSorted instance = new MaxChunksToSorted();
+
+      var res = instance.OtherSolution(new[] {3, 1, 2, 4, 4, 8, 4, 9, 3, 7, 1, 5, 6, 2, 7, 12}); //2
+
+      Console.WriteLine(res);
+
+      Console.WriteLine(instance.OtherSolution(new[] {5, 4, 3, 2, 1})); //1
+      Console.WriteLine(instance.OtherSolution(new[] {2, 1, 3, 4, 4})); //4
+
+      Console.WriteLine(instance.OtherSolution(new[] {0, 0, 1, 1, 1})); //5
+
+      Console.WriteLine(instance.OtherSolution(new[] {1, 0, 1, 3, 2})); //3
+
+      Console.WriteLine(instance.OtherSolution(new[] {0, 3, 0, 3, 2})); //2
+
+      Console.WriteLine(instance.OtherSolution(new[] {0, 2, 1, 4, 3})); //3
     }
 
     private static void TestMinSwapsCouples()

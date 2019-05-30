@@ -13,7 +13,7 @@ namespace ConsoleTest.MiddleQuestionThree
   /// @source : https://leetcode.com/problems/coin-change/
   /// </summary>
   [Obsolete]
-  [Question(QuestionTypes.Dp)]
+  [Question(QuestionTypes.DP)]
   public class CoinChange
   {
     public int Simple(int[] coins, int amount)

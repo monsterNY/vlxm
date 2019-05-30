@@ -37,7 +37,7 @@ namespace ConsoleTest.Empty
       while (i > 0)
       {
 
-        if(nums[i] > i)
+        if (nums[i] > i) ;
 
       }
 
