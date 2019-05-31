@@ -27,8 +27,6 @@ namespace Advance
 
       instance.Test(out _);
 
-      StringBuilder
-
       Console.WriteLine(instance.Value);
 
       Console.WriteLine("Hello World");

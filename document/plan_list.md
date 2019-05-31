@@ -79,3 +79,9 @@
 16. 位运算
 	
 	[https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html "原码, 反码, 补码 详解")
+
+23. Finalizer和Dispose有何不同
+24. 垃圾回收分为几个步骤？
+25. 字符串的驻留
+26. .NET Remoting
+27. enterLib
