@@ -11,7 +11,6 @@ namespace ConsoleTest.HardQuestion
   /// @create : 2019/5/31 17:00:59 
   /// @source : https://leetcode.com/problems/guess-the-word/
   /// </summary>
-  [Obsolete]
   public class FindSecretWord
   {
     //bug 
@@ -110,6 +109,7 @@ namespace ConsoleTest.HardQuestion
       Console.WriteLine(JsonConvert.SerializeObject(dictionary));
     }
 
+    //ok. not efficient
     public void OptimizeRand(string[] wordlist, Master master)
     {
       int same, len = 6, diff, maxSame = 0, i, arrLen = wordlist.Length;

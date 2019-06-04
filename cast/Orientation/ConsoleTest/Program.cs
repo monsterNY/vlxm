@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Text.RegularExpressions;
-using ConsoleTest.Deep.UniquePaths;
 using ConsoleTest.Domain;
 using ConsoleTest.Domain.StructModel;
 using ConsoleTest.DP;
@@ -13,8 +10,6 @@ using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
 using Newtonsoft.Json;
-using Tools.CusAttr;
-using Tools.CusMenu;
 using Tools.CusTools;
 using Tools.RefTools;
 
@@ -53,6 +48,94 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      FindKthNumber findKthNumber = new FindKthNumber();
+
+      Console.WriteLine(findKthNumber.Solution(3, 10, 23));
+
+      Console.ReadKey(true);
+
+      for (int i = 0; i < 100; i++)
+      {
+        var row = rand.Next(10) + 1;
+        var col = rand.Next(10) + 1;
+        var index = rand.Next(row * col) + 1;
+        int res = 0;
+        int realRes = 0;
+
+        var codeTimerResult = timer.Time(1, (() =>
+        {
+          res = findKthNumber.Try(row, col, index);
+          realRes = findKthNumber.Simple(row, col, index);
+        }));
+
+        ShowConsole(new Dictionary<string, object>()
+        {
+          {nameof(row), row},
+          {nameof(col), col},
+          {nameof(index), index},
+          {nameof(res), res},
+          {nameof(realRes), realRes},
+          {nameof(codeTimerResult), codeTimerResult},
+        });
+
+        if (res != realRes)
+          throw new Exception("result not compare!");
+      }
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestLargestIsland()
+    {
+      LargestIsland instance = new LargestIsland();
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {0, 1},
+        new[] {0, 1}
+      }));
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {0, 0, 0, 0, 0, 0, 0},
+        new[] {0, 1, 1, 1, 1, 0, 0},
+        new[] {0, 1, 0, 0, 1, 0, 0},
+        new[] {1, 0, 1, 0, 1, 0, 0},
+        new[] {0, 1, 0, 0, 1, 0, 0},
+        new[] {0, 1, 0, 0, 1, 0, 0},
+        new[] {0, 1, 1, 1, 1, 0, 0}
+      })); //18
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 1},
+        new[] {1, 0}
+      })); //4
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {0, 1, 0},
+        new[] {1, 0, 1},
+        new[] {1, 0, 0}
+      })); //5
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 0},
+        new[] {0, 1}
+      })); //3
+
+      Console.WriteLine(instance.Solution(new[]
+      {
+        new[] {1, 0, 1},
+        new[] {0, 1, 1},
+        new[] {0, 1, 1}
+      })); //7
+    }
+
+    private static void TestFindSecretWord()
+    {
       var instance = new FindSecretWord();
 
       instance.OptimizeRand(
@@ -69,9 +152,6 @@ namespace ConsoleTest
           "reeyhj", "vmcwaf", "chxitv", "qkwjna", "vklpkp", "xfnayl", "ktgmfn", "xrmzzm", "fgtuki", "zcffuv", "srxuus",
           "pydgmq"
         }, new Master("ccoyyo"));
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestCountOfAtoms()
