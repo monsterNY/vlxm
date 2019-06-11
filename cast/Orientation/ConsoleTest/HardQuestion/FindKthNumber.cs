@@ -19,9 +19,9 @@ namespace ConsoleTest.HardQuestion
     {
       var list = new List<int>();
 
-      for (int l = 1; l <= m; l++)
+      for (int l = 1; l <= n; l++)
       {
-        for (int o = 1; o <= n; o++)
+        for (int o = 1; o <= m; o++)
         {
           Console.Write($"{l * o}\t");
           list.Add(l * o);
@@ -114,7 +114,53 @@ namespace ConsoleTest.HardQuestion
       return i * j;
     }
 
+    //Time Limit
     public int Solution(int m, int n, int k)
+    {
+      int index, maxLen = Math.Max(m, n), res = 1;
+      bool flag = m >= n;
+
+      List<int[]> area = new List<int[]>();
+
+      for (int l = 1; l <= m && l <= n && l < 3; l++)
+      {
+        area.Add(new[] {l, l});
+      }
+
+      while (k-- > 0)
+      {
+        index = 0;
+        for (int i = 1; i < area.Count; i++)
+        {
+          if (area[i][0] * area[i][1] < area[index][0] * area[index][1]) index = i;
+        }
+
+        res = area[index][0] * area[index][1];
+        Console.WriteLine($"index:{index},res:{res},area:{JsonConvert.SerializeObject(area)},k:{k}");
+
+        if (area[index][0] != area[index][1] && area[index][0] <= n && area[index][1] <= m)
+          k--;
+
+        if (flag)
+          area[index][0]++;
+        else
+          area[index][1]++;
+
+        if (area[index][0] > maxLen || area[index][1] > maxLen)
+        {
+          var min = Math.Min(area[area.Count - 1][0], area[area.Count - 1][1]);
+
+          if (min < m && min < n)
+            area.Add(new[] {min + 1, min + 1});
+
+          area.RemoveAt(index);
+        }
+      }
+
+      return res;
+    }
+
+    public int Try2(int m, int n, int k)
     {
       int i = 1, j = 1, maxLen = Math.Max(m, n);
 
@@ -184,6 +230,45 @@ namespace ConsoleTest.HardQuestion
       }
 
       return i * j;
+    }
+
+    //source:https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/discuss/106977/Java-solution-binary-search
+    //don't understand
+    // understand.
+    public int OtherSolution(int m, int n, int k)
+    {
+      int low = 1, high = m * n + 1;
+
+      while (low < high)
+      {
+        int mid = low + (high - low) / 2;
+        int c = count(mid, m, n);
+
+        Console.WriteLine($"high:{high},low:{low},mid:{mid},c:{c}");
+
+        //当小于mid的数量>=k时
+        //即我们要寻找的数字就在其中
+        //然后降低high 
+        if (c >= k) high = mid;
+
+        //否则提升low
+        else low = mid + 1;
+      }
+
+      return high;
+    }
+
+    //统计有多少数小于于v
+    private int count(int v, int m, int n)
+    {
+      int count = 0;
+      for (int i = 1; i <= m; i++)
+      {
+        int temp = Math.Min(v / i, n);
+        count += temp;//每行递增
+      }
+
+      return count;
     }
   }
 }

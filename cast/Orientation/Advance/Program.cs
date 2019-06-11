@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.Lock;
+using Advance.Models;
 using Advance.RefDemo;
 using Newtonsoft.Json;
 using Tools.RefTools;
@@ -14,14 +15,68 @@ namespace Advance
 {
   class Program
   {
+    void LookIL()
+    {
+      int a = 1, b = 2;
+
+      //call       string [System.Runtime]System.String::Concat(object,
+      //object,
+      //object)
+
+
+      //产生两次装箱
+      Console.WriteLine(a + "," + b);
+
+      //无装箱。
+      Console.WriteLine(a.ToString() + "," + b.ToString());
+
+      //依然存在装箱 format(object,...)
+      Console.WriteLine($"{a},{b}");
+
+      //IL_005b: ldtoken[System.Runtime]System.Int32
+      //IL_0060:  call       class [System.Runtime]
+      //System.Type[System.Runtime] System.Type::GetTypeFromHandle(valuetype[System.Runtime] System.RuntimeTypeHandle)
+      //未产生装箱。
+      var type = typeof(int);
+
+      //调用基类object方法 需要进行装箱
+      type = a.GetType();
+
+      new object().GetType();
+
+    }
+
     static void Main(string[] args)
     {
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      Console.WriteLine(typeof(ValueType).IsValueType);//false
-      Console.WriteLine(typeof(int).IsValueType);//true
+      var str = ">{value}asdjfisadf";
+
+      var strings = str.Split(new[] {"{value}"}, StringSplitOptions.None);
+
+      Console.WriteLine(DBNull.Value);
+
+      Console.WriteLine(JsonConvert.SerializeObject(strings));
+
+      Type type = typeof(Program);
+
+      var typeInfo = type.GetTypeInfo();
+
+      typeInfo.AsType();
+
+      Type t = typeof(Dictionary<,>);
+
+      t = t.MakeGenericType(typeof(int), typeof(string));
+
+      Console.WriteLine(Activator.CreateInstance(t).GetType());
+
+//      t.GetMethods()[0].GetCustomAttribute()
+
+      //AssemblyDemo.Show();
+
+      //AssemblyDemo.LoadAssemblyAndShowPublicTypes("System.Data, version=4.0.0.0,culture=neutral, PublicKeyToken=b77a5c561934e089");
 
       Console.WriteLine("Hello World");
 

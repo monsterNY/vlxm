@@ -12,13 +12,12 @@ namespace Tools.CusExtension
   /// </summary>
   public static class DictionaryExt
   {
-
     public static void AddOrSet<TKey, TResult>(this Dictionary<TKey, TResult> dictionary, TKey key, TResult value)
     {
       if (dictionary.ContainsKey(key))
         dictionary[key] = value;
-      else 
-        dictionary.Add(key,value);
+      else
+        dictionary.Add(key, value);
     }
 
     public static void Increase<TKey>(this Dictionary<TKey, int> dictionary, TKey key)
@@ -34,13 +33,14 @@ namespace Tools.CusExtension
       if (dictionary.ContainsKey(key))
         dictionary[key]--;
     }
-    public static TResult Get<TKey,TResult>(this Dictionary<TKey, TResult> dictionary, TKey key, TResult defaultResult)
+
+    public static TResult Get<TKey, TResult>(this Dictionary<TKey, TResult> dictionary, TKey key,
+      TResult defaultResult = default(TResult))
     {
       if (dictionary.ContainsKey(key))
         return dictionary[key];
       else
         return defaultResult;
     }
-
   }
 }

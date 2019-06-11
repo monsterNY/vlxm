@@ -48,9 +48,21 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      LongestConsecutive instance = new LongestConsecutive();
+
+      Console.WriteLine(instance.OtherSolution(new [] {1, 2, 0, 1}));
+
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestFindKthNumber(Random rand, CodeTimer timer)
+    {
       FindKthNumber findKthNumber = new FindKthNumber();
 
-      Console.WriteLine(findKthNumber.Solution(3, 10, 23));
+      Console.WriteLine(findKthNumber.OtherSolution(5, 9, 4));
+      Console.WriteLine(findKthNumber.Solution(9, 5, 14));
+      //      Console.WriteLine(findKthNumber.Solution(3, 10, 23));
 
       Console.ReadKey(true);
 
@@ -60,13 +72,9 @@ namespace ConsoleTest
         var col = rand.Next(10) + 1;
         var index = rand.Next(row * col) + 1;
         int res = 0;
-        int realRes = 0;
+        int realRes = findKthNumber.Simple(row, col, index);
 
-        var codeTimerResult = timer.Time(1, (() =>
-        {
-          res = findKthNumber.Try(row, col, index);
-          realRes = findKthNumber.Simple(row, col, index);
-        }));
+        var codeTimerResult = timer.Time(1, (() => { res = findKthNumber.Solution(row, col, index); }));
 
         ShowConsole(new Dictionary<string, object>()
         {
@@ -81,9 +89,6 @@ namespace ConsoleTest
         if (res != realRes)
           throw new Exception("result not compare!");
       }
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestLargestIsland()
