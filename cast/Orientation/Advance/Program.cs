@@ -17,6 +17,21 @@ namespace Advance
   {
     void LookIL()
     {
+
+      string str = "123";//ldstr
+
+      str = $"afsdjoiasf" + Environment.NewLine + "info";
+
+      str = new String(new[]
+      {
+        '1',
+        '2'
+      });//此处使用newobj
+
+      var isInterned = string.IsInterned("123");//返回123
+
+      Console.WriteLine(isInterned);
+
       int a = 1, b = 2;
 
       //call       string [System.Runtime]System.String::Concat(object,
@@ -44,6 +59,12 @@ namespace Advance
 
       new object().GetType();
 
+      new Program().Test();
+    }
+
+
+    protected virtual void Test()
+    {
     }
 
     static void Main(string[] args)
@@ -51,6 +72,48 @@ namespace Advance
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
+
+      new Program().LookIL();
+
+      Action action = () => { Console.WriteLine("action----" + DateTime.Now.ToString()); };
+      Action action2 = () => { Console.WriteLine("action2-----" + DateTime.Now.ToString()); };
+
+      Console.WriteLine("action +=");
+
+      action += action;
+
+      action.Invoke();//输出两次。
+
+      Console.WriteLine("Delegate.Combine");
+
+      var newDel = Delegate.Combine(action, action2);
+
+      newDel.Method.Invoke(newDel.Target, null);//输出一次
+
+      Console.WriteLine("Delegate Cast To Action Invoke");
+
+      Action newAction = (Action) newDel;
+
+      newAction.Invoke();//输出三次
+
+      Console.WriteLine("Delegate.Remove");
+
+      //此处若不重新赋值，则无法影响到newAction
+      //猜测Remove 和 Combine都是构建了一个新的Delegate
+      newAction =  (Action) Delegate.Remove(newAction, action);
+
+      newAction.Invoke();//输出一次
+
+      //event实际就是通过Delegate进行操作的
+      //event 就是 Delegate的实例。。差点忘了
+
+      var info = new {key = 1, value = 2}; //类似元组
+
+      Console.WriteLine(info);
+
+      var info2 = new {key = 1, value = 2};
+
+      Console.WriteLine(info.Equals(info2)); //此处为true
 
       var str = ">{value}asdjfisadf";
 
