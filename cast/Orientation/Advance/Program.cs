@@ -9,16 +9,61 @@ using Advance.Lock;
 using Advance.Models;
 using Advance.RefDemo;
 using Newtonsoft.Json;
+using Tools.CusMenu;
 using Tools.RefTools;
 
 namespace Advance
 {
+  //[Flags]
+  enum Actions
+  {
+    None = 0,
+    Read = 0x0001,
+    Write = 0x0002,
+    ReadWrite = Read | Write,
+    Delete = 0x0004,
+    Query = 0x0008,
+    Sync = 0x0010
+  }
+
   class Program
   {
+    public int Flag => 1;
+
     void LookIL()
     {
+      int? num = 4;
 
-      string str = "123";//ldstr
+      //success 编译器自动帮我们将Nullable<Int32>装箱为Int32
+
+      //IL_000a: call instance void valuetype[System.Runtime]System.Nullable`1 < int32 >::.ctor(!0)
+      //IL_000f: ldloc.1
+      //IL_0010: box valuetype[System.Runtime]System.Nullable`1 < int32 >
+      //IL_0015:  ldc.i4.4
+      //IL_0016: box[System.Runtime]System.Int32
+
+      ((IComparable) num).CompareTo(4);
+
+      Console.WriteLine(num.GetType()); //System.Int32
+
+      //typeof 运算符
+      Console.WriteLine(typeof(int?)); //System.Nullable`1[System.Int32]
+
+      var flag = Actions.Read | Actions.Delete;
+
+      Console.WriteLine(flag.ToString());
+
+      //Read, Delete
+      Console.WriteLine(flag.ToString("F")); //当Enum没有[Flags]特性时，可使用"F"格式获取正确的字符串
+
+      var program = new Program();
+
+      Console.WriteLine(string.Concat(program.GetType().GetProperties()
+        .Select(u => $"{u.Name}={u.GetValue(program)}")));
+
+      Console.WriteLine($"{0:D}", 12321321);
+
+      string str = "123"; //ldstr
 
       str = $"afsdjoiasf" + Environment.NewLine + "info";
 
@@ -26,9 +71,9 @@ namespace Advance
       {
         '1',
         '2'
-      });//此处使用newobj
+      }); //此处使用newobj
 
-      var isInterned = string.IsInterned("123");//返回123
+      var isInterned = string.IsInterned("123"); //返回123
 
       Console.WriteLine(isInterned);
 
@@ -37,7 +82,6 @@ namespace Advance
       //call       string [System.Runtime]System.String::Concat(object,
       //object,
       //object)
-
 
       //产生两次装箱
       Console.WriteLine(a + "," + b);
@@ -73,6 +117,21 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      Action fun = () => { Console.WriteLine("fun 1 -------"); };
+      Action fun2 = () => { Console.WriteLine("fun 2 -------"); };
+
+      var combineFun = (Action) Delegate.Combine(fun, fun2, fun);
+
+      var invocationList = combineFun.GetInvocationList();
+
+      Console.WriteLine(invocationList.Length);
+
+      combineFun.Invoke();
+
+      var remove = (Action) Delegate.Remove(combineFun, fun);
+
+      remove.Invoke();
+
       new Program().LookIL();
 
       Action action = () => { Console.WriteLine("action----" + DateTime.Now.ToString()); };
@@ -82,27 +141,28 @@ namespace Advance
 
       action += action;
 
-      action.Invoke();//输出两次。
+      action.Invoke(); //输出两次。
+
 
       Console.WriteLine("Delegate.Combine");
 
       var newDel = Delegate.Combine(action, action2);
 
-      newDel.Method.Invoke(newDel.Target, null);//输出一次
+      newDel.Method.Invoke(newDel.Target, null); //输出一次
 
       Console.WriteLine("Delegate Cast To Action Invoke");
 
       Action newAction = (Action) newDel;
 
-      newAction.Invoke();//输出三次
+      newAction.Invoke(); //输出三次
 
       Console.WriteLine("Delegate.Remove");
 
       //此处若不重新赋值，则无法影响到newAction
       //猜测Remove 和 Combine都是构建了一个新的Delegate
-      newAction =  (Action) Delegate.Remove(newAction, action);
+      newAction = (Action) Delegate.Remove(newAction, action);
 
-      newAction.Invoke();//输出一次
+      newAction.Invoke(); //输出一次
 
       //event实际就是通过Delegate进行操作的
       //event 就是 Delegate的实例。。差点忘了
