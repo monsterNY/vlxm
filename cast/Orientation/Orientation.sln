@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advance", "Advance\Advance.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkEmpty", "WorkEmpty\WorkEmpty.csproj", "{49FF5B85-50A4-466D-94A9-20BA00881140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spider", "Spider\Spider.csproj", "{280FF462-29C3-4B2C-B701-31170A9F09DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spider", "Spider\Spider.csproj", "{280FF462-29C3-4B2C-B701-31170A9F09DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading", "Reading\Reading.csproj", "{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{280FF462-29C3-4B2C-B701-31170A9F09DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{280FF462-29C3-4B2C-B701-31170A9F09DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{280FF462-29C3-4B2C-B701-31170A9F09DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

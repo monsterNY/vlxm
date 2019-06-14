@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +26,19 @@ namespace Advance
     Delete = 0x0004,
     Query = 0x0008,
     Sync = 0x0010
+  }
+
+  public class Type2
+  {
+    static Type2()
+    {
+      Console.WriteLine("Type2 ");
+    }
+
+    [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+    public static void M()
+    {
+    }
   }
 
   class Program
@@ -111,11 +126,24 @@ namespace Advance
     {
     }
 
+
     static void Main(string[] args)
     {
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
+
+      RuntimeHelpers.PrepareConstrainedRegions();
+
+      try
+      {
+        Console.WriteLine("try");
+      }
+      finally
+      {
+        Console.WriteLine("finally");
+        Type2.M();
+      }
 
       Action fun = () => { Console.WriteLine("fun 1 -------"); };
       Action fun2 = () => { Console.WriteLine("fun 2 -------"); };
