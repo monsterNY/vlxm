@@ -48,12 +48,25 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      LongestConsecutive instance = new LongestConsecutive();
+      Codec instance = new Codec();
 
-      Console.WriteLine(instance.OtherSolution(new [] {1, 2, 0, 1}));
+      var treeNode = instance.deserialize("[1,2,3,null,null,4,5]");
+
+      treeNode = instance.deserialize("[1,2,3,null,null,4,5,1,2,3,4]");
+
+      Console.WriteLine(treeNode);
+
+      Console.WriteLine(instance.serialize(treeNode));
 
       Console.WriteLine("Hello World");
       Console.ReadKey(true);
+    }
+
+    private static void TestLongestConsecutive()
+    {
+      LongestConsecutive instance = new LongestConsecutive();
+
+      Console.WriteLine(instance.OtherSolution(new[] {1, 2, 0, 1}));
     }
 
     private static void TestFindKthNumber(Random rand, CodeTimer timer)

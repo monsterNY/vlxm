@@ -93,3 +93,9 @@
 	
 		用于将此程序集中的internal公开给其他程序集
 30. 钩子过程
+
+	[https://www.cnblogs.com/wackysoft/p/8544365.html](https://www.cnblogs.com/wackysoft/p/8544365.html "Hook原理及EasyHook简易教程")
+
+31. CQRS+ES
+
+	[https://www.cnblogs.com/youring2/p/11028419.html](https://www.cnblogs.com/youring2/p/11028419.html "当我们在讨论CQRS时，我们在讨论些神马？")
