@@ -12,6 +12,7 @@ namespace ConsoleTest.HardQuestion
   /// @create : 2019/6/17 16:35:10 
   /// @source : 
   /// </summary>
+  [Obsolete]
   public class Codec
   {
     // Encodes a tree to a single string.

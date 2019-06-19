@@ -99,3 +99,5 @@
 31. CQRS+ES
 
 	[https://www.cnblogs.com/youring2/p/11028419.html](https://www.cnblogs.com/youring2/p/11028419.html "当我们在讨论CQRS时，我们在讨论些神马？")
+
+32. 线程学习-《Windows via C/C++》
