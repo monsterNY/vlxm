@@ -101,3 +101,5 @@
 	[https://www.cnblogs.com/youring2/p/11028419.html](https://www.cnblogs.com/youring2/p/11028419.html "当我们在讨论CQRS时，我们在讨论些神马？")
 
 32. 线程学习-《Windows via C/C++》
+33. 内存栅栏(memory fence)
+34. Win32 timeBeginPeriod和timeEndPeriod

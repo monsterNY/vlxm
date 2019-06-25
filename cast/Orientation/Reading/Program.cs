@@ -1,17 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Reading.CusDemo;
 using Reading.Demo;
 using Reading.Extension;
+using Reading.Ref;
+using Reading.Tools;
 
 namespace Reading
 {
   class Program
   {
+
+//    public static implicit operator Program(int i)
+//    {
+//      return new Program();
+//    }
+
     public int Version => 1;
 
     private static void TimerCallback(object o)
@@ -24,14 +34,58 @@ namespace Reading
     static void Main(string[] args)
     {
 
-      CancellationTokenSource source = new CancellationTokenSource();
+      #region fun test
 
-      source.Cancel(true);
+//      Model<int> t = 3;
+//      Model<int> t2 = 4;
+//      Model<int> t3 = 4;
+//
+//      List<int> list = (List<int>) (t + t2 + t3);
+//
+//      Console.WriteLine(list);
 
-      ContextDemo.Run();
+      //      List<Model> list = new Model() + new Model() + new Model();
+
+      //      Console.WriteLine(list);
+
+//      Program p = 3;
+
+//      Program p2 = 2 + 3;
+
+      #endregion
+
+
+
+      //      ThreadPool.QueueUserWorkItem((state =>
+      //      {
+      //        Console.WriteLine("Work Begin");
+      //
+      //        Thread.Sleep(0);
+      //
+      //        Console.WriteLine("Work Over");
+      //
+      //      }));
+
+      //      OptimizeDemo.Run();
+
+      //      CancellationExt.Run();
+
+      //      EventAwaiterDemo.Run();
+
+      //      TaskLoggerDemo.Run().ContinueWith((task => { Console.WriteLine("TaskLoggerDemo Over"); }));
+      //
+      //      var path = @"D:\work_y\empty";
+      //
+      //      var bytes = ParallelDemo.DirectoryBytes(path, "*", SearchOption.TopDirectoryOnly);
+      //
+      //      Console.WriteLine($"{path}目录下的所有文件字节长度为：{bytes}");
+
+      //      ConsoleTools.ShowLine($"{nameof(TaskDemo)}.{nameof(TaskDemo.RunFactory)}", TaskDemo.RunFactory);
+      //      ConsoleTools.ShowLine(nameof(TaskDemo), (TaskDemo.Run));
+      //      ConsoleTools.ShowLine(nameof(CancellationDemo), (CancellationDemo.Run));
+      //      ConsoleTools.ShowLine(nameof(ContextDemo), (ContextDemo.Run));
 
       Console.ReadKey(true);
-
     }
 
     private static void TestConditionalWeakTable()
