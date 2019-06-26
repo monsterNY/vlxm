@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -31,30 +32,32 @@ namespace Reading
       GC.Collect(); //强制执行垃圾回收
     }
 
+    #region fun test
+
+    //      Model<int> t = 3;
+    //      Model<int> t2 = 4;
+    //      Model<int> t3 = 4;
+    //
+    //      List<int> list = (List<int>) (t + t2 + t3);
+    //
+    //      Console.WriteLine(list);
+
+    //      List<Model> list = new Model() + new Model() + new Model();
+
+    //      Console.WriteLine(list);
+
+    //      Program p = 3;
+
+    //      Program p2 = 2 + 3;
+
+    #endregion
+
     static void Main(string[] args)
     {
 
-      #region fun test
+      AsyncOneManyLock.Run();
 
-//      Model<int> t = 3;
-//      Model<int> t2 = 4;
-//      Model<int> t3 = 4;
-//
-//      List<int> list = (List<int>) (t + t2 + t3);
-//
-//      Console.WriteLine(list);
-
-      //      List<Model> list = new Model() + new Model() + new Model();
-
-      //      Console.WriteLine(list);
-
-//      Program p = 3;
-
-//      Program p2 = 2 + 3;
-
-      #endregion
-
-
+//      SpinAndEventDemo.Run();
 
       //      ThreadPool.QueueUserWorkItem((state =>
       //      {
