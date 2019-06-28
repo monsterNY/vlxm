@@ -55,9 +55,13 @@ namespace Reading
     static void Main(string[] args)
     {
 
-      AsyncOneManyLock.Run();
+      object obj = "123";
 
-//      SpinAndEventDemo.Run();
+      string str = (string) obj;//castclass
+
+      //      AsyncOneManyLock.Run();
+
+      //      SpinAndEventDemo.Run();
 
       //      ThreadPool.QueueUserWorkItem((state =>
       //      {
