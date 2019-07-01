@@ -55,8 +55,10 @@ namespace Reading
     static void Main(string[] args)
     {
 
+
       object obj = "123";
 
+      var gcHandle = GCHandle.Alloc(obj, GCHandleType.Weak);
       string str = (string) obj;//castclass
 
       //      AsyncOneManyLock.Run();
