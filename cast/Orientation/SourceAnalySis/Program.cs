@@ -9,6 +9,8 @@ namespace SourceAnalysis
     static void Main(string[] args)
     {
 
+      Console.WriteLine(ValueTuple.Create().ToString());
+
       var str1 = "123";
       var str2 = "123";
 
@@ -16,9 +18,15 @@ namespace SourceAnalysis
 
       Console.WriteLine("Hello World!");
 
+      new Program().ClickEvent += () => { };
+
       Console.ReadKey(true);
 
     }
+
+    private delegate void Click();
+
+    private event Click ClickEvent ;
 
     [SecuritySafeCritical]
     [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
