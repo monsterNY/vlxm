@@ -83,7 +83,7 @@ namespace Api.Manage.Middleware
 
       var result = JsonConvert.SerializeObject(data, jsonSetting);
       context.Response.ContentType = "application/json;charset=utf-8";
-      context.Response.StatusCode = 200;
+      context.Response.StatusCode = statusCode;
       return context.Response.WriteAsync(result);
     }
   }

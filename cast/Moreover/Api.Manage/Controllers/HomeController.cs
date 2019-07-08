@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Api.Manage.Assist.CusAttribute;
 using Api.Manage.Assist.Entity;
@@ -64,11 +65,9 @@ namespace Api.Manage.Controllers
 
           return resultModel;
         }
-        else
-        {
-        }
 
-        return acceptParam;
+        HttpContext.Response.StatusCode = (int) HttpStatusCode.NotFound;
+        return null;
       }
       catch (Exception e)
       {

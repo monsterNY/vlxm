@@ -7,7 +7,6 @@ namespace Reading
 {
   class Program
   {
-
 //    public static implicit operator Program(int i)
 //    {
 //      return new Program();
@@ -44,12 +43,37 @@ namespace Reading
 
     static void Main(string[] args)
     {
+      for (int i = 0; i < 100; i++)
+      {
+        new Thread((() =>
+        {
+          Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId.ToString()} start");
+          var num = 0;
+          for (int j = 0; j < 100000; j++)
+            num += j;
 
+          Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId.ToString()} over,num:{num.ToString()}");
+        })).Start();
+
+        new Thread((() =>
+        {
+          Console.WriteLine($"[yield Thread {Thread.CurrentThread.ManagedThreadId.ToString()} start]");
+
+          Thread.Sleep(0);
+
+          //if (Thread.Yield())
+          //{
+          //  Console.WriteLine("调度另外一个线程");
+          //}
+
+          Console.WriteLine($"[yield Thread {Thread.CurrentThread.ManagedThreadId.ToString()} over]");
+        })).Start();
+      }
 
       object obj = "123";
 
       var gcHandle = GCHandle.Alloc(obj, GCHandleType.Weak);
-      string str = (string) obj;//castclass
+      string str = (string) obj; //castclass
 
       //      AsyncOneManyLock.Run();
 

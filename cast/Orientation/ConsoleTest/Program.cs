@@ -9,6 +9,7 @@ using ConsoleTest.HardQuestion;
 using ConsoleTest.MiddleQuestion;
 using ConsoleTest.MiddleQuestionThree;
 using ConsoleTest.MiddleQuestionTwo;
+using ConsoleTest.Test;
 using Newtonsoft.Json;
 using Tools.CusTools;
 using Tools.RefTools;
@@ -48,28 +49,36 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      Queue<int> queue = new Queue<int>();
+      while (string.IsNullOrWhiteSpace(Console.ReadLine()))
+      {
+        SortTest.Run();
+      }
 
+      Console.WriteLine("Hello World");
+      Console.ReadKey(true);
+    }
+
+    private static void TestKthSmallestPrimeFraction(CodeTimer timer)
+    {
       KthSmallestPrimeFraction instance = new KthSmallestPrimeFraction();
 
       Console.WriteLine(instance.Solution(new[] {1, 2, 3, 5}, 6));
 
       int[] result = null;
 
-      var codeTimerResult = timer.Time(1, (() => { result = instance.Solution(new int[]
+      var codeTimerResult = timer.Time(1, (() =>
       {
+        result = instance.Solution(new int[]
+        {
           29761, 29789, 29819, 29833, 29863, 29867, 29879, 29881, 29917, 29921, 29927, 29959, 29983
-
-      }, 453785); }));
+        }, 453785);
+      }));
 
       ShowConsole(new Dictionary<string, object>()
       {
         {nameof(codeTimerResult), codeTimerResult},
         {nameof(result), JsonConvert.SerializeObject(result)}
       });
-
-      Console.WriteLine("Hello World");
-      Console.ReadKey(true);
     }
 
     private static void TestLongestIncreasingPath()

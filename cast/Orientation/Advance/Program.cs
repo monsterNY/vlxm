@@ -121,6 +121,19 @@ namespace Advance
       new Program().Test();
     }
 
+    void LookIL2()
+    {
+      object obj = new Program();
+
+      //  IL_0012:  isinst     Advance.Program
+      var flag = obj is Program;
+
+      //    IL_0008:  isinst     Advance.Program
+      var cast = obj as Program;
+
+      // is 和 as 运算符使用相同的IL操作指令 isinst
+
+    }
 
     protected virtual void Test()
     {
