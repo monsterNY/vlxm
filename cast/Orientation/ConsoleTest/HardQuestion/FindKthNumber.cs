@@ -12,6 +12,7 @@ namespace ConsoleTest.HardQuestion
   /// @create : 2019/6/4 15:44:12 
   /// @source : https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/
   /// </summary>
+  [Obsolete]
   public class FindKthNumber
   {
     //Memory Limit

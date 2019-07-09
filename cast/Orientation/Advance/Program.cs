@@ -142,9 +142,14 @@ namespace Advance
 
     static void Main(string[] args)
     {
+
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
+
+      var list = new List<int>();
+
+      list.Select<int,decimal>(u => Decimal.Zero);
 
       RuntimeHelpers.PrepareConstrainedRegions();
 

@@ -32,6 +32,18 @@ namespace ConsoleTest
       Console.WriteLine($"-----------------E---------------------\n");
     }
 
+    public static void ShowConsole(Dictionary<string, Func<object>> dictionary)
+    {
+      Console.WriteLine($"\n-----------------S---------------------");
+
+      foreach (var item in dictionary)
+      {
+        Console.WriteLine($"{item.Key}:{item.Value.Invoke()}");
+      }
+
+      Console.WriteLine($"-----------------E---------------------\n");
+    }
+
     public static void ShowConsole(Action action)
     {
       Console.WriteLine($"\n-----------------S---------------------");
@@ -49,9 +61,30 @@ namespace ConsoleTest
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
-      while (string.IsNullOrWhiteSpace(Console.ReadLine()))
+      DistinctSubseqII instance = new DistinctSubseqII();
+
+      Console.WriteLine(instance.Simple("abc"));
+      Console.WriteLine(instance.Simple("aba"));
+      Console.WriteLine(instance.Simple("aaa"));
+
+      Console.ReadKey();
+
+      for (int i = 0; i < 100; i++)
       {
-        SortTest.Run();
+        var len = rand.Next(2000) + 1;
+
+        StringBuilder builder = new StringBuilder();
+
+        for (int j = 0; j < len; j++)
+        {
+          builder.Append((char) ('a' + rand.Next(26)));
+        }
+
+        ShowConsole(new Dictionary<string, Func<object>>()
+        {
+          {"str", () => builder},
+          {"result", () => instance.Simple(builder.ToString())}
+        });
       }
 
       Console.WriteLine("Hello World");
