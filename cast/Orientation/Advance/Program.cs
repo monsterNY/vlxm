@@ -7,11 +7,13 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Advance.CusDemo;
 using Advance.Lock;
 using Advance.Models;
 using Advance.RefDemo;
 using Newtonsoft.Json;
 using Tools.CusMenu;
+using Tools.CusTools;
 using Tools.RefTools;
 
 namespace Advance
@@ -132,7 +134,6 @@ namespace Advance
       var cast = obj as Program;
 
       // is 和 as 运算符使用相同的IL操作指令 isinst
-
     }
 
     protected virtual void Test()
@@ -142,14 +143,75 @@ namespace Advance
 
     static void Main(string[] args)
     {
-
       var rand = new Random();
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      SyncDemo demo = new SyncDemo();
+
+      List<int> res = null;
+      CodeTimerResult codeTimerResult;
+
+      for (int i = 0; i < 10; i++)
+      {
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo(); }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          //System.InvalidOperationException:“Collection was modified; enumeration operation may not execute.”
+
+          // 由于存在数据返回了 但由于创建了Task.Run 即还存在其他线程正在修改的情况
+
+          {"Demo", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo2().Result; }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          {"Demo2", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo3().Result; }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          {"Demo3", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+      }
+
+      Console.WriteLine("Hello World");
+
+      Console.ReadKey(true);
+    }
+
+    private static void Test2()
+    {
+      Console.WriteLine($"当前线程:{Thread.CurrentThread.ManagedThreadId}");
+
+      var currId = Thread.CurrentThread.ManagedThreadId;
+
+      for (int i = 0; i < 100; i++)
+      {
+        Task.Run((() => { Console.WriteLine($"开启子线程:{Thread.CurrentThread.ManagedThreadId}"); }));
+      }
+
       var list = new List<int>();
 
-      list.Select<int,decimal>(u => Decimal.Zero);
+      list.Select<int, decimal>(u => Decimal.Zero);
 
       RuntimeHelpers.PrepareConstrainedRegions();
 
@@ -241,17 +303,12 @@ namespace Advance
 
       Console.WriteLine(Activator.CreateInstance(t).GetType());
 
-//      t.GetMethods()[0].GetCustomAttribute()
+      //      t.GetMethods()[0].GetCustomAttribute()
 
       //AssemblyDemo.Show();
 
       //AssemblyDemo.LoadAssemblyAndShowPublicTypes("System.Data, version=4.0.0.0,culture=neutral, PublicKeyToken=b77a5c561934e089");
-
-      Console.WriteLine("Hello World");
-
-      Console.ReadKey(true);
     }
-
 
     public static void Test(ref bool flag)
     {
