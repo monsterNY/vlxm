@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkEmpty", "WorkEmpty\Work
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading", "Reading\Reading.csproj", "{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{ABC10A55-FECC-455A-865E-195A93A7CA12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,14 @@ Global
 		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Release|x86.ActiveCfg = Release|x86
 		{3CEB8897-1354-47A0-80F6-4FC07FC8C5E7}.Release|x86.Build.0 = Release|x86
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Debug|x86.Build.0 = Debug|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|x86.ActiveCfg = Release|Any CPU
+		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

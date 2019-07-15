@@ -39,6 +39,8 @@
 
 	利用变量存储重复查询的数据，或是使用临时表操作
 
+	[https://blog.csdn.net/3150379/article/details/59725090](https://blog.csdn.net/3150379/article/details/59725090 "SQL Server 提高执行效率的16种方法")
+
 5. 异步的原理
 
 	与同步的区别：
