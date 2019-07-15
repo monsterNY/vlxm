@@ -147,6 +147,14 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      TaskDemo instance = new TaskDemo();
+
+      instance.Test();
+
+      //instance.Test2();
+
+      Console.ReadKey(true);
+
       SyncDemo demo = new SyncDemo();
 
       List<int> res = null;
