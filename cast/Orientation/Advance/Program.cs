@@ -147,6 +147,12 @@ namespace Advance
       CodeTimer timer = new CodeTimer();
       timer.Initialize();
 
+      var dt = new DateTime(2019,6,7);
+
+      Console.WriteLine(dt.ToString("yyyy-M-d HH:mm"));
+
+      Console.ReadKey(true);
+
       TaskDemo instance = new TaskDemo();
 
       instance.Test();
