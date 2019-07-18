@@ -27,4 +27,14 @@
 
 	IList<T>
 
+	IFilter
+
+	IActionFilter
+
+	IAuthenticationFilter
+
+	IExceptionFilter
+
+	IDisposable
+
 [https://www.cnblogs.com/myrocknroll/p/7359916.html](https://www.cnblogs.com/myrocknroll/p/7359916.html "参考博文")

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading", "Reading\Reading.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{ABC10A55-FECC-455A-865E-195A93A7CA12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiDemo", "ApiDemo\ApiDemo.csproj", "{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSelfHost", "ApiSelfHost\ApiSelfHost.csproj", "{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,22 @@ Global
 		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|x86.ActiveCfg = Release|Any CPU
 		{ABC10A55-FECC-455A-865E-195A93A7CA12}.Release|x86.Build.0 = Release|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Debug|x86.Build.0 = Debug|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Release|x86.ActiveCfg = Release|Any CPU
+		{0B3DF7A8-06C6-4912-AAF1-B9C136E8BBEF}.Release|x86.Build.0 = Release|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Debug|x86.Build.0 = Debug|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Release|x86.ActiveCfg = Release|Any CPU
+		{CAD08BA6-642A-4B8F-80F2-5D69173E03C5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

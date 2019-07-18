@@ -39,14 +39,14 @@ namespace ConsoleTest.MiddleQuestionTwo
       int[] group = new int[N];
       for (int i = 0; i < N; i++)//遍历所有人
       {
-        if (group[i] == 0 && !dfs(graph, group, i, 1))//如果i尚未被访问
+        if (group[i] == 0 && !Dfs(graph, group, i, 1))//如果i尚未被访问
         {
           return false;
         }
       }
       return true;
     }
-    private bool dfs(int[][] graph, int[] group, int index, int g)
+    private bool Dfs(int[][] graph, int[] group, int index, int g)
     {
       group[index] = g;//标记被访问
       for (int i = 0; i < graph.Length; i++)
@@ -65,7 +65,7 @@ namespace ConsoleTest.MiddleQuestionTwo
           //若i未被访问 继续观察 将i标记为未观察
           //注意此处-g target:避免 1->2 2->1 
           //当1->2 时 传递 -g 当遍历到2->1时  由于 1为g 2为-g 且 1为已标记 则会直接跳过。
-          if (group[i] == 0 && !dfs(graph, group, i, -g))
+          if (group[i] == 0 && !Dfs(graph, group, i, -g))
           {
             return false;
           }

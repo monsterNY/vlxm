@@ -8,31 +8,28 @@ namespace SourceAnalysis
   {
     static void Main(string[] args)
     {
-
       Console.WriteLine(ValueTuple.Create().ToString());
 
       var str1 = "123";
       var str2 = "123";
 
-      Console.WriteLine(EqualsHelper(str1,str2));
+      Console.WriteLine(EqualsHelper(str1, str2));
 
       Console.WriteLine("Hello World!");
 
       new Program().ClickEvent += () => { };
 
       Console.ReadKey(true);
-
     }
 
     private delegate void Click();
 
-    private event Click ClickEvent ;
+    private event Click ClickEvent;
 
     [SecuritySafeCritical]
     [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
     public static unsafe bool EqualsHelper(string strA, string strB)
     {
-      var char1 = ' ';
       int length = strA.Length;
 
       char c = strA[0];
@@ -48,25 +45,26 @@ namespace SourceAnalysis
         char* chPtr4 = chPtr2;
         while (length >= 10)
         {
-          if (*(int*)chPtr3 != *(int*)chPtr4
-              || *(int*)(chPtr3 + 2) != *(int*)(chPtr4 + 2)
-              || (*(int*)(chPtr3 + 4) != *(int*)(chPtr4 + 4)
-                  || *(int*)(chPtr3 + 6) != *(int*)(chPtr4 + 6))
-              || *(int*)(chPtr3 + 8) != *(int*)(chPtr4 + 8))
+          if (*(int*) chPtr3 != *(int*) chPtr4
+              || *(int*) (chPtr3 + 2) != *(int*) (chPtr4 + 2)
+              || (*(int*) (chPtr3 + 4) != *(int*) (chPtr4 + 4)
+                  || *(int*) (chPtr3 + 6) != *(int*) (chPtr4 + 6))
+              || *(int*) (chPtr3 + 8) != *(int*) (chPtr4 + 8))
             return false;
           chPtr3 += 10;
           chPtr4 += 10;
           length -= 10;
         }
-        while (length > 0 && *(int*)chPtr3 == *(int*)chPtr4)
+
+        while (length > 0 && *(int*) chPtr3 == *(int*) chPtr4)
         {
           chPtr3 += 2;
           chPtr4 += 2;
           length -= 2;
         }
+
         return length <= 0;
       }
     }
-
   }
 }

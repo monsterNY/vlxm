@@ -43,7 +43,7 @@ namespace ConsoleTest.LeetCode
     public long GetSum(int n)
     {
       long sum = 1;
-      var validFlag = 10;
+//      var validFlag = 10;
       for (int i = 2; i <= n; i++)
       {
         sum *= i;

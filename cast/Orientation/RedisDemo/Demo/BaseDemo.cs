@@ -17,8 +17,8 @@ namespace RedisDemo.Demo
   /// </summary>
   public class BaseDemo
   {
-    static TextWriter log = File.CreateText("redis_log.txt");
-    static ConfigurationOptions configuration = ConfigurationOptions.Parse("127.0.0.1:6379");
+    static readonly TextWriter log = File.CreateText("redis_log.txt");
+    static readonly ConfigurationOptions configuration = ConfigurationOptions.Parse("127.0.0.1:6379");
 
     #region 单例模式
 

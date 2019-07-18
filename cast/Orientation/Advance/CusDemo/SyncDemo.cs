@@ -43,7 +43,7 @@ namespace Advance.CusDemo
 
       for (int i = 0; i < 100; i++)
       {
-        Task.Run((() =>
+        await Task.Run((() =>
         {
           list.Add(Thread.CurrentThread.ManagedThreadId);
         }));

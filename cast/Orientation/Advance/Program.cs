@@ -4,47 +4,85 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Advance.CusDemo;
 using Advance.Lock;
 using Advance.Models;
-using Advance.RefDemo;
 using Newtonsoft.Json;
-using Tools.CusMenu;
 using Tools.CusTools;
 using Tools.RefTools;
 
 namespace Advance
 {
-  //[Flags]
-  enum Actions
-  {
-    None = 0,
-    Read = 0x0001,
-    Write = 0x0002,
-    ReadWrite = Read | Write,
-    Delete = 0x0004,
-    Query = 0x0008,
-    Sync = 0x0010
-  }
-
-  public class Type2
-  {
-    static Type2()
-    {
-      Console.WriteLine("Type2 ");
-    }
-
-    [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-    public static void M()
-    {
-    }
-  }
-
   class Program
   {
+    static void Main(string[] args)
+    {
+      var rand = new Random();
+      CodeTimer timer = new CodeTimer();
+      timer.Initialize();
+      
+      EmptyModel model = new EmptyModel();
+
+      Console.WriteLine(model == new EmptyModel());
+
+      Console.WriteLine(model.Equals(1));
+
+      Console.WriteLine("Hello World");
+
+      Console.ReadKey(true);
+    }
+
+    private static void TestSyncDemo(CodeTimer timer)
+    {
+      SyncDemo demo = new SyncDemo();
+
+      List<int> res = null;
+      CodeTimerResult codeTimerResult;
+
+      for (int i = 0; i < 10; i++)
+      {
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo(); }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          //System.InvalidOperationException:“Collection was modified; enumeration operation may not execute.”
+
+          // 由于存在数据返回了 但由于创建了Task.Run 即还存在其他线程正在修改的情况
+
+          {"Demo", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo2().Result; }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          {"Demo2", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+        codeTimerResult = timer.Time(1, (() => { res = demo.Demo3().Result; }));
+
+        ConsoleTools.ShowConsole(new Dictionary<string, object>()
+        {
+          {"Demo3", JsonConvert.SerializeObject(res)},
+
+          {nameof(codeTimerResult), codeTimerResult},
+
+          {"isRepeat", res.IndexOf(res[0], 1)}
+        });
+
+      }
+    }
+
     public int Flag => 1;
 
     void LookIL()
@@ -59,7 +97,7 @@ namespace Advance
       //IL_0015:  ldc.i4.4
       //IL_0016: box[System.Runtime]System.Int32
 
-      ((IComparable) num).CompareTo(4);
+      ((IComparable)num).CompareTo(4);
 
       Console.WriteLine(num.GetType()); //System.Int32
 
@@ -138,78 +176,6 @@ namespace Advance
 
     protected virtual void Test()
     {
-    }
-
-
-    static void Main(string[] args)
-    {
-      var rand = new Random();
-      CodeTimer timer = new CodeTimer();
-      timer.Initialize();
-
-      var dt = new DateTime(2019,6,7);
-
-      Console.WriteLine(dt.ToString("yyyy-M-d HH:mm"));
-
-      Console.ReadKey(true);
-
-      TaskDemo instance = new TaskDemo();
-
-      instance.Test();
-
-      //instance.Test2();
-
-      Console.ReadKey(true);
-
-      SyncDemo demo = new SyncDemo();
-
-      List<int> res = null;
-      CodeTimerResult codeTimerResult;
-
-      for (int i = 0; i < 10; i++)
-      {
-        codeTimerResult = timer.Time(1, (() => { res = demo.Demo(); }));
-
-        ConsoleTools.ShowConsole(new Dictionary<string, object>()
-        {
-          //System.InvalidOperationException:“Collection was modified; enumeration operation may not execute.”
-
-          // 由于存在数据返回了 但由于创建了Task.Run 即还存在其他线程正在修改的情况
-
-          {"Demo", JsonConvert.SerializeObject(res)},
-
-          {nameof(codeTimerResult), codeTimerResult},
-
-          {"isRepeat", res.IndexOf(res[0], 1)}
-        });
-
-        codeTimerResult = timer.Time(1, (() => { res = demo.Demo2().Result; }));
-
-        ConsoleTools.ShowConsole(new Dictionary<string, object>()
-        {
-          {"Demo2", JsonConvert.SerializeObject(res)},
-
-          {nameof(codeTimerResult), codeTimerResult},
-
-          {"isRepeat", res.IndexOf(res[0], 1)}
-        });
-
-        codeTimerResult = timer.Time(1, (() => { res = demo.Demo3().Result; }));
-
-        ConsoleTools.ShowConsole(new Dictionary<string, object>()
-        {
-          {"Demo3", JsonConvert.SerializeObject(res)},
-
-          {nameof(codeTimerResult), codeTimerResult},
-
-          {"isRepeat", res.IndexOf(res[0], 1)}
-        });
-
-      }
-
-      Console.WriteLine("Hello World");
-
-      Console.ReadKey(true);
     }
 
     private static void Test2()
@@ -341,11 +307,11 @@ namespace Advance
 
     public struct MyStruct
     {
-      public CancellationTokenSource m_source { get; }
+      public CancellationTokenSource MSource { get; }
 
-      private int money { get; }
+      private int Money { get; }
 
-      private string name { get; }
+      private string Name { get; }
 
       public MyStruct(int money)
       {
@@ -623,4 +589,32 @@ namespace Advance
       */
     }
   }
+
+
+  //[Flags]
+  enum Actions
+  {
+    None = 0,
+    Read = 0x0001,
+    Write = 0x0002,
+    ReadWrite = Read | Write,
+    Delete = 0x0004,
+    Query = 0x0008,
+    Sync = 0x0010
+  }
+
+  public class Type2
+  {
+    static Type2()
+    {
+      Console.WriteLine("Type2 ");
+    }
+
+    [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+    public static void M()
+    {
+    }
+  }
+
+
 }
