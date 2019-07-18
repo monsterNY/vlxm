@@ -32,7 +32,7 @@ namespace Advance.Codewars
 
       if (len % 2 == 0)
       {
-        return string.Concat(s[len / 2 - 1], s[len / 2]);
+        // return string.Concat(s[len / 2 - 1], s[len / 2]);
         return s.AsSpan(len / 2 - 1, 2).ToString();
       }
       else
