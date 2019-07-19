@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Web;
 
 namespace Tools.CusTools
 {
@@ -21,6 +22,8 @@ namespace Tools.CusTools
     public static async Task<string> HttpGetAsync(string url, Dictionary<string, string> param = null,
       Encoding encoding = null, int timeOut = 10000)
     {
+      HttpUtility.HtmlAttributeEncode(url);
+
       HttpClientHandler handler = new HttpClientHandler();
 
       HttpClient client = new HttpClient(handler);
