@@ -24,7 +24,7 @@
     "@icedesign/skin": "^0.1.0",
     "@icedesign/styled-menu": "^0.1.1",
     "antd": "^3.11.6",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bizcharts": "latest",
     "braft-editor": "^1.9.8",
     "classnames": "^2.2.5",
